@@ -1,14 +1,23 @@
-dateModified: 1773336945
+dateModified: 1773337768
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
+    8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
+    69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
+    645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
+plugins:
+  commerce:
+    edition: pro
+    enabled: true
+    licenseKey: 0U6EFPB4B0QWVBY8YV3X7TOY
+    schemaVersion: 5.6.0.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: charlies
   schemaVersion: 5.9.0.8
