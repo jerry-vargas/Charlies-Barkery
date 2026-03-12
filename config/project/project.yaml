@@ -1,4 +1,4 @@
-dateModified: 1773337768
+dateModified: 1773338670
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -16,6 +16,10 @@ plugins:
     enabled: true
     licenseKey: 0U6EFPB4B0QWVBY8YV3X7TOY
     schemaVersion: 5.6.0.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: pro
   live: true
