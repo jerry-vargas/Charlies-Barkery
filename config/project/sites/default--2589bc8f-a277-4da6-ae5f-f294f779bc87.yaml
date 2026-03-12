@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: en
+name: charlies
+primary: true
+siteGroup: d79efc26-fed5-43e6-bce8-1d7e7f9846b9 # charlies
+sortOrder: 1
