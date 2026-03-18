@@ -1,0 +1,47 @@
+<section class="relative bg-charcoal overflow-hidden min-h-[90vh] flex items-center">
+
+  {# Background image overlay — swap src for your hero photo #}
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80"
+      alt=""
+      class="w-full h-full object-cover opacity-30"
+    />
+  </div>
+
+  {# Content #}
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col items-start gap-6">
+
+    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">
+      Handmade in Charlotte, NC
+    </p>
+
+    <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl leading-tight max-w-2xl">
+      Treats Your Dog Will Beg For
+    </h1>
+
+    <p class="font-hobeaux text-white/70 text-lg max-w-xl leading-relaxed">
+      Small-batch, dog-safe goodies baked fresh — available online, at local farmers markets, and through Charlotte-area shops.
+    </p>
+
+    <div class="flex flex-wrap gap-4 mt-2">
+      <a
+        href="{{ url('shop') }}"
+        class="font-hobeaux bg-teal text-charcoal px-8 py-3 rounded-full font-bold hover:bg-white transition-colors"
+      >
+        Shop Now
+      </a>
+      <a
+        href="{{ url('find-us') }}"
+        class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors"
+      >
+        Find Us Locally
+      </a>
+    </div>
+
+  </div>
+
+  {# Decorative bottom fade #}
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-charcoal to-transparent"></div>
+
+</section>

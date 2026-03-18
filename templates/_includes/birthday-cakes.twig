@@ -1,0 +1,55 @@
+<section class="bg-charcoal py-20 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+
+    {# Copy #}
+    <div class="flex flex-col items-start gap-5">
+      <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">Make it special</p>
+      <h2 class="font-anton text-white text-4xl sm:text-5xl leading-tight">
+        Birthday Cakes for Very Good Dogs
+      </h2>
+      <p class="font-hobeaux text-white/70 text-base leading-relaxed">
+        Because every pup deserves a moment. Our dog-safe birthday cakes are handmade to order — customizable, frosted, and ready to make tails wag.
+      </p>
+      <ul class="flex flex-col gap-2 font-hobeaux text-white/60 text-sm">
+        <li class="flex items-center gap-2">
+          <span class="text-teal">✓</span> 100% dog-safe ingredients
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-teal">✓</span> Made to order — customizable message
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="text-teal">✓</span> Available for pickup or shipping
+        </li>
+      </ul>
+      <div class="flex flex-wrap gap-4 mt-2">
+        <a
+          href="{{ url('shop/birthday-cakes') }}"
+          class="font-hobeaux font-bold bg-teal text-charcoal px-8 py-3 rounded-full hover:bg-white transition-colors"
+        >
+          Order a Cake
+        </a>
+        <a
+          href="{{ url('contact') }}"
+          class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors"
+        >
+          Custom Orders
+        </a>
+      </div>
+    </div>
+
+    {# Image stack #}
+    <div class="relative h-[420px]">
+      <img
+        src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&q=80"
+        alt="Dog birthday cake"
+        class="absolute inset-0 w-full h-full object-cover rounded-3xl"
+      />
+      <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-charcoal/60 to-transparent"></div>
+      <div class="absolute bottom-5 left-5 right-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-4">
+        <p class="font-anton text-white text-lg">Order 48 hrs in advance</p>
+        <p class="font-hobeaux text-white/60 text-sm mt-0.5">So we have time to bake it fresh, just for your pup.</p>
+      </div>
+    </div>
+
+  </div>
+</section>

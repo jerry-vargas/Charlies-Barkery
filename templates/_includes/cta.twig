@@ -1,0 +1,96 @@
+<section id="join-the-pack" class="bg-teal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-12 items-center">
+
+    {# Left: Copy #}
+    <div>
+      <p class="font-hobeaux text-charcoal/60 uppercase tracking-widest text-sm mb-2">Join the pack</p>
+      <h2 class="font-anton text-charcoal text-4xl sm:text-5xl leading-tight mb-4">
+        Be the First to Know When the Oven's On
+      </h2>
+      <p class="font-hobeaux text-charcoal/70 text-base leading-relaxed">
+        New treats, market dates, seasonal specials, and the occasional photo of Charlie himself — straight to your inbox. No spam. Just good stuff.
+      </p>
+    </div>
+
+    {# Right: Form #}
+    <div class="bg-white rounded-3xl p-8 shadow-sm">
+      <form
+        method="post"
+        accept-charset="UTF-8"
+        novalidate
+      >
+        {{ csrfInput() }}
+        <input type="hidden" name="action" value="users/save-user">
+
+        <div class="flex flex-col gap-5">
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1">
+              <label for="cta-first-name" class="font-hobeaux text-charcoal text-sm font-bold">First Name</label>
+              <input
+                id="cta-first-name"
+                type="text"
+                name="firstName"
+                placeholder="Jane"
+                class="font-hobeaux border border-gray-200 rounded-xl px-4 py-3 text-sm text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal"
+              />
+            </div>
+            <div class="flex flex-col gap-1">
+              <label for="cta-dog-name" class="font-hobeaux text-charcoal text-sm font-bold">Dog's Name</label>
+              <input
+                id="cta-dog-name"
+                type="text"
+                name="dogName"
+                placeholder="Biscuit"
+                class="font-hobeaux border border-gray-200 rounded-xl px-4 py-3 text-sm text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="cta-email" class="font-hobeaux text-charcoal text-sm font-bold">Email Address</label>
+            <input
+              id="cta-email"
+              type="email"
+              name="email"
+              placeholder="jane@example.com"
+              required
+              class="font-hobeaux border border-gray-200 rounded-xl px-4 py-3 text-sm text-charcoal placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label class="font-hobeaux text-charcoal text-sm font-bold">What's your pup into?</label>
+            <div class="flex flex-wrap gap-3">
+              {% set preferences = ['Peanut Butter', 'Bacon', 'Sweet Potato', 'Birthday Treats', 'All of It'] %}
+              {% for pref in preferences %}
+                <label class="flex items-center gap-2 cursor-pointer font-hobeaux text-sm text-charcoal">
+                  <input
+                    type="checkbox"
+                    name="preferences[]"
+                    value="{{ pref }}"
+                    class="accent-teal w-4 h-4"
+                  />
+                  {{ pref }}
+                </label>
+              {% endfor %}
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="font-hobeaux bg-charcoal text-white font-bold px-8 py-3 rounded-full hover:bg-bronze transition-colors mt-2"
+          >
+            Count Us In
+          </button>
+
+          <p class="font-hobeaux text-xs text-gray-400 text-center">
+            No spam, ever. Unsubscribe anytime.
+          </p>
+
+        </div>
+      </form>
+    </div>
+
+  </div>
+</section>
