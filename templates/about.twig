@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <title>About Us — Charlie's Barkery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="referrer" content="origin-when-cross-origin" />
+    <meta name="description" content="Learn the story behind Charlie's Barkery — handmade dog treats baked with love in Charlotte, NC." />
+    {{ craft.vite.script("src/app.js", false) }}
+</head>
+<body class="ltr">
+
+{% include "_includes/banner.twig" %}
+{% include "_includes/nav.twig" %}
+
+{# Page Hero #}
+<section class="bg-charcoal py-24 relative overflow-hidden">
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=1600&q=80"
+      alt=""
+      class="w-full h-full object-cover opacity-20"
+    />
+  </div>
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">Our story</p>
+    <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl">About Charlie's Barkery</h1>
+  </div>
+</section>
+
+{# Origin Story #}
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center">
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80"
+        alt="Charlie the dog"
+        class="rounded-3xl w-full h-[460px] object-cover"
+      />
+    </div>
+    <div class="flex flex-col gap-5">
+      <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">Where it all began</p>
+      <h2 class="font-anton text-charcoal text-4xl sm:text-5xl leading-tight">One Dog. One Kitchen. A Whole Lot of Peanut Butter.</h2>
+      <p class="font-hobeaux text-charcoal/70 text-base leading-relaxed">
+        It started the way most great things do — with a dog who deserved better. Charlie, our golden-hearted namesake, was the inspiration behind every recipe we've ever made. We wanted to give him treats we could actually feel good about, made from ingredients we recognized.
+      </p>
+      <p class="font-hobeaux text-charcoal/70 text-base leading-relaxed">
+        What began as weekend baking sessions turned into something bigger than we ever expected. Friends asked, neighbors asked, and eventually strangers at the farmers market asked. So we kept baking.
+      </p>
+    </div>
+  </div>
+</section>
+
+{# Values #}
+<section class="bg-charcoal py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-2">What we stand for</p>
+      <h2 class="font-anton text-white text-4xl sm:text-5xl">The Charlie's Promise</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      {% set values = [
+        { icon: "🐾", title: "Real Ingredients", body: "No fillers, no artificial preservatives, no funny stuff. Every ingredient is dog-safe and sourced with care." },
+        { icon: "🍞", title: "Small Batch Always", body: "We bake in small batches so every treat is fresh. We'd rather sell out than compromise on quality." },
+        { icon: "❤️", title: "Made with Love", body: "We genuinely love dogs. Every treat is made like we're baking for Charlie himself — because honestly, we still are." }
+      ] %}
+      {% for value in values %}
+        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col gap-4">
+          <span class="text-4xl">{{ value.icon }}</span>
+          <h3 class="font-anton text-white text-2xl">{{ value.title }}</h3>
+          <p class="font-hobeaux text-white/60 text-sm leading-relaxed">{{ value.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Journey / Timeline #}
+<section class="bg-white py-20">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-2">How we got here</p>
+      <h2 class="font-anton text-charcoal text-4xl sm:text-5xl">The Journey</h2>
+    </div>
+    <div class="flex flex-col gap-0">
+      {% set milestones = [
+        { year: "2019", title: "The First Batch", body: "Baked our first dog treats in a home kitchen in Boston, MA for Charlie and a few lucky neighbors." },
+        { year: "2021", title: "Farmers Market Debut", body: "Set up our first market table and sold out in two hours. The line was mostly dogs." },
+        { year: "2022", title: "Brick & Mortar", body: "Opened a small storefront in Boston — a dream come true. The city welcomed us with open paws." },
+        { year: "2024", title: "Charlotte Bound", body: "We relocated to the Charlotte Metro Area, NC, bringing our recipes with us and falling in love with a new city of dog lovers." },
+        { year: "Now", title: "Bigger Than Ever", body: "Online store, farmers markets, events, consignment partners — and we're just getting started." }
+      ] %}
+      {% for milestone in milestones %}
+        <div class="flex gap-6 group">
+          <div class="flex flex-col items-center">
+            <div class="w-4 h-4 rounded-full bg-teal mt-1.5 shrink-0 group-first:mt-1"></div>
+            {% if not loop.last %}
+              <div class="w-0.5 bg-gray-200 grow mt-1"></div>
+            {% endif %}
+          </div>
+          <div class="pb-10">
+            <p class="font-anton text-teal text-lg">{{ milestone.year }}</p>
+            <h3 class="font-anton text-charcoal text-2xl mt-0.5">{{ milestone.title }}</h3>
+            <p class="font-hobeaux text-charcoal/60 text-sm leading-relaxed mt-2">{{ milestone.body }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# Charlotte Community #}
+<section class="bg-bronze py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+    <div class="flex flex-col gap-5">
+      <p class="font-hobeaux text-white/60 uppercase tracking-widest text-sm">Rooted in the community</p>
+      <h2 class="font-anton text-white text-4xl sm:text-5xl leading-tight">Proud to Call Charlotte Home</h2>
+      <p class="font-hobeaux text-white/80 text-base leading-relaxed">
+        Charlotte's dog community is something special. From the greenways to the dog parks to the weekend markets — this city loves its pups, and we love this city right back.
+      </p>
+      <p class="font-hobeaux text-white/80 text-base leading-relaxed">
+        You can find us at local farmers markets, dog-friendly events, and through consignment partners across the Charlotte Metro Area. We also still ship to our loyal friends up in Massachusetts.
+      </p>
+      <a href="{{ url('find-us') }}" class="font-hobeaux font-bold bg-white text-bronze px-8 py-3 rounded-full hover:bg-charcoal hover:text-white transition-colors mt-2 self-start">
+        Find Us Near You &rarr;
+      </a>
+    </div>
+    <div>
+      <img
+        src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80"
+        alt="Dogs at Charlotte farmers market"
+        class="rounded-3xl w-full h-[420px] object-cover"
+      />
+    </div>
+  </div>
+</section>
+
+{% include "_includes/subscribe.twig" %}
+{% include "_includes/footer.twig" %}
+
+</body>
+</html>
