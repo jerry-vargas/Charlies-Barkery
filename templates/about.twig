@@ -1,33 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="utf-8" />
-    <title>About Us — Charlie's Barkery</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="referrer" content="origin-when-cross-origin" />
-    <meta name="description" content="Learn the story behind Charlie's Barkery — handmade dog treats baked with love in Charlotte, NC." />
-    {{ craft.vite.script("src/app.js", false) }}
-</head>
-<body class="ltr">
+{% extends '_layout.twig' %}
 
-{% include "_includes/banner.twig" %}
-{% include "_includes/nav.twig" %}
-
-{# Page Hero #}
-<section class="bg-charcoal py-24 relative overflow-hidden">
-  <div class="absolute inset-0">
-    <img
-      src="https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=1600&q=80"
-      alt=""
-      class="w-full h-full object-cover opacity-20"
-    />
-  </div>
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">Our story</p>
-    <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl">About Charlie's Barkery</h1>
-  </div>
-</section>
+{% block content %}
+  {# Page Hero #}
+  {% include '_components/pageHero.twig' with {
+    params:{
+      img: "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=1600&q=80",
+      title: "Our story",
+      subTitle: "About Charlie's Barkery"
+    }
+  } %}
 
 {# Origin Story #}
 <section class="bg-white py-20">
@@ -136,8 +117,4 @@
   </div>
 </section>
 
-{% include "_includes/subscribe.twig" %}
-{% include "_includes/footer.twig" %}
-
-</body>
-</html>
+{% endblock %}

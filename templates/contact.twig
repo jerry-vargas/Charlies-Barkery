@@ -1,33 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta charset="utf-8" />
-    <title>Contact — Charlie's Barkery</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta name="referrer" content="origin-when-cross-origin" />
-    <meta name="description" content="Get in touch with Charlie's Barkery — bulk orders, custom treats, events, or just to say hi." />
-    {{ craft.vite.script("src/app.js", false) }}
-</head>
-<body class="ltr">
+{% extends '_layout.twig' %}
 
-{% include "_includes/banner.twig" %}
-{% include "_includes/nav.twig" %}
-
+{% block content %}
 {# Page Hero #}
-<section class="bg-charcoal py-24 relative overflow-hidden">
-  <div class="absolute inset-0">
-    <img
-      src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1600&q=80"
-      alt=""
-      class="w-full h-full object-cover opacity-20"
-    />
-  </div>
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">We'd love to hear from you</p>
-    <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl">Get in Touch</h1>
-  </div>
-</section>
+  {% include '_components/pageHero.twig' with {
+    params:{
+      img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1600&q=80",
+      title: "We'd love to hear from you",
+      subTitle: "Get in Touch"
+    }
+  } %}
 
 {# Contact Section #}
 <section class="bg-white py-20">
@@ -172,11 +153,7 @@
         </div>
       </form>
     </div>
-
   </div>
 </section>
 
-{% include "_includes/footer.twig" %}
-
-</body>
-</html>
+{% endblock %}
