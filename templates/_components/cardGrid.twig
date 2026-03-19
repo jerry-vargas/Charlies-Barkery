@@ -1,0 +1,87 @@
+{# Set default values #}
+{% set params = {
+    theme: 'charcoal',
+    subtitle: '',
+    title: '',
+    description: '',
+    cards: []
+}|merge(params|default({})) %}
+
+
+{# Define theme-specific styling #}
+{% set themes = {
+    charcoal: {
+        sectionBg: 'bg-charcoal',
+        subtitleColor: 'text-teal',
+        titleColor: 'text-white',
+        descColor: 'text-white/80',
+        cardBg: 'bg-white/5',
+        cardBorder: 'border-white/10',
+        iconWrapper: false,
+        iconClass: 'text-4xl',
+        cardTitleColor: 'text-white',
+        cardBodyColor: 'text-white/60',
+        linkColor: 'text-white hover:text-teal'
+    },
+    bronze: {
+        sectionBg: 'bg-bronze',
+        subtitleColor: 'text-white/60',
+        titleColor: 'text-white',
+        descColor: 'text-white/70',
+        cardBg: 'bg-white/10',
+        cardBorder: 'border-white/20',
+        iconWrapper: true,
+        iconWrapperClass: 'bg-white/20 rounded-2xl w-12 h-12 flex items-center justify-center',
+        iconClass: 'text-2xl',
+        cardTitleColor: 'text-white',
+        cardBodyColor: 'text-white/70',
+        linkColor: 'text-white hover:text-charcoal'
+    }
+} %}
+
+{% set theme = themes[params.theme] %}
+
+<section class="{{ theme.sectionBg }} py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {# Header Section #}
+        <div class="text-center mb-14">
+            {% if params.subtitle %}
+                <p class="font-hobeaux {{ theme.subtitleColor }} uppercase tracking-widest text-sm mb-2">{{ params.subtitle }}</p>
+            {% endif %}
+            <h2 class="font-anton {{ theme.titleColor }} text-4xl sm:text-5xl">{{ params.title }}</h2>
+            {% if params.description %}
+                <p class="font-hobeaux {{ theme.descColor }} text-base leading-relaxed max-w-xl mt-4 mx-auto">{{ params.description }}</p>
+            {% endif %}
+        </div>
+
+        {# Cards Grid #}
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {% for card in params.cards %}
+                <div class="{{ theme.cardBg }} border {{ theme.cardBorder }} rounded-3xl p-8 flex flex-col gap-4">
+
+                    {# Icon - with or without wrapper based on theme #}
+                    {% if theme.iconWrapper %}
+                        <div class="{{ theme.iconWrapperClass }}">
+                            <span class="{{ theme.iconClass }}">{{ card.icon }}</span>
+                        </div>
+                    {% else %}
+                        <span class="{{ theme.iconClass }}">{{ card.icon }}</span>
+                    {% endif %}
+
+                    <h3 class="font-anton {{ theme.cardTitleColor }} text-2xl">{{ card.title }}</h3>
+                    <p class="font-hobeaux {{ theme.cardBodyColor }} text-sm leading-relaxed">{{ card.body }}</p>
+
+                    {# Optional CTA Link #}
+                    {% if card.link is defined %}
+                        <a href="{{ card.link.url }}"
+                           class="font-hobeaux text-sm font-bold {{ theme.linkColor }} underline underline-offset-4 transition-colors mt-auto">
+                            {{ card.link.text }} &rarr;
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>

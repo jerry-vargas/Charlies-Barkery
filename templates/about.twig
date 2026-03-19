@@ -34,28 +34,18 @@
 </section>
 
 {# Values #}
-<section class="bg-charcoal py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14">
-      <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-2">What we stand for</p>
-      <h2 class="font-anton text-white text-4xl sm:text-5xl">The Charlie's Promise</h2>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-      {% set values = [
-        { icon: "🐾", title: "Real Ingredients", body: "No fillers, no artificial preservatives, no funny stuff. Every ingredient is dog-safe and sourced with care." },
-        { icon: "🍞", title: "Small Batch Always", body: "We bake in small batches so every treat is fresh. We'd rather sell out than compromise on quality." },
-        { icon: "❤️", title: "Made with Love", body: "We genuinely love dogs. Every treat is made like we're baking for Charlie himself — because honestly, we still are." }
-      ] %}
-      {% for value in values %}
-        <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col gap-4">
-          <span class="text-4xl">{{ value.icon }}</span>
-          <h3 class="font-anton text-white text-2xl">{{ value.title }}</h3>
-          <p class="font-hobeaux text-white/60 text-sm leading-relaxed">{{ value.body }}</p>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+{% include '_components/cardGrid.twig' with {
+  params: {
+    theme: 'charcoal',
+      subtitle: 'What we stand for',
+      title: 'The Charlie\'s Promise',
+    cards: [
+      { icon: "🐾", title: "Real Ingredients", body: "No fillers, no artificial preservatives, no funny stuff. Every ingredient is dog-safe and sourced with care." },
+      { icon: "🍞", title: "Small Batch Always", body: "We bake in small batches so every treat is fresh. We'd rather sell out than compromise on quality." },
+      { icon: "❤️", title: "Made with Love", body: "We genuinely love dogs. Every treat is made like we're baking for Charlie himself — because honestly, we still are." }
+    ]
+  }
+} %}
 
 {# Journey / Timeline #}
 <section class="bg-white py-20">
