@@ -32,6 +32,32 @@ We draw inspiration from these pet brands for our web and visual identity:
 - Consider SEO for local Charlotte searches and dog treat shipping keywords
 - this project is using tailwind 4.0
 
+## Products
+
+### Craft Commerce Product Types & Structure
+
+**Cakes** (pickup only — cannot be shipped)
+- Birthday Cake — 3 size variants: Small, Medium, Large
+- Gender Reveal Cake — 3 size variants: Small, Medium, Large
+
+**Birthday Cookie Package** (can ship — shippable alternative to cakes)
+- Assortment of decorated, customized cookies
+- Offered as a cake substitute for online/shipping orders
+
+**Treats** (can ship)
+- 4 flavors: Peanut Butter, Bacon, Sweet Potato, Carrot & Oat
+- 2 size variants per flavor: Small and Large
+
+**Cookies** (can ship)
+- Decorated Seasonal Individual Cookie — single cookie
+- Decorated Seasonal Cookie Package — assorted cookie set
+
+### Recommended Craft Commerce Setup
+- One product type per category above (Cakes, Treats, Cookies)
+- Use variants for size/flavor differences within a product
+- Custom fields to add: `canShip` (lightswitch), `featuredImage` (asset), `shortDescription` (plain text)
+- Cakes should be flagged as pickup only via `canShip = false`
+
 ## Tone of Voice
 
 Friendly, fun, dog-loving. We talk to pet parents like friends, not customers. Light humor is welcome. Think "your dog's favorite bakery" energy.
