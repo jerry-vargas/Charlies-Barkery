@@ -1,15 +1,23 @@
-dateModified: 1773338670
+dateModified: 1774452871
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
+    0c390a43-79fb-43af-89ea-7b8a7c41d3d7: 'Page Blocks Entry' # Page Blocks Entry
+    4d7ec46f-500b-47b6-8eba-f2f42e8066c1: 'Plain Text' # Plain Text
+    5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
+    29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
+    b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Page — Home' # Page — Home
+    b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
+    d2dbcdc7-ca53-408a-8df4-99d795133201: 'Hero Block' # Hero Block
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
+    e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
 plugins:
   commerce:
     edition: pro

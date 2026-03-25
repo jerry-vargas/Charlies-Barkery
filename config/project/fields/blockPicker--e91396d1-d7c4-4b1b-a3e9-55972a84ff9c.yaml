@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: blockPicker
+instructions: null
+name: 'Block Picker'
+searchable: false
+settings:
+  createButtonLabel: 'New block'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 0c390a43-79fb-43af-89ea-7b8a7c41d3d7 # Page Blocks Entry
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

@@ -1,0 +1,163 @@
+columnSuffix: null
+handle: heroBlock
+instructions: null
+name: 'Hero Block'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 4a670768-d431-43e7-9622-21d72c90f053
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - 64586fe6-dda7-4d89-b978-a3e651f56501
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrowText
+                            2:
+                              - label
+                              - 'Eyebrow Text'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-03-25T14:34:06+00:00'
+                            9:
+                              - uid
+                              - 3db4929f-d6dd-47ab-bb3b-1352061a74ac
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - headline
+                            2:
+                              - label
+                              - Headline
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-03-25T14:34:06+00:00'
+                            9:
+                              - uid
+                              - 0cd78069-1878-4d0e-85cc-9a8d65311cdb
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - Subheadline
+                            2:
+                              - label
+                              - Subheadline
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-03-25T14:34:06+00:00'
+                            9:
+                              - uid
+                              - 86a9bff4-35a7-4748-8dce-ad0e3139a069
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - button
+                            2:
+                              - label
+                              - Button
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-03-25T14:34:06+00:00'
+                            9:
+                              - uid
+                              - c53d75b5-67d6-47b2-b41a-327f91a1c146
+                            12:
+                              - fieldUid
+                              - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - buttonTwo
+                            2:
+                              - label
+                              - 'Button Two'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-03-25T14:34:06+00:00'
+                            9:
+                              - uid
+                              - 6d5ccc92-c8d6-422f-8931-38d5f2e409e3
+                            12:
+                              - fieldUid
+                              - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

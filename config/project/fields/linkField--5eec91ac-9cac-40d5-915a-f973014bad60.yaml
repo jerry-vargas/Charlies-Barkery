@@ -1,0 +1,71 @@
+columnSuffix: null
+handle: linkField
+instructions: null
+name: 'Link Field'
+searchable: false
+settings:
+  advancedFields:
+    - target
+    - title
+    - id
+    - download
+  fullGraphqlData: true
+  maxLength: 255
+  showLabelField: true
+  typeSettings:
+    __assoc__:
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - allowedKinds
+              -
+                - image
+                - pdf
+                - text
+                - video
+                - word
+            -
+              - showUnpermittedVolumes
+              - ''
+            -
+              - showUnpermittedFiles
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - showUnpermittedSections
+              - ''
+            -
+              - showUnpermittedEntries
+              - ''
+      -
+        - url
+        -
+          __assoc__:
+            -
+              - allowRootRelativeUrls
+              - ''
+            -
+              - allowAnchors
+              - '1'
+            -
+              - allowCustomSchemes
+              - ''
+  types:
+    - entry
+    - url
+    - asset
+    - category
+    - email
+    - tel
+    - product
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Link

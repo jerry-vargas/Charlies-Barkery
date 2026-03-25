@@ -1,0 +1,70 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  1f6fda9f-8346-4063-a50c-9ddafd204e07:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-03-25T14:51:44+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 54e0155b-2027-4647-9f61-6a820c7b699d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-03-25T14:51:44+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
+                  layoutElementUid: 54e0155b-2027-4647-9f61-6a820c7b699d
+                  operator: in
+                  uid: 13565fba-b2f9-432c-b4f9-ef1b99eb911c
+                  values:
+                    - hero
+              elementType: craft\elements\Entry
+              fieldContext: global
+            elementEditCondition: null
+            fieldUid: d2dbcdc7-ca53-408a-8df4-99d795133201 # Hero Block
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 67c0702d-602b-4460-a842-68b69569157a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2bda75ac-9d20-4c73-95d6-b9b86ee9722a
+        userCondition: null
+    thumbFieldKey: null
+handle: pageBlocksEntry
+hasTitleField: false
+icon: null
+name: 'Page Blocks Entry'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

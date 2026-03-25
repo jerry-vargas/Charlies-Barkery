@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: b7d4b92a-3550-4709-ba61-d7e4d3829f54 # Page — Home
+handle: homePage
+maxAuthors: 1
+name: 'Home Page'
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  2589bc8f-a277-4da6-ae5f-f294f779bc87: # charlies
+    enabledByDefault: true
+    hasUrls: true
+    template: index.twig
+    uriFormat: __home__
+type: single
