@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: splitSectionBlock
+instructions: null
+name: 'Split Section Block'
+searchable: false
+settings:
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

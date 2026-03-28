@@ -1,37 +1,25 @@
-<section class="bg-white py-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-
-    {# Image #}
-    <div class="relative">
-      <img
-        src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80"
-        alt="Two happy dogs"
-        class="rounded-3xl w-full h-[420px] object-cover"
-      />
-      <div class="absolute -bottom-5 -right-5 bg-bronze text-white font-anton text-lg px-6 py-4 rounded-2xl shadow-lg hidden sm:block">
-        Est. in Charlotte, NC
-      </div>
-    </div>
-
-    {# Copy #}
-    <div class="flex flex-col items-start gap-5">
-      <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">Our story</p>
-      <h2 class="font-anton text-charcoal text-4xl sm:text-5xl leading-tight">
-        Baked with Love, Made for Dogs
-      </h2>
-      <p class="font-hobeaux text-charcoal/70 text-base leading-relaxed">
-        Charlie's Barkery started with one dog, one kitchen, and a whole lot of peanut butter. What began as a hobby turned into a mission — giving dogs the same care and quality ingredients we'd want for ourselves.
-      </p>
-      <p class="font-hobeaux text-charcoal/70 text-base leading-relaxed">
-        Every treat is handmade in small batches using dog-safe, wholesome ingredients. No fillers, no funny stuff — just good food for good dogs.
-      </p>
-      <a
-        href="{{ url('about') }}"
-        class="font-hobeaux font-bold bg-charcoal text-white px-8 py-3 rounded-full hover:bg-bronze transition-colors mt-2"
-      >
-        Our Full Story &rarr;
-      </a>
-    </div>
-
-  </div>
-</section>
+{% include '_includes/splitSection.twig' with {
+  params: {
+    bg: 'bg-white',
+    dark: false,
+    imageLeft: true,
+    img: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80',
+    imgAlt: 'Two happy dogs',
+    eyebrow: 'Our story',
+    heading: 'Baked with Love, Made for Dogs',
+    body: [
+      "Charlie's Barkery started with one dog, one kitchen, and a whole lot of peanut butter. What began as a hobby turned into a mission — giving dogs the same care and quality ingredients we'd want for ourselves.",
+      "Every treat is handmade in small batches using dog-safe, wholesome ingredients. No fillers, no funny stuff — just good food for good dogs."
+    ],
+    badge: {
+      style: 'corner',
+      text: 'Est. in Charlotte, NC',
+      bg: 'bg-bronze'
+    },
+    primaryCta: {
+      label: 'Our Full Story →',
+      url: url('about'),
+      style: 'solid'
+    }
+  }
+} %}
