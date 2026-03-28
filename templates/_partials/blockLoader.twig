@@ -1,0 +1,11 @@
+{% if blocks ?? false %}
+    {% for block in blocks %}
+        {#
+        For the block loader to work, the component file must be named exactly the same as the
+        handle provided in the block type dropdown in the control panel
+        #}
+        {% include '/_includes/' ~ block.blockType ~ '.twig' with {
+            block: block
+        } only %}
+    {% endfor %}
+{% endif %}

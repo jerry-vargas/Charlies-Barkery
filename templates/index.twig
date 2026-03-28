@@ -1,7 +1,8 @@
 {% extends '_layout.twig' %}
 
 {% block content %}
-    {% include "_includes/hero.twig" %}
+    {% include '_partials/blockLoader.twig' with { blocks: entry.blockPicker } only %}
+
     {% include "_includes/product-carousel.twig" %}
     {% include "_includes/birthday-cakes.twig" %}
     {% include "_includes/about-brief.twig" %}
@@ -9,9 +10,9 @@
     {% include '_components/cardGrid.twig' with {
         params: {
             theme: 'bronze',
-                subtitle: 'For dog-friendly businesses',
-                title: 'We Work with Businesses Too',
-                description: 'From pet boutiques to corporate gifting — if your brand loves dogs, we\'ve got you covered.',
+            subtitle: 'For dog-friendly businesses',
+            title: 'We Work with Businesses Too',
+            description: 'From pet boutiques to corporate gifting — if your brand loves dogs, we\'ve got you covered.',
             cards: [
                 {
                     icon: "📦",
