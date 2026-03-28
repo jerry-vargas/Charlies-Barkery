@@ -1,4 +1,4 @@
-dateModified: 1774667313
+dateModified: 1774735306
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -10,6 +10,7 @@ meta:
     5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
+    0119d5ec-bfd1-4692-a006-407e05e36d20: 'Product Carousel Block' # Product Carousel Block
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type

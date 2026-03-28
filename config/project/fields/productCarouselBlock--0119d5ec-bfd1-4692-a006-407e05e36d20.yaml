@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: productCarouselBlock
+instructions: null
+name: 'Product Carousel Block'
+searchable: false
+settings:
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock
