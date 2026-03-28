@@ -1,4 +1,4 @@
-dateModified: 1774736229
+dateModified: 1774737642
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -21,6 +21,10 @@ meta:
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 5.0.0.1
   commerce:
     edition: pro
     enabled: true
