@@ -1,4 +1,4 @@
-dateModified: 1774737642
+dateModified: 1774740342
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -10,6 +10,7 @@ meta:
     5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
     46d1905d-56db-493d-90c0-5de9d9910388: 'Split Section Block' # Split Section Block
+    64e2bf73-506f-4e6f-9a22-dd5d54f10b77: 'Rich Text Editor' # Rich Text Editor
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
     0119d5ec-bfd1-4692-a006-407e05e36d20: 'Product Carousel Block' # Product Carousel Block
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
@@ -17,6 +18,8 @@ meta:
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Page — Home' # Page — Home
     b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
+    c2d9c750-d7f6-412a-822c-7571172f15a5: Image(s) # Image(s)
+    c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
     d2dbcdc7-ca53-408a-8df4-99d795133201: 'Hero Block' # Hero Block
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker

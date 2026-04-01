@@ -80,6 +80,34 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-03-28T23:22:29+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
+                  layoutElementUid: 54e0155b-2027-4647-9f61-6a820c7b699d
+                  operator: in
+                  uid: 33120c20-0409-43bd-9a82-e4e454039d9f
+                  values:
+                    - splitSection
+              elementType: craft\elements\Entry
+              fieldContext: global
+            elementEditCondition: null
+            fieldUid: 46d1905d-56db-493d-90c0-5de9d9910388 # Split Section Block
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dbb8f982-78f2-48c4-8258-217588847319
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 2bda75ac-9d20-4c73-95d6-b9b86ee9722a
         userCondition: null

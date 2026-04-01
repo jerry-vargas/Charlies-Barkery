@@ -4,6 +4,323 @@ instructions: null
 name: 'Split Section Block'
 searchable: false
 settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - d8e5ef18-5837-4a24-af05-b595b119f921
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - c9261752-57ce-419e-a60c-f5cbb1a1067e
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - imageRight
+                            2:
+                              - label
+                              - 'Image Right'
+                            3:
+                              - instructions
+                              - 'The image displays on the left by default. Enable this to move it to the right'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:20:57+00:00'
+                            9:
+                              - uid
+                              - 4c037aa7-7177-41fc-84d2-94d8e8aac99d
+                            12:
+                              - fieldUid
+                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - stripTheme
+                            2:
+                              - label
+                              - 'Strip Theme'
+                            4:
+                              - tip
+                              - 'The default theme is bronze and white. Enable this to switch to the charcoal theme.'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:07:07+00:00'
+                            9:
+                              - uid
+                              - f531efbe-8694-4e7e-9973-ec72a83577b3
+                            12:
+                              - fieldUid
+                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - imagePosition
+                            2:
+                              - label
+                              - 'Image Position'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:07:07+00:00'
+                            9:
+                              - uid
+                              - a3c25b1b-0d05-48dc-85f4-25c8f848c54a
+                            12:
+                              - fieldUid
+                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:07:07+00:00'
+                            9:
+                              - uid
+                              - 0b92e79b-252c-4fdd-9467-b23f1b66911f
+                            12:
+                              - fieldUid
+                              - c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrow
+                            2:
+                              - label
+                              - eyebrow
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:07:07+00:00'
+                            9:
+                              - uid
+                              - 4d44aae0-e56d-4315-bfaa-83937eb0421d
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - heading
+                            2:
+                              - label
+                              - Heading
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 75
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:07:07+00:00'
+                            9:
+                              - uid
+                              - f075b188-d366-4033-b4ba-472195410663
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:07:07+00:00'
+                            9:
+                              - uid
+                              - 83858805-a6cd-43b6-9279-0edcf7240fb8
+                            12:
+                              - fieldUid
+                              - 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - badge
+                            2:
+                              - label
+                              - Badge
+                            4:
+                              - tip
+                              - 'enable a badge on the image.'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:15:12+00:00'
+                            9:
+                              - uid
+                              - a65ee03d-5758-4410-8604-5324d9775b1e
+                            12:
+                              - fieldUid
+                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - badgeOverlay
+                            2:
+                              - label
+                              - 'Badge Overlay'
+                            4:
+                              - tip
+                              - 'When the Badge is enabled, it defaults to overlay mode. If this lightswitch is turned on, the badge will display in the corner instead.'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:24:31+00:00'
+                            9:
+                              - uid
+                              - fa3aa4f4-0531-4405-be51-1ae540e06fb0
+                            11:
+                              - elementCondition
+                              -
+                                __assoc__:
+                                  -
+                                    - elementType
+                                    - craft\elements\ContentBlock
+                                  -
+                                    - fieldContext
+                                    - global
+                                  -
+                                    - class
+                                    - craft\elements\conditions\ElementCondition
+                                  -
+                                    - conditionRules
+                                    -
+                                      - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, e68405db-0928-4c2f-b930-df879cc9bb47], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
+                            12:
+                              - fieldUid
+                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - badgeText
+                            2:
+                              - label
+                              - 'Badge Text'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 50
+                            8:
+                              - dateAdded
+                              - '2026-03-28T23:25:42+00:00'
+                            9:
+                              - uid
+                              - 5fd7f09f-bfc0-43e2-a982-7242517a38df
+                            11:
+                              - elementCondition
+                              -
+                                __assoc__:
+                                  -
+                                    - elementType
+                                    - craft\elements\ContentBlock
+                                  -
+                                    - fieldContext
+                                    - global
+                                  -
+                                    - class
+                                    - craft\elements\conditions\ElementCondition
+                                  -
+                                    - conditionRules
+                                    -
+                                      - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, b87c08e7-328c-4388-a980-57e694f7e449], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            4:
+              - cardThumbAlignment
+              - end
   viewMode: grouped
 translationKeyFormat: null
 translationMethod: site

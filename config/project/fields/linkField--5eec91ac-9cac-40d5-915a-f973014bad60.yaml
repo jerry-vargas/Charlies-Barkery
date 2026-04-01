@@ -9,6 +9,7 @@ settings:
     - title
     - id
     - download
+    - class
   fullGraphqlData: true
   maxLength: 255
   showLabelField: true
