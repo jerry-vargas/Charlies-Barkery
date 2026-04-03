@@ -22,22 +22,21 @@
 
 {% set params = {
   bg: 'bg-white',
-  dark: false,
-  imageLeft: true,
-  img: '',
-  imgAlt: '',
-  eyebrow: '',
-  heading: '',
-  body: [],
-  bullets: [],
-  badge: null,
-  primaryCta: null,
-  secondaryCta: null
+  stripTheme: block.splitSectionBlock.stripTheme ?? false,
+  imageRight: block.splitSectionBlock.imageRight ?? false,
+  imagePosition: block.splitSectionBlock.imagePosition.one() ?? false,
+  img: block.splitSectionBlock.images.one() ?? false,
+  eyebrow: block.splitSectionBlock.eyebrow ?? false,
+  heading: block.splitSectionBlock.heading ?? false,
+  richTextEditor: block.splitSectionBlock.richTextEditor ?? false,
+  badge: block.splitSectionBlock.badge ?? false,
+  badgeOverlay: block.splitSectionBlock.badgeOverlay ?? false,
+  badgeText: block.splitSectionBlock.badgeText ?? false,
 }|merge(params|default({})) %}
 
-{% set textBase   = params.dark ? 'text-white'     : 'text-charcoal' %}
-{% set textMuted  = params.dark ? 'text-white/70'  : 'text-charcoal/70' %}
-{% set textDim    = params.dark ? 'text-white/60'  : 'text-charcoal/60' %}
+{% set textBase   = params.stripTheme ? 'text-white'     : 'text-charcoal' %}
+{% set textMuted  = params.stripTheme ? 'text-white/70'  : 'text-charcoal/70' %}
+{% set textDim    = params.stripTheme ? 'text-white/60'  : 'text-charcoal/60' %}
 
 <section class="{{ params.bg }} py-20 overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
@@ -47,7 +46,7 @@
       <div class="relative {% if params.badge and params.badge.style == 'overlay' %}h-[420px]{% endif %}">
         <img
           src="{{ params.img }}"
-          alt="{{ params.imgAlt }}"
+{#          alt="{{ params.imgAlt }}"#}
           class="rounded-3xl w-full h-[420px] object-cover {% if params.badge and params.badge.style == 'overlay' %}absolute inset-0{% endif %}"
         />
 
@@ -83,51 +82,51 @@
           <h2 class="font-anton {{ textBase }} text-4xl sm:text-5xl leading-tight">{{ params.heading }}</h2>
         {% endif %}
 
-        {% for para in params.body %}
+        {% for para in params.richTextEditor %}
           <p class="font-hobeaux {{ textMuted }} text-base leading-relaxed">{{ para }}</p>
         {% endfor %}
 
-        {% if params.bullets|length %}
-          <ul class="flex flex-col gap-2 font-hobeaux {{ textDim }} text-sm">
-            {% for bullet in params.bullets %}
-              <li class="flex items-center gap-2">
-                <span class="text-teal">✓</span> {{ bullet }}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+{#        {% if params.bullets|length %}#}
+{#          <ul class="flex flex-col gap-2 font-hobeaux {{ textDim }} text-sm">#}
+{#            {% for bullet in params.bullets %}#}
+{#              <li class="flex items-center gap-2">#}
+{#                <span class="text-teal">✓</span> {{ bullet }}#}
+{#              </li>#}
+{#            {% endfor %}#}
+{#          </ul>#}
+{#        {% endif %}#}
 
-        {% if params.primaryCta or params.secondaryCta %}
-          <div class="flex flex-wrap gap-4 mt-2">
-            {% if params.primaryCta %}
-              {% if params.primaryCta.style == 'teal' %}
-                <a href="{{ params.primaryCta.url }}" class="font-hobeaux font-bold bg-teal text-charcoal px-8 py-3 rounded-full hover:bg-white transition-colors">
-                  {{ params.primaryCta.label }}
-                </a>
-              {% elseif params.primaryCta.style == 'ghost' %}
-                <a href="{{ params.primaryCta.url }}" class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors">
-                  {{ params.primaryCta.label }}
-                </a>
-              {% else %}
-                <a href="{{ params.primaryCta.url }}" class="font-hobeaux font-bold bg-charcoal text-white px-8 py-3 rounded-full hover:bg-bronze transition-colors">
-                  {{ params.primaryCta.label }}
-                </a>
-              {% endif %}
-            {% endif %}
+{#        {% if params.primaryCta or params.secondaryCta %}#}
+{#          <div class="flex flex-wrap gap-4 mt-2">#}
+{#            {% if params.primaryCta %}#}
+{#              {% if params.primaryCta.style == 'teal' %}#}
+{#                <a href="{{ params.primaryCta.url }}" class="font-hobeaux font-bold bg-teal text-charcoal px-8 py-3 rounded-full hover:bg-white transition-colors">#}
+{#                  {{ params.primaryCta.label }}#}
+{#                </a>#}
+{#              {% elseif params.primaryCta.style == 'ghost' %}#}
+{#                <a href="{{ params.primaryCta.url }}" class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors">#}
+{#                  {{ params.primaryCta.label }}#}
+{#                </a>#}
+{#              {% else %}#}
+{#                <a href="{{ params.primaryCta.url }}" class="font-hobeaux font-bold bg-charcoal text-white px-8 py-3 rounded-full hover:bg-bronze transition-colors">#}
+{#                  {{ params.primaryCta.label }}#}
+{#                </a>#}
+{#              {% endif %}#}
+{#            {% endif %}#}
 
-            {% if params.secondaryCta %}
-              <a href="{{ params.secondaryCta.url }}" class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors">
-                {{ params.secondaryCta.label }}
-              </a>
-            {% endif %}
-          </div>
-        {% endif %}
+{#            {% if params.secondaryCta %}#}
+{#              <a href="{{ params.secondaryCta.url }}" class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors">#}
+{#                {{ params.secondaryCta.label }}#}
+{#              </a>#}
+{#            {% endif %}#}
+{#          </div>#}
+{#        {% endif %}#}
 
       </div>
     {% endset %}
 
     {# ——— Order ——— #}
-    {% if params.imageLeft %}
+    {% if (params.imageRight == 0) %}
       {{ imageCol }}
       {{ copyCol }}
     {% else %}

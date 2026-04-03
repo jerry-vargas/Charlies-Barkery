@@ -5,7 +5,7 @@
         handle provided in the block type dropdown in the control panel
         #}
         {% include '/_includes/' ~ block.blockType ~ '.twig' with {
-            block: block
+            block:block
         } only %}
     {% endfor %}
 {% endif %}
