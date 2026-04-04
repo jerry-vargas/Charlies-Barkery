@@ -60,10 +60,10 @@ settings:
                               - craft\fieldlayoutelements\CustomField
                             1:
                               - handle
-                              - stripTheme
+                              - darkTheme
                             2:
                               - label
-                              - 'Strip Theme'
+                              - 'Dark Theme'
                             4:
                               - tip
                               - 'The default theme is bronze and white. Enable this to switch to the charcoal theme.'
@@ -79,32 +79,6 @@ settings:
                             9:
                               - uid
                               - f531efbe-8694-4e7e-9973-ec72a83577b3
-                            12:
-                              - fieldUid
-                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
-                        -
-                          __assoc__:
-                            0:
-                              - type
-                              - craft\fieldlayoutelements\CustomField
-                            1:
-                              - handle
-                              - imagePosition
-                            2:
-                              - label
-                              - 'Image Position'
-                            6:
-                              - required
-                              - false
-                            7:
-                              - width
-                              - 25
-                            8:
-                              - dateAdded
-                              - '2026-03-28T23:07:07+00:00'
-                            9:
-                              - uid
-                              - a3c25b1b-0d05-48dc-85f4-25c8f848c54a
                             12:
                               - fieldUid
                               - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
@@ -291,7 +265,7 @@ settings:
                               - false
                             7:
                               - width
-                              - 50
+                              - 25
                             8:
                               - dateAdded
                               - '2026-03-28T23:25:42+00:00'
@@ -315,6 +289,50 @@ settings:
                                     - conditionRules
                                     -
                                       - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, b87c08e7-328c-4388-a980-57e694f7e449], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - badgeSubText
+                            2:
+                              - label
+                              - 'Badge Sub Text'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-04-03T16:21:09+00:00'
+                            9:
+                              - uid
+                              - a9fd0a03-657f-4952-9c55-566045985717
+                            11:
+                              - elementCondition
+                              -
+                                __assoc__:
+                                  -
+                                    - elementType
+                                    - craft\elements\ContentBlock
+                                  -
+                                    - fieldContext
+                                    - global
+                                  -
+                                    - class
+                                    - craft\elements\conditions\ElementCondition
+                                  -
+                                    - conditionRules
+                                    -
+                                      - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, 585f14d6-aaeb-4c32-baa7-1afa136721db], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
+                                      - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, 110eb17b-884e-4aca-bee4-16acd14b8bfb], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, fa3aa4f4-0531-4405-be51-1ae540e06fb0]] } # lighswitch
                             12:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
