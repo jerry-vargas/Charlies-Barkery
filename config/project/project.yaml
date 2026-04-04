@@ -1,8 +1,28 @@
-dateModified: 1775277525
+dateModified: 1775334675
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  amazonFileSystem:
+    hasUrls: true
+    name: 'Amazon File System'
+    settings:
+      addSubfolderToRootUrl: true
+      autoFocalPoint: false
+      bucket: charliesecom
+      bucketSelectionMode: choose
+      cfDistributionId: ''
+      cfPrefix: ''
+      expires: ''
+      keyId: $AMAZON_ACCESS_KEY
+      makeUploadsPublic: true
+      region: us-east-2
+      secret: $AMAZON_SECRET_KEY
+      storageClass: ''
+      subfolder: $AMAZON_SUBPATH
+    type: craft\awss3\Fs
+    url: $AMAZON_BASE_URL
 meta:
   __names__:
     0c390a43-79fb-43af-89ea-7b8a7c41d3d7: 'Page Blocks Entry' # Page Blocks Entry
@@ -18,6 +38,7 @@ meta:
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Page — Home' # Page — Home
     b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
+    ba77b7b1-a2e0-4dee-9e20-4dfafe54e7c8: Uploads # Uploads
     c2d9c750-d7f6-412a-822c-7571172f15a5: Image(s) # Image(s)
     c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
     d2dbcdc7-ca53-408a-8df4-99d795133201: 'Hero Block' # Hero Block
@@ -25,6 +46,10 @@ meta:
     dc36f051-fd02-4e59-bf63-204e8eccf224: 'Call To Action Block' # Call To Action Block
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
 plugins:
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '2.0'
   ckeditor:
     edition: standard
     enabled: true
