@@ -58,20 +58,10 @@
                 {% endif %}
 
                 {% if params.richTextEditor|length|boolean %}
-                    <div class="font-hobeaux {{ textMuted }} text-base leading-relaxed">
+                    <div class="font-hobeaux {{ textMuted }} text-base leading-relaxed [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:text-sm [&_li]:flex [&_li]:items-center [&_li]:gap-2 [&_li]:before:content-['✓'] [&_li]:before:text-teal">
                         {{ params.richTextEditor }}
                     </div>
                 {% endif %}
-
-                {#        {% if params.bullets|length %} #}
-                {#          <ul class="flex flex-col gap-2 font-hobeaux {{ textDim }} text-sm"> #}
-                {#            {% for bullet in params.bullets %} #}
-                {#              <li class="flex items-center gap-2"> #}
-                {#                <span class="text-teal">✓</span> {{ bullet }} #}
-                {#              </li> #}
-                {#            {% endfor %} #}
-                {#          </ul> #}
-                {#        {% endif %} #}
 
                 {#        {% if params.primaryCta or params.secondaryCta %} #}
                 {#          <div class="flex flex-wrap gap-4 mt-2"> #}
