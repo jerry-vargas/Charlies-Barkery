@@ -1,0 +1,32 @@
+{% set params = {
+    bg: 'bg-white',
+    eyebrow: block.callToActionBlock.eyebrow ?? false,
+    heading: block.callToActionBlock.heading ?? false,
+    subHeader: block.callToActionBlock.subHeader ?? false,
+    linkField: block.callToActionBlock.linkField ?? false,
+}|merge(params|default({})) %}
+
+{# CTA #}
+<section class="bg-white py-20 text-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
+        {% if params.eyebrow %}
+            <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">{{ params.eyebrow }}</p>
+        {% endif %}
+        {% if params.heading %}
+            <h2 class="font-anton text-charcoal text-4xl sm:text-5xl leading-tight">{{ params.heading }}</h2>
+        {% endif %}
+        {% if params.subHeader %}
+            <p class="font-hobeaux text-charcoal/60 text-base leading-relaxed">{{ params.subHeader }}</p>
+        {% endif %}
+
+        {% if params.linkField|boolean %}
+            {{ tag('a', {
+                href: params.linkField.value,
+                class:'font-hobeaux font-bold bg-charcoal text-white px-10 py-4 rounded-full hover:bg-teal hover:text-charcoal transition-colors text-lg',
+                target: params.linkField.target,
+                rel: params.linkField.target == '_blank' ? 'noopener noreferrer' : null,
+                text: params.linkField.label,
+            }) }}
+        {% endif %}
+    </div>
+</section>

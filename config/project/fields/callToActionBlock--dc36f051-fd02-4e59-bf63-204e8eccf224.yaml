@@ -1,0 +1,131 @@
+columnSuffix: null
+handle: callToActionBlock
+instructions: null
+name: 'Call To Action Block'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 741d3f3d-ba77-49c2-8006-ce53f9a6df52
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - ccbd6b59-b565-46aa-88f6-6f32433c31c5
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrow
+                            2:
+                              - label
+                              - Eyebrow
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-04-04T04:30:29+00:00'
+                            9:
+                              - uid
+                              - fb8347f5-df64-4639-8907-a7e8845b4e12
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - heading
+                            2:
+                              - label
+                              - Heading
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-04-04T04:30:29+00:00'
+                            9:
+                              - uid
+                              - 28b90100-b662-46d8-b047-acc05be249bd
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - subHeader
+                            2:
+                              - label
+                              - 'Sub Header'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-04-04T04:30:29+00:00'
+                            9:
+                              - uid
+                              - 08cac8fc-1927-49e7-94b7-efa0d85ba5bd
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-04-04T04:30:29+00:00'
+                            9:
+                              - uid
+                              - d9cf0d28-62bf-4618-844e-ca96058c834a
+                            12:
+                              - fieldUid
+                              - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

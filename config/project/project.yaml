@@ -1,4 +1,4 @@
-dateModified: 1775275503
+dateModified: 1775277525
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -22,6 +22,7 @@ meta:
     c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
     d2dbcdc7-ca53-408a-8df4-99d795133201: 'Hero Block' # Hero Block
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
+    dc36f051-fd02-4e59-bf63-204e8eccf224: 'Call To Action Block' # Call To Action Block
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
 plugins:
   ckeditor:

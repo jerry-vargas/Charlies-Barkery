@@ -2,7 +2,6 @@
 
 {% block content %}
     {% include '_partials/blockLoader.twig' with { blocks: entry.blockPicker } only %}
-    {% include "_includes/cta.twig" %}
     {% include '_components/cardGrid.twig' with {
         params: {
             theme: 'bronze',
