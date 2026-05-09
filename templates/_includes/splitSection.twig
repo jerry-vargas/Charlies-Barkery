@@ -21,7 +21,6 @@
         {% set imageCol %}
             <div class="relative {% if params.badge and params.badgeOverlay %}h-[420px]{% endif %}">
                 <img
-                    {#                    src="{{ params.img }}" #}
                     src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&q=80"
                     alt="NEED TO CONFIGURE"
                     class="rounded-3xl w-full h-[420px] object-cover {% if params.badge and params.badgeOverlay %}absolute inset-0{% endif %}"
@@ -57,37 +56,11 @@
                     <h2 class="font-anton {{ textBase }} text-4xl sm:text-5xl leading-tight">{{ params.heading }}</h2>
                 {% endif %}
 
-                {% if params.richTextEditor|length|boolean %}
+                {% if params.richTextEditor %}
                     <div class="font-hobeaux {{ textMuted }} text-base leading-relaxed [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:text-sm [&_li]:flex [&_li]:items-center [&_li]:gap-2 [&_li]:before:content-['✓'] [&_li]:before:text-teal">
                         {{ params.richTextEditor }}
                     </div>
                 {% endif %}
-
-                {#        {% if params.primaryCta or params.secondaryCta %} #}
-                {#          <div class="flex flex-wrap gap-4 mt-2"> #}
-                {#            {% if params.primaryCta %} #}
-                {#              {% if params.primaryCta.style == 'teal' %} #}
-                {#                <a href="{{ params.primaryCta.url }}" class="font-hobeaux font-bold bg-teal text-charcoal px-8 py-3 rounded-full hover:bg-white transition-colors"> #}
-                {#                  {{ params.primaryCta.label }} #}
-                {#                </a> #}
-                {#              {% elseif params.primaryCta.style == 'ghost' %} #}
-                {#                <a href="{{ params.primaryCta.url }}" class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors"> #}
-                {#                  {{ params.primaryCta.label }} #}
-                {#                </a> #}
-                {#              {% else %} #}
-                {#                <a href="{{ params.primaryCta.url }}" class="font-hobeaux font-bold bg-charcoal text-white px-8 py-3 rounded-full hover:bg-bronze transition-colors"> #}
-                {#                  {{ params.primaryCta.label }} #}
-                {#                </a> #}
-                {#              {% endif %} #}
-                {#            {% endif %} #}
-
-                {#            {% if params.secondaryCta %} #}
-                {#              <a href="{{ params.secondaryCta.url }}" class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors"> #}
-                {#                {{ params.secondaryCta.label }} #}
-                {#              </a> #}
-                {#            {% endif %} #}
-                {#          </div> #}
-                {#        {% endif %} #}
             </div>
         {% endset %}
 
