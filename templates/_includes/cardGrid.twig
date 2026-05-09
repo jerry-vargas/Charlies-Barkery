@@ -1,6 +1,6 @@
 {# Set default values #}
 {% set params = {
-    theme: block.cardGridBlock.sectionBackgroundColor ?? 'white',
+    theme: block.cardGridBlock.sectionBackgroundColor.label ?? 'white',
     eyebrowText: block.cardGridBlock.eyebrowText ?? '',
     header: block.cardGridBlock.header ?? '',
     subHeader: block.cardGridBlock.subHeader ?? '',
@@ -68,11 +68,10 @@
     }
 } %}
 
-{% set theme = themes[params.theme] %}
+{% set theme = themes[params.theme|lower] %}
 
 <section class="{{ theme.sectionBg }} py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {# Header Section #}
         <div class="text-center mb-14">
             {% if params.eyebrowText %}
@@ -114,6 +113,5 @@
                 </div>
             {% endfor %}
         </div>
-
     </div>
 </section>
