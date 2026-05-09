@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: color
+instructions: null
+name: Color
+searchable: false
+settings:
+  allowCustomColors: false
+  palette:
+    -
+      __assoc__:
+        -
+          - color
+          - '#29323d'
+        -
+          - label
+          - Charcoal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#0ed3c8'
+        -
+          - label
+          - Teal
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - color
+          - '#b67236'
+        -
+          - label
+          - Bronze
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color

@@ -1,44 +1,48 @@
 {% extends '_layout.twig' %}
 
 {% block content %}
-    {% include '_partials/blockLoader.twig' with { blocks: entry.blockPicker } only %}
-    {% include '_components/cardGrid.twig' with {
-        params: {
-            theme: 'bronze',
-            subtitle: 'For dog-friendly businesses',
-            title: 'We Work with Businesses Too',
-            description: 'From pet boutiques to corporate gifting — if your brand loves dogs, we\'ve got you covered.',
-            cards: [
-                {
-                    icon: "📦",
-                    title: "Bulk Orders",
-                    body: "Stocking a shelf, gifting a team, or reselling in your shop? We offer wholesale pricing on bulk treat orders — minimum quantities apply.",
-                    link: {
-                    url: url('contact'),
-                    text: 'Get a Quote'
-                }
-                },
-                {
-                    icon: "🎨",
-                    title: "Custom Branding",
-                    body: "Your logo, your treat. We create custom-shaped and branded dog treats for businesses, swag bags, and corporate gifting that actually gets eaten.",
-                    link: {
-                    url: url('contact'),
-                    text: 'Start a Project'
-                }
-                },
-                {
-                    icon: "🎉",
-                    title: "Events",
-                    body: "Dog-friendly festivals, adoption drives, pop-ups, and more. We bring the baked goods — you bring the dogs. Let's make it a party.",
-                    link: {
-                    url: url('contact'),
-                    text: 'Book Us'
-                }
-                }
-            ]
-        }
-    } %}
+    {% include '_partials/blockLoader.twig' with {
+        blocks: entry.blockPicker
+    } only %}
+
+
+{#    {% include '_includes/cardGrid.twig' with {#}
+{#        params: {#}
+{#            theme: 'bronze',#}
+{#            subtitle: 'For dog-friendly businesses',#}
+{#            title: 'We Work with Businesses Too',#}
+{#            description: 'From pet boutiques to corporate gifting — if your brand loves dogs, we\'ve got you covered.',#}
+{#            cards: [#}
+{#                {#}
+{#                    icon: "📦",#}
+{#                    title: "Bulk Orders",#}
+{#                    body: "Stocking a shelf, gifting a team, or reselling in your shop? We offer wholesale pricing on bulk treat orders — minimum quantities apply.",#}
+{#                    link: {#}
+{#                    url: url('contact'),#}
+{#                    text: 'Get a Quote'#}
+{#                }#}
+{#                },#}
+{#                {#}
+{#                    icon: "🎨",#}
+{#                    title: "Custom Branding",#}
+{#                    body: "Your logo, your treat. We create custom-shaped and branded dog treats for businesses, swag bags, and corporate gifting that actually gets eaten.",#}
+{#                    link: {#}
+{#                    url: url('contact'),#}
+{#                    text: 'Start a Project'#}
+{#                }#}
+{#                },#}
+{#                {#}
+{#                    icon: "🎉",#}
+{#                    title: "Events",#}
+{#                    body: "Dog-friendly festivals, adoption drives, pop-ups, and more. We bring the baked goods — you bring the dogs. Let's make it a party.",#}
+{#                    link: {#}
+{#                    url: url('contact'),#}
+{#                    text: 'Book Us'#}
+{#                }#}
+{#                }#}
+{#            ]#}
+{#        }#}
+{#    } %}#}
     {% include "_includes/instagram.twig" %}
     {% include "_includes/subscribe.twig" %}
 {% endblock %}

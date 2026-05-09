@@ -1,7 +1,7 @@
 columnSuffix: null
 handle: splitSectionBlock
 instructions: null
-name: 'Split Section Block'
+name: 'Block — Split Section'
 searchable: false
 settings:
   fieldLayouts:

@@ -1,0 +1,157 @@
+columnSuffix: null
+handle: cardGridBlock
+instructions: null
+name: 'Block — Card Grid'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - e9fe687e-4fbb-47a6-a1c3-4930c3c04600
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - 289e6079-4559-4bf1-a95e-5db2d9014e51
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - sectionBackgroundColor
+                            2:
+                              - label
+                              - 'Section Background Color'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-09T05:00:55+00:00'
+                            9:
+                              - uid
+                              - 6b64b506-24d4-4971-88d7-d868e9d9714b
+                            12:
+                              - fieldUid
+                              - 7c4edaa8-604a-48d2-a947-3388823e3b2b # Color
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrowText
+                            2:
+                              - label
+                              - 'Eyebrow Text'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-09T04:05:11+00:00'
+                            9:
+                              - uid
+                              - 33406d90-7e53-4c8f-9975-2dde40f485bf
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - header
+                            2:
+                              - label
+                              - Header
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-09T04:05:11+00:00'
+                            9:
+                              - uid
+                              - 7158299d-b9a4-4991-84f0-b575c0883bf5
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - subHeader
+                            2:
+                              - label
+                              - 'Sub Header'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-09T04:05:11+00:00'
+                            9:
+                              - uid
+                              - eabf45a4-573f-4a0d-97de-29c9efa0728e
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-09T04:08:48+00:00'
+                            9:
+                              - uid
+                              - 512aa64b-20b2-4b34-8bf9-8d81ec78d167
+                            12:
+                              - fieldUid
+                              - bb71e142-3e9f-4467-9d03-43e288eb4bc0 # Matrix — Cards
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

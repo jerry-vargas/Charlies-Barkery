@@ -1,4 +1,4 @@
-dateModified: 1778299401
+dateModified: 1778302855
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -28,6 +28,7 @@ meta:
     0c390a43-79fb-43af-89ea-7b8a7c41d3d7: 'Page Blocks Entry' # Page Blocks Entry
     4d7ec46f-500b-47b6-8eba-f2f42e8066c1: 'Plain Text' # Plain Text
     5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
+    7c4edaa8-604a-48d2-a947-3388823e3b2b: Color # Color
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
     46d1905d-56db-493d-90c0-5de9d9910388: 'Block — Split Section' # Block — Split Section
     64e2bf73-506f-4e6f-9a22-dd5d54f10b77: 'Rich Text Editor' # Rich Text Editor
@@ -36,10 +37,13 @@ meta:
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
+    62025e7c-d31e-4ea1-a778-df0457c8317a: 'Entry — Card Matrix' # Entry — Card Matrix
     226774f0-df25-4716-be27-d89522bf600c: 'Contact Form' # Contact Form
+    6671498f-b940-4c47-a8d5-1de96b0bd763: 'Block — Card Grid' # Block — Card Grid
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Page — Home' # Page — Home
     b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
     ba77b7b1-a2e0-4dee-9e20-4dfafe54e7c8: Uploads # Uploads
+    bb71e142-3e9f-4467-9d03-43e288eb4bc0: 'Matrix — Cards' # Matrix — Cards
     c2d9c750-d7f6-412a-822c-7571172f15a5: Image(s) # Image(s)
     c58d7339-c7da-48b0-a338-3835c34549f1: New # New
     c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
