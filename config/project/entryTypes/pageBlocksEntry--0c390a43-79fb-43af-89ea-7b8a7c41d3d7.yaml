@@ -41,7 +41,7 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             elementEditCondition: null
-            fieldUid: d2dbcdc7-ca53-408a-8df4-99d795133201 # Hero Block
+            fieldUid: d2dbcdc7-ca53-408a-8df4-99d795133201 # Block — Hero
             handle: null
             instructions: null
             label: null
@@ -69,7 +69,7 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             elementEditCondition: null
-            fieldUid: 0119d5ec-bfd1-4692-a006-407e05e36d20 # Product Carousel Block
+            fieldUid: 0119d5ec-bfd1-4692-a006-407e05e36d20 # Block — Product Carousel
             handle: null
             instructions: null
             label: null
@@ -97,7 +97,7 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             elementEditCondition: null
-            fieldUid: 46d1905d-56db-493d-90c0-5de9d9910388 # Split Section Block
+            fieldUid: 46d1905d-56db-493d-90c0-5de9d9910388 # Block — Split Section
             handle: null
             instructions: null
             label: null
@@ -125,7 +125,7 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             elementEditCondition: null
-            fieldUid: dc36f051-fd02-4e59-bf63-204e8eccf224 # Call To Action Block
+            fieldUid: dc36f051-fd02-4e59-bf63-204e8eccf224 # Block — Call To Action
             handle: null
             instructions: null
             label: null

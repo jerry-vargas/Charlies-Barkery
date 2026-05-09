@@ -1,4 +1,4 @@
-dateModified: 1778071149
+dateModified: 1778299401
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -29,10 +29,10 @@ meta:
     4d7ec46f-500b-47b6-8eba-f2f42e8066c1: 'Plain Text' # Plain Text
     5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
-    46d1905d-56db-493d-90c0-5de9d9910388: 'Split Section Block' # Split Section Block
+    46d1905d-56db-493d-90c0-5de9d9910388: 'Block — Split Section' # Block — Split Section
     64e2bf73-506f-4e6f-9a22-dd5d54f10b77: 'Rich Text Editor' # Rich Text Editor
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
-    0119d5ec-bfd1-4692-a006-407e05e36d20: 'Product Carousel Block' # Product Carousel Block
+    0119d5ec-bfd1-4692-a006-407e05e36d20: 'Block — Product Carousel' # Block — Product Carousel
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
@@ -43,9 +43,9 @@ meta:
     c2d9c750-d7f6-412a-822c-7571172f15a5: Image(s) # Image(s)
     c58d7339-c7da-48b0-a338-3835c34549f1: New # New
     c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
-    d2dbcdc7-ca53-408a-8df4-99d795133201: 'Hero Block' # Hero Block
+    d2dbcdc7-ca53-408a-8df4-99d795133201: 'Block — Hero' # Block — Hero
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
-    dc36f051-fd02-4e59-bf63-204e8eccf224: 'Call To Action Block' # Call To Action Block
+    dc36f051-fd02-4e59-bf63-204e8eccf224: 'Block — Call To Action' # Block — Call To Action
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
 plugins:
   aws-s3:
@@ -64,6 +64,7 @@ plugins:
   formie:
     edition: standard
     enabled: true
+    licenseKey: 2QPGV31GRB42B2ILZYYO957N
     schemaVersion: 3.4.12
   vite:
     edition: standard

@@ -1,7 +1,7 @@
 columnSuffix: null
 handle: productCarouselBlock
 instructions: null
-name: 'Product Carousel Block'
+name: 'Block — Product Carousel'
 searchable: false
 settings:
   viewMode: grouped

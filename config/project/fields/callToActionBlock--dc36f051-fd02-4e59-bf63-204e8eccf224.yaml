@@ -1,7 +1,7 @@
 columnSuffix: null
 handle: callToActionBlock
 instructions: null
-name: 'Call To Action Block'
+name: 'Block — Call To Action'
 searchable: false
 settings:
   fieldLayouts:
