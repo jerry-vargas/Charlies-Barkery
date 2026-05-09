@@ -18,8 +18,8 @@
         descColor: 'text-white/80',
         cardBg: 'bg-white/5',
         cardBorder: 'border-white/10',
-        iconWrapper: false,
-        iconClass: 'text-4xl',
+        iconWrapperClass: 'w-12 h-12 flex items-center justify-center',
+        iconColor: 'text-teal',
         cardTitleColor: 'text-white',
         cardBodyColor: 'text-white/60',
         linkColor: 'text-white hover:text-teal'
@@ -31,9 +31,8 @@
         descColor: 'text-white/70',
         cardBg: 'bg-white/10',
         cardBorder: 'border-white/20',
-        iconWrapper: true,
         iconWrapperClass: 'bg-white/20 rounded-2xl w-12 h-12 flex items-center justify-center',
-        iconClass: 'text-2xl',
+        iconColor: 'text-white',
         cardTitleColor: 'text-white',
         cardBodyColor: 'text-white/70',
         linkColor: 'text-white hover:text-charcoal'
@@ -45,9 +44,8 @@
         descColor: 'text-white/80',
         cardBg: 'bg-white',
         cardBorder: 'border-white/40',
-        iconWrapper: true,
         iconWrapperClass: 'bg-teal/10 rounded-2xl w-12 h-12 flex items-center justify-center',
-        iconClass: 'text-2xl',
+        iconColor: 'text-teal',
         cardTitleColor: 'text-charcoal',
         cardBodyColor: 'text-charcoal/70',
         linkColor: 'text-charcoal hover:text-teal'
@@ -59,9 +57,8 @@
         descColor: 'text-charcoal/70',
         cardBg: 'bg-charcoal/5',
         cardBorder: 'border-charcoal/10',
-        iconWrapper: true,
         iconWrapperClass: 'bg-teal/10 rounded-2xl w-12 h-12 flex items-center justify-center',
-        iconClass: 'text-2xl',
+        iconColor: 'text-teal',
         cardTitleColor: 'text-charcoal',
         cardBodyColor: 'text-charcoal/60',
         linkColor: 'text-charcoal hover:text-teal'
@@ -88,16 +85,16 @@
             {% for card in params.cards %}
                 <div class="{{ theme.cardBg }} border {{ theme.cardBorder }} rounded-3xl p-8 flex flex-col gap-4">
 
-                    {# Image #}
+                    {# Image / Icon #}
                     {% set cardImage = card.images.one() %}
                     {% if cardImage %}
-                        {% if theme.iconWrapper %}
-                            <div class="{{ theme.iconWrapperClass }}">
-                                <img src="{{ cardImage.url }}" alt="{{ cardImage.alt }}" class="w-6 h-6 object-contain">
-                            </div>
-                        {% else %}
-                            <img src="{{ cardImage.url }}" alt="{{ cardImage.alt }}" class="{{ theme.iconClass }} object-contain">
-                        {% endif %}
+                        <div class="{{ theme.iconWrapperClass }} {{ theme.iconColor }} **:fill-current! [&_svg]:w-8 [&_svg]:h-8">
+                            {% if cardImage.extension == 'svg' %}
+                                {{ svg(cardImage) }}
+                            {% else %}
+                                <img src="{{ cardImage.url }}" alt="{{ cardImage.alt }}" class="w-8 h-8 object-contain">
+                            {% endif %}
+                        </div>
                     {% endif %}
 
                     <h3 class="font-anton {{ theme.cardTitleColor }} text-2xl">{{ card.header }}</h3>
