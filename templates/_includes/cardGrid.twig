@@ -7,8 +7,6 @@
     cards: block.cardGridBlock.cardsMatrix.all() ?? []
 }|merge(params|default({})) %}
 
-
-
 {# Define theme-specific styling #}
 {% set themes = {
     charcoal: {
@@ -65,7 +63,7 @@
     }
 } %}
 
-{% set theme = themes[params.theme|lower] %}
+{% set theme = themes[params.theme|lower] ?? themes['white'] %}
 
 <section class="{{ theme.sectionBg }} py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +102,7 @@
                     {% if card.linkField.url is defined and card.linkField.url %}
                         <a href="{{ card.linkField.url }}"
                            class="font-hobeaux text-sm font-bold {{ theme.linkColor }} underline underline-offset-4 transition-colors mt-auto">
-                            {{ card.linkField.label ?? card.linkField.text ?? 'Learn more' }} &rarr;
+                            {{ card.linkField.label ?? 'Learn more' }} &rarr;
                         </a>
                     {% endif %}
                 </div>
