@@ -1,0 +1,21 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 7224478f-d487-4e1b-9800-089ea7e3f226 # Entry — Pages
+handle: pages
+maxAuthors: 1
+name: Pages
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  2589bc8f-a277-4da6-ae5f-f294f779bc87: # charlies
+    enabledByDefault: true
+    hasUrls: true
+    template: pages/_entry.twig
+    uriFormat: '{slug}'
+type: channel
