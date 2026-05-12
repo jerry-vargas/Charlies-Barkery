@@ -1,3 +1,2 @@
 ## TO DO
-Need to work on this component on the homepage.
-![img.png](img.png)
+Need to work on the timeline component on the about page.

@@ -89,26 +89,6 @@ settings:
                               - 100
                             8:
                               - dateAdded
-                              - '2026-05-12T03:29:54+00:00'
-                            9:
-                              - uid
-                              - fa2e84fb-6be6-4f06-95e7-f1054d73841c
-                            12:
-                              - fieldUid
-                              - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
-                        -
-                          __assoc__:
-                            0:
-                              - type
-                              - craft\fieldlayoutelements\CustomField
-                            6:
-                              - required
-                              - false
-                            7:
-                              - width
-                              - 100
-                            8:
-                              - dateAdded
                               - '2026-05-12T03:31:57+00:00'
                             9:
                               - uid
