@@ -2,7 +2,7 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   -
-    uid: b7d4b92a-3550-4709-ba61-d7e4d3829f54 # Page — Home
+    uid: b7d4b92a-3550-4709-ba61-d7e4d3829f54 # Entry — Page
 handle: homePage
 maxAuthors: 1
 name: 'Home Page'
