@@ -4,41 +4,23 @@ instructions: null
 name: Color
 searchable: false
 settings:
-  allowCustomColors: false
-  palette:
+  options:
     -
-      __assoc__:
-        -
-          - color
-          - '#29323d'
-        -
-          - label
-          - Charcoal
-        -
-          - default
-          - ''
+      label: White
+      value: white
+      default: '1'
     -
-      __assoc__:
-        -
-          - color
-          - '#0ed3c8'
-        -
-          - label
-          - Teal
-        -
-          - default
-          - ''
+      label: Charcoal
+      value: charcoal
+      default: ''
     -
-      __assoc__:
-        -
-          - color
-          - '#b67236'
-        -
-          - label
-          - Bronze
-        -
-          - default
-          - ''
+      label: Teal
+      value: teal
+      default: ''
+    -
+      label: Bronze
+      value: bronze
+      default: ''
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Color
+type: craft\fields\Dropdown

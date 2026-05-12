@@ -58,30 +58,21 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
-                            1:
-                              - handle
-                              - darkTheme
-                            2:
-                              - label
-                              - 'Dark Theme'
-                            4:
-                              - tip
-                              - 'The default theme is bronze and white. Enable this to switch to the charcoal theme.'
                             6:
                               - required
                               - false
                             7:
                               - width
-                              - 25
+                              - 100
                             8:
                               - dateAdded
-                              - '2026-03-28T23:07:07+00:00'
+                              - '2026-05-12T03:01:47+00:00'
                             9:
                               - uid
-                              - f531efbe-8694-4e7e-9973-ec72a83577b3
+                              - b1fc4697-c4a0-457e-be69-38665a393900
                             12:
                               - fieldUid
-                              - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+                              - 7c4edaa8-604a-48d2-a947-3388823e3b2b # Color
                         -
                           __assoc__:
                             0:

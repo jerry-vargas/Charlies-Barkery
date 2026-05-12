@@ -1,6 +1,5 @@
 {% set params = {
-    bg: 'bg-white',
-    darkTheme: block.splitSectionBlock.darkTheme ?? false,
+    theme: block.splitSectionBlock.color.value ?? 'white',
     imageRight: block.splitSectionBlock.imageRight ?? false,
     img: block.splitSectionBlock.images.one() ?? false,
     eyebrow: block.splitSectionBlock.eyebrow ?? false,
@@ -12,10 +11,36 @@
     badgeSubText: block.splitSectionBlock.badgeSubText ?? false
 }|merge(params|default({})) %}
 
-{% set textBase   = params.darkTheme ? 'text-white' : 'text-charcoal' %}
-{% set textMuted  = params.darkTheme ? 'text-white/70'  : 'text-charcoal/70' %}
-{% set textDim    = params.darkTheme ? 'text-white/60'  : 'text-charcoal/60' %}
-<section class="{{ params.darkTheme ? 'bg-charcoal' }} py-20 overflow-hidden">
+{% set themes = {
+    white: {
+        sectionBg: 'bg-white',
+        eyebrowColor: 'text-teal',
+        headingColor: 'text-charcoal',
+        bodyColor: 'text-charcoal/70'
+    },
+    charcoal: {
+        sectionBg: 'bg-charcoal',
+        eyebrowColor: 'text-teal',
+        headingColor: 'text-white',
+        bodyColor: 'text-white/70'
+    },
+    teal: {
+        sectionBg: 'bg-teal',
+        eyebrowColor: 'text-white/70',
+        headingColor: 'text-white',
+        bodyColor: 'text-white/80'
+    },
+    bronze: {
+        sectionBg: 'bg-bronze',
+        eyebrowColor: 'text-white/70',
+        headingColor: 'text-white',
+        bodyColor: 'text-white/70'
+    }
+} %}
+
+{% set theme = themes[params.theme] ?? themes['white'] %}
+
+<section class="{{ theme.sectionBg }} py-20 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
         {# ——— Image ——— #}
         {% set imageCol %}
@@ -49,15 +74,15 @@
         {% set copyCol %}
             <div class="flex flex-col items-start gap-5">
                 {% if params.eyebrow %}
-                    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">{{ params.eyebrow }}</p>
+                    <p class="font-hobeaux {{ theme.eyebrowColor }} uppercase tracking-widest text-sm">{{ params.eyebrow }}</p>
                 {% endif %}
 
                 {% if params.heading %}
-                    <h2 class="font-anton {{ textBase }} text-4xl sm:text-5xl leading-tight">{{ params.heading }}</h2>
+                    <h2 class="font-anton {{ theme.headingColor }} text-4xl sm:text-5xl leading-tight">{{ params.heading }}</h2>
                 {% endif %}
 
                 {% if params.richTextEditor %}
-                    <div class="font-hobeaux {{ textMuted }} text-base leading-relaxed [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:text-sm [&_li]:flex [&_li]:items-center [&_li]:gap-2 [&_li]:before:content-['✓'] [&_li]:before:text-teal">
+                    <div class="font-hobeaux {{ theme.bodyColor }} text-base leading-relaxed [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-2 [&_ul]:text-sm [&_li]:flex [&_li]:items-center [&_li]:gap-2 [&_li]:before:content-['✓'] [&_li]:before:text-teal">
                         {{ params.richTextEditor }}
                     </div>
                 {% endif %}
