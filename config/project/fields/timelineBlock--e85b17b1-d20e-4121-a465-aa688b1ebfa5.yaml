@@ -1,0 +1,125 @@
+columnSuffix: null
+handle: timelineBlock
+instructions: null
+name: 'Block — Timeline'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 9fed5cee-da60-4919-b0bb-dd3a82e2e158
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - afe39fe2-fd09-417a-8d3c-55664998c232
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrow
+                            2:
+                              - label
+                              - Eyebrow
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-12T03:29:36+00:00'
+                            9:
+                              - uid
+                              - 09ff7d5e-e23f-4a74-9d6a-9e05a17b5a8c
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - header
+                            2:
+                              - label
+                              - Header
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-12T03:29:36+00:00'
+                            9:
+                              - uid
+                              - e802b542-1048-4c16-99ea-5e3da1e5c867
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-12T03:29:54+00:00'
+                            9:
+                              - uid
+                              - fa2e84fb-6be6-4f06-95e7-f1054d73841c
+                            12:
+                              - fieldUid
+                              - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-12T03:31:57+00:00'
+                            9:
+                              - uid
+                              - 4928ee04-f500-4b08-932f-69c52bfede2c
+                            12:
+                              - fieldUid
+                              - 07b62ac5-22b7-42e6-8930-c48a79658ed1 # Matrix — Timeline
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

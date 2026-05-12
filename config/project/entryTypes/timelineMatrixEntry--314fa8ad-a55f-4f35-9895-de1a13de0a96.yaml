@@ -1,0 +1,86 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  c53f7454-c7e8-4ad7-93dd-b63f082d7af1:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-05-12T03:30:32+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: Year
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 420c9f98-83b7-43dd-ba50-d00baebcc402
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-05-12T03:35:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            handle: event
+            instructions: null
+            label: Event
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 915ddcc2-ca76-4f28-a64f-862b4b151d0d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-05-12T03:35:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            handle: eventDetails
+            instructions: null
+            label: 'Event Details'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0b783164-c4fd-4198-8743-2cc921953e69
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 289a9302-7801-434a-b2fd-6d9648f8ba97
+        userCondition: null
+    thumbFieldKey: null
+handle: timelineMatrixEntry
+hasTitleField: true
+icon: null
+name: 'Entry — Timeline Matrix'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,0 +1,29 @@
+columnSuffix: null
+handle: timelineMatrix
+instructions: null
+name: 'Matrix — Timeline'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 314fa8ad-a55f-4f35-9895-de1a13de0a96 # Entry — Timeline Matrix
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
