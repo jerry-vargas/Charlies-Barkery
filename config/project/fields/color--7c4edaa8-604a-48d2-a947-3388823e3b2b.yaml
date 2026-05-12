@@ -4,23 +4,76 @@ instructions: null
 name: Color
 searchable: false
 settings:
+  customOptions: false
   options:
     -
-      label: White
-      value: white
-      default: '1'
+      __assoc__:
+        -
+          - label
+          - White
+        -
+          - value
+          - white
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#ffffff'
+        -
+          - default
+          - '1'
     -
-      label: Charcoal
-      value: charcoal
-      default: ''
+      __assoc__:
+        -
+          - label
+          - Charcoal
+        -
+          - value
+          - charcoal
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#29323d'
+        -
+          - default
+          - ''
     -
-      label: Teal
-      value: teal
-      default: ''
+      __assoc__:
+        -
+          - label
+          - Teal
+        -
+          - value
+          - teal
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#0ed3c8'
+        -
+          - default
+          - ''
     -
-      label: Bronze
-      value: bronze
-      default: ''
+      __assoc__:
+        -
+          - label
+          - Bronze
+        -
+          - value
+          - bronze
+        -
+          - icon
+          - ''
+        -
+          - color
+          - '#b67236'
+        -
+          - default
+          - ''
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Dropdown
