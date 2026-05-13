@@ -44,6 +44,23 @@ settings:
       __assoc__:
         -
           - label
+          - Contact
+        -
+          - value
+          - contact
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
           - Hero
         -
           - value

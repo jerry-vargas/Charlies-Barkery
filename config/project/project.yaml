@@ -1,4 +1,4 @@
-dateModified: 1778685913
+dateModified: 1778695122
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -30,13 +30,16 @@ meta:
     07b62ac5-22b7-42e6-8930-c48a79658ed1: 'Matrix — Timeline' # Matrix — Timeline
     7c4edaa8-604a-48d2-a947-3388823e3b2b: Color # Color
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
+    32df88de-3497-4bb2-8385-f85a301ab403: 'Contact Matrix Entry' # Contact Matrix Entry
     46d1905d-56db-493d-90c0-5de9d9910388: 'Block — Split Section' # Block — Split Section
     64e2bf73-506f-4e6f-9a22-dd5d54f10b77: 'Rich Text Editor' # Rich Text Editor
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
     0119d5ec-bfd1-4692-a006-407e05e36d20: 'Block — Product Carousel' # Block — Product Carousel
     231b19ec-9923-4689-ad97-450bdcd8ca3a: 'Block — Subscribe ' # Block — Subscribe 
     314fa8ad-a55f-4f35-9895-de1a13de0a96: 'Entry — Timeline Matrix' # Entry — Timeline Matrix
+    564a4360-56ee-4b5a-ba0a-01f13d394fa5: 'Block — Contact' # Block — Contact
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
+    1686a50c-1e1c-41a1-a2be-68b75ae85cbd: 'Contact Matrix' # Contact Matrix
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
     62025e7c-d31e-4ea1-a778-df0457c8317a: 'Entry — Card Matrix' # Entry — Card Matrix

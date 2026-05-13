@@ -1,0 +1,174 @@
+columnSuffix: null
+handle: contactBlock
+instructions: null
+name: 'Block — Contact'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 2f050593-eacf-497a-9408-25c5de09b145
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    1:
+                      - uid
+                      - 1e1c8807-6ced-496e-a5ea-a687285ae464
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrow
+                            2:
+                              - label
+                              - Eyebrow
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T17:47:35+00:00'
+                            9:
+                              - uid
+                              - 407511f6-7e16-42bb-8a88-b6f671292763
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - header
+                            2:
+                              - label
+                              - Header
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T17:47:35+00:00'
+                            9:
+                              - uid
+                              - 927b451e-7c8e-4c0f-a938-6686349bfb94
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - content
+                            2:
+                              - label
+                              - Content
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T17:47:35+00:00'
+                            9:
+                              - uid
+                              - 913d7fae-fcaf-45c7-a7eb-768408fea4f1
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T17:47:35+00:00'
+                            9:
+                              - uid
+                              - 0891567b-3219-4f59-af92-594e0f0dfed0
+                            12:
+                              - fieldUid
+                              - ea57733c-b37f-4fd3-b7bf-ad80ce561f3f # Form
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - formCallOut
+                            2:
+                              - label
+                              - 'Form Call Out'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T17:47:35+00:00'
+                            9:
+                              - uid
+                              - 3e52be7b-01a5-49fa-ac8f-66b9099a2124
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T17:47:35+00:00'
+                            9:
+                              - uid
+                              - e6d1dd52-bf7e-4aff-ac40-3cc81ddc9cd6
+                            12:
+                              - fieldUid
+                              - 1686a50c-1e1c-41a1-a2be-68b75ae85cbd # Contact Matrix
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock
