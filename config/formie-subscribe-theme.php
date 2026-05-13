@@ -104,7 +104,7 @@ return [
         ],
         'subFieldRow' => [
             'attributes' => [
-                'class' => 'grid gap-4 sm:grid-cols-2',
+                'class' => 'grid gap-4 grid-cols-1',
             ],
         ],
     ],
