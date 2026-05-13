@@ -55,6 +55,9 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrow
                             2:
                               - label
                               - Eyebrow
