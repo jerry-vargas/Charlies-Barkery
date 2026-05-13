@@ -2865,7 +2865,7 @@ CREATE TABLE `sessions` (
   KEY `idx_dwcsfnihjegnheazdoymyoirpbqzucqpznjo` (`dateUpdated`),
   KEY `idx_ktnhosdkzqfkylxwwkwefvmyychrsqtrzmlr` (`userId`),
   CONSTRAINT `fk_ujwsqwmifplipfiufggiylswcjehyestsukz` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3386,7 +3386,7 @@ CREATE TABLE `widgets` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-11 23:48:09
+-- Dump completed on 2026-05-13  9:03:30
 -- MySQL dump 10.13  Distrib 8.0.40, for Linux (aarch64)
 --
 -- Host: db    Database: db
@@ -4230,7 +4230,7 @@ commit;
 LOCK TABLES `elementactivity` WRITE;
 /*!40000 ALTER TABLE `elementactivity` DISABLE KEYS */;
 set autocommit=0;
-INSERT INTO `elementactivity` VALUES (3,1,1,NULL,'edit','2026-05-12 03:14:04'),(3,1,1,NULL,'save','2026-05-12 03:14:05'),(3,1,1,NULL,'view','2026-05-12 03:17:10'),(249,1,1,NULL,'edit','2026-05-09 21:08:28'),(249,1,1,NULL,'view','2026-05-09 21:12:25'),(286,1,1,NULL,'edit','2026-05-09 21:12:23'),(286,1,1,NULL,'view','2026-05-09 21:12:27'),(295,1,1,NULL,'edit','2026-05-09 21:12:31'),(295,1,1,NULL,'view','2026-05-09 21:12:25'),(328,1,1,NULL,'edit','2026-05-12 03:43:35'),(328,1,1,NULL,'save','2026-05-12 03:43:36'),(328,1,1,NULL,'view','2026-05-12 03:46:53'),(366,1,1,NULL,'edit','2026-05-12 01:24:14'),(366,1,1,NULL,'view','2026-05-12 01:24:10');
+INSERT INTO `elementactivity` VALUES (3,1,1,NULL,'edit','2026-05-12 03:14:04'),(3,1,1,NULL,'save','2026-05-12 03:14:05'),(3,1,1,NULL,'view','2026-05-12 03:17:10'),(249,1,1,NULL,'edit','2026-05-09 21:08:28'),(249,1,1,NULL,'view','2026-05-09 21:12:25'),(286,1,1,NULL,'edit','2026-05-09 21:12:23'),(286,1,1,NULL,'view','2026-05-09 21:12:27'),(295,1,1,NULL,'edit','2026-05-09 21:12:31'),(295,1,1,NULL,'view','2026-05-09 21:12:25'),(328,1,1,NULL,'edit','2026-05-12 03:43:35'),(328,1,1,NULL,'save','2026-05-12 03:43:36'),(328,1,1,NULL,'view','2026-05-13 13:03:08'),(366,1,1,NULL,'edit','2026-05-12 01:24:14'),(366,1,1,NULL,'view','2026-05-12 01:24:10'),(522,1,1,NULL,'view','2026-05-13 13:03:08');
 /*!40000 ALTER TABLE `elementactivity` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4747,7 +4747,7 @@ commit;
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 set autocommit=0;
-INSERT INTO `users` VALUES (1,NULL,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'jerry@charliesbarkery.com','$2y$13$W2qAPsTYHkeqfNKZNsh6F.x9w0kwBwf0UD0yM1m5vLCa7qTw0R7JC','2026-05-12 02:50:48',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2026-03-12 17:35:46','2026-03-12 17:35:46','2026-05-12 02:50:48');
+INSERT INTO `users` VALUES (1,NULL,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'jerry@charliesbarkery.com','$2y$13$W2qAPsTYHkeqfNKZNsh6F.x9w0kwBwf0UD0yM1m5vLCa7qTw0R7JC','2026-05-13 12:53:16',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2026-03-12 17:35:46','2026-03-12 17:35:46','2026-05-13 12:53:16');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4812,4 +4812,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-11 23:48:10
+-- Dump completed on 2026-05-13  9:03:31
