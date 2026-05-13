@@ -1,4 +1,4 @@
-dateModified: 1778557310
+dateModified: 1778683517
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -19,7 +19,6 @@ fs:
       makeUploadsPublic: true
       region: us-east-2
       secret: $AMAZON_SECRET_KEY
-      storageClass: ''
       subfolder: $AMAZON_SUBPATH
     type: craft\awss3\Fs
     url: $AMAZON_BASE_URL
@@ -35,6 +34,7 @@ meta:
     64e2bf73-506f-4e6f-9a22-dd5d54f10b77: 'Rich Text Editor' # Rich Text Editor
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
     0119d5ec-bfd1-4692-a006-407e05e36d20: 'Block — Product Carousel' # Block — Product Carousel
+    231b19ec-9923-4689-ad97-450bdcd8ca3a: 'Block — Subscribe ' # Block — Subscribe 
     314fa8ad-a55f-4f35-9895-de1a13de0a96: 'Entry — Timeline Matrix' # Entry — Timeline Matrix
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
@@ -42,6 +42,7 @@ meta:
     62025e7c-d31e-4ea1-a778-df0457c8317a: 'Entry — Card Matrix' # Entry — Card Matrix
     226774f0-df25-4716-be27-d89522bf600c: 'Contact Form' # Contact Form
     6671498f-b940-4c47-a8d5-1de96b0bd763: 'Block — Card Grid' # Block — Card Grid
+    a7ceddff-7f65-4670-a12c-343eec905a59: New # New
     a8354a78-8bd4-4740-a1e5-99da6ee4e9bd: Pages # Pages
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Entry — Page' # Entry — Page
     b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
@@ -55,6 +56,7 @@ meta:
     dc36f051-fd02-4e59-bf63-204e8eccf224: 'Block — Call To Action' # Block — Call To Action
     e85b17b1-d20e-4121-a465-aa688b1ebfa5: 'Block — Timeline' # Block — Timeline
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
+    ea57733c-b37f-4fd3-b7bf-ad80ce561f3f: Form # Form
 plugins:
   aws-s3:
     edition: standard
@@ -72,7 +74,7 @@ plugins:
   formie:
     edition: standard
     enabled: true
-    licenseKey: 2QPGV31GRB42B2ILZYYO957N
+    licenseKey: 9Q0TF6S3GNQ7VFFKO1ARLFLU
     schemaVersion: 3.4.12
   vite:
     edition: standard

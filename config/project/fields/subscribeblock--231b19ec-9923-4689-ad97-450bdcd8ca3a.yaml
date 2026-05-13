@@ -1,0 +1,154 @@
+columnSuffix: null
+handle: subscribeblock
+instructions: null
+name: 'Block — Subscribe '
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 7bde2698-f55f-4093-ae03-379a11ae9c7a
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - 306fc606-f6c2-4ecc-95c5-7045beac8b99
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - sectionThemeBackground
+                            2:
+                              - label
+                              - 'Section Theme Background'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T14:23:46+00:00'
+                            9:
+                              - uid
+                              - 7a8c674e-47d9-4d72-a516-b7816ccc6c4f
+                            12:
+                              - fieldUid
+                              - 7c4edaa8-604a-48d2-a947-3388823e3b2b # Color
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            2:
+                              - label
+                              - Eyebrow
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T14:21:46+00:00'
+                            9:
+                              - uid
+                              - fb2b2297-a46e-4b45-b61b-84c1fa9eb5f2
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - header
+                            2:
+                              - label
+                              - Header
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T14:21:46+00:00'
+                            9:
+                              - uid
+                              - d1347db1-911d-4bca-a089-d27833338262
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - content
+                            2:
+                              - label
+                              - Content
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T14:21:46+00:00'
+                            9:
+                              - uid
+                              - bf1ba574-e8c7-4fac-87ac-e22929847953
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-13T14:23:14+00:00'
+                            9:
+                              - uid
+                              - 57c13cd0-bf26-4bac-822b-aba5d9d274ef
+                            12:
+                              - fieldUid
+                              - ea57733c-b37f-4fd3-b7bf-ad80ce561f3f # Form
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock

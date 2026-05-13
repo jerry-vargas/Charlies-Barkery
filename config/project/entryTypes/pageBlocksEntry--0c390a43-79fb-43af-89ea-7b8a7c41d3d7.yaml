@@ -192,6 +192,34 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-05-13T14:42:35+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
+                  layoutElementUid: 54e0155b-2027-4647-9f61-6a820c7b699d
+                  operator: in
+                  uid: faa4e08d-b6ed-4d84-be81-2d983c7a77e4
+                  values:
+                    - subscribe
+              elementType: craft\elements\Entry
+              fieldContext: global
+            elementEditCondition: null
+            fieldUid: 231b19ec-9923-4689-ad97-450bdcd8ca3a # Block — Subscribe 
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 952bf88c-85d0-4bdc-9c9a-38247f374055
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 2bda75ac-9d20-4c73-95d6-b9b86ee9722a
         userCondition: null
