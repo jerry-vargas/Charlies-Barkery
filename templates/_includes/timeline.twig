@@ -1,9 +1,8 @@
 {% set params = {
-    theme: block.cardGridBlock.timeline.label ?? 'white',
-    eyebrowText: block.timeline.eyebrowText ?? '',
-    header: block.timeline.header ?? '',
-    subHeader: block.timeline.subHeader ?? '',
-    cards: block.timeline.cardsMatrix.all() ?? []
+    theme: block.timelineBlock.timeline.label ?? 'white',
+    eyebrowText: block.timelineBlock.eyebrowText ?? '',
+    header: block.timelineBlock.header ?? '',
+    timelineMatrix: block.timelineBlock.timelineMatrix.all() ?? []
 }|merge(params|default({})) %}
 
 <section class="bg-white py-20">
@@ -13,14 +12,7 @@
             <h2 class="font-anton text-charcoal text-4xl sm:text-5xl">The Journey</h2>
         </div>
         <div class="flex flex-col gap-0">
-            {% set milestones = [
-                { year: "2019", title: "The First Batch", body: "Baked our first dog treats in a home kitchen in Boston, MA for Charlie and a few lucky neighbors." },
-                { year: "2021", title: "Farmers Market Debut", body: "Set up our first market table and sold out in two hours. The line was mostly dogs." },
-                { year: "2022", title: "Brick & Mortar", body: "Opened a small storefront in Boston — a dream come true. The city welcomed us with open paws." },
-                { year: "2024", title: "Charlotte Bound", body: "We relocated to the Charlotte Metro Area, NC, bringing our recipes with us and falling in love with a new city of dog lovers." },
-                { year: "Now", title: "Bigger Than Ever", body: "Online store, farmers markets, events, consignment partners — and we're just getting started." }
-            ] %}
-            {% for milestone in milestones %}
+            {% for timeline in params.timelineMatrix %}
                 <div class="flex gap-6 group">
                     <div class="flex flex-col items-center">
                         <div class="w-4 h-4 rounded-full bg-teal mt-1.5 shrink-0 group-first:mt-1"></div>
@@ -29,9 +21,9 @@
                         {% endif %}
                     </div>
                     <div class="pb-10">
-                        <p class="font-anton text-teal text-lg">{{ milestone.year }}</p>
-                        <h3 class="font-anton text-charcoal text-2xl mt-0.5">{{ milestone.title }}</h3>
-                        <p class="font-hobeaux text-charcoal/60 text-sm leading-relaxed mt-2">{{ milestone.body }}</p>
+                        <p class="font-anton text-teal text-lg">{{ timeline.title }}</p>
+                        <h3 class="font-anton text-charcoal text-2xl mt-0.5">{{ timeline.event }}</h3>
+                        <p class="font-hobeaux text-charcoal/60 text-sm leading-relaxed mt-2">{{ timeline.eventDetails }}</p>
                     </div>
                 </div>
             {% endfor %}
