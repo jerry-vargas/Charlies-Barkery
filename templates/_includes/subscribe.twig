@@ -14,8 +14,8 @@
         sectionBg: 'bg-charcoal',
         eyebrowColor: 'text-teal',
         headingColor: 'text-white',
-        bodyColor: 'text-white/70',
-        formBg: 'bg-white/5',
+        bodyColor: 'text-teal',
+        formBg: 'bg-white/50',
         formBorder: 'border border-white/10'
     },
     bronze: {
@@ -28,7 +28,7 @@
     },
     teal: {
         sectionBg: 'bg-teal',
-        eyebrowColor: 'text-charcoal/60',
+        eyebrowColor: 'text-charcoal/70',
         headingColor: 'text-charcoal',
         bodyColor: 'text-charcoal/70',
         formBg: 'bg-white',
@@ -45,6 +45,7 @@
 } %}
 
 {% set theme = themes[params.theme|lower] ?? themes['white'] %}
+{% set subscribeFormThemeConfig = craft.app.config.getConfigFromFile('formie-subscribe-theme') %}
 
 <section id="join-the-pack" class="{{ theme.sectionBg }}">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid md:grid-cols-2 gap-12 items-center">
@@ -68,7 +69,9 @@
 
     <div class="{{ theme.formBg }} {{ theme.formBorder }} rounded-3xl p-8 shadow-sm">
       {% if params.form %}
-        {{ craft.formie.renderForm(params.form) }}
+        {{ craft.formie.renderForm(params.form, {
+            themeConfig: subscribeFormThemeConfig
+        }) }}
       {% endif %}
     </div>
   </div>
