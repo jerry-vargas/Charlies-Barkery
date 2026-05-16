@@ -1,0 +1,128 @@
+columnSuffix: null
+handle: instagramBlock
+instructions: null
+name: 'Block — Instagram'
+searchable: false
+settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - 9b95bb90-2c02-4ae3-bc85-014f559e5b4b
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    1:
+                      - uid
+                      - b308132b-515a-4630-94fc-06eaad66f652
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - eyebrow
+                            2:
+                              - label
+                              - Eyebrow
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-16T01:00:02+00:00'
+                            9:
+                              - uid
+                              - 07e291ec-3f47-4890-83fe-21e44ea7e7a3
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - header
+                            2:
+                              - label
+                              - Header
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-16T01:00:02+00:00'
+                            9:
+                              - uid
+                              - 5acc419d-d2cc-4178-a7c1-02b2ace13f43
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - copy
+                            2:
+                              - label
+                              - Copy
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-16T01:00:02+00:00'
+                            9:
+                              - uid
+                              - ea0a5a08-58a4-43ca-a609-9f15ceb2cb84
+                            12:
+                              - fieldUid
+                              - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 100
+                            8:
+                              - dateAdded
+                              - '2026-05-16T01:00:02+00:00'
+                            9:
+                              - uid
+                              - 0fd996dc-3ba4-419c-b0ee-45783a0f2ddf
+                            12:
+                              - fieldUid
+                              - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
+            4:
+              - cardThumbAlignment
+              - end
+  viewMode: grouped
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\ContentBlock
