@@ -1,4 +1,4 @@
-dateModified: 1778695122
+dateModified: 1778893659
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -68,12 +68,12 @@ plugins:
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 5.0.0.1
+    schemaVersion: 5.6.0.0
   commerce:
     edition: pro
     enabled: true
     licenseKey: 0U6EFPB4B0QWVBY8YV3X7TOY
-    schemaVersion: 5.6.0.0
+    schemaVersion: 5.6.1.2
   formie:
     edition: standard
     enabled: true
@@ -87,7 +87,7 @@ system:
   edition: pro
   live: true
   name: charlies
-  schemaVersion: 5.9.0.8
+  schemaVersion: 5.10.0.0
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

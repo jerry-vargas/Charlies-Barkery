@@ -5,6 +5,7 @@ entryTypes:
     uid: b7d4b92a-3550-4709-ba61-d7e4d3829f54 # Entry — Page
 handle: pages
 maxAuthors: 1
+minAuthors: 1
 name: Pages
 previewTargets:
   -
