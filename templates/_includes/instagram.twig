@@ -12,54 +12,50 @@
         <div class="grid md:grid-cols-2 gap-12 items-center">
             {# Left: Header #}
             <div class="flex flex-col items-start gap-4">
-                <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">Follow along</p>
-                <h2 class="font-anton text-charcoal text-4xl sm:text-5xl">@charliesbarkery</h2>
-                <p class="font-hobeaux text-charcoal/60 text-base leading-relaxed">
-                    Behind the scenes, fresh bakes, happy pups, and market days — follow us on Instagram for the good stuff.
-                </p>
-                <a
-                    href="https://instagram.com/charliesbarkery"
-                    target="_blank"
-                    rel="noopener"
-                    class="font-hobeaux font-bold bg-charcoal text-white px-8 py-3 rounded-full hover:bg-teal hover:text-charcoal transition-colors mt-2"
-                >
-                    Follow Us
-                </a>
-            </div>
-            {# Right: Grid #}
-            <div class="grid grid-cols-3 gap-2">
-                {% set posts = [
-                    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80", alt: "Golden retriever with treats" },
-                    { img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80", alt: "Freshly baked dog treats" },
-                    { img: "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=600&q=80", alt: "Happy dog at bakery" },
-                    { img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80", alt: "Dogs playing outside" },
-                    { img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80", alt: "Dog birthday cake" },
-                    { img: "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=600&q=80", alt: "Dog enjoying a treat" }
-                ] %}
-
-                {% for post in posts %}
+                {% if params.eyebrow %}
+                    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">{{ params.eyebrow }}</p>
+                {% endif %}
+                {% if params.header %}
+                    <h2 class="font-anton text-charcoal text-4xl sm:text-5xl">{{ params.header }}</h2>
+                {% endif %}
+                {% if params.copy %}
+                    <p class="font-hobeaux text-charcoal/60 text-base leading-relaxed">{{ params.copy }}</p>
+                {% endif %}
+                {% if params.linkField.url is defined and params.linkField.url %}
                     <a
-                        href="https://instagram.com/charliesbarkery"
+                        href="{{ params.linkField.url }}"
                         target="_blank"
                         rel="noopener"
-                        class="relative overflow-hidden aspect-square group block rounded-2xl"
+                        class="font-hobeaux font-bold bg-charcoal text-white px-8 py-3 rounded-full hover:bg-teal hover:text-charcoal transition-colors mt-2"
                     >
-                        <img
-                            src="{{ post.img }}"
-                            alt="{{ post.alt }}"
-                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-colors duration-300 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg"
-                                 class="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                 fill="currentColor"
-                                 viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324A6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-                            </svg>
-                        </div>
+                        {{ params.linkField.label ?? 'Follow Us' }}
                     </a>
-                {% endfor %}
+                {% endif %}
             </div>
+            {# Right: Grid #}
+            {% if params.imageMartix|length %}
+                <div class="grid grid-cols-3 gap-2">
+                    {% for image in params.imageMartix %}
+                        <a href="https://instagram.com/charlies.barkery"
+                           rel="noopener"
+                           class="relative overflow-hidden aspect-square group block rounded-2xl">
+                            <img
+                                src="{{ image.images.one().url }}"
+                                alt="{{ image.title }}"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-colors duration-300 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     class="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                     fill="currentColor"
+                                     viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.197.157 3.355.673 2.014 2.014.673 3.355.157 5.197.072 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.085 1.855.601 3.697 1.942 5.038 1.341 1.341 3.183 1.857 5.038 1.942C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.855-.085 3.697-.601 5.038-1.942 1.341-1.341 1.857-3.183 1.942-5.038.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.085-1.855-.601-3.697-1.942-5.038C20.645.673 18.803.157 16.948.072 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324A6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                                </svg>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </section>
