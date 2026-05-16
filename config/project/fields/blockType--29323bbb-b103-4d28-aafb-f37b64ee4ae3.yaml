@@ -78,6 +78,23 @@ settings:
       __assoc__:
         -
           - label
+          - Instagram
+        -
+          - value
+          - instagram
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
           - 'Product Carousel'
         -
           - value

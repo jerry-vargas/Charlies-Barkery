@@ -11,19 +11,7 @@ fieldLayouts:
           -
             dateAdded: '2026-03-25T14:51:44+00:00'
             editCondition: null
-            elementCondition:
-              class: craft\elements\conditions\entries\EntryCondition
-              conditionRules:
-                -
-                  class: craft\fields\conditions\OptionsFieldConditionRule
-                  fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
-                  layoutElementUid: 54e0155b-2027-4647-9f61-6a820c7b699d
-                  operator: in
-                  uid: 2374da6a-41f3-45c7-a6f7-dd91cea4950b
-                  values:
-                    - contact
-              elementType: craft\elements\Entry
-              fieldContext: global
+            elementCondition: null
             elementEditCondition: null
             fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
             handle: null
@@ -95,7 +83,19 @@ fieldLayouts:
           -
             dateAdded: '2026-05-13T17:58:42+00:00'
             editCondition: null
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
+                  layoutElementUid: 54e0155b-2027-4647-9f61-6a820c7b699d
+                  operator: in
+                  uid: fb37a25c-2672-43c2-8de9-9128641742f0
+                  values:
+                    - contact
+              elementType: craft\elements\Entry
+              fieldContext: global
             elementEditCondition: null
             fieldUid: 564a4360-56ee-4b5a-ba0a-01f13d394fa5 # Block — Contact
             handle: null
@@ -133,6 +133,34 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 67c0702d-602b-4460-a842-68b69569157a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-05-16T01:12:46+00:00'
+            editCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 29323bbb-b103-4d28-aafb-f37b64ee4ae3 # Block Type
+                  layoutElementUid: 54e0155b-2027-4647-9f61-6a820c7b699d
+                  operator: in
+                  uid: 92fcad85-d624-48be-aa26-769c3fd98d5c
+                  values:
+                    - instagram
+              elementType: craft\elements\Entry
+              fieldContext: global
+            elementEditCondition: null
+            fieldUid: 5739e070-1ec8-4575-99e0-2efda932f63c # Block — Instagram
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a2c85525-9c32-4cc4-8b60-001e02abf49c
             userCondition: null
             warning: null
             width: 100
