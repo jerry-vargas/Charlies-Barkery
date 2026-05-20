@@ -15,34 +15,32 @@
         <div class="flex flex-col gap-10">
 
             <div>
-                {% if params.eyebrow is defined and params.eyebrow %}
-                    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">{{ params.eyebrow }}</p>
+                {% if params.eyebrowText is defined and params.eyebrowText %}
+                    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">{{ params.eyebrowText }}</p>
                 {% endif %}
-                {% if params.heading is defined and params.heading %}
-                    <h2 class="font-anton text-charcoal text-4xl leading-tight mb-4">{{ params.heading }}</h2>
+                {% if params.header is defined and params.header %}
+                    <h2 class="font-anton text-charcoal text-4xl leading-tight mb-4">{{ params.header }}</h2>
                 {% endif %}
-                {% if params.description is defined and params.description %}
-                    <p class="font-hobeaux text-charcoal/60 text-base leading-relaxed">{{ params.description }}</p>
+                {% if params.copy is defined and params.copy %}
+                    <p class="font-hobeaux text-charcoal/60 text-base leading-relaxed">{{ params.copy }}</p>
                 {% endif %}
             </div>
 
             {# Contact Details #}
-            {% if params.details is defined and params.details %}
+            {% if params.contactMatrix is defined and params.contactMatrix %}
                 <div class="flex flex-col gap-6">
-                    {% for detail in params.details %}
+                    {% for detail in params.contactMatrix %}
                         <div class="flex items-start gap-4">
                             <div class="bg-teal/10 rounded-2xl w-12 h-12 flex items-center justify-center shrink-0 text-xl">
                                 {{ detail.icon }}
                             </div>
                             <div>
-                                <p class="font-anton text-charcoal text-lg">{{ detail.label }}</p>
-                                {% if detail.href is defined and detail.href %}
-                                    <a href="{{ detail.href }}" class="font-hobeaux text-charcoal/60 text-sm hover:text-teal transition-colors">{{ detail.value }}</a>
-                                {% else %}
-                                    <p class="font-hobeaux text-charcoal/60 text-sm">{{ detail.value }}</p>
+                                <p class="font-anton text-charcoal text-lg">{{ detail.title }} </p>
+                                {% if detail.subTitle %}
+                                    <p class="font-hobeaux text-charcoal/60 text-sm">{{ detail.subTitle }}</p>
                                 {% endif %}
-                                {% if detail.note is defined and detail.note %}
-                                    <p class="font-hobeaux text-charcoal/40 text-xs mt-0.5">{{ detail.note }}</p>
+                                {% if detail.copy %}
+                                    <p class="font-hobeaux text-charcoal/40 text-xs mt-0.5">{{ detail.copy }}</p>
                                 {% endif %}
                             </div>
                         </div>
@@ -56,8 +54,11 @@
                     <p class="font-hobeaux text-charcoal/40 uppercase tracking-widest text-xs mb-3">Follow us</p>
                     <div class="flex gap-4">
                         {% for social in params.socials %}
-                            <a href="{{ social.url }}" target="_blank" rel="noopener" class="font-hobeaux text-sm text-charcoal/60 hover:text-teal transition-colors flex items-center gap-2">
-                                <svg class="h-5 w-5"><use href="#{{ social.handle }}"></use></svg>
+                            <a href="{{ social.url }}" target="_blank" rel="noopener"
+                               class="font-hobeaux text-sm text-charcoal/60 hover:text-teal transition-colors flex items-center gap-2">
+                                <svg class="h-5 w-5">
+                                    <use href="#{{ social.handle }}"></use>
+                                </svg>
                                 {{ social.label }}
                             </a>
                         {% endfor %}
@@ -75,6 +76,5 @@
                 {{ craft.formie.renderForm(params.form) }}
             {% endif %}
         </div>
-
     </div>
 </section>
