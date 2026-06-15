@@ -2,12 +2,12 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "craftcms/aws-s3": "^2.3.0",
+    "craftcms/aws-s3": "^2.3.1",
     "craftcms/ckeditor": "^5.6.1",
-    "craftcms/cms": "^5.10.1",
+    "craftcms/cms": "^5.10.5",
     "craftcms/commerce": "^5.6.5",
     "nystudio107/craft-vite": "^5.0.1",
-    "verbb/formie": "^3.1.23",
+    "verbb/formie": "^3.1.28",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
