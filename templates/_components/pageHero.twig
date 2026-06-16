@@ -1,21 +1,21 @@
 {# Set default values #}
 {% set params = {
-  img: "",
-  title: "",
-  subTitle: ""
+    heroImage: "",
+    header: "",
+    eyebrow: ""
 }|merge(params|default({})) %}
 
 {# Page Hero #}
 <section class="bg-charcoal py-24 relative overflow-hidden">
     <div class="absolute inset-0">
         <img
-                src="{{ params.img }}"
+                src="{{ params.heroImage }}"
                 alt=""
                 class="w-full h-full object-cover opacity-20"
         />
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">{{ params.subTitle }}</p>
-        <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl">{{ params.title }}</h1>
+        <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-3">{{ params.eyebrow }}</p>
+        <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl">{{ params.header }}</h1>
     </div>
 </section>

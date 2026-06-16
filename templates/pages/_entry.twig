@@ -1,9 +1,14 @@
 {% extends '_layout.twig' %}
 
 {% block content %}
+    {% include '_components/pageHero.twig' with {
+        params: {
+            heroImage: entry.heroImage.one.getUrl() ?? "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=1600&q=80",
+            header: entry.header,
+            eyebrow: entry.eyebrow
+        }
+    } %}
     {% include '_partials/blockLoader.twig' with {
         blocks: entry.blockPicker
     } only %}
-{#    {% include "_includes/instagram.twig" %}#}
-{#    {% include "_includes/subscribe.twig" %}#}
 {% endblock %}

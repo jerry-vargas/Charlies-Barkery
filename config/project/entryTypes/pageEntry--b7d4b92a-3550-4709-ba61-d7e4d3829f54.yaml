@@ -37,6 +37,67 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-06-16T19:30:04+00:00'
+            elementCondition: null
+            heading: 'Hero Image'
+            type: craft\fieldlayoutelements\Heading
+            uid: ee8d6f0d-7f04-4ed9-80ca-a22c7945dc18
+            userCondition: null
+          -
+            dateAdded: '2026-06-16T19:30:04+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            handle: eyebrow
+            instructions: null
+            label: Eyebrow
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a1434f7b-1595-4441-932f-7870f0f7f78f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-06-16T19:30:04+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            handle: header
+            instructions: null
+            label: Header
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7f52ea77-d3ac-456e-89e5-cf7d58b53bbb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-06-16T19:30:04+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
+            handle: heroImage
+            instructions: 'only select one image per page.'
+            label: 'Hero Image'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a2411cc-75b2-4ca2-b9a9-1c5e3218ef45
+            userCondition: null
+            warning: null
+            width: 100
+        name: Hero
+        uid: bee69b4e-5d3a-4aa2-aa9e-e0e3e517671d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
             dateAdded: '2026-03-25T15:34:31+00:00'
             editCondition: null
             elementCondition: null
@@ -53,7 +114,7 @@ fieldLayouts:
             warning: null
             width: 100
         name: Content
-        uid: bee69b4e-5d3a-4aa2-aa9e-e0e3e517671d
+        uid: bac0bbac-dbaa-4fab-a65b-691cfd163ee9
         userCondition: null
     thumbFieldKey: null
 handle: pageEntry
