@@ -130,6 +130,121 @@ settings:
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
                           __assoc__:
+                            -
+                              - type
+                              - craft\fieldlayoutelements\Heading
+                            -
+                              - heading
+                              - 'Set Column Rules'
+                            -
+                              - dateAdded
+                              - '2026-06-16T20:29:31+00:00'
+                            -
+                              - uid
+                              - 7ae5fc72-ea7b-480e-8e3f-c91494a0c6a3
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - colsMobile
+                            2:
+                              - label
+                              - 'Cols Mobile'
+                            4:
+                              - tip
+                              - 'if no value, it defaults to 1 column'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-06-16T20:29:31+00:00'
+                            9:
+                              - uid
+                              - b8ece4b1-870c-4580-b85b-3fbbed89b27b
+                            12:
+                              - fieldUid
+                              - 19dd40fc-2edb-4580-ae97-9da81656d181 # Number
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - colsTablet
+                            2:
+                              - label
+                              - 'Cols Tablet'
+                            4:
+                              - tip
+                              - 'if no value, it defaults to 2 columns'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-06-16T20:29:31+00:00'
+                            9:
+                              - uid
+                              - dfbde770-9789-4735-b473-7a7396036450
+                            12:
+                              - fieldUid
+                              - 19dd40fc-2edb-4580-ae97-9da81656d181 # Number
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - colsDesktop
+                            2:
+                              - label
+                              - 'Cols Desktop'
+                            4:
+                              - tip
+                              - 'if no value, it defaults to 4 columns'
+                            6:
+                              - required
+                              - false
+                            7:
+                              - width
+                              - 25
+                            8:
+                              - dateAdded
+                              - '2026-06-16T20:29:31+00:00'
+                            9:
+                              - uid
+                              - 95443bdb-df92-4d76-ac1f-f8e24447c3b8
+                            12:
+                              - fieldUid
+                              - 19dd40fc-2edb-4580-ae97-9da81656d181 # Number
+                        -
+                          __assoc__:
+                            -
+                              - type
+                              - craft\fieldlayoutelements\Heading
+                            -
+                              - heading
+                              - Cards
+                            -
+                              - dateAdded
+                              - '2026-06-16T20:29:31+00:00'
+                            -
+                              - uid
+                              - 9bba842d-5473-4851-b6b1-cd634e10c3ad
+                        -
+                          __assoc__:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField

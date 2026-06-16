@@ -4,7 +4,10 @@
     eyebrowText: block.cardGridBlock.eyebrowText ?? '',
     header: block.cardGridBlock.header ?? '',
     subHeader: block.cardGridBlock.subHeader ?? '',
-    cards: block.cardGridBlock.cardsMatrix.all() ?? []
+    cards: block.cardGridBlock.cardsMatrix.all() ?? [],
+    colsMobile: block.cardGridBlock.colsMobile ?? 1,
+    colsTablet: block.cardGridBlock.colsTablet ?? 2,
+    colsDesktop: block.cardGridBlock.colsDesktop ?? 4
 }|merge(params|default({})) %}
 
 {# Define theme-specific styling #}
@@ -60,6 +63,19 @@
         cardTitleColor: 'text-charcoal',
         cardBodyColor: 'text-charcoal/60',
         linkColor: 'text-charcoal hover:text-teal'
+    },
+    gray: {
+        sectionBg: 'bg-gray-50',
+        subheaderColor: 'text-teal',
+        headerColor: 'text-charcoal',
+        descColor: 'text-charcoal/60',
+        cardBg: 'bg-white',
+        cardBorder: 'border-gray-100',
+        iconWrapperClass: 'bg-teal/10 rounded-2xl w-12 h-12 flex items-center justify-center',
+        iconColor: 'text-teal',
+        cardTitleColor: 'text-charcoal',
+        cardBodyColor: 'text-charcoal/60',
+        linkColor: 'text-teal hover:text-bronze'
     }
 } %}
 
@@ -68,18 +84,25 @@
 <section class="{{ theme.sectionBg }} py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {# Header Section #}
-        <div class="text-center mb-14">
-            {% if params.eyebrowText %}
-                <p class="font-hobeaux {{ theme.subheaderColor }} uppercase tracking-widest text-sm mb-2">{{ params.eyebrowText }}</p>
-            {% endif %}
-            <h2 class="font-anton {{ theme.headerColor }} text-4xl sm:text-5xl">{{ params.header }}</h2>
-            {% if params.subHeader %}
-                <p class="font-hobeaux {{ theme.descColor }} text-base leading-relaxed max-w-xl mt-4 mx-auto">{{ params.subHeader }}</p>
-            {% endif %}
-        </div>
+        {% if params.eyebrowText or params.header or params.subHeader %}
+            <div class="text-center mb-14">
+                {% if params.eyebrowText %}
+                    <p class="font-hobeaux {{ theme.subheaderColor }} uppercase tracking-widest text-sm mb-2">{{ params.eyebrowText }}</p>
+                {% endif %}
+                {% if params.header %}
+                    <h2 class="font-anton {{ theme.headerColor }} text-4xl sm:text-5xl">{{ params.header }}</h2>
+                {% endif %}
+                {% if params.subHeader %}
+                    <p class="font-hobeaux {{ theme.descColor }} text-base leading-relaxed max-w-xl mt-4 mx-auto">{{ params.subHeader }}</p>
+                {% endif %}
+            </div>
+        {% endif %}
 
         {# Cards Grid #}
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:grid-cols-(--tablet-cols) lg:grid-cols-(--desktop-cols)"
+             style="--mobile-cols: repeat({{ params.colsMobile }}, 1fr);
+                     --tablet-cols: repeat({{ params.colsTablet }}, 1fr);
+                     --desktop-cols: repeat({{ params.colsDesktop }}, 1fr);">
             {% for card in params.cards %}
                 <div class="{{ theme.cardBg }} border {{ theme.cardBorder }} rounded-3xl p-8 flex flex-col gap-4">
 
