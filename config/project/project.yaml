@@ -1,4 +1,4 @@
-dateModified: 1781642494
+dateModified: 1781732927
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
@@ -35,8 +35,10 @@ meta:
     19dd40fc-2edb-4580-ae97-9da81656d181: Number # Number
     32df88de-3497-4bb2-8385-f85a301ab403: 'Contact Matrix Entry' # Contact Matrix Entry
     46d1905d-56db-493d-90c0-5de9d9910388: 'Block — Split Section' # Block — Split Section
+    46e073e0-9217-4592-acbc-fa5bf1a4d474: 'Cake Size' # Cake Size
     64e2bf73-506f-4e6f-9a22-dd5d54f10b77: 'Rich Text Editor' # Rich Text Editor
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
+    73dcc645-b596-485f-9f20-5f87244056c5: Flavors # Flavors
     0119d5ec-bfd1-4692-a006-407e05e36d20: 'Block — Product Carousel' # Block — Product Carousel
     231b19ec-9923-4689-ad97-450bdcd8ca3a: 'Block — Subscribe ' # Block — Subscribe 
     314fa8ad-a55f-4f35-9895-de1a13de0a96: 'Entry — Timeline Matrix' # Entry — Timeline Matrix
@@ -49,6 +51,7 @@ meta:
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
     62025e7c-d31e-4ea1-a778-df0457c8317a: 'Entry — Card Matrix' # Entry — Card Matrix
     6671498f-b940-4c47-a8d5-1de96b0bd763: 'Block — Card Grid' # Block — Card Grid
+    63625181-48d4-4bf8-9c3e-59ba7cdbcc76: Treats # Treats
     a3b7b182-c030-4877-a406-afe25fae1acc: 'Entry — Image Matrix' # Entry — Image Matrix
     a8354a78-8bd4-4740-a1e5-99da6ee4e9bd: Pages # Pages
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Entry — Page' # Entry — Page
@@ -59,10 +62,12 @@ meta:
     c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
     d2dbcdc7-ca53-408a-8df4-99d795133201: 'Block — Hero' # Block — Hero
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
+    d5779903-bd5b-414c-acc4-62f703778b54: Cakes # Cakes
     dc36f051-fd02-4e59-bf63-204e8eccf224: 'Block — Call To Action' # Block — Call To Action
     e85b17b1-d20e-4121-a465-aa688b1ebfa5: 'Block — Timeline' # Block — Timeline
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
     ea57733c-b37f-4fd3-b7bf-ad80ce561f3f: Form # Form
+    f534660f-1263-4d81-b9a4-d2cc4ab73d27: Size # Size
 plugins:
   aws-s3:
     edition: standard

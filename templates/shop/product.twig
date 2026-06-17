@@ -1,0 +1,104 @@
+{% extends '_layout.twig' %}
+
+{% block content %}
+
+    {% include '_components/pageHero.twig' with {
+        params: {
+            img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1600&q=80",
+            title: "All Treats",
+            subTitle: "The Barkery Shop"
+        }
+    } %}
+
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {# Filters + Sort #}
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
+
+                {# TODO: Replace with dynamic category query #}
+                {# {% set categories = craft.categories.group('productCategories').all() %} #}
+                <div class="flex flex-wrap gap-2">
+                    {% set dummyCategories = ['All', 'Biscuits', 'Cakes', 'Chews', 'Seasonal'] %}
+                    {% for cat in dummyCategories %}
+                        <a
+                                href="#"
+                                class="font-hobeaux text-sm px-4 py-2 rounded-full border transition-colors
+                {{ loop.first ? 'bg-charcoal text-white border-charcoal' : 'border-gray-200 text-charcoal hover:border-teal hover:text-teal' }}"
+                        >
+                            {{ cat }}
+                        </a>
+                    {% endfor %}
+                </div>
+
+                <p class="font-hobeaux text-sm text-charcoal/40 shrink-0">12 treats</p>
+
+            </div>
+
+            {# TODO: Replace with Craft Commerce product query #}
+            {# {% set products = craft.products.type('treats').all() %} #}
+
+            {% set dummyProducts = [
+                { title: "Peanut Butter Pupcakes",  price: "$12.00", sale: false, tag: "Best Seller", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" },
+                { title: "Sweet Potato Chews",       price: "$9.00",  sale: false, tag: "New",         img: "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=600&q=80" },
+                { title: "Carrot & Oat Biscuits",    price: "$10.00", sale: true,  salePrice: "$8.00", tag: "",            img: "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=600&q=80" },
+                { title: "Bacon Bone Cookies",       price: "$11.00", sale: false, tag: "Fan Fave",    img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" },
+                { title: "Birthday Cake Bites",      price: "$14.00", sale: false, tag: "Limited",     img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80" },
+                { title: "Blueberry Biscuits",       price: "$10.00", sale: false, tag: "",            img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" },
+                { title: "Pumpkin Spice Treats",     price: "$11.00", sale: true,  salePrice: "$9.00", tag: "Seasonal",    img: "https://images.unsplash.com/photo-1601758125946-6ec2ef64daf8?w=600&q=80" },
+                { title: "Chicken & Rice Bites",     price: "$12.00", sale: false, tag: "",            img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80" },
+                { title: "Apple Cinnamon Bones",     price: "$10.00", sale: false, tag: "",            img: "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?w=600&q=80" },
+                { title: "Mini Birthday Cake",       price: "$18.00", sale: false, tag: "Popular",     img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&q=80" },
+                { title: "Salmon Snaps",             price: "$13.00", sale: false, tag: "",            img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" },
+                { title: "Holiday Cookie Box",       price: "$22.00", sale: false, tag: "Limited",     img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" }
+            ] %}
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                {% for product in dummyProducts %}
+                    <a href="#" class="group flex flex-col">
+
+                        {# Image #}
+                        <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square mb-4">
+                            <img
+                                    src="{{ product.img }}"
+                                    alt="{{ product.title }}"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+
+                            {# Badge #}
+                            {% if product.tag %}
+                                <span class="absolute top-3 left-3 bg-teal text-charcoal font-hobeaux text-xs font-bold px-3 py-1 rounded-full">{{ product.tag }}</span>
+                            {% endif %}
+
+                            {# Quick add #}
+                            <button
+                                    type="button"
+                                    class="absolute bottom-3 right-3 bg-white text-charcoal hover:bg-teal hover:text-white transition-colors rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+                                    aria-label="Add to cart"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        {# Details #}
+                        <h3 class="font-hobeaux font-bold text-charcoal text-sm leading-snug group-hover:text-teal transition-colors">{{ product.title }}</h3>
+                        <div class="flex items-center gap-2 mt-1">
+                            {% if product.sale %}
+                                <span class="font-hobeaux text-bronze text-sm">{{ product.salePrice }}</span>
+                                <span class="font-hobeaux text-charcoal/30 text-sm line-through">{{ product.price }}</span>
+                            {% else %}
+                                <span class="font-hobeaux text-bronze text-sm">{{ product.price }}</span>
+                            {% endif %}
+                        </div>
+
+                    </a>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

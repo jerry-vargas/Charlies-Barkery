@@ -1,0 +1,79 @@
+columnSuffix: null
+handle: flavors
+instructions: null
+name: Flavors
+searchable: true
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Apple Peanut Butter'
+        -
+          - value
+          - applePeanutButter
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Pumpkin Peanut Butter'
+        -
+          - value
+          - pumpkinPeanutButter
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Peanut Butter Bacon'
+        -
+          - value
+          - peanutButterBacon
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Bacon Egg & Cheese'
+        -
+          - value
+          - baconEggCheese
+        -
+          - icon
+          - ''
+        -
+          - color
+          - ''
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

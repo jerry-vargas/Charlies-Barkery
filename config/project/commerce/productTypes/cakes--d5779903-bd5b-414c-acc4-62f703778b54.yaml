@@ -1,0 +1,325 @@
+defaultPlacement: end
+descriptionFormat: '{product.title} - {title}'
+enableVersioning: false
+handle: cakes
+hasDimensions: false
+hasProductTitleField: true
+hasVariantTitleField: true
+isStructure: false
+maxLevels: null
+maxVariants: null
+name: Cakes
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary product page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+productFieldLayouts:
+  bd5e6c13-5624-4a3f-97a4-f5b0dcffc479:
+    cardThumbAlignment: end
+    cardView:
+      - defaultSku
+      - defaultPrice
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\commerce\fieldlayoutelements\ProductTitleField
+            uid: fdacf87c-37d9-4b9d-ae78-09164fa3790c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: variants
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\VariantsField
+            uid: 615ef6d3-5593-4bf0-920e-4dffd07204a0
+            userCondition: null
+            warning: null
+        name: Content
+        uid: bc7a7390-fd29-47cf-bbe6-064aca1874bc
+        userCondition: null
+    thumbFieldKey: null
+productTitleFormat: ''
+productTitleTranslationKeyFormat: null
+productTitleTranslationMethod: site
+productUiLabelFormat: '{title}'
+propagationMethod: all
+showSlugField: true
+siteSettings:
+  2589bc8f-a277-4da6-ae5f-f294f779bc87: # charlies
+    enabledByDefault: true
+    hasUrls: true
+    template: ''
+    uriFormat: 'cakes/{slug}'
+skuFormat: ''
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+variantFieldLayouts:
+  7728463f-3007-43b0-80df-f869d593e052:
+    cardThumbAlignment: end
+    cardView:
+      - sku
+      - priceView
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\commerce\fieldlayoutelements\VariantTitleField
+            uid: 8fc0593b-22f7-4c83-b688-44686b54de5a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: sku
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: true
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableSkuField
+            uid: 84c958f4-e054-46a0-a929-1e832b326b16
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-06-17T21:48:47+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 46e073e0-9217-4592-acbc-fa5bf1a4d474 # Cake Size
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d099518b-9462-47dd-8147-984b41c2fbea
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: price
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: __blank__
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: true
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasablePriceField
+            uid: 7a4483a4-4be8-4384-b0fc-2fe97febb09c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: stock
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            defaultAllowOutOfStockPurchases: false
+            defaultInventoryTracked: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableStockField
+            uid: 3eec8aa0-0384-49cf-be5c-809d3c87f99d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: availableForPurchase
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            defaultAvailableForPurchase: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableAvailableForPurchaseField
+            uid: 3c63ffea-ace7-4c66-bb3c-7e5b30d6718c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: allowedQty
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableAllowedQtyField
+            uid: b699e00f-6b40-4dd6-9286-b158258f5481
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: freeShipping
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableFreeShippingField
+            uid: a0039ecd-ed05-462d-a736-8d71272a6a11
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: promotable
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            defaultPromotable: false
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasablePromotableField
+            uid: 820192bb-1796-48f4-b01a-65a5d45572d5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: dimensions
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableDimensionsField
+            uid: 515ab66a-9263-412d-85ca-953f59216e76
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            attribute: weight
+            dateAdded: '2026-06-17T21:46:42+00:00'
+            elementCondition: null
+            id: null
+            instructions: null
+            label: null
+            mandatory: true
+            orientation: null
+            requirable: false
+            required: false
+            tip: null
+            translatable: false
+            type: craft\commerce\fieldlayoutelements\PurchasableWeightField
+            uid: 32923b85-1190-4d63-bd11-3a78861ec261
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 842e6cc7-e7c5-4495-855d-b42f577dd076
+        userCondition: null
+    thumbFieldKey: null
+variantTitleFormat: '{product.title}'
+variantTitleTranslationKeyFormat: null
+variantTitleTranslationMethod: site
+variantUiLabelFormat: '{title}'
