@@ -16,25 +16,41 @@
         sectionBg: 'bg-white',
         eyebrowColor: 'text-teal',
         headingColor: 'text-charcoal',
-        bodyColor: 'text-charcoal/70'
+        bodyColor: 'text-charcoal/70',
+        overlayBadgeBg: 'bg-white/10 backdrop-blur-sm border border-white/20',
+        overlayBadgeText: 'text-white',
+        overlayBadgeSubText: 'text-white/60',
+        cornerBadgeBg: 'bg-bronze text-white'
     },
     charcoal: {
         sectionBg: 'bg-charcoal',
         eyebrowColor: 'text-teal',
         headingColor: 'text-white',
-        bodyColor: 'text-white/70'
+        bodyColor: 'text-white/70',
+        overlayBadgeBg: 'bg-white/10 backdrop-blur-sm border border-white/20',
+        overlayBadgeText: 'text-white',
+        overlayBadgeSubText: 'text-white/60',
+        cornerBadgeBg: 'bg-teal text-charcoal'
     },
     teal: {
         sectionBg: 'bg-teal',
         eyebrowColor: 'text-white/70',
         headingColor: 'text-white',
-        bodyColor: 'text-white/80'
+        bodyColor: 'text-white/80',
+        overlayBadgeBg: 'bg-white/10 backdrop-blur-sm border border-white/20',
+        overlayBadgeText: 'text-white',
+        overlayBadgeSubText: 'text-white/60',
+        cornerBadgeBg: 'bg-charcoal text-white'
     },
     bronze: {
         sectionBg: 'bg-bronze',
         eyebrowColor: 'text-white/70',
         headingColor: 'text-white',
-        bodyColor: 'text-white/70'
+        bodyColor: 'text-white/70',
+        overlayBadgeBg: 'bg-white/10 backdrop-blur-sm border border-white/20',
+        overlayBadgeText: 'text-white',
+        overlayBadgeSubText: 'text-white/60',
+        cornerBadgeBg: 'bg-charcoal text-white'
     }
 } %}
 
@@ -53,17 +69,17 @@
                 {# Overlay gradient + frosted badge #}
                 {% if params.badge and params.badgeOverlay %}
                     <div class="absolute inset-0 rounded-3xl bg-gradient-to-t from-charcoal/60 to-transparent"></div>
-                    <div class="absolute bottom-5 left-5 right-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-5 py-4">
-                        <p class="font-anton text-white text-lg">{{ params.badgeText }}</p>
+                    <div class="absolute bottom-5 left-5 right-5 {{ theme.overlayBadgeBg }} rounded-2xl px-5 py-4">
+                        <p class="font-anton {{ theme.overlayBadgeText }} text-lg">{{ params.badgeText }}</p>
                         {% if params.badgeSubText %}
-                            <p class="font-hobeaux text-white/60 text-sm mt-0.5">{{ params.badgeSubText }}</p>
+                            <p class="font-hobeaux {{ theme.overlayBadgeSubText }} text-sm mt-0.5">{{ params.badgeSubText }}</p>
                         {% endif %}
                     </div>
                 {% endif %}
 
                 {# Corner badge #}
                 {% if params.badge and not params.badgeOverlay %}
-                    <div class="absolute -bottom-5 -right-5 bg-bronze text-white font-anton text-lg px-6 py-4 rounded-2xl shadow-lg hidden sm:block">
+                    <div class="absolute -bottom-5 -right-5 {{ theme.cornerBadgeBg }} font-anton text-lg px-6 py-4 rounded-2xl shadow-lg hidden sm:block">
                         {{ params.badgeText }}
                     </div>
                 {% endif %}
