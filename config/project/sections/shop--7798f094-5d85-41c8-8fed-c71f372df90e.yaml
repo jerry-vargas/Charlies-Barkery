@@ -1,0 +1,22 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: d88cedd5-56ab-4208-a2f0-d9adfc68ce30 # Single Entry
+handle: shop
+maxAuthors: 1
+minAuthors: 1
+name: Shop
+previewTargets:
+  -
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  2589bc8f-a277-4da6-ae5f-f294f779bc87: # charlies
+    enabledByDefault: true
+    hasUrls: true
+    template: shop/index.twig
+    uriFormat: shop
+type: single

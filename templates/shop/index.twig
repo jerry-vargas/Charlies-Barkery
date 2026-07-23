@@ -4,9 +4,9 @@
 
     {% include '_components/pageHero.twig' with {
         params: {
-            img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1600&q=80",
-            title: "All Treats",
-            subTitle: "The Barkery Shop"
+            eyebrow: entry.eyebrow ,
+            heroImage: entry.heroImage.one().url,
+            header: entry.header
         }
     } %}
 
@@ -45,7 +45,7 @@
                                      stroke-width="2">
                                     <path stroke-linecap="round"
                                           stroke-linejoin="round"
-                                          d="M12 4v16m8-8H4"/>
+                                          d="M9 5l7 7-7 7"/>
                                 </svg>
                             </button>
                         </div>
