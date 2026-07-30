@@ -106,8 +106,8 @@ siteSettings:
   2589bc8f-a277-4da6-ae5f-f294f779bc87: # charlies
     enabledByDefault: true
     hasUrls: true
-    template: ''
-    uriFormat: 'cakes/{slug}'
+    template: shop/product.twig
+    uriFormat: 'products/{slug}'
 skuFormat: ''
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
