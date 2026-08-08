@@ -53,22 +53,25 @@
                 { title: "Holiday Cookie Box",       price: "$22.00", sale: false, tag: "Limited",     img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" }
             ] %}
 
+
+            {% set productVariants = product.variants().all() %}
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                {% for product in dummyProducts %}
+                {% for variant in productVariants %}
+                    {% set image = variant.images.one() ?? product.images.one() %}
                     <a href="#" class="group flex flex-col">
 
                         {# Image #}
                         <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square mb-4">
                             <img
-                                    src="{{ product.img }}"
-                                    alt="{{ product.title }}"
+                                    src="{{ image.getUrl() }}"
+                                    alt="{{ image.title ?? '' }}"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
 
                             {# Badge #}
-                            {% if product.tag %}
-                                <span class="absolute top-3 left-3 bg-teal text-charcoal font-hobeaux text-xs font-bold px-3 py-1 rounded-full">{{ product.tag }}</span>
-                            {% endif %}
+{#                            {% if product.tag %}#}
+{#                                <span class="absolute top-3 left-3 bg-teal text-charcoal font-hobeaux text-xs font-bold px-3 py-1 rounded-full">{{ product.tag }}</span>#}
+{#                            {% endif %}#}
 
                             {# Quick add #}
                             <button
@@ -84,14 +87,14 @@
                         </div>
 
                         {# Details #}
-                        <h3 class="font-hobeaux font-bold text-charcoal text-sm leading-snug group-hover:text-teal transition-colors">{{ product.title }}</h3>
+                        <h3 class="font-hobeaux font-bold text-charcoal text-sm leading-snug group-hover:text-teal transition-colors">{{ variant.title }}</h3>
                         <div class="flex items-center gap-2 mt-1">
-                            {% if product.sale %}
-                                <span class="font-hobeaux text-bronze text-sm">{{ product.salePrice }}</span>
-                                <span class="font-hobeaux text-charcoal/30 text-sm line-through">{{ product.price }}</span>
-                            {% else %}
-                                <span class="font-hobeaux text-bronze text-sm">{{ product.price }}</span>
-                            {% endif %}
+{#                            {% if product.sale %}#}
+{#                                <span class="font-hobeaux text-bronze text-sm">{{ product.salePrice }}</span>#}
+{#                                <span class="font-hobeaux text-charcoal/30 text-sm line-through">{{ product.price }}</span>#}
+{#                            {% else %}#}
+{#                                <span class="font-hobeaux text-bronze text-sm">{{ product.price }}</span>#}
+{#                            {% endif %}#}
                         </div>
 
                     </a>

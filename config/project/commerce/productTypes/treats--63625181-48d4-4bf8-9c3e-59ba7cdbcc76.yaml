@@ -331,6 +331,22 @@ variantFieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-08-08T03:06:52+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 75eea5e9-674d-45a9-b2ce-881926e025df
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: e1141bde-bfb6-4c5d-a60d-39a1b86483b8
         userCondition: null
