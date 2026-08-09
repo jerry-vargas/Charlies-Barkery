@@ -16,8 +16,10 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
                 <h2 class="text-lg sm:text-xl md:text2-xl lg:text-3xl text-center text-teal font-anton">Shop By Category</h2>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                {% set products = craft.products.all() %}
+            {% set products = craft.products.all() %}
+            {% set colCount = products|length > 4 ? 4 : products|length %}
+            {% set lgColClass = {1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2', 3: 'lg:grid-cols-3', 4: 'lg:grid-cols-4'}[colCount] ?? 'lg:grid-cols-4' %}
+            <div class="grid grid-cols-2 sm:grid-cols-3 {{ lgColClass }} gap-6">
                 {% for product in products %}
                     <a href="{{ product.url }}"
                        class="group flex flex-col">
