@@ -1,4 +1,4 @@
-{% set categories = craft.products() %}
+{% set productCategories = craft.products() %}
 {% set productVariants = product.variants().all() %}
 
 {% extends '_layout.twig' %}
@@ -17,7 +17,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
                 <div class="flex flex-wrap gap-2">
-                    {% for cat in categories %}
+                    {% for cat in productCategories %}
                         <a
                             href="{{ cat.url }}"
                             class="font-hobeaux text-sm px-4 py-2 rounded-full border transition-colors
@@ -32,7 +32,7 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
                 {% for variant in productVariants %}
                     {% set image = variant.images.one() ?? product.images.one() %}
-                    <a href="#"
+                    <a href="{{ variant.url }}"
                        class="group flex flex-col">
                         {# Image #}
                         <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square mb-4">
