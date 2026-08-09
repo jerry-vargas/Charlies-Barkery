@@ -95,6 +95,28 @@ productFieldLayouts:
         name: Content
         uid: bc7a7390-fd29-47cf-bbe6-064aca1874bc
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-08-09T13:11:20+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: productInfo
+            instructions: null
+            label: 'Product Info'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3652f4c-700e-4772-90ed-f343ad39dd60
+            userCondition: null
+            warning: null
+            width: 100
+        name: Defaults
+        uid: ceaf27f2-0dda-4dcb-8752-fb5beddd273d
+        userCondition: null
     thumbFieldKey: null
 productTitleFormat: ''
 productTitleTranslationKeyFormat: null
