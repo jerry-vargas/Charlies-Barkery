@@ -353,6 +353,28 @@ variantFieldLayouts:
             userCondition: null
             warning: null
             width: 100
+        name: Content
+        uid: 842e6cc7-e7c5-4495-855d-b42f577dd076
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-08-09T13:13:33+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: productInfo
+            instructions: null
+            label: 'Product Info'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c0878dd4-c81c-44b2-99a5-442543e8d5ca
+            userCondition: null
+            warning: null
+            width: 100
           -
             dateAdded: '2026-07-19T03:18:36+00:00'
             editCondition: null
@@ -369,8 +391,8 @@ variantFieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Content
-        uid: 842e6cc7-e7c5-4495-855d-b42f577dd076
+        name: Description
+        uid: 07d78e37-b7ff-45c0-abd3-ab3b8df4a48f
         userCondition: null
       -
         elementCondition: null
@@ -393,28 +415,6 @@ variantFieldLayouts:
             width: 100
         name: 'Nutritional Info'
         uid: e3680ddc-f64f-47a7-a30f-0227943407a4
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: '2026-08-09T13:13:33+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
-            handle: productInfo
-            instructions: null
-            label: 'Product Info'
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: c0878dd4-c81c-44b2-99a5-442543e8d5ca
-            userCondition: null
-            warning: null
-            width: 100
-        name: Description
-        uid: 07d78e37-b7ff-45c0-abd3-ab3b8df4a48f
         userCondition: null
     thumbFieldKey: null
 variantTitleFormat: '{product.title}'

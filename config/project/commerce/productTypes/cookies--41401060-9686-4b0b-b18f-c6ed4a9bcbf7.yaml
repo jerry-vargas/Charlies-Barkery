@@ -344,6 +344,44 @@ variantFieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2026-08-09T13:13:55+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: productInfo
+            instructions: null
+            label: 'Product Info'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 12cffcbb-3502-4f2d-b16c-49a5b061ac92
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-08-09T13:15:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 396c1b46-bdcf-4e25-94af-a612a999c886
+            userCondition: null
+            warning: null
+            width: 100
+        name: Description
+        uid: 307722bc-d62e-435c-a579-5e4e9d475cbc
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
             dateAdded: '2026-08-09T03:10:22+00:00'
             editCondition: null
             elementCondition: null
@@ -361,28 +399,6 @@ variantFieldLayouts:
             width: 100
         name: 'Nutritional Info'
         uid: 3639005f-5a72-4522-ae7a-7f893370d03f
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            dateAdded: '2026-08-09T13:13:55+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
-            handle: productInfo
-            instructions: null
-            label: 'Product Info'
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 12cffcbb-3502-4f2d-b16c-49a5b061ac92
-            userCondition: null
-            warning: null
-            width: 100
-        name: Description
-        uid: 307722bc-d62e-435c-a579-5e4e9d475cbc
         userCondition: null
     thumbFieldKey: null
 variantTitleFormat: '{product.title}'
