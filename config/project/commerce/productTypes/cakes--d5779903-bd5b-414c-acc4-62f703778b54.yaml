@@ -350,6 +350,28 @@ variantFieldLayouts:
         name: Content
         uid: 842e6cc7-e7c5-4495-855d-b42f577dd076
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-08-09T03:09:40+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: nutrition
+            instructions: null
+            label: Nutrition
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0542d73-524d-4ad0-823d-835487bc4694
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Nutritional Info'
+        uid: e3680ddc-f64f-47a7-a30f-0227943407a4
+        userCondition: null
     thumbFieldKey: null
 variantTitleFormat: '{product.title}'
 variantTitleTranslationKeyFormat: null
