@@ -3,5 +3,80 @@
 }|merge(params|default({})) %}
 
 {% set variant = params.variant %}
+{% set image = variant.images.one() ?? variant.product.images.one() %}
 
-<h1>{{ variant.title }}</h1>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+    {# Image #}
+    <div class="relative overflow-hidden rounded-3xl bg-gray-100 aspect-square">
+        {% if image %}
+            <img
+                src="{{ image.getUrl() }}"
+                alt="{{ image.title ?? variant.title }}"
+                class="w-full h-full object-cover"
+            />
+        {% endif %}
+    </div>
+
+    {# Details #}
+    <div class="flex flex-col gap-6 lg:pt-4">
+
+        {# Breadcrumb back #}
+        <a href="{{ variant.product.url }}" class="font-hobeaux text-sm text-charcoal/40 hover:text-teal transition-colors inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+            All {{ variant.product.title }}
+        </a>
+
+        {# Title #}
+        <div>
+            <p class="font-hobeaux text-teal uppercase tracking-widest text-sm mb-2">{{ variant.product.title }}</p>
+            <h1 class="font-anton text-charcoal text-4xl sm:text-5xl">{{ variant.title }}</h1>
+        </div>
+
+        {# Price #}
+        <p class="font-anton text-3xl text-charcoal">${{ variant.price|number_format(2) }}</p>
+
+        {# Divider #}
+        <hr class="border-gray-100"/>
+
+        {# Other variants (size/flavor picker) #}
+        {% if variant.product.variants|length > 1 %}
+            <div>
+                <p class="font-hobeaux text-xs uppercase tracking-widest text-charcoal/40 mb-3">Options</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for v in variant.product.variants %}
+                        <a
+                            href="{{ v.url }}"
+                            class="font-hobeaux text-sm px-4 py-2 rounded-full border transition-colors
+                            {{ v.id == variant.id ? 'bg-charcoal text-white border-charcoal' : 'border-gray-200 text-charcoal hover:border-teal hover:text-teal' }}"
+                        >
+                            {{ v.title }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+
+        {# Add to cart #}
+        <form method="post">
+            {{ csrfInput() }}
+            {{ actionInput('commerce/cart/update-cart') }}
+            <input type="hidden" name="purchasableId" value="{{ variant.id }}">
+            <input type="hidden" name="qty" value="1">
+            <button
+                type="submit"
+                class="w-full bg-teal text-white font-hobeaux font-bold text-sm uppercase tracking-widest py-4 rounded-full hover:bg-charcoal transition-colors"
+            >
+                Add to Cart
+            </button>
+        </form>
+
+        {# Stock notice #}
+        {% if not variant.hasUnlimitedStock and variant.stock <= 5 %}
+            <p class="font-hobeaux text-sm text-bronze">Only {{ variant.stock }} left in stock</p>
+        {% endif %}
+
+    </div>
+</div>
