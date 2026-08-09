@@ -1,0 +1,7 @@
+{% set params = {
+    variant: null
+}|merge(params|default({})) %}
+
+{% set variant = params.variant %}
+
+<h1>{{ variant.title }}</h1>

@@ -1,5 +1,7 @@
 {% set productCategories = craft.products() %}
 {% set productVariants = product.variants().all() %}
+{# get variant in case user selected a variant #}
+{% set variantId = craft.app.request.getParam('variant') %}
 
 {% extends '_layout.twig' %}
 
@@ -29,43 +31,52 @@
                 </div>
                 <p class="font-hobeaux text-sm text-charcoal/40 shrink-0">{{ productVariants|length }} items</p>
             </div>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                {% for variant in productVariants %}
-                    {% set image = variant.images.one() ?? product.images.one() %}
-                    <a href="{{ variant.url }}"
-                       class="group flex flex-col">
-                        {# Image #}
-                        <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square mb-4">
-                            <img
-                                src="{{ image.getUrl() }}"
-                                alt="{{ image.title ?? '' }}"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                            {# Quick add #}
-                            <button
-                                type="button"
-                                class="absolute bottom-3 right-3 bg-white text-charcoal hover:bg-teal hover:text-white transition-colors rounded-full w-10 h-10 flex items-center justify-center shadow-md"
-                                aria-label="Add to cart"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     class="h-5 w-5"
-                                     fill="none"
-                                     viewBox="0 0 24 24"
-                                     stroke="currentColor"
-                                     stroke-width="2">
-                                    <path stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M12 4v16m8-8H4"/>
-                                </svg>
-                            </button>
-                        </div>
-                        {# Details #}
-                        <h3 class="font-hobeaux font-bold text-charcoal text-sm leading-snug group-hover:text-teal transition-colors">{{ variant.title }}</h3>
-                        <div class="flex items-center gap-2 mt-1">
-                        </div>
-                    </a>
-                {% endfor %}
-            </div>
+            {% if variantId %}
+                {% set activeVariant = craft.variants().id(variantId).one() %}
+                {% include 'shop/partials/variant.twig' with {
+                    params:{
+                        variant: activeVariant
+                    }
+                } only %}
+            {% else %}
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {% for variant in productVariants %}
+                        {% set image = variant.images.one() ?? product.images.one() %}
+                        <a href="{{ variant.url }}"
+                           class="group flex flex-col">
+                            {# Image #}
+                            <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square mb-4">
+                                <img
+                                    src="{{ image.getUrl() }}"
+                                    alt="{{ image.title ?? '' }}"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                                {# Quick add #}
+                                <button
+                                    type="button"
+                                    class="absolute bottom-3 right-3 bg-white text-charcoal hover:bg-teal hover:text-white transition-colors rounded-full w-10 h-10 flex items-center justify-center shadow-md"
+                                    aria-label="Add to cart"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         class="h-5 w-5"
+                                         fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke="currentColor"
+                                         stroke-width="2">
+                                        <path stroke-linecap="round"
+                                              stroke-linejoin="round"
+                                              d="M12 4v16m8-8H4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            {# Details #}
+                            <h3 class="font-hobeaux font-bold text-charcoal text-sm leading-snug group-hover:text-teal transition-colors">{{ variant.title }}</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
         </div>
     </section>
 
