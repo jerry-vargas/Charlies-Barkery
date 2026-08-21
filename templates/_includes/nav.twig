@@ -1,24 +1,25 @@
 <nav class="bg-white shadow-sm">
+  {% set currentSection = craft.app.request.getSegment(1) %}
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16">
+    <div class="flex items-center justify-between h-20 sm:h-24">
 
       {# Logo #}
-      <a href="{{ siteUrl }}" class="flex items-center gap-2">
-        <svg class="h-10 w-10"><use href="#charlies-logo"></use></svg>
+      <a href="{{ siteUrl }}" class="flex items-center gap-2" aria-label="Charlie's Barkery home">
+        <svg class="h-14 w-14 sm:h-16 sm:w-16"><use href="#charlies-logo"></use></svg>
       </a>
 
       {# Desktop Nav #}
-      <ul class="hidden md:flex items-center gap-8 text-charcoal font-hobeaux">
-        <li><a href="{{ url('shop') }}" class="hover:text-teal transition-colors">Shop</a></li>
-        <li><a href="{{ url('about') }}" class="hover:text-teal transition-colors">About</a></li>
-        <li><a href="{{ url('find-us') }}" class="hover:text-teal transition-colors">Find Us</a></li>
-        <li><a href="{{ url('contact') }}" class="hover:text-teal transition-colors">Contact</a></li>
+      <ul class="hidden md:flex items-center gap-1 rounded-full border border-teal/20 bg-teal/10 p-1.5 text-base lg:text-lg font-hobeaux">
+        <li><a href="{{ url('shop') }}" class="block rounded-full px-5 py-2 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 transition-colors {{ currentSection == 'shop' ? 'bg-teal text-white shadow-sm' : 'text-teal hover:bg-white hover:text-bronze' }}"{% if currentSection == 'shop' %} aria-current="page"{% endif %}>Shop</a></li>
+        <li><a href="{{ url('about') }}" class="block rounded-full px-5 py-2 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 transition-colors {{ currentSection == 'about' ? 'bg-teal text-white shadow-sm' : 'text-teal hover:bg-white hover:text-bronze' }}"{% if currentSection == 'about' %} aria-current="page"{% endif %}>About</a></li>
+        <li><a href="{{ url('find-us') }}" class="block rounded-full px-5 py-2 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 transition-colors {{ currentSection == 'find-us' ? 'bg-teal text-white shadow-sm' : 'text-teal hover:bg-white hover:text-bronze' }}"{% if currentSection == 'find-us' %} aria-current="page"{% endif %}>Find Us</a></li>
+        <li><a href="{{ url('contact') }}" class="block rounded-full px-5 py-2 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 transition-colors {{ currentSection == 'contact' ? 'bg-teal text-white shadow-sm' : 'text-teal hover:bg-white hover:text-bronze' }}"{% if currentSection == 'contact' %} aria-current="page"{% endif %}>Contact</a></li>
       </ul>
 
       {# Cart + Mobile Toggle #}
-      <div class="flex items-center gap-4">
-        <a href="{{ url('shop/cart') }}" class="relative text-charcoal hover:text-teal transition-colors" aria-label="Cart">
-          <svg class="h-6 w-6"><use href="#shopping-cart"></use></svg>
+      <div class="flex items-center gap-1 sm:gap-2">
+        <a href="{{ url('shop/cart') }}" class="relative p-2 text-charcoal hover:text-teal transition-colors" aria-label="Cart">
+          <svg class="h-7 w-7"><use href="#shopping-cart"></use></svg>
           {% set cartCount = craft.commerce.carts.cart.totalQty ?? 0 %}
           {% if cartCount > 0 %}
             <span class="absolute -top-2 -right-2 bg-teal text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">{{ cartCount }}</span>
@@ -28,11 +29,11 @@
         {# Mobile menu button #}
         <button
           id="mobile-menu-toggle"
-          class="md:hidden text-charcoal hover:text-teal transition-colors"
+          class="md:hidden p-2 text-charcoal hover:text-teal transition-colors"
           aria-label="Toggle menu"
           aria-expanded="false"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
@@ -43,11 +44,11 @@
 
   {# Mobile Menu #}
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-    <ul class="flex flex-col px-4 py-3 gap-3 text-charcoal font-hobeaux">
-      <li><a href="{{ url('shop') }}" class="block py-2 hover:text-teal transition-colors">Shop</a></li>
-      <li><a href="{{ url('about') }}" class="block py-2 hover:text-teal transition-colors">About</a></li>
-      <li><a href="{{ url('find-us') }}" class="block py-2 hover:text-teal transition-colors">Find Us</a></li>
-      <li><a href="{{ url('contact') }}" class="block py-2 hover:text-teal transition-colors">Contact</a></li>
+    <ul class="flex flex-col px-4 py-4 gap-2 text-lg font-hobeaux">
+      <li><a href="{{ url('shop') }}" class="flex items-center justify-between rounded-xl px-4 py-3 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal transition-colors {{ currentSection == 'shop' ? 'bg-teal text-white' : 'bg-teal/10 text-teal hover:bg-teal hover:text-white' }}"{% if currentSection == 'shop' %} aria-current="page"{% endif %}><span>Shop</span><span aria-hidden="true">→</span></a></li>
+      <li><a href="{{ url('about') }}" class="flex items-center justify-between rounded-xl px-4 py-3 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal transition-colors {{ currentSection == 'about' ? 'bg-teal text-white' : 'bg-teal/10 text-teal hover:bg-teal hover:text-white' }}"{% if currentSection == 'about' %} aria-current="page"{% endif %}><span>About</span><span aria-hidden="true">→</span></a></li>
+      <li><a href="{{ url('find-us') }}" class="flex items-center justify-between rounded-xl px-4 py-3 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal transition-colors {{ currentSection == 'find-us' ? 'bg-teal text-white' : 'bg-teal/10 text-teal hover:bg-teal hover:text-white' }}"{% if currentSection == 'find-us' %} aria-current="page"{% endif %}><span>Find Us</span><span aria-hidden="true">→</span></a></li>
+      <li><a href="{{ url('contact') }}" class="flex items-center justify-between rounded-xl px-4 py-3 font-bold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal transition-colors {{ currentSection == 'contact' ? 'bg-teal text-white' : 'bg-teal/10 text-teal hover:bg-teal hover:text-white' }}"{% if currentSection == 'contact' %} aria-current="page"{% endif %}><span>Contact</span><span aria-hidden="true">→</span></a></li>
     </ul>
   </div>
 </nav>
