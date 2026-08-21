@@ -11,6 +11,14 @@
 <body class="ltr">
 {% include "_includes/banner.twig" %}
 {% include "_includes/nav.twig" %}
+{% set flashes = craft.app.session.getAllFlashes(true) %}
+{% if flashes %}
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2">
+        {% for type, message in flashes %}
+            <div class="font-hobeaux text-sm px-4 py-3 rounded-xl {{ type == 'error' ? 'bg-red-50 text-red-700' : 'bg-teal/10 text-teal' }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
 
 {% block content %}
 {% endblock %}

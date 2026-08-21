@@ -118,11 +118,9 @@
         <form method="post">
             {{ csrfInput() }}
             {{ actionInput('commerce/cart/update-cart') }}
-            <input type="hidden"
-                   name="purchasableId"
-                   value="{{ variant.id }}"> <input type="hidden"
-                                                    name="qty"
-                                                    value="1">
+            {{ redirectInput('shop/cart') }}
+            <input type="hidden" name="purchasables[0][id]" value="{{ variant.id }}">
+            <input type="hidden" name="purchasables[0][qty]" value="1">
             <button
                 type="submit"
                 class="w-full bg-teal text-white font-hobeaux font-bold text-sm uppercase tracking-widest py-4 rounded-full hover:bg-charcoal transition-colors"

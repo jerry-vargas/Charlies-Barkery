@@ -1,0 +1,12 @@
+{% set cart = craft.commerce.carts.cart %}
+
+{#If you do need a cart to be persisted for every visitor, you can force Commerce to save it by passing true:#}
+{#{% set cart = craft.commerce.carts.cart(true) %}#}
+
+{% extends '_layout.twig' %}
+
+{% block content %}
+    There are {{ cart.totalQty }} item(s) in your cart!
+
+
+{% endblock %}
