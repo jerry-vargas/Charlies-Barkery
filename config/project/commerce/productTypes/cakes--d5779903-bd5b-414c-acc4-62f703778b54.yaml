@@ -416,6 +416,11 @@ variantFieldLayouts:
         name: 'Nutritional Info'
         uid: e3680ddc-f64f-47a7-a30f-0227943407a4
         userCondition: null
+      -
+        elementCondition: null
+        name: Customization
+        uid: 3b78a826-82a0-4acf-9e10-adc0a285dc40
+        userCondition: null
     thumbFieldKey: null
 variantTitleFormat: '{product.title}'
 variantTitleTranslationKeyFormat: null

@@ -4,6 +4,8 @@
 
 {% set variant = params.variant %}
 {% set images = variant.images.all()|length ? variant.images.all() : variant.product.images.all() %}
+{% set productType = variant.getOwner().title|lower %}
+
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
     {# Image Carousel #}
     <div class="flex flex-col gap-4">
@@ -11,18 +13,18 @@
         <div class="relative overflow-hidden rounded-3xl bg-gray-100 aspect-square">
             {% for image in images %}
                 <img
-                    src="{{ image.getUrl() }}"
-                    alt="{{ image.title ?? variant.title }}"
-                    data-slide="{{ loop.index0 }}"
-                    class="variant-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300 {{ loop.first ? 'opacity-100' : 'opacity-0 pointer-events-none' }}"
+                        src="{{ image.getUrl() }}"
+                        alt="{{ image.title ?? variant.title }}"
+                        data-slide="{{ loop.index0 }}"
+                        class="variant-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-300 {{ loop.first ? 'opacity-100' : 'opacity-0 pointer-events-none' }}"
                 />
             {% endfor %}
 
             {# Prev / Next — only show if more than one image #}
             {% if images|length > 1 %}
                 <button
-                    class="variant-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-charcoal rounded-full w-9 h-9 flex items-center justify-center shadow transition-colors"
-                    aria-label="Previous image"
+                        class="variant-prev absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-charcoal rounded-full w-9 h-9 flex items-center justify-center shadow transition-colors"
+                        aria-label="Previous image"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg"
                          class="h-4 w-4"
@@ -36,8 +38,8 @@
                     </svg>
                 </button>
                 <button
-                    class="variant-next absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-charcoal rounded-full w-9 h-9 flex items-center justify-center shadow transition-colors"
-                    aria-label="Next image"
+                        class="variant-next absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-charcoal rounded-full w-9 h-9 flex items-center justify-center shadow transition-colors"
+                        aria-label="Next image"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg"
                          class="h-4 w-4"
@@ -58,9 +60,9 @@
                  style="scrollbar-width: none;">
                 {% for image in images %}
                     <button
-                        data-thumb="{{ loop.index0 }}"
-                        class="variant-thumb shrink-0 w-16 h-16 rounded-xl overflow-hidden border-2 transition-colors {{ loop.first ? 'border-teal' : 'border-transparent' }}"
-                        aria-label="View image {{ loop.index }}"
+                            data-thumb="{{ loop.index0 }}"
+                            class="variant-thumb shrink-0 w-16 h-16 rounded-xl overflow-hidden border-2 transition-colors {{ loop.first ? 'border-teal' : 'border-transparent' }}"
+                            aria-label="View image {{ loop.index }}"
                     >
                         <img src="{{ image.getUrl() }}"
                              alt=""
@@ -96,35 +98,44 @@
         <p class="font-anton text-3xl text-charcoal">${{ variant.price|number_format(2) }}</p>
         {# Divider #}
         <hr class="border-gray-100"/>
-{# TO DO - figure out options for cakes etc #}
+        {# TO DO - figure out options for cakes etc #}
         {# Other variants (size/flavor picker) #}
-{#        {% if variant.product.variants|length > 1 %}#}
-{#            <div>#}
-{#                <p class="font-hobeaux text-xs uppercase tracking-widest text-charcoal/40 mb-3">Options</p>#}
-{#                <div class="flex flex-wrap gap-2">#}
-{#                    {% for v in variant.product.variants %}#}
-{#                        <a#}
-{#                            href="{{ v.url }}"#}
-{#                            class="font-hobeaux text-sm px-4 py-2 rounded-full border transition-colors#}
-{#                            {{ v.id == variant.id ? 'bg-charcoal text-white border-charcoal' : 'border-gray-200 text-charcoal hover:border-teal hover:text-teal' }}"#}
-{#                        >#}
-{#                            {{ v.title }}#}
-{#                        </a>#}
-{#                    {% endfor %}#}
-{#                </div>#}
-{#            </div>#}
-{#        {% endif %}#}
+        {#        {% if variant.product.variants|length > 1 %} #}
+        {#            <div> #}
+        {#                <p class="font-hobeaux text-xs uppercase tracking-widest text-charcoal/40 mb-3">Options</p> #}
+        {#                <div class="flex flex-wrap gap-2"> #}
+        {#                    {% for v in variant.product.variants %} #}
+        {#                        <a #}
+        {#                            href="{{ v.url }}" #}
+        {#                            class="font-hobeaux text-sm px-4 py-2 rounded-full border transition-colors #}
+        {#                            {{ v.id == variant.id ? 'bg-charcoal text-white border-charcoal' : 'border-gray-200 text-charcoal hover:border-teal hover:text-teal' }}" #}
+        {#                        > #}
+        {#                            {{ v.title }} #}
+        {#                        </a> #}
+        {#                    {% endfor %} #}
+        {#                </div> #}
+        {#            </div> #}
+        {#        {% endif %} #}
 
         {# Add to cart #}
-        <form method="post">
+        <form method="post" class="flex flex-col gap-5">
             {{ csrfInput() }}
             {{ actionInput('commerce/cart/update-cart') }}
             {{ redirectInput('shop/cart') }}
             <input type="hidden" name="purchasables[0][id]" value="{{ variant.id }}">
             <input type="hidden" name="purchasables[0][qty]" value="1">
+
+            {% switch productType %}
+            {% case "cakes" %}
+                {% include 'shop/_userOptions/cakes.twig' %}
+            {% case "treats" %}
+            {% case "cookies" %}
+{#            {% default %}#}
+
+            {% endswitch %}
             <button
-                type="submit"
-                class="w-full bg-teal text-white font-hobeaux font-bold text-sm uppercase tracking-widest py-4 rounded-full hover:bg-charcoal transition-colors"
+                    type="submit"
+                    class="w-full bg-teal text-white font-hobeaux font-bold text-sm uppercase tracking-widest py-4 rounded-full hover:bg-charcoal transition-colors"
             >
                 Add to Cart
             </button>
