@@ -1,83 +1,112 @@
-{% set productCategories = craft.products() %}
-{% set productVariants = product.variants().all() %}
-{# get variant in case user selected a variant #}
-{% set variantId = craft.app.request.getParam('variant') %}
-
 {% extends '_layout.twig' %}
 
+{# @var product \craft\commerce\elements\Product #}
+
 {% block content %}
+  <!-- Template: {{ _self }}.twig -->
 
-    {% include '_components/pageHero.twig' with {
-        params: {
-            img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=1600&q=80",
-            title: "All Treats",
-            subTitle: "The Barkery Shop"
-        }
-    } %}
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-    <section class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
-                <div class="flex flex-wrap gap-2">
-                    {% for cat in productCategories %}
-                        <a
-                            href="{{ cat.url }}"
-                            class="font-hobeaux text-sm px-4 py-2 rounded-full border transition-colors
-                {{ cat.id == product.id ? 'bg-charcoal text-white border-charcoal' : 'border-gray-200 text-charcoal hover:border-teal hover:text-teal' }}"
-                        >
-                            {{ cat }}
-                        </a>
-                    {% endfor %}
-                </div>
-                <p class="font-hobeaux text-sm text-charcoal/40 shrink-0">{{ productVariants|length }} items</p>
-            </div>
-            {% if variantId %}
-                {% set activeVariant = craft.variants().id(variantId).one() %}
-                {% include 'shop/partials/variant.twig' with {
-                    params:{
-                        variant: activeVariant
-                    }
-                } only %}
-            {% else %}
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {% for variant in productVariants %}
-                        {% set image = variant.images.one() ?? product.images.one() %}
-                        <a href="{{ variant.url }}"
-                           class="group flex flex-col">
-                            {# Image #}
-                            <div class="relative overflow-hidden rounded-2xl bg-gray-100 aspect-square mb-4">
-                                <img
-                                    src="{{ image.getUrl() }}"
-                                    alt="{{ image.title ?? '' }}"
-                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                {# Quick add #}
-                                <button
-                                    type="button"
-                                    class="absolute bottom-3 right-3 bg-white text-charcoal hover:bg-teal hover:text-white transition-colors rounded-full w-10 h-10 flex items-center justify-center shadow-md"
-                                    aria-label="Add to cart"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         class="h-5 w-5"
-                                         fill="none"
-                                         viewBox="0 0 24 24"
-                                         stroke="currentColor"
-                                         stroke-width="2">
-                                        <path stroke-linecap="round"
-                                              stroke-linejoin="round"
-                                              d="M12 4v16m8-8H4"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            {# Details #}
-                            <h3 class="font-hobeaux font-bold text-charcoal text-sm leading-snug group-hover:text-teal transition-colors">{{ variant.title }}</h3>
-                            <div class="flex items-center gap-2 mt-1">
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+        {# Product Image #}
+        <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square">
+          {% set image = product.featuredImage.one() ?? product.images.one() ?? null %}
+          {% if image %}
+            <img src="{{ image.getUrl() }}" alt="{{ product.title }}" class="w-full h-full object-cover">
+          {% else %}
+            <div class="w-full h-full flex items-center justify-center text-8xl">🐾</div>
+          {% endif %}
         </div>
-    </section>
+
+        {# Product Info #}
+        <div class="flex flex-col gap-6">
+          <div>
+            <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">{{ product.type.name }}</p>
+            <h1 class="font-anton text-charcoal text-5xl leading-tight mb-4">{{ product.title }}</h1>
+          </div>
+
+          <form method="post">
+            {{ csrfInput() }}
+            {{ actionInput('commerce/cart/update-cart') }}
+            {{ successMessageInput(product.title ~ ' added to your cart!') }}
+            {{ redirectInput('shop/cart') }}
+
+            {# Variants #}
+            {% if product.variants|length == 1 %}
+              {# Single variant - just show price #}
+              {% set variant = product.variants[0] %}
+              {{ hiddenInput('purchasables[0][id]', variant.id) }}
+              {{ hiddenInput('purchasables[0][qty]', 1) }}
+
+              <div class="flex items-center gap-3">
+                {% if variant.onPromotion %}
+                  <span class="font-anton text-charcoal/40 text-2xl line-through">{{ variant.priceAsCurrency }}</span>
+                  <span class="font-anton text-charcoal text-3xl">{{ variant.salePriceAsCurrency }}</span>
+                {% else %}
+                  <span class="font-anton text-charcoal text-3xl">{{ variant.priceAsCurrency }}</span>
+                {% endif %}
+              </div>
+
+            {% else %}
+              {# Multiple variants - show selector #}
+              <div class="flex flex-col gap-3">
+                <p class="font-hobeaux text-sm font-bold text-charcoal">Choose an option</p>
+                {% for variant in product.variants %}
+                  <label class="flex items-center justify-between p-4 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal">
+                    <span class="flex items-center gap-3">
+                      <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}" {{ loop.first ? 'checked' }} class="accent-teal">
+                      <span class="font-hobeaux font-bold text-sm text-charcoal">{{ variant.title }}</span>
+                    </span>
+                    <span>
+                      {% if variant.onPromotion %}
+                        <span class="font-hobeaux text-xs text-charcoal/40 line-through mr-1">{{ variant.priceAsCurrency }}</span>
+                        <span class="font-anton text-charcoal text-lg">{{ variant.salePriceAsCurrency }}</span>
+                      {% else %}
+                        <span class="font-anton text-charcoal text-lg">{{ variant.priceAsCurrency }}</span>
+                      {% endif %}
+                    </span>
+                  </label>
+                {% endfor %}
+                {{ hiddenInput('purchasables[0][qty]', 1) }}
+              </div>
+            {% endif %}
+
+            {# Qty + Add to cart #}
+            <div class="flex items-center gap-4 mt-2">
+              <div class="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2">
+                <button type="button" onclick="stepQty(this, -1)" class="w-7 h-7 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-lg">-</button>
+                <input type="number" id="qty-input" name="purchasables[0][qty]" value="1" min="1" class="w-10 text-center font-hobeaux text-sm text-charcoal focus:outline-none">
+                <button type="button" onclick="stepQty(this, 1)" class="w-7 h-7 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-lg">+</button>
+              </div>
+              <button type="submit" class="flex-1 cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+                Add to Cart
+              </button>
+            </div>
+
+          </form>
+
+          <a href="{{ url('shop') }}" class="font-hobeaux text-xs text-charcoal/40 hover:text-teal transition-colors">
+            &larr; Back to shop
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+  function stepQty(btn, direction) {
+    const input = document.getElementById('qty-input');
+    input.value = Math.max(1, parseInt(input.value) + direction);
+  }
+
+  // Keep qty input in sync when radio changes (single qty field for multi-variant)
+  document.querySelectorAll('input[name="purchasables[0][id]"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      // update hidden qty if present
+    });
+  });
+  </script>
 
 {% endblock %}

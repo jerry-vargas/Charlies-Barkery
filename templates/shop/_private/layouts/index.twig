@@ -1,0 +1,100 @@
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% block content %}
+
+  {% set flashNotice = craft.app.session.getFlash('notice') %}
+  {% set flashError = craft.app.session.getFlash('error') %}
+
+  {% if flashNotice %}
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="font-hobeaux text-sm px-4 py-3 rounded-xl bg-teal/10 text-teal">{{ flashNotice }}</div>
+    </div>
+  {% endif %}
+
+  {% if flashError %}
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="font-hobeaux text-sm px-4 py-3 rounded-xl bg-red-50 text-red-700">{{ flashError }}</div>
+    </div>
+  {% endif %}
+
+  {% if cart and cart.hasNotices() %}
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="font-hobeaux text-sm px-4 py-3 rounded-xl bg-teal/10 text-teal relative">
+        <span class="font-bold">Cart notices:</span>
+        <ul class="mt-1 list-disc list-inside">
+          {% for type, notices in cart.getNotices()|group('type') %}
+            {% for notice in notices %}
+              <li>{{ notice }}</li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+        <form method="post" class="mt-2">
+          {{ actionInput('commerce/cart/update-cart') }}
+          {{ successMessageInput('Notices dismissed') }}
+          {{ hiddenInput('clearNotices') }}
+          {{ csrfInput() }}
+          <button type="submit" class="font-hobeaux text-xs underline">Dismiss</button>
+        </form>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if cart and cart.errors|length %}
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <div class="font-hobeaux text-sm px-4 py-3 rounded-xl bg-red-50 text-red-700">
+        <ul>
+          {% for attribute, errors in cart.errors %}
+            {% for error in errors %}
+              <li>{{ attribute }}: {{ error }}</li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+
+  {% block main %}{% endblock %}
+
+{% endblock %}
+
+{% js at head %}
+let states = {{ craft.commerce.getStores().getCurrentStore().settings.getAdministrativeAreasListByCountryCode()|json_encode|raw }};
+{% set usedFields = {} %}
+{% for countryCode in craft.app.addresses.getCountryRepository().getAll()|keys %}
+  {% set usedFields = usedFields|merge({ (countryCode): craft.app.addresses.getUsedFields(countryCode)|merge([
+    'fullName',
+    'latLong',
+    'organizationTaxId',
+    'organization',
+    'countryCode',
+  ]) }) %}
+{% endfor %}
+let usedAddressFieldsByCountryCode = {{ usedFields|json_encode|raw }};
+
+function hideAddressFields(selectorTemplate) {
+  const fields = document.querySelectorAll('.' + selectorTemplate.replace('placeHolder', 'js-address-field'));
+  if (!fields.length) return;
+  for (let i = 0; i < fields.length; i++) {
+    fields[i].classList.add('hidden');
+  }
+}
+
+function showAddressField(fieldName, selectorTemplate) {
+  const field = document.querySelector('#' + selectorTemplate.replace('placeHolder', fieldName));
+  if (!field) return;
+  const fieldWrapper = field.closest('.' + selectorTemplate.replace('placeHolder', 'js-address-field'));
+  if (!fieldWrapper) return;
+  fieldWrapper.classList.remove('hidden');
+}
+{% endjs %}
+
+{% js at endBody %}
+let $siteSelector = document.querySelector('#js-site-selector');
+if ($siteSelector) {
+  $siteSelector.addEventListener('change', (ev) => window.location = ev.target.value);
+}
+{% endjs %}

@@ -1,0 +1,57 @@
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% set paymentSources = craft.commerce.paymentSources.getAllPaymentSourcesByCustomerId(currentUser.id ?? null) %}
+{% set availableGateways = cart.availableGateways %}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+        <div class="lg:col-span-2">
+          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
+          <h1 class="font-anton text-charcoal text-4xl mb-8">How would you like to pay?</h1>
+
+          {% if availableGateways is empty %}
+            <p class="font-hobeaux text-sm text-charcoal/60">No payment methods are available.</p>
+          {% else %}
+            <form method="post" action="">
+              {{ csrfInput() }}
+              {{ actionInput('commerce/cart/update-cart') }}
+              {{ redirectInput(siteUrl('shop/checkout/options')) }}
+              {{ successMessageInput('Payment method selected.') }}
+
+              {{ include('shop/checkout/_includes/gateways', {
+                availableGateways: availableGateways,
+                paymentSources: paymentSources
+              }) }}
+
+              {{ include('shop/checkout/_includes/currencies') }}
+
+              <div class="mt-8">
+                <button type="submit" name="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+                  Continue
+                </button>
+              </div>
+            </form>
+          {% endif %}
+        </div>
+
+        <div>
+          {{ include('shop/checkout/_includes/order-summary', {
+            showShippingAddress: true,
+            showShippingMethod: true
+          }) }}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

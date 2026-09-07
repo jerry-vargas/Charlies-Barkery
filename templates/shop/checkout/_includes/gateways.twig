@@ -1,0 +1,56 @@
+<!-- Template: {{ _self }}.twig -->
+
+{% set paymentSources = paymentSources ?? [] %}
+{% set availableGateways = availableGateways ?? [] %}
+
+<div class="flex flex-col gap-3">
+  {% if paymentSources|length %}
+    {% for source in paymentSources %}
+      <label class="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal">
+        <input type="radio" name="paymentSourceId" value="{{ source.id }}" {{ source.id == cart.paymentSourceId ? 'checked' }} class="accent-teal">
+        <span>
+          <span class="font-hobeaux font-bold text-sm text-charcoal block">{{ source.description }}</span>
+          <span class="font-hobeaux text-xs text-charcoal/40">Saved card</span>
+        </span>
+      </label>
+    {% endfor %}
+
+    {% if availableGateways|length %}
+      <hr class="border-gray-200 my-2">
+    {% endif %}
+  {% endif %}
+
+  {% if availableGateways|length %}
+    {% for gatewayId, gatewayName in availableGateways %}
+      <label class="flex items-center gap-4 p-4 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal">
+        <input type="radio" name="gatewayId" value="{{ gatewayId }}" {{ gatewayId == cart.gatewayId ? 'checked' }} class="accent-teal">
+        <span>
+          <span class="font-hobeaux font-bold text-sm text-charcoal block">{{ gatewayName }}</span>
+          <span class="font-hobeaux text-xs text-charcoal/40">Payment gateway</span>
+        </span>
+      </label>
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% js %}
+var $paymentSources = document.querySelectorAll('[name="paymentSourceId"]');
+var hasPaymentSources = $paymentSources && $paymentSources.length > 0;
+var $gateways = document.querySelectorAll('[name="gatewayId"]');
+var hasGateways = $gateways && $gateways.length > 0;
+
+if (hasPaymentSources && hasGateways) {
+  function deselectPaymentSources() {
+    $paymentSources.forEach(function(el) { el.checked = false; });
+  }
+  function deselectGateways() {
+    $gateways.forEach(function(el) { el.checked = false; });
+  }
+  $paymentSources.forEach(function(el) {
+    el.addEventListener('change', function() { deselectGateways(); });
+  });
+  $gateways.forEach(function(el) {
+    el.addEventListener('change', function() { deselectPaymentSources(); });
+  });
+}
+{% endjs %}

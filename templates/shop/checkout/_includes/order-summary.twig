@@ -1,0 +1,92 @@
+<!-- Template: {{ _self }}.twig -->
+
+{% set showShippingAddress = showShippingAddress ?? false %}
+{% set showShippingMethod = showShippingMethod ?? false %}
+
+<div class="bg-gray-50 rounded-3xl p-8 flex flex-col gap-5 sticky top-6">
+  <h2 class="font-anton text-charcoal text-2xl">Order Summary</h2>
+
+  <div class="flex flex-col gap-3">
+    {% for item in cart.lineItems %}
+      <div class="flex justify-between items-start gap-3">
+        <div class="flex-1 min-w-0">
+          <p class="font-hobeaux text-sm text-charcoal truncate">{{ item.description }}</p>
+          {% if item.qty > 1 %}
+            <p class="font-hobeaux text-xs text-charcoal/40">x{{ item.qty }}</p>
+          {% endif %}
+        </div>
+        <p class="font-hobeaux text-sm text-charcoal shrink-0">{{ item.subtotal|currency(cart.currency) }}</p>
+      </div>
+    {% else %}
+      <p class="font-hobeaux text-sm text-charcoal/50">
+        Your cart is empty.
+        <a href="{{ url('shop/products') }}" class="text-teal underline underline-offset-2">Shop now</a>
+      </p>
+    {% endfor %}
+  </div>
+
+  {% if showShippingAddress %}
+    <div class="pt-4 border-t border-gray-200">
+      <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-1">Shipping To</p>
+      {% if cart.shippingAddress %}
+        <div class="font-hobeaux text-sm text-charcoal/70">
+          {{ craft.app.addresses.formatAddress(cart.shippingAddress)|raw }}
+        </div>
+      {% else %}
+        <p class="font-hobeaux text-sm text-charcoal/40">No address selected.</p>
+      {% endif %}
+      <a href="{{ url('shop/checkout/addresses') }}" class="font-hobeaux text-xs text-teal hover:underline mt-1 inline-block">Change</a>
+    </div>
+  {% endif %}
+
+  {% if showShippingMethod %}
+    <div class="pt-4 border-t border-gray-200">
+      <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-1">Shipping Method</p>
+      {% if not cart.shippingMethodName %}
+        <a href="{{ url('shop/checkout/shipping') }}" class="font-hobeaux text-sm text-teal hover:underline">Choose a method</a>
+      {% else %}
+        <p class="font-hobeaux text-sm text-charcoal/70">{{ cart.shippingMethodName }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <hr class="border-gray-200">
+
+  <div class="flex flex-col gap-2 font-hobeaux text-sm">
+    <div class="flex justify-between text-charcoal/60">
+      <span>Shipping</span>
+      <span>{{ cart.totalShippingCostAsCurrency }}</span>
+    </div>
+    <div class="flex justify-between text-charcoal/60">
+      <span>Tax</span>
+      <span>{{ cart.totalTaxAsCurrency }}</span>
+    </div>
+    {% if cart.totalDiscount %}
+      <div class="flex justify-between text-teal">
+        <span>Discount</span>
+        <span>{{ cart.totalDiscount|commerceCurrency(cart.currency) }}</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <hr class="border-gray-200">
+
+  <div class="flex justify-between font-anton text-charcoal text-xl">
+    <span>Total</span>
+    <span>{{ cart.totalPrice|commerceCurrency(cart.currency) }}</span>
+  </div>
+
+  {% if cart.currency != cart.paymentCurrency and cart.totalPrice == cart.getOutstandingBalance() %}
+    <div class="flex justify-between font-hobeaux text-sm text-charcoal/60">
+      <span>Payment ({{ cart.paymentCurrency }})</span>
+      <span>{{ cart.totalPrice|commerceCurrency(cart.paymentCurrency, convert=true) }}</span>
+    </div>
+  {% endif %}
+
+  {% if cart.hasOutstandingBalance and cart.totalPrice != cart.getOutstandingBalance() %}
+    <div class="flex justify-between font-hobeaux text-sm text-charcoal/60">
+      <span>Outstanding Balance</span>
+      <span>{{ cart.outstandingBalance|commerceCurrency(cart.paymentCurrency, convert=true) }}</span>
+    </div>
+  {% endif %}
+</div>

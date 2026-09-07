@@ -1,0 +1,165 @@
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% set addresses = currentUser ? currentUser.getAddresses() : [] %}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+        <div class="lg:col-span-2">
+          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
+          <h1 class="font-anton text-charcoal text-4xl mb-8">Where should we send your order?</h1>
+
+          <form method="post" action="">
+            {{ csrfInput() }}
+            {{ actionInput('commerce/cart/update-cart') }}
+            {{ successMessageInput('Addresses selected.') }}
+            {{ redirectInput(siteUrl('shop/checkout/shipping')) }}
+
+            {% if not cart.email %}
+              <div class="flex flex-col gap-1 mb-6">
+                <label for="email" class="font-hobeaux text-sm font-bold text-charcoal">Email address</label>
+                <input type="email" name="email" id="email" value="{{ cart.email }}" placeholder="you@example.com" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors">
+                {% if cart.getErrors('email') %}
+                  <p class="font-hobeaux text-xs text-red-500">{{ cart.getErrors('email')|join }}</p>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {{ include('shop/_private/address/fieldset', {
+              title: 'Shipping Address',
+              classes: 'ShippingAddress',
+              name: 'shippingAddress',
+              primaryIdName: 'primaryShippingAddressId',
+              sourceIdName: 'sourceShippingAddressId',
+            }) }}
+
+            {% if currentUser and addresses|length %}
+              {{ hiddenInput('makePrimaryShippingAddress', 0) }}
+              <div class="mt-4">
+                <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal cursor-pointer">
+                  <input type="checkbox" name="makePrimaryShippingAddress" id="makePrimaryShippingAddress" value="1" {{ cart.makePrimaryShippingAddress ? 'checked' }} class="accent-teal">
+                  Make this my default shipping address
+                </label>
+              </div>
+            {% endif %}
+
+            <hr class="my-8 border-gray-200">
+
+            {{ hiddenInput('billingAddressSameAsShipping', 0) }}
+
+            <div class="mb-6">
+              <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal cursor-pointer">
+                <input type="checkbox" name="billingAddressSameAsShipping" id="billingAddressSameAsShipping" value="1" checked class="accent-teal">
+                Use same address for billing
+              </label>
+            </div>
+
+            <div class="js-address-fieldset BillingAddress hidden">
+              {{ include('shop/_private/address/fieldset', {
+                title: 'Billing Address',
+                classes: 'BillingAddress',
+                name: 'billingAddress',
+                primaryIdName: 'primaryBillingAddressId',
+                sourceIdName: 'sourceBillingAddressId',
+              }) }}
+            </div>
+
+            {% if currentUser and addresses|length %}
+              {{ hiddenInput('makePrimaryBillingAddress', 0) }}
+              <div class="mt-4">
+                <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal cursor-pointer">
+                  <input type="checkbox" name="makePrimaryBillingAddress" id="makePrimaryBillingAddress" value="1" {{ cart.makePrimaryBillingAddress ? 'checked' }} class="accent-teal">
+                  Make this my default billing address
+                </label>
+              </div>
+            {% endif %}
+
+            <div class="mt-8">
+              <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+                Continue to Shipping
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          {% include 'shop/checkout/_includes/order-summary' %}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {% js %}
+  var $fieldsets = document.querySelectorAll('.js-address-fieldset');
+
+  if ($fieldsets && $fieldsets.length) {
+    $fieldsets.forEach(function(el) {
+      var $addressSelects = el.querySelectorAll('.js-address-select');
+
+      if ($addressSelects && $addressSelects.length) {
+        $addressSelects.forEach(function(el) {
+          var $radio = el.querySelector('.js-radio input');
+          var $body = el.querySelector('.js-body');
+
+          if ($radio) {
+            if ($body) {
+              $radio.addEventListener('change', function(ev) {
+                if (ev.target.checked) {
+                  $body.classList.remove('hidden');
+                } else {
+                  $body.classList.add('hidden');
+                }
+              });
+
+              if ($radio.checked) {
+                $body.classList.remove('hidden');
+              }
+            } else {
+              $radio.addEventListener('change', function(ev) {
+                if (ev.target.checked) {
+                  var $newBox = document.querySelector('.js-address-select[data-model-name="' + ev.target.dataset.modelName + '"]');
+                  if ($newBox) {
+                    $newBox.querySelector('.js-body').classList.add('hidden');
+                  }
+                }
+              });
+            }
+          }
+        });
+      }
+    });
+  }
+
+  var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
+  if ($billingSameAs) {
+    $billingSameAs.addEventListener('change', function() {
+      var $billingFieldSet = document.querySelector('.js-address-fieldset.BillingAddress');
+      $billingFieldSet.classList.toggle('hidden');
+
+      for (let input of $billingFieldSet.querySelectorAll('.js-address-select input')) {
+        if ($billingSameAs.checked === true) {
+          input.setAttribute('disabled', '');
+        } else if (input.hasAttribute('disabled')) {
+          input.removeAttribute('disabled');
+        }
+      }
+    });
+  }
+  {% endjs %}
+
+  {% js %}
+    {% if not cart.hasMatchingAddresses() or (cart.billingAddress and cart.billingAddress.hasErrors() and not cart.hasMatchingAddresses()) %}
+      $billingSameAs.click();
+    {% endif %}
+  {% endjs %}
+
+{% endblock %}

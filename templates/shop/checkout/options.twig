@@ -1,0 +1,84 @@
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% if currentUser and cart.sourceBillingAddressId and cart.sourceShippingAddressId %}
+  {% redirect 'shop/checkout/payment' %}
+{% endif %}
+
+{% if not cart.getCustomer() %}
+  {% redirect 'shop/checkout/email' %}
+{% endif %}
+
+{% if not cart.gateway %}
+  {% redirect 'shop/checkout/payment-method' %}
+{% endif %}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+        <div class="lg:col-span-2">
+          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
+          <h1 class="font-anton text-charcoal text-4xl mb-8">A few last things</h1>
+
+          <form action="" method="post">
+            {{ csrfInput() }}
+            {{ actionInput('commerce/cart/update-cart') }}
+            {{ redirectInput(siteUrl('shop/checkout/payment')) }}
+            {{ successMessageInput('Options saved.') }}
+
+            <div class="flex flex-col gap-4 mb-8">
+              {% set user = cart.email ? craft.users.email(cart.email).one() : null %}
+              {% if not user or not user.getIsCredentialed() %}
+                <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer">
+                  {{ hiddenInput('registerUserOnOrderComplete', false) }}
+                  <input type="checkbox" name="registerUserOnOrderComplete" id="registerUserOnOrderComplete" value="1" class="accent-teal">
+                  Create an account after ordering
+                </label>
+              {% endif %}
+
+              {% set saveAddressCheckboxesShown = false %}
+
+              {% if currentUser and cart.billingAddressId and not cart.sourceBillingAddressId %}
+                {% set saveAddressCheckboxesShown = true %}
+                <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer">
+                  {{ hiddenInput('saveBillingAddressOnOrderComplete', false) }}
+                  <input type="checkbox" name="saveBillingAddressOnOrderComplete" id="saveBillingAddressOnOrderComplete" value="1" {{ cart.saveBillingAddressOnOrderComplete ? 'checked' }} class="accent-teal">
+                  Save billing address to my account
+                </label>
+              {% endif %}
+
+              {% if currentUser and cart.shippingAddressId and not cart.sourceShippingAddressId %}
+                {% set saveAddressCheckboxesShown = true %}
+                <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer">
+                  {{ hiddenInput('saveShippingAddressOnOrderComplete', false) }}
+                  <input type="checkbox" name="saveShippingAddressOnOrderComplete" id="saveShippingAddressOnOrderComplete" value="1" {{ cart.saveShippingAddressOnOrderComplete ? 'checked' }} class="accent-teal">
+                  Save shipping address to my account
+                </label>
+              {% endif %}
+            </div>
+
+            <button type="submit" name="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+              Continue to Payment
+            </button>
+          </form>
+        </div>
+
+        <div>
+          {{ include('shop/checkout/_includes/order-summary', {
+            showShippingAddress: true,
+            showShippingMethod: true
+          }) }}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

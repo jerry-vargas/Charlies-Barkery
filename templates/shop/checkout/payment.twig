@@ -1,0 +1,146 @@
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  {% if not cart.gateway %}
+    {% redirect 'shop/checkout/payment-method' %}
+  {% endif %}
+
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+        <div class="lg:col-span-2">
+          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
+          <h1 class="font-anton text-charcoal text-4xl mb-8">Payment</h1>
+
+          {% if cart.store.allowCheckoutWithoutPayment %}
+            <div class="bg-gray-50 rounded-3xl p-8 mb-8">
+              <h2 class="font-anton text-charcoal text-2xl mb-2">Pay Later</h2>
+              <p class="font-hobeaux text-sm text-charcoal/60 mb-6">Commit to buy now and make payment later.</p>
+              <form id="completeForm" method="post" action="">
+                {{ csrfInput() }}
+                {{ actionInput('commerce/cart/complete') }}
+                {{ redirectInput(siteUrl('shop/customer/order', {
+                  number: cart.number,
+                  success: 'true'
+                })) }}
+                {{ successMessageInput('Thank you for your order. We have received it and are awaiting payment.') }}
+                <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest border-2 border-charcoal text-charcoal py-4 rounded-full hover:bg-charcoal hover:text-white transition-colors">
+                  Commit to Buy
+                </button>
+              </form>
+            </div>
+          {% endif %}
+
+          {% if cart.gatewayId or cart.paymentSourceId %}
+            {% if paymentForm is defined %}
+              {% set formErrors = paymentForm.getErrors() %}
+              {% if formErrors %}
+                <div class="bg-red-50 rounded-2xl p-4 mb-6">
+                  <ul class="flex flex-col gap-1">
+                    {% for key, errors in formErrors %}
+                      {% for error in errors %}
+                        <li class="font-hobeaux text-xs text-red-600"><strong>{{ key }}</strong> {{ error }}</li>
+                      {% endfor %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            {% endif %}
+
+            <form id="paymentForm" method="post" action="">
+              {{ csrfInput() }}
+              {{ actionInput('commerce/payments/pay') }}
+              {{ redirectInput(siteUrl('shop/customer/order', {
+                number: cart.number,
+                success: 'true'
+              })) }}
+              {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
+              {{ hiddenInput('orderEmail', cart.email) }}
+
+              {{ include('shop/checkout/_includes/partial-payment') }}
+
+              {% if cart.gatewayId %}
+                {{ hiddenInput('gatewayId', cart.gatewayId) }}
+                {% set params = {} %}
+
+                {% if className(cart.gateway) == 'craft\\commerce\\paypalcheckout\\gateways\\Gateway' %}
+                  {% set params = { currency: cart.paymentCurrency } %}
+                {% endif %}
+
+                {% if className(cart.gateway) == 'craft\\commerce\\stripe\\gateways\\PaymentIntents' %}
+                  {% set params = {
+                    appearance: { theme: 'stripe' },
+                    elementOptions: {
+                      layout: {
+                        type: 'accordion',
+                        defaultCollapsed: false,
+                        radios: false,
+                        spacedAccordionItems: false
+                      }
+                    },
+                    order: cart,
+                    submitButtonClasses: 'w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors my-2',
+                    submitButtonText: 'Pay Now',
+                    errorMessageClasses: 'font-hobeaux text-xs text-red-600 bg-red-50 rounded-xl p-3 my-2',
+                  } %}
+                {% endif %}
+
+                <div class="gateway-payment-form mt-6">
+                  {% if cart.gateway.supportsPaymentSources() and currentUser %}
+                    <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer mb-4">
+                      <input type="checkbox" name="savePaymentSource" value="1" class="accent-teal">
+                      Save card for future purchases
+                    </label>
+                  {% endif %}
+
+                  {% namespace cart.gateway.handle|commercePaymentFormNamespace %}
+                    {{ cart.gateway.getPaymentFormHtml(params)|raw }}
+                  {% endnamespace %}
+                </div>
+              {% else %}
+                {{ cart.gateway.getPaymentConfirmationFormHtml({})|raw }}
+              {% endif %}
+
+              {% if cart.paymentSourceId or cart.gateway.showPaymentFormSubmitButton() %}
+                <div class="mt-6">
+                  <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+                    Pay Now
+                  </button>
+                </div>
+              {% endif %}
+            </form>
+          {% endif %}
+        </div>
+
+        <div>
+          {{ include('shop/checkout/_includes/order-summary', {
+            showShippingAddress: true,
+            showShippingMethod: true
+          }) }}
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {% js %}
+    var $paymentForm = document.querySelector('#paymentForm');
+    if ($paymentForm) {
+      $paymentForm.addEventListener('submit', function(ev) {
+        if ($paymentForm.dataset.processing) {
+          ev.preventDefault();
+          return false;
+        }
+        $paymentForm.dataset.processing = true;
+      });
+    }
+  {% endjs %}
+
+{% endblock %}
