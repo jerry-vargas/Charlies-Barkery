@@ -1,72 +1,155 @@
-{% extends 'shop/_private/layouts' %}
+{% extends '_layout.twig' %}
 
 {% if not currentUser %}
-    {% exit 404 %}
+  {% exit 404 %}
 {% endif %}
 
-{% block main %}
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
 
-    {% set addressId = craft.app.request.queryParam('addressId') %}
-    {% set redirect = craft.app.request.queryParam('redirect') %}
-    {% set countryCode = craft.app.request.queryParam('countryCode') %}
+{% set addressId = craft.app.request.queryParam('addressId') %}
+{% set redirect = craft.app.request.queryParam('redirect') %}
 
-    {% if not address is defined %}
-        {% if addressId %}
-            {% set address = collect(currentUser.addresses).firstWhere('id', addressId) %}
-            {% if not address %}
-                {% exit 404 %}
-            {% endif %}
-        {% else %}
-            {% set address = create({
-                class: 'craft\\elements\\Address',
-                ownerId: currentUser.id,
-                countryCode: countryCode ?? 'US'
-            }) %}
-        {% endif %}
+{% if not address is defined %}
+  {% if addressId %}
+    {% set address = collect(currentUser.addresses).firstWhere('id', addressId) %}
+    {% if not address %}
+      {% exit 404 %}
     {% endif %}
+  {% else %}
+    {% set address = create({
+      class: 'craft\\elements\\Address',
+      ownerId: currentUser.id,
+      countryCode: 'US'
+    }) %}
+  {% endif %}
+{% endif %}
 
-    <!-- Template: {{ _self }}.twig -->
-    <h1 class="text-xl font-semibold">
-        {% if addressId %}
-            {{- 'Edit address'|t -}}
-        {% else %}
-            {{- 'Add a new address'|t -}}
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-lg mx-auto">
+
+        <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">My Account</p>
+        <h1 class="font-anton text-charcoal text-4xl mb-8">
+          {{ addressId ? 'Edit Address' : 'Add a New Address' }}
+        </h1>
+
+        {% if address.errors|length %}
+          <div class="bg-red-50 border border-red-200 rounded-2xl p-4 mb-6">
+            <p class="font-hobeaux font-bold text-red-700 text-sm mb-2">Please fix the following:</p>
+            <ul class="text-red-600 text-sm list-disc list-inside flex flex-col gap-1">
+              {% for field, errors in address.errors %}
+                {% for error in errors %}
+                  <li>{{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </div>
         {% endif %}
-    </h1>
 
-    <form method="post" action="">
-        {{ csrfInput() }}
-        {{ actionInput('users/save-address') }}
-        {{ redirectInput(redirect ?: 'shop/customer/addresses') }}
-
-        {% if addressId %}
+        <form method="post" action="" class="flex flex-col gap-5">
+          {{ csrfInput() }}
+          {{ actionInput('users/save-address') }}
+          {{ redirectInput(redirect ?: 'shop/customer/addresses') }}
+          {{ hiddenInput('ownerId', currentUser.id) }}
+          {% if addressId %}
             {{ hiddenInput('addressId', addressId) }}
-        {% endif %}
+          {% endif %}
+          {{ hiddenInput('countryCode', 'US') }}
 
-        {{ include('shop/_private/address/fields', {
-            address: address,
-            showLabelField: true,
-            showPrimaryCheckboxes: true,
-        }) }}
-        {{ hiddenInput('ownerId', currentUser.id) }}
+          <div class="flex flex-col gap-1">
+            <label for="title" class="font-hobeaux text-sm font-bold text-charcoal">Address Label <span class="font-normal text-charcoal/40">(e.g. Home, Work)</span></label>
+            <input type="text" name="title" id="title" value="{{ address.title ?? '' }}" placeholder="Home" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors">
+          </div>
 
-        <hr class="my-3"/>
+          <div class="flex flex-col gap-1">
+            <label for="fullName" class="font-hobeaux text-sm font-bold text-charcoal">Full Name <span class="text-red-400">*</span></label>
+            <input type="text" name="fullName" id="fullName" value="{{ address.fullName ?? '' }}" placeholder="Jane Smith" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors {{ address.getErrors('fullName') ? 'border-red-400' }}">
+            {% if address.getErrors('fullName') %}<p class="font-hobeaux text-xs text-red-500">{{ address.getErrors('fullName')|join }}</p>{% endif %}
+          </div>
 
-        <div class="mt-6 flex justify-between">
-            <div>
-                <a href="{{ redirect ? '/' ~ redirect : url('shop/customer/addresses') }}"
-                   class="text-blue-500 hover:text-blue-600"
-                >
-                    {{- 'Cancel'|t -}}
-                </a>
+          <div class="flex flex-col gap-1">
+            <label for="addressLine1" class="font-hobeaux text-sm font-bold text-charcoal">Address Line 1 <span class="text-red-400">*</span></label>
+            <input type="text" name="addressLine1" id="addressLine1" value="{{ address.addressLine1 ?? '' }}" placeholder="123 Main St" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors {{ address.getErrors('addressLine1') ? 'border-red-400' }}">
+            {% if address.getErrors('addressLine1') %}<p class="font-hobeaux text-xs text-red-500">{{ address.getErrors('addressLine1')|join }}</p>{% endif %}
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="addressLine2" class="font-hobeaux text-sm font-bold text-charcoal">Address Line 2 <span class="font-normal text-charcoal/40">(optional)</span></label>
+            <input type="text" name="addressLine2" id="addressLine2" value="{{ address.addressLine2 ?? '' }}" placeholder="Apt, Suite, Unit..." class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors">
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1">
+              <label for="locality" class="font-hobeaux text-sm font-bold text-charcoal">City <span class="text-red-400">*</span></label>
+              <input type="text" name="locality" id="locality" value="{{ address.locality ?? '' }}" placeholder="Charlotte" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors {{ address.getErrors('locality') ? 'border-red-400' }}">
+              {% if address.getErrors('locality') %}<p class="font-hobeaux text-xs text-red-500">{{ address.getErrors('locality')|join }}</p>{% endif %}
             </div>
-            <div>
-                {{ tag('button', {
-                    type: 'submit',
-                    class: 'cursor-pointer rounded px-4 py-2 inline-block bg-blue-500 hover:bg-blue-600 text-white hover:text-white',
-                    text: 'Save Address'|t
-                }) }}
+
+            <div class="flex flex-col gap-1">
+              <label for="postalCode" class="font-hobeaux text-sm font-bold text-charcoal">Zip Code <span class="text-red-400">*</span></label>
+              <input type="text" name="postalCode" id="postalCode" value="{{ address.postalCode ?? '' }}" placeholder="28202" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors {{ address.getErrors('postalCode') ? 'border-red-400' }}">
+              {% if address.getErrors('postalCode') %}<p class="font-hobeaux text-xs text-red-500">{{ address.getErrors('postalCode')|join }}</p>{% endif %}
             </div>
-        </div>
-    </form>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label for="administrativeArea" class="font-hobeaux text-sm font-bold text-charcoal">State <span class="text-red-400">*</span></label>
+            <select name="administrativeArea" id="administrativeArea" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-white {{ address.getErrors('administrativeArea') ? 'border-red-400' }}">
+              <option value="">Select state...</option>
+              {% set usStates = {
+                'AL': 'Alabama', 'AK': 'Alaska', 'AZ': 'Arizona', 'AR': 'Arkansas',
+                'CA': 'California', 'CO': 'Colorado', 'CT': 'Connecticut', 'DE': 'Delaware',
+                'FL': 'Florida', 'GA': 'Georgia', 'HI': 'Hawaii', 'ID': 'Idaho',
+                'IL': 'Illinois', 'IN': 'Indiana', 'IA': 'Iowa', 'KS': 'Kansas',
+                'KY': 'Kentucky', 'LA': 'Louisiana', 'ME': 'Maine', 'MD': 'Maryland',
+                'MA': 'Massachusetts', 'MI': 'Michigan', 'MN': 'Minnesota', 'MS': 'Mississippi',
+                'MO': 'Missouri', 'MT': 'Montana', 'NE': 'Nebraska', 'NV': 'Nevada',
+                'NH': 'New Hampshire', 'NJ': 'New Jersey', 'NM': 'New Mexico', 'NY': 'New York',
+                'NC': 'North Carolina', 'ND': 'North Dakota', 'OH': 'Ohio', 'OK': 'Oklahoma',
+                'OR': 'Oregon', 'PA': 'Pennsylvania', 'RI': 'Rhode Island', 'SC': 'South Carolina',
+                'SD': 'South Dakota', 'TN': 'Tennessee', 'TX': 'Texas', 'UT': 'Utah',
+                'VT': 'Vermont', 'VA': 'Virginia', 'WA': 'Washington', 'WV': 'West Virginia',
+                'WI': 'Wisconsin', 'WY': 'Wyoming', 'DC': 'Washington D.C.'
+              } %}
+              {% for code, name in usStates %}
+                <option value="{{ code }}" {{ address.administrativeArea == code ? 'selected' }}>{{ name }}</option>
+              {% endfor %}
+            </select>
+            {% if address.getErrors('administrativeArea') %}<p class="font-hobeaux text-xs text-red-500">{{ address.getErrors('administrativeArea')|join }}</p>{% endif %}
+          </div>
+
+          {% if currentUser.addresses|length %}
+            <div class="flex flex-col gap-2">
+              <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer">
+                {{ hiddenInput('isPrimaryBilling', 0) }}
+                <input type="checkbox" name="isPrimaryBilling" value="1" {{ address.isPrimaryBilling ? 'checked' }} class="accent-teal">
+                Use as default billing address
+              </label>
+              <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer">
+                {{ hiddenInput('isPrimaryShipping', 0) }}
+                <input type="checkbox" name="isPrimaryShipping" value="1" {{ address.isPrimaryShipping ? 'checked' }} class="accent-teal">
+                Use as default shipping address
+              </label>
+            </div>
+          {% endif %}
+
+          <div class="flex flex-col gap-3 pt-2">
+            <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+              Save Address
+            </button>
+            <a href="{{ redirect ? '/' ~ redirect : url('shop/customer/addresses') }}" class="block text-center font-hobeaux text-sm text-charcoal/40 hover:text-teal transition-colors">
+              Cancel
+            </a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
 {% endblock %}

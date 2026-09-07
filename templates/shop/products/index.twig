@@ -1,45 +1,52 @@
-{% extends 'shop/_private/layouts' %}
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
 
 {% set searchTerm = craft.app.request.getQueryParam('search', null) %}
 
-{% block main %}
+{% block content %}
   <!-- Template: {{ _self }}.twig -->
-  <div class="sm:flex">
-    <div class="sm:w-1/3 w-full">
-      <h1 class="text-3xl block sm:inline">
-        {{- 'Products'|t -}}
-      </h1>
-    </div>
-    <div class="flex-grow">
-      <form action="" method="get" class="flex w-full">
-        <div class="flex-grow pr-4">
+
+  <section class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {# Header + Search #}
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
+        <div>
+          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-1">Charlie's Barkery</p>
+          <h1 class="font-anton text-charcoal text-4xl">All Treats</h1>
+        </div>
+
+        <form action="" method="get" class="flex gap-2 w-full sm:w-auto sm:max-w-sm">
           {{ tag('input', {
             name: 'search',
             type: 'text',
-            placeholder: 'Search products…'|t,
+            placeholder: 'Search treats...',
             value: searchTerm,
-            class: 'w-full border border-gray-200 hover:border-gray-500 focus:border-gray-500 rounded px-4 py-2',
+            class: 'flex-1 font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors'
           }) }}
-        </div>
-        <div>
           {{ tag('button', {
             type: 'submit',
-            class: ['m-0', 'text-center', 'cursor-pointer rounded px-4 py-2 inline-block bg-blue-500 hover:bg-blue-600 text-white hover:text-white'],
-            text: 'Search'|t
+            class: 'cursor-pointer font-hobeaux font-bold text-xs uppercase tracking-widest bg-teal text-white px-5 py-3 rounded-full hover:bg-charcoal transition-colors whitespace-nowrap',
+            text: 'Search'
           }) }}
-        </div>
-      </form>
+        </form>
+      </div>
+
+      {% paginate craft.products.limit(12).search(searchTerm) as pageInfo, pageProducts %}
+
+      {{ include('shop/products/_includes/grid', {
+        products: pageProducts
+      }) }}
+
+      {{ include('shop/products/_includes/pagination', {
+        products: pageProducts,
+        pageInfo: pageInfo
+      }) }}
 
     </div>
-  </div>
-  {% paginate craft.products.limit(6).search(searchTerm) as pageInfo, pageProducts %}
+  </section>
 
-  {{ include('shop/products/_includes/grid', {
-    products: pageProducts
-  }) }}
-
-  {{ include('shop/products/_includes/pagination', {
-    products: pageProducts,
-    pageInfo: pageInfo
-  }) }}
 {% endblock %}

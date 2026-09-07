@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="referrer" content="origin-when-cross-origin" />
     {{ craft.vite.script("src/app.js", false) }}
+    {{ head() }}
 </head>
 <body class="ltr">
 {% include "_includes/banner.twig" %}
@@ -25,5 +26,6 @@
 
 {% include "_includes/footer.twig" %}
 {% include "_includes/symbols.twig" %}
+{{ endBody() }}
 </body>
 </html>

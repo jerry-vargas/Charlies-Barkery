@@ -57,44 +57,44 @@
     </div>
   {% endif %}
 
+  {% js at head %}
+  let states = {{ craft.commerce.getStores().getCurrentStore().settings.getAdministrativeAreasListByCountryCode()|json_encode|raw }};
+  {% set usedFields = {} %}
+  {% for countryCode in craft.app.addresses.getCountryRepository().getAll()|keys %}
+    {% set usedFields = usedFields|merge({ (countryCode): craft.app.addresses.getUsedFields(countryCode)|merge([
+      'fullName',
+      'latLong',
+      'organizationTaxId',
+      'organization',
+      'countryCode',
+    ]) }) %}
+  {% endfor %}
+  let usedAddressFieldsByCountryCode = {{ usedFields|json_encode|raw }};
+
+  function hideAddressFields(selectorTemplate) {
+    const fields = document.querySelectorAll('.' + selectorTemplate.replace('placeHolder', 'js-address-field'));
+    if (!fields.length) return;
+    for (let i = 0; i < fields.length; i++) {
+      fields[i].classList.add('hidden');
+    }
+  }
+
+  function showAddressField(fieldName, selectorTemplate) {
+    const field = document.querySelector('#' + selectorTemplate.replace('placeHolder', fieldName));
+    if (!field) return;
+    const fieldWrapper = field.closest('.' + selectorTemplate.replace('placeHolder', 'js-address-field'));
+    if (!fieldWrapper) return;
+    fieldWrapper.classList.remove('hidden');
+  }
+  {% endjs %}
+
+  {% js %}
+  let $siteSelector = document.querySelector('#js-site-selector');
+  if ($siteSelector) {
+    $siteSelector.addEventListener('change', (ev) => window.location = ev.target.value);
+  }
+  {% endjs %}
+
   {% block main %}{% endblock %}
 
 {% endblock %}
-
-{% js at head %}
-let states = {{ craft.commerce.getStores().getCurrentStore().settings.getAdministrativeAreasListByCountryCode()|json_encode|raw }};
-{% set usedFields = {} %}
-{% for countryCode in craft.app.addresses.getCountryRepository().getAll()|keys %}
-  {% set usedFields = usedFields|merge({ (countryCode): craft.app.addresses.getUsedFields(countryCode)|merge([
-    'fullName',
-    'latLong',
-    'organizationTaxId',
-    'organization',
-    'countryCode',
-  ]) }) %}
-{% endfor %}
-let usedAddressFieldsByCountryCode = {{ usedFields|json_encode|raw }};
-
-function hideAddressFields(selectorTemplate) {
-  const fields = document.querySelectorAll('.' + selectorTemplate.replace('placeHolder', 'js-address-field'));
-  if (!fields.length) return;
-  for (let i = 0; i < fields.length; i++) {
-    fields[i].classList.add('hidden');
-  }
-}
-
-function showAddressField(fieldName, selectorTemplate) {
-  const field = document.querySelector('#' + selectorTemplate.replace('placeHolder', fieldName));
-  if (!field) return;
-  const fieldWrapper = field.closest('.' + selectorTemplate.replace('placeHolder', 'js-address-field'));
-  if (!fieldWrapper) return;
-  fieldWrapper.classList.remove('hidden');
-}
-{% endjs %}
-
-{% js at endBody %}
-let $siteSelector = document.querySelector('#js-site-selector');
-if ($siteSelector) {
-  $siteSelector.addEventListener('change', (ev) => window.location = ev.target.value);
-}
-{% endjs %}
