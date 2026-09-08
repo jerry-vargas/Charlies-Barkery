@@ -7,7 +7,7 @@
 #
 # Host: charlies.ddev.site (MySQL 8.0.40)
 # Database: db
-# Generation Time: 2026-08-24 13:31:37 +0000
+# Generation Time: 2026-09-08 11:46:38 +0000
 # ************************************************************
 
 
@@ -58,7 +58,11 @@ LOCK TABLES `addresses` WRITE;
 
 INSERT INTO `addresses` (`id`, `primaryOwnerId`, `fieldId`, `countryCode`, `administrativeArea`, `locality`, `dependentLocality`, `postalCode`, `sortingCode`, `addressLine1`, `addressLine2`, `addressLine3`, `organization`, `organizationTaxId`, `fullName`, `firstName`, `lastName`, `latitude`, `longitude`, `dateCreated`, `dateUpdated`)
 VALUES
-	(2,NULL,NULL,'US',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2026-03-19 20:00:10','2026-03-19 20:00:10');
+	(2,NULL,NULL,'US',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2026-03-19 20:00:10','2026-03-19 20:00:10'),
+	(887,1,NULL,'US','TN','NASHVILLE',NULL,'37211',NULL,'2220','2161 NOLENSVILLE PIKE',NULL,NULL,NULL,'JERRY VARGAS','JERRY','VARGAS',NULL,NULL,'2026-09-07 01:58:48','2026-09-07 01:58:48'),
+	(888,885,NULL,'US','TN','NASHVILLE',NULL,'37211',NULL,'2220','2161 NOLENSVILLE PIKE',NULL,NULL,NULL,'JERRY VARGAS','JERRY','VARGAS',NULL,NULL,'2026-09-07 01:58:59','2026-09-07 01:58:59'),
+	(889,885,NULL,'US','TN','NASHVILLE',NULL,'37211',NULL,'2220','2161 NOLENSVILLE PIKE',NULL,NULL,NULL,'JERRY VARGAS','JERRY','VARGAS',NULL,NULL,'2026-09-07 01:58:59','2026-09-07 01:58:59'),
+	(892,891,NULL,'US',NULL,NULL,NULL,'28031',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2026-09-08 01:58:16','2026-09-08 02:13:58');
 
 /*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -620,7 +624,9 @@ VALUES
 	(856,1,'defaultVariantId','2026-07-30 14:33:42',0,1),
 	(856,1,'defaultWeight','2026-07-30 14:33:42',0,1),
 	(856,1,'defaultWidth','2026-07-30 14:33:42',0,1),
-	(856,1,'variants','2026-07-30 14:33:39',0,1);
+	(856,1,'variants','2026-07-30 14:33:39',0,1),
+	(888,1,'title','2026-09-07 01:58:59',0,1),
+	(892,1,'postalCode','2026-09-08 02:13:58',0,NULL);
 
 /*!40000 ALTER TABLE `changedattributes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1057,6 +1063,15 @@ CREATE TABLE `commerce_customers` (
   CONSTRAINT `fk_trjfhugklqpuyoohiqirlwnizbxcmbdkgdhp` FOREIGN KEY (`customerId`) REFERENCES `elements` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+LOCK TABLES `commerce_customers` WRITE;
+/*!40000 ALTER TABLE `commerce_customers` DISABLE KEYS */;
+
+INSERT INTO `commerce_customers` (`id`, `customerId`, `primaryBillingAddressId`, `primaryShippingAddressId`, `primaryPaymentSourceId`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,1,NULL,NULL,NULL,'2026-09-07 01:58:48','2026-09-07 01:58:48','e2956e99-95cd-4deb-be33-41d403a41672');
+
+/*!40000 ALTER TABLE `commerce_customers` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table commerce_discount_categories
@@ -1481,7 +1496,14 @@ INSERT INTO `commerce_lineitems` (`id`, `orderId`, `type`, `purchasableId`, `tax
 VALUES
 	(1,882,'purchasable',846,1,1,'Treats - Peanut Butter Bacon — Large','[]','d751713988987e9331980363e24189ce',10.0000,NULL,0.0000,10.0000,'TRT-LG-PBB',0.0000,0.0000,0.0000,0.0000,10.0000,10.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":4,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":23,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":846,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"58501ea9-b17f-4cb3-a931-71cb48412f9a\",\"siteSettingsId\":846,\"fieldLayoutId\":38,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Peanut Butter Bacon — Large\",\"slug\":\"__temp_xnsznzarzzmasgmiwvryjnnyzomqltfnwnxh\",\"uri\":null,\"dateCreated\":\"2026-07-30T14:18:30+00:00\",\"dateUpdated\":\"2026-08-21T21:50:36+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":846,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats?variant=846\",\"isAvailable\":true,\"isPromotable\":false,\"price\":10,\"promotionalPrice\":null,\"basePrice\":10,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":10,\"sku\":\"TRT-LG-PBB\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":790,\"ownerId\":790,\"product\":{\"postDate\":\"2026-06-17T21:45:40+00:00\",\"expiryDate\":null,\"typeId\":1,\"defaultVariantId\":791,\"defaultSku\":\"TRT-SM-PPB\",\"defaultBasePrice\":5,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":4,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":23,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":846,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"58501ea9-b17f-4cb3-a931-71cb48412f9a\",\"siteSettingsId\":846,\"fieldLayoutId\":38,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Peanut Butter Bacon — Large\",\"slug\":\"__temp_xnsznzarzzmasgmiwvryjnnyzomqltfnwnxh\",\"uri\":null,\"dateCreated\":\"2026-07-30T14:18:30+00:00\",\"dateUpdated\":\"2026-08-21T21:50:36+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":846,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats?variant=846\",\"isAvailable\":true,\"isPromotable\":false,\"price\":10,\"promotionalPrice\":null,\"basePrice\":10,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":10,\"sku\":\"TRT-LG-PBB\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":790,\"ownerId\":790,\"basePriceAsCurrency\":\"$10.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$10.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$10.00\",\"size\":\"large\",\"productInfo\":null,\"images\":[],\"nutrition\":null}]},\"id\":790,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"9bb59b0d-d2c1-423d-9fbd-657c273c5d40\",\"siteSettingsId\":790,\"fieldLayoutId\":37,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Treats\",\"slug\":\"treats\",\"uri\":\"products\\/treats\",\"dateCreated\":\"2026-06-17T21:45:40+00:00\",\"dateUpdated\":\"2026-08-21T21:50:54+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":790,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/treats\\/790-treats\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats\"},\"description\":\"Treats - Peanut Butter Bacon — Large\",\"purchasableId\":846,\"options\":[],\"sales\":[]}',NULL,'2026-08-21 21:51:10','2026-08-22 02:05:35','4de285b8-e8a7-4d00-95c5-f29b44601831'),
 	(2,882,'purchasable',796,1,1,'Cakes - 6\' Inch Cake','[]','d751713988987e9331980363e24189ce',28.0000,NULL,0.0000,28.0000,'cke-6',0.0000,0.0000,0.0000,0.0000,28.0000,28.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-08-21T21:55:39+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-08-21T21:55:39+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$28.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$28.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$28.00\",\"cakeSize\":\"6Inch\",\"productInfo\":null,\"images\":[874],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - 6\' Inch Cake\",\"purchasableId\":796,\"options\":[],\"sales\":[]}',NULL,'2026-08-22 02:03:21','2026-08-22 02:05:35','91b49fe8-4086-468a-9b25-23e45ea2df10'),
-	(3,884,'purchasable',796,1,1,'Cakes - 6\' Inch Cake','[]','d751713988987e9331980363e24189ce',28.0000,NULL,0.0000,28.0000,'cke-6',0.0000,0.0000,0.0000,0.0000,28.0000,28.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-08-21T21:55:39+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-08-21T21:55:39+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$28.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$28.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$28.00\",\"cakeSize\":\"6Inch\",\"productInfo\":null,\"images\":[874],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - 6\' Inch Cake\",\"purchasableId\":796,\"options\":[],\"sales\":[]}',NULL,'2026-08-23 17:18:23','2026-08-23 17:18:23','796262af-3f2a-439e-83e1-519f3bbb4b7f');
+	(3,884,'purchasable',796,1,1,'Cakes - 6\' Inch Cake','[]','d751713988987e9331980363e24189ce',28.0000,NULL,0.0000,28.0000,'cke-6',0.0000,0.0000,0.0000,0.0000,28.0000,28.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-08-21T21:55:39+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-08-21T21:55:39+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$28.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$28.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$28.00\",\"cakeSize\":\"6Inch\",\"productInfo\":null,\"images\":[874],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - 6\' Inch Cake\",\"purchasableId\":796,\"options\":[],\"sales\":[]}',NULL,'2026-08-23 17:18:23','2026-08-23 17:18:23','796262af-3f2a-439e-83e1-519f3bbb4b7f'),
+	(4,885,'purchasable',852,1,1,'Treats - Apple Peanut Butter — Large','[]','8dd930c7fbabe9321947b630145fbe6e',10.0000,NULL,0.0000,10.0000,'TRT-LG-APB',0.0000,0.0000,0.0000,0.0000,10.0000,10.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":6,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":25,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":852,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"8ec7bf50-595b-4485-a2df-4fc083a7bda4\",\"siteSettingsId\":852,\"fieldLayoutId\":38,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Apple Peanut Butter — Large\",\"slug\":\"__temp_xnsznzarzzmasgmiwvryjnnyzomqltfnwnxh\",\"uri\":null,\"dateCreated\":\"2026-07-30T14:20:17+00:00\",\"dateUpdated\":\"2026-08-21T21:50:04+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":852,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats?variant=852\",\"isAvailable\":true,\"isPromotable\":false,\"price\":10,\"promotionalPrice\":null,\"basePrice\":10,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":10,\"sku\":\"TRT-LG-APB\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":790,\"ownerId\":790,\"product\":{\"postDate\":\"2026-06-17T21:45:40+00:00\",\"expiryDate\":null,\"typeId\":1,\"defaultVariantId\":791,\"defaultSku\":\"TRT-SM-PPB\",\"defaultBasePrice\":5,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":6,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":25,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":852,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"8ec7bf50-595b-4485-a2df-4fc083a7bda4\",\"siteSettingsId\":852,\"fieldLayoutId\":38,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Apple Peanut Butter — Large\",\"slug\":\"__temp_xnsznzarzzmasgmiwvryjnnyzomqltfnwnxh\",\"uri\":null,\"dateCreated\":\"2026-07-30T14:20:17+00:00\",\"dateUpdated\":\"2026-08-21T21:50:04+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":852,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats?variant=852\",\"isAvailable\":true,\"isPromotable\":false,\"price\":10,\"promotionalPrice\":null,\"basePrice\":10,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":10,\"sku\":\"TRT-LG-APB\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":790,\"ownerId\":790,\"basePriceAsCurrency\":\"$10.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$10.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$10.00\",\"size\":\"large\",\"productInfo\":null,\"images\":[],\"nutrition\":null}]},\"id\":790,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"9bb59b0d-d2c1-423d-9fbd-657c273c5d40\",\"siteSettingsId\":790,\"fieldLayoutId\":37,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Treats\",\"slug\":\"treats\",\"uri\":\"products\\/treats\",\"dateCreated\":\"2026-06-17T21:45:40+00:00\",\"dateUpdated\":\"2026-08-21T21:50:54+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":790,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/treats\\/790-treats\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats\"},\"description\":\"Treats - Apple Peanut Butter — Large\",\"purchasableId\":852,\"options\":[],\"sales\":[]}',NULL,'2026-09-06 13:52:33','2026-09-07 01:59:18','0e067e75-baa5-4487-8c25-959b11256a42'),
+	(5,885,'purchasable',797,1,1,'Cakes - Large Bone','[]','59f9b557b9f658501cc4ee69ba270c7b',34.0000,NULL,0.0000,34.0000,'cke-bone',0.0000,0.0000,0.0000,0.0000,34.0000,34.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":3,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":14,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":797,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"425314ce-160f-45a8-840d-cb62d3d4dfd5\",\"siteSettingsId\":797,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Large Bone\",\"slug\":\"__temp_xtfjbknzhyqdeummnnwrdweqzgastttjovpu\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:48+00:00\",\"dateUpdated\":\"2026-08-21T21:55:43+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":797,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=797\",\"isAvailable\":true,\"isPromotable\":false,\"price\":34,\"promotionalPrice\":null,\"basePrice\":34,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":34,\"sku\":\"cke-bone\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":3,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":14,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":797,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"425314ce-160f-45a8-840d-cb62d3d4dfd5\",\"siteSettingsId\":797,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Large Bone\",\"slug\":\"__temp_xtfjbknzhyqdeummnnwrdweqzgastttjovpu\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:48+00:00\",\"dateUpdated\":\"2026-08-21T21:55:43+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":797,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=797\",\"isAvailable\":true,\"isPromotable\":false,\"price\":34,\"promotionalPrice\":null,\"basePrice\":34,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":34,\"sku\":\"cke-bone\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$34.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$34.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$34.00\",\"cakeSize\":\"largeBone\",\"productInfo\":null,\"images\":[875],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - Large Bone\",\"purchasableId\":797,\"options\":[],\"sales\":[]}',NULL,'2026-09-06 14:03:24','2026-09-07 01:59:18','924e17f9-c170-4abf-b926-340d81b5b7cf'),
+	(6,885,'purchasable',795,1,1,'Cakes - 4\' Inch cake','[]','0e53d31c847a97969d58fbe700e75c57',24.0000,NULL,0.0000,24.0000,'cke-4',0.0000,0.0000,0.0000,0.0000,24.0000,24.0000,1,'','',0,0,1,1,'{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-08-21T21:55:34+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-08-21T21:55:34+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$24.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$24.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$24.00\",\"cakeSize\":\"4Inch\",\"productInfo\":null,\"images\":[873],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - 4\' Inch cake\",\"purchasableId\":795,\"options\":[],\"sales\":[]}',NULL,'2026-09-07 01:37:46','2026-09-07 01:59:18','9109db05-9393-4924-8a0f-bb4d542ab99a'),
+	(7,890,'purchasable',800,1,1,'Cookies - Deco Cookie','[]','d751713988987e9331980363e24189ce',3.5000,NULL,0.0000,3.5000,'deco-single',0.0000,0.0000,0.0000,0.0000,3.5000,3.5000,1,'','',0,0,1,1,'{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":15,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":800,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"d0604989-678e-4796-be1f-cb9e40e5a583\",\"siteSettingsId\":800,\"fieldLayoutId\":42,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Deco Cookie\",\"slug\":\"__temp_mddtjvaqhmusgwgjwtavkbynexwzguslebdn\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:37:17+00:00\",\"dateUpdated\":\"2026-08-21T21:56:02+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":800,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cookies?variant=800\",\"isAvailable\":true,\"isPromotable\":false,\"price\":3.5,\"promotionalPrice\":null,\"basePrice\":3.5,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":3.5,\"sku\":\"deco-single\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":799,\"ownerId\":799,\"product\":{\"postDate\":\"2026-07-13T14:37:02+00:00\",\"expiryDate\":null,\"typeId\":3,\"defaultVariantId\":800,\"defaultSku\":\"deco-single\",\"defaultBasePrice\":3.5,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":15,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":800,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"d0604989-678e-4796-be1f-cb9e40e5a583\",\"siteSettingsId\":800,\"fieldLayoutId\":42,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Deco Cookie\",\"slug\":\"__temp_mddtjvaqhmusgwgjwtavkbynexwzguslebdn\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:37:17+00:00\",\"dateUpdated\":\"2026-08-21T21:56:02+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":800,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cookies?variant=800\",\"isAvailable\":true,\"isPromotable\":false,\"price\":3.5,\"promotionalPrice\":null,\"basePrice\":3.5,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":3.5,\"sku\":\"deco-single\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":799,\"ownerId\":799,\"basePriceAsCurrency\":\"$3.50\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$3.50\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$3.50\",\"productInfo\":null,\"images\":[],\"nutrition\":null}]},\"id\":799,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"addaeb4b-a0a1-4edf-bef7-bd34b14df551\",\"siteSettingsId\":799,\"fieldLayoutId\":41,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cookies\",\"slug\":\"cookies\",\"uri\":\"products\\/cookies\",\"dateCreated\":\"2026-07-13T14:37:02+00:00\",\"dateUpdated\":\"2026-08-21T21:56:14+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":799,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cookies\\/799-cookies\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cookies\"},\"description\":\"Cookies - Deco Cookie\",\"purchasableId\":800,\"options\":[],\"sales\":[]}',NULL,'2026-09-07 02:11:49','2026-09-07 02:11:49','f558b8c6-4fed-4a04-a5ca-c6de7a37d75e'),
+	(8,891,'purchasable',791,1,1,'Treats - Pumpkin Peanut Butter — Small','[]','d751713988987e9331980363e24189ce',5.0000,NULL,0.0000,5.0000,'TRT-SM-PPB',0.0000,0.0000,0.0000,0.0000,5.0000,5.0000,1,'','',0,0,1,1,'{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":10,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":791,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"a05f3d67-858c-4a18-b922-008ed42abdc2\",\"siteSettingsId\":791,\"fieldLayoutId\":38,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Pumpkin Peanut Butter — Small\",\"slug\":\"__temp_fxpueknqlhpaabrltnrgelsncentmltudqvk\",\"uri\":null,\"dateCreated\":\"2026-06-17T21:45:49+00:00\",\"dateUpdated\":\"2026-08-21T21:50:10+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":791,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats?variant=791\",\"isAvailable\":true,\"isPromotable\":false,\"price\":5,\"promotionalPrice\":null,\"basePrice\":5,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":5,\"sku\":\"TRT-SM-PPB\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":790,\"ownerId\":790,\"product\":{\"postDate\":\"2026-06-17T21:45:40+00:00\",\"expiryDate\":null,\"typeId\":1,\"defaultVariantId\":791,\"defaultSku\":\"TRT-SM-PPB\",\"defaultBasePrice\":5,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":10,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":791,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"a05f3d67-858c-4a18-b922-008ed42abdc2\",\"siteSettingsId\":791,\"fieldLayoutId\":38,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Pumpkin Peanut Butter — Small\",\"slug\":\"__temp_fxpueknqlhpaabrltnrgelsncentmltudqvk\",\"uri\":null,\"dateCreated\":\"2026-06-17T21:45:49+00:00\",\"dateUpdated\":\"2026-08-21T21:50:10+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":791,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats?variant=791\",\"isAvailable\":true,\"isPromotable\":false,\"price\":5,\"promotionalPrice\":null,\"basePrice\":5,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":5,\"sku\":\"TRT-SM-PPB\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":790,\"ownerId\":790,\"basePriceAsCurrency\":\"$5.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$5.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$5.00\",\"size\":\"small\",\"productInfo\":null,\"images\":[868],\"nutrition\":null}]},\"id\":790,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"9bb59b0d-d2c1-423d-9fbd-657c273c5d40\",\"siteSettingsId\":790,\"fieldLayoutId\":37,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Treats\",\"slug\":\"treats\",\"uri\":\"products\\/treats\",\"dateCreated\":\"2026-06-17T21:45:40+00:00\",\"dateUpdated\":\"2026-08-21T21:50:54+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":790,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/treats\\/790-treats\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/treats\"},\"description\":\"Treats - Pumpkin Peanut Butter — Small\",\"purchasableId\":791,\"options\":[],\"sales\":[]}',NULL,'2026-09-08 00:43:48','2026-09-08 11:46:05','ba8b4e6e-73dd-4144-8f41-6821b77c2a92'),
+	(9,891,'purchasable',795,1,1,'Cakes - 4\' Inch cake','[]','d751713988987e9331980363e24189ce',24.0000,NULL,0.0000,24.0000,'cke-4',0.0000,0.0000,0.0000,0.0000,24.0000,24.0000,1,'','',0,0,1,1,'{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-08-21T21:55:34+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-08-21T21:55:34+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$24.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$24.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$24.00\",\"cakeSize\":\"4Inch\",\"productInfo\":null,\"images\":[873],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - 4\' Inch cake\",\"purchasableId\":795,\"options\":[],\"sales\":[]}',NULL,'2026-09-08 01:58:21','2026-09-08 11:46:05','f3dbb08e-98a6-4af7-b778-2b231ef15fbe'),
+	(10,891,'purchasable',801,1,1,'Cookies - Deco Cookie 2-Pack','[]','d751713988987e9331980363e24189ce',6.0000,NULL,0.0000,6.0000,'deco-2pk',0.0000,0.0000,0.0000,0.0000,6.0000,6.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":16,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":801,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"8042553b-086f-4fdf-8c56-25b251325fa8\",\"siteSettingsId\":801,\"fieldLayoutId\":42,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Deco Cookie 2-Pack\",\"slug\":\"__temp_jgjiqmrfsrrkuecilmjtfrilutpatihpeuqv\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:38:46+00:00\",\"dateUpdated\":\"2026-08-21T21:56:05+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":801,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cookies?variant=801\",\"isAvailable\":true,\"isPromotable\":false,\"price\":6,\"promotionalPrice\":null,\"basePrice\":6,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":6,\"sku\":\"deco-2pk\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":799,\"ownerId\":799,\"product\":{\"postDate\":\"2026-07-13T14:37:02+00:00\",\"expiryDate\":null,\"typeId\":3,\"defaultVariantId\":800,\"defaultSku\":\"deco-single\",\"defaultBasePrice\":3.5,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":16,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":801,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"8042553b-086f-4fdf-8c56-25b251325fa8\",\"siteSettingsId\":801,\"fieldLayoutId\":42,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Deco Cookie 2-Pack\",\"slug\":\"__temp_jgjiqmrfsrrkuecilmjtfrilutpatihpeuqv\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:38:46+00:00\",\"dateUpdated\":\"2026-08-21T21:56:05+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":801,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cookies?variant=801\",\"isAvailable\":true,\"isPromotable\":false,\"price\":6,\"promotionalPrice\":null,\"basePrice\":6,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":6,\"sku\":\"deco-2pk\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":799,\"ownerId\":799,\"basePriceAsCurrency\":\"$6.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$6.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$6.00\",\"productInfo\":null,\"images\":[],\"nutrition\":null}]},\"id\":799,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"addaeb4b-a0a1-4edf-bef7-bd34b14df551\",\"siteSettingsId\":799,\"fieldLayoutId\":41,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cookies\",\"slug\":\"cookies\",\"uri\":\"products\\/cookies\",\"dateCreated\":\"2026-07-13T14:37:02+00:00\",\"dateUpdated\":\"2026-08-21T21:56:14+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":799,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cookies\\/799-cookies\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cookies\"},\"description\":\"Cookies - Deco Cookie 2-Pack\",\"purchasableId\":801,\"options\":[],\"sales\":[]}',NULL,'2026-09-08 01:58:30','2026-09-08 11:46:05','1f7ca38e-d8be-40eb-8673-8b596e05db50');
 
 /*!40000 ALTER TABLE `commerce_lineitems` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1565,6 +1587,15 @@ CREATE TABLE `commerce_orderhistories` (
   CONSTRAINT `fk_xoijjzitnvpijprlgryspadltlyhhjcllpyn` FOREIGN KEY (`newStatusId`) REFERENCES `commerce_orderstatuses` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+LOCK TABLES `commerce_orderhistories` WRITE;
+/*!40000 ALTER TABLE `commerce_orderhistories` DISABLE KEYS */;
+
+INSERT INTO `commerce_orderhistories` (`id`, `orderId`, `userId`, `userName`, `prevStatusId`, `newStatusId`, `message`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,885,1,'jerry@charliesbarkery.com',NULL,1,NULL,'2026-09-07 01:59:18','2026-09-07 01:59:18','b93ca1e3-158a-4341-ab8c-6e7f61126712');
+
+/*!40000 ALTER TABLE `commerce_orderhistories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table commerce_ordernotices
@@ -1695,7 +1726,10 @@ LOCK TABLES `commerce_orders` WRITE;
 INSERT INTO `commerce_orders` (`id`, `storeId`, `billingAddressId`, `shippingAddressId`, `estimatedBillingAddressId`, `estimatedShippingAddressId`, `sourceShippingAddressId`, `sourceBillingAddressId`, `gatewayId`, `paymentSourceId`, `customerId`, `orderStatusId`, `number`, `reference`, `couponCode`, `itemTotal`, `itemSubtotal`, `totalQty`, `totalWeight`, `total`, `totalPrice`, `totalPaid`, `totalDiscount`, `totalTax`, `totalTaxIncluded`, `totalShippingCost`, `paidStatus`, `email`, `orderCompletedEmail`, `isCompleted`, `dateOrdered`, `datePaid`, `dateFirstPaid`, `dateAuthorized`, `currency`, `paymentCurrency`, `lastIp`, `orderLanguage`, `origin`, `message`, `registerUserOnOrderComplete`, `saveBillingAddressOnOrderComplete`, `makePrimaryBillingAddress`, `saveShippingAddressOnOrderComplete`, `makePrimaryShippingAddress`, `recalculationMode`, `returnUrl`, `cancelUrl`, `shippingMethodHandle`, `shippingMethodName`, `orderSiteId`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(882,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'ef41e3b8380a44371e5cdee8f391b86e',NULL,NULL,38.0000,38.0000,2,0.0000,38.0000,38.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-08-21 21:32:04','2026-08-22 02:05:35','a83a9f13-ce64-4c08-9709-0253f65931d6'),
-	(884,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'dde8be7e61e01ff47445b2409b83fdca',NULL,NULL,28.0000,28.0000,1,0.0000,28.0000,28.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-08-23 17:18:23','2026-08-23 17:18:23','4768473e-1949-41a0-a421-65a51311c476');
+	(884,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'dde8be7e61e01ff47445b2409b83fdca',NULL,NULL,28.0000,28.0000,1,0.0000,28.0000,28.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-08-23 17:18:23','2026-08-23 17:18:23','4768473e-1949-41a0-a421-65a51311c476'),
+	(885,1,889,888,NULL,NULL,887,887,1,NULL,1,1,'c91535637405604a6e10c8dd9ed6c9fe','c915356',NULL,68.0000,68.0000,3,0.0000,68.0000,68.0000,68.0000,0.0000,0.0000,0.0000,0.0000,'paid','jerry@charliesbarkery.com','jerry@charliesbarkery.com',1,'2026-09-07 01:59:18','2026-09-07 01:59:18','2026-09-07 01:59:18',NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'none','https://charlies.ddev.site/shop/customer/order?number=c91535637405604a6e10c8dd9ed6c9fe&success=true','https://charlies.ddev.site/shop/checkout/payment','','',1,'2026-09-06 13:52:33','2026-09-07 01:59:18','52cb9d54-fbc8-4351-8567-26e6826eb7e2'),
+	(890,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'fdac99f653c40c8276012a162a27a9a8',NULL,NULL,3.5000,3.5000,1,0.0000,3.5000,3.5000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-07 02:11:49','2026-09-07 02:11:49','3df9be6d-a9ce-44c7-a5ad-8832a5280cac'),
+	(891,1,NULL,NULL,892,892,NULL,NULL,1,NULL,1,NULL,'a4a0b57dff229ac87c9bee07371949a3',NULL,NULL,35.0000,35.0000,3,0.0000,35.0000,35.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en-US','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-08 00:43:48','2026-09-08 11:46:05','e54a0481-bd1d-44be-8e15-80144bc0c70f');
 
 /*!40000 ALTER TABLE `commerce_orders` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2692,6 +2726,15 @@ CREATE TABLE `commerce_transactions` (
   CONSTRAINT `fk_xeqhibpmobumyubxglcvbeojupmvozjxohca` FOREIGN KEY (`userId`) REFERENCES `elements` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+LOCK TABLES `commerce_transactions` WRITE;
+/*!40000 ALTER TABLE `commerce_transactions` DISABLE KEYS */;
+
+INSERT INTO `commerce_transactions` (`id`, `orderId`, `parentId`, `gatewayId`, `userId`, `hash`, `type`, `amount`, `paymentAmount`, `currency`, `paymentCurrency`, `paymentRate`, `status`, `reference`, `code`, `message`, `note`, `response`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(1,885,NULL,1,1,'14202b6384dc275ac5db15b01d4ab746','purchase',68.0000,68.0000,'USD','USD',1.0000,'success','2026-09-06-18-59-18','','','','','2026-09-07 01:59:18','2026-09-07 01:59:18','ac53afed-f0ff-4e20-bbd4-6779e3aad256');
+
+/*!40000 ALTER TABLE `commerce_transactions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table commerce_transferdetails
@@ -3682,7 +3725,15 @@ VALUES
 	(877,NULL,NULL,NULL,40,'craft\\commerce\\elements\\Variant',1,0,'2026-08-08 12:46:45','2026-08-21 21:55:48',NULL,NULL,NULL,'607fde5d-4214-4846-8181-d37ecf5340d5'),
 	(882,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-08-21 21:32:04','2026-08-22 10:55:40',NULL,'2026-08-22 10:55:40',NULL,'b503d8d3-4482-433d-ba1e-ca42495b5ec8'),
 	(883,NULL,NULL,NULL,NULL,'craft\\commerce\\elements\\Donation',1,0,'2026-08-23 17:02:58','2026-08-23 17:02:58',NULL,NULL,NULL,'cfcabe1d-a89c-4254-a68a-81f1fc457090'),
-	(884,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-08-23 17:18:23','2026-08-23 17:18:23',NULL,NULL,NULL,'15bec775-811d-41b3-8bb6-ca75b5a4f359');
+	(884,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-08-23 17:18:23','2026-08-23 17:18:23',NULL,NULL,NULL,'15bec775-811d-41b3-8bb6-ca75b5a4f359'),
+	(885,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-06 13:52:33','2026-09-07 01:59:18',NULL,NULL,NULL,'f245d44d-01cf-436e-9699-6ff47ad2ad32'),
+	(886,NULL,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2026-09-06 23:56:42','2026-09-06 23:56:42',NULL,NULL,NULL,'85e15446-d4f1-4929-a20b-411f8db4189d'),
+	(887,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-07 01:58:48','2026-09-07 01:58:48',NULL,NULL,NULL,'5a1f9160-124b-466d-92b6-40262944cddf'),
+	(888,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-07 01:58:59','2026-09-07 01:59:18',NULL,NULL,NULL,'0ecaa1fd-1ce7-4ee3-b607-abca803f9fbb'),
+	(889,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-07 01:58:59','2026-09-07 01:59:18',NULL,NULL,NULL,'98908d37-4d9a-42b4-924b-2a3e1edb054a'),
+	(890,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-07 02:11:49','2026-09-07 02:11:49',NULL,NULL,NULL,'878d4522-db23-445c-9466-e3ef9198dcc1'),
+	(891,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-08 00:43:48','2026-09-08 11:46:05',NULL,NULL,NULL,'03bed04d-7629-49ee-a66a-aa71d4ea58ac'),
+	(892,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-08 01:58:16','2026-09-08 11:46:05',NULL,NULL,NULL,'4ce16d9d-e1b4-4572-ac97-84beb5ace37a');
 
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -4925,7 +4976,15 @@ VALUES
 	(877,877,1,'Gender Reveal','__temp_rckokaujiutsamerhicmfsmpxxqgaqyhacxx',NULL,'{\"96a155e3-426d-43a1-b642-4a87c1a6f3ed\": [876], \"d099518b-9462-47dd-8147-984b41c2fbea\": \"4Inch\"}',1,'2026-08-08 12:46:45','2026-08-08 12:47:27','23d171f1-df50-446b-9744-ad9ecaafcf1a'),
 	(882,882,1,NULL,NULL,NULL,NULL,1,'2026-08-21 21:32:04','2026-08-21 21:32:04','842258f3-b2d3-4d10-88f2-78a27a41d17f'),
 	(883,883,1,NULL,NULL,NULL,NULL,1,'2026-08-23 17:02:58','2026-08-23 17:02:58','8fd45a4d-c33d-4659-9f20-917ea0473aab'),
-	(884,884,1,NULL,NULL,NULL,NULL,1,'2026-08-23 17:18:23','2026-08-23 17:18:23','8ff44aa3-c3e0-4e8c-a73e-40e410d15193');
+	(884,884,1,NULL,NULL,NULL,NULL,1,'2026-08-23 17:18:23','2026-08-23 17:18:23','8ff44aa3-c3e0-4e8c-a73e-40e410d15193'),
+	(885,885,1,NULL,NULL,NULL,NULL,1,'2026-09-06 13:52:33','2026-09-06 13:52:33','357bae79-f374-456a-93bc-b5295ab85f6b'),
+	(886,886,1,NULL,NULL,NULL,NULL,1,'2026-09-06 23:56:42','2026-09-06 23:56:42','950c3aa7-6e49-40b1-9574-de0027dd850c'),
+	(887,887,1,'kmkmlkml',NULL,NULL,NULL,1,'2026-09-07 01:58:48','2026-09-07 01:58:48','0968e4c0-3dae-4e6e-a688-687d2128c099'),
+	(888,888,1,'Shipping Address',NULL,NULL,NULL,1,'2026-09-07 01:58:59','2026-09-07 01:58:59','b74f232d-9dad-4e6d-b352-58ac29feed53'),
+	(889,889,1,'Billing Address',NULL,NULL,NULL,1,'2026-09-07 01:58:59','2026-09-07 01:58:59','aca5b815-5b7a-43ab-99ea-3bb2d798a7fe'),
+	(890,890,1,NULL,NULL,NULL,NULL,1,'2026-09-07 02:11:49','2026-09-07 02:11:49','9d8bbb7b-89e2-46db-9634-a565dd68ad4c'),
+	(891,891,1,NULL,NULL,NULL,NULL,1,'2026-09-08 00:43:48','2026-09-08 00:43:48','6b91771b-c853-41a6-a218-18d9c6c0327e'),
+	(892,892,1,'New Address',NULL,NULL,NULL,1,'2026-09-08 01:58:16','2026-09-08 01:58:16','7508c7b2-e52a-416f-bb5b-1781a5c5e9d6');
 
 /*!40000 ALTER TABLE `elements_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -6284,7 +6343,7 @@ LOCK TABLES `info` WRITE;
 
 INSERT INTO `info` (`id`, `version`, `schemaVersion`, `maintenance`, `configVersion`, `fieldVersion`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(1,'5.10.1','5.10.0.0',1,'rbzpxgtwbxgp','3@mpjhqfylgw','2026-03-12 17:35:44','2026-08-22 02:28:40','bdb1fde7-0ca3-4ae0-9d78-8b50b127bbd3');
+	(1,'5.10.5','5.10.0.0',1,'rbzpxgtwbxgp','3@mpjhqfylgw','2026-03-12 17:35:44','2026-09-06 13:52:05','bdb1fde7-0ca3-4ae0-9d78-8b50b127bbd3');
 
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -10322,16 +10381,6 @@ CREATE TABLE `queue` (
   KEY `idx_jzdiuqgizxwvfhoglhmcdulkrpaeptevfyxr` (`channel`,`fail`,`timeUpdated`,`delay`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
-LOCK TABLES `queue` WRITE;
-/*!40000 ALTER TABLE `queue` DISABLE KEYS */;
-
-INSERT INTO `queue` (`id`, `channel`, `job`, `description`, `timePushed`, `ttr`, `delay`, `priority`, `dateReserved`, `timeUpdated`, `progress`, `progressLabel`, `attempt`, `fail`, `dateFailed`, `error`)
-VALUES
-	(553,'queue',X'4F3A33343A2263726166745C71756575655C6A6F62735C557064617465536561726368496E646578223A383A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A22656C656D656E7454797065223B733A32393A2263726166745C636F6D6D657263655C656C656D656E74735C4F72646572223B733A393A22656C656D656E744964223B693A3838343B733A363A22736974654964223B693A313B733A31323A226669656C6448616E646C6573223B4E3B733A363A22717565756564223B623A313B7D','t9n:[\"app\",\"Updating search indexes\"]',1787505503,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL),
-	(554,'queue',X'4F3A33343A2263726166745C71756575655C6A6F62735C557064617465536561726368496E646578223A383A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A22656C656D656E7454797065223B733A32393A2263726166745C636F6D6D657263655C656C656D656E74735C4F72646572223B733A393A22656C656D656E744964223B693A3838343B733A363A22736974654964223B693A313B733A31323A226669656C6448616E646C6573223B4E3B733A363A22717565756564223B623A313B7D','t9n:[\"app\",\"Updating search indexes\"]',1787505503,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL);
-
-/*!40000 ALTER TABLE `queue` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table recoverycodes
@@ -10448,41 +10497,75 @@ LOCK TABLES `resourcepaths` WRITE;
 
 INSERT INTO `resourcepaths` (`hash`, `path`)
 VALUES
+	('108d5f6','@craft/web/assets/xregexp/dist'),
+	('13cf4cbf','@craft/commerce/web/assets/chartjs/dist'),
 	('13fe888c','@craft/web/assets/money/dist'),
 	('151e05ea','@craft/web/assets/admintable/dist'),
+	('199c0d78','@craft/commerce/web/assets/statwidgets/dist'),
+	('2704989b','@craft/web/assets/editsection/dist'),
+	('275c68c4','@craft/web/assets/vue/dist'),
 	('2c227102','@craft/web/assets/fabric/dist'),
+	('337cb09f','@craft/web/assets/velocity/dist'),
+	('36b86d4a','@craft/web/assets/jquerytouchevents/dist'),
+	('36c0232','@craft/web/assets/craftsupport/dist'),
+	('36ebb228','@craft/web/assets/jquerypayment/dist'),
+	('3c793f76','@craft/web/assets/feed/dist'),
 	('41b92c5d','@craft/web/assets/conditionbuilder/dist'),
+	('41eb872f','@craft/commerce/web/assets/orderswidget/dist'),
 	('42b79637','@craft/commerce/web/assets/purchasablepricefield/dist'),
+	('453a19bd','@craft/web/assets/dashboard/dist'),
 	('4904615','@craft/web/assets/garnish/dist'),
 	('50e9377a','@craft/commerce/web/assets/commercecp/dist'),
+	('51ec9b32','@craft/web/assets/htmx/dist'),
 	('5acbd150','@craft/web/assets/axios/dist'),
+	('5f7cd2e0','@craft/web/assets/animationblocker/dist'),
+	('60236dff','@verbb/formie/web/assets/frontend/dist'),
 	('60255aac','@bower/inputmask/dist'),
+	('604519e0','@bower/jquery/dist'),
 	('66fadff6','@craft/web/assets/cp/dist'),
+	('6aa289f6','@craft/web/assets/jqueryui/dist'),
 	('6ab27dbe','@craft/web/assets/selectize/dist'),
 	('6da7c79c','@craft/web/assets/tailwindreset/dist'),
 	('6f81ef8b','@craft/web/assets/pluginstore/dist'),
 	('71c7253e','@craft/web/assets/fieldsettings/dist'),
 	('740ca5ba','@craft/web/assets/theme/dist'),
+	('7446472','@craft/commerce/web/assets/commercewidgets/dist'),
+	('74d95f5d','@craft/web/assets/fileupload/dist'),
 	('77aef008','@craft/web/assets/iframeresizer/dist'),
 	('7ccff9bf','@craft/web/assets/d3/dist'),
+	('828f230c','@craft/web/assets/axios/dist'),
 	('873820bc','@craft/web/assets/animationblocker/dist'),
 	('88cf5445','@verbb/formie/web/assets/frontend/dist'),
 	('89a8696e','@craft/web/assets/htmx/dist'),
 	('8d74396','@craft/commerce/web/assets/commerceui/dist'),
 	('97959117','@craft/commerce/web/assets/inventory/dist'),
+	('99fdde01','@craft/web/assets/conditionbuilder/dist'),
+	('9a7ab655','@craft/web/assets/recententries/dist'),
+	('a48b0be3','@craft/web/assets/d3/dist'),
+	('a4c0f43b','@craft/web/assets/updateswidget/dist'),
 	('a7158e68','@craft/web/assets/prismjs/dist'),
+	('ab068f6','@craft/web/assets/picturefill/dist'),
+	('ac4857e6','@craft/web/assets/theme/dist'),
 	('ac9dad01','@craft/web/assets/fileupload/dist'),
+	('afea0254','@craft/web/assets/iframeresizer/dist'),
 	('b2e67baa','@craft/web/assets/jqueryui/dist'),
+	('b2f68fe2','@craft/web/assets/selectize/dist'),
+	('b5e335c0','@craft/web/assets/tailwindreset/dist'),
 	('b801ebbc','@bower/jquery/dist'),
 	('b82a1d88','@craft/commerce/web/assets/productindex/dist'),
+	('bebe2daa','@craft/web/assets/cp/dist'),
 	('cb2cc408','@craft/ckeditor/web/assets/ckeditor/dist'),
 	('cc55c608','@craft/ckeditor/web/assets/fieldsettings/dist'),
+	('cd5af7b6','@craft/web/assets/admintable/dist'),
 	('d2f49aaa','@craft/web/assets/picturefill/dist'),
 	('d94c27aa','@craft/web/assets/xregexp/dist'),
+	('dcd4b449','@craft/web/assets/garnish/dist'),
 	('dd866a16','@craft/web/assets/timepicker/dist'),
 	('eb3842c3','@craft/web/assets/velocity/dist'),
 	('eeaf4074','@craft/web/assets/jquerypayment/dist'),
 	('eefc9f16','@craft/web/assets/jquerytouchevents/dist'),
+	('f466835e','@craft/web/assets/fabric/dist'),
+	('fb8b000','@craft/commerce/web/assets/deepmerge/dist'),
 	('ff189a98','@craft/web/assets/vue/dist'),
 	('ff406ac7','@craft/web/assets/editsection/dist');
 
@@ -11557,7 +11640,141 @@ VALUES
 	(883,'sku',0,1,' donation cc5 '),
 	(883,'slug',0,1,''),
 	(883,'weight',0,1,''),
-	(883,'width',0,1,'');
+	(883,'width',0,1,''),
+	(884,'billingaddress',0,1,''),
+	(884,'billingfirstname',0,1,''),
+	(884,'billingfullname',0,1,''),
+	(884,'billinglastname',0,1,''),
+	(884,'customername',0,1,''),
+	(884,'email',0,1,' jerry charliesbarkery com '),
+	(884,'lineitemdescriptions',0,1,' cakes 6 inch cake '),
+	(884,'number',0,1,' dde8be7e61e01ff47445b2409b83fdca '),
+	(884,'reference',0,1,''),
+	(884,'shippingaddress',0,1,''),
+	(884,'shippingfirstname',0,1,''),
+	(884,'shippingfullname',0,1,''),
+	(884,'shippinglastname',0,1,''),
+	(884,'shortnumber',0,1,' dde8be7 '),
+	(884,'skus',0,1,' cke 6 '),
+	(884,'slug',0,1,''),
+	(884,'transactionreference',0,1,''),
+	(884,'username',0,1,' admin '),
+	(885,'billingaddress',0,1,' jerry vargas 2220 2161 nolensville pike nashville tn 37211 united states '),
+	(885,'billingfirstname',0,1,' jerry '),
+	(885,'billingfullname',0,1,' jerry vargas '),
+	(885,'billinglastname',0,1,' vargas '),
+	(885,'customername',0,1,''),
+	(885,'email',0,1,' jerry charliesbarkery com '),
+	(885,'lineitemdescriptions',0,1,' cakes 4 inch cake cakes large bone treats apple peanut butter large '),
+	(885,'number',0,1,' c91535637405604a6e10c8dd9ed6c9fe '),
+	(885,'reference',0,1,' c915356 '),
+	(885,'shippingaddress',0,1,' jerry vargas 2220 2161 nolensville pike nashville tn 37211 united states '),
+	(885,'shippingfirstname',0,1,' jerry '),
+	(885,'shippingfullname',0,1,' jerry vargas '),
+	(885,'shippinglastname',0,1,' vargas '),
+	(885,'shortnumber',0,1,' c915356 '),
+	(885,'skus',0,1,' cke 4 cke bone trt lg apb '),
+	(885,'slug',0,1,''),
+	(885,'transactionreference',0,1,' 2026 09 06 18 59 18 '),
+	(885,'username',0,1,' admin '),
+	(886,'email',0,1,' vargasman11 gmail com '),
+	(886,'firstname',0,1,''),
+	(886,'fullname',0,1,''),
+	(886,'lastname',0,1,''),
+	(886,'slug',0,1,''),
+	(886,'username',0,1,''),
+	(887,'addressline1',0,1,' 2220 '),
+	(887,'addressline2',0,1,' 2161 nolensville pike '),
+	(887,'addressline3',0,1,''),
+	(887,'administrativearea',0,1,' tn '),
+	(887,'countrycode',0,1,' us '),
+	(887,'dependentlocality',0,1,''),
+	(887,'fullname',0,1,' jerry vargas '),
+	(887,'locality',0,1,' nashville '),
+	(887,'organization',0,1,''),
+	(887,'organizationtaxid',0,1,''),
+	(887,'postalcode',0,1,' 37211 '),
+	(887,'slug',0,1,''),
+	(887,'sortingcode',0,1,''),
+	(887,'title',0,1,' kmkmlkml '),
+	(888,'addressline1',0,1,' 2220 '),
+	(888,'addressline2',0,1,' 2161 nolensville pike '),
+	(888,'addressline3',0,1,''),
+	(888,'administrativearea',0,1,' tn '),
+	(888,'countrycode',0,1,' us '),
+	(888,'dependentlocality',0,1,''),
+	(888,'fullname',0,1,' jerry vargas '),
+	(888,'locality',0,1,' nashville '),
+	(888,'organization',0,1,''),
+	(888,'organizationtaxid',0,1,''),
+	(888,'postalcode',0,1,' 37211 '),
+	(888,'slug',0,1,''),
+	(888,'sortingcode',0,1,''),
+	(888,'title',0,1,' shipping address '),
+	(889,'addressline1',0,1,' 2220 '),
+	(889,'addressline2',0,1,' 2161 nolensville pike '),
+	(889,'addressline3',0,1,''),
+	(889,'administrativearea',0,1,' tn '),
+	(889,'countrycode',0,1,' us '),
+	(889,'dependentlocality',0,1,''),
+	(889,'fullname',0,1,' jerry vargas '),
+	(889,'locality',0,1,' nashville '),
+	(889,'organization',0,1,''),
+	(889,'organizationtaxid',0,1,''),
+	(889,'postalcode',0,1,' 37211 '),
+	(889,'slug',0,1,''),
+	(889,'sortingcode',0,1,''),
+	(889,'title',0,1,' billing address '),
+	(890,'billingaddress',0,1,''),
+	(890,'billingfirstname',0,1,''),
+	(890,'billingfullname',0,1,''),
+	(890,'billinglastname',0,1,''),
+	(890,'customername',0,1,''),
+	(890,'email',0,1,' jerry charliesbarkery com '),
+	(890,'lineitemdescriptions',0,1,' cookies deco cookie '),
+	(890,'number',0,1,' fdac99f653c40c8276012a162a27a9a8 '),
+	(890,'reference',0,1,''),
+	(890,'shippingaddress',0,1,''),
+	(890,'shippingfirstname',0,1,''),
+	(890,'shippingfullname',0,1,''),
+	(890,'shippinglastname',0,1,''),
+	(890,'shortnumber',0,1,' fdac99f '),
+	(890,'skus',0,1,' deco single '),
+	(890,'slug',0,1,''),
+	(890,'transactionreference',0,1,''),
+	(890,'username',0,1,' admin '),
+	(891,'billingaddress',0,1,''),
+	(891,'billingfirstname',0,1,''),
+	(891,'billingfullname',0,1,''),
+	(891,'billinglastname',0,1,''),
+	(891,'customername',0,1,''),
+	(891,'email',0,1,' jerry charliesbarkery com '),
+	(891,'lineitemdescriptions',0,1,' cookies deco cookie 2 pack cakes 4 inch cake treats pumpkin peanut butter small '),
+	(891,'number',0,1,' a4a0b57dff229ac87c9bee07371949a3 '),
+	(891,'reference',0,1,''),
+	(891,'shippingaddress',0,1,''),
+	(891,'shippingfirstname',0,1,''),
+	(891,'shippingfullname',0,1,''),
+	(891,'shippinglastname',0,1,''),
+	(891,'shortnumber',0,1,' a4a0b57 '),
+	(891,'skus',0,1,' deco 2pk cke 4 trt sm ppb '),
+	(891,'slug',0,1,''),
+	(891,'transactionreference',0,1,''),
+	(891,'username',0,1,' admin '),
+	(892,'addressline1',0,1,''),
+	(892,'addressline2',0,1,''),
+	(892,'addressline3',0,1,''),
+	(892,'administrativearea',0,1,''),
+	(892,'countrycode',0,1,' us '),
+	(892,'dependentlocality',0,1,''),
+	(892,'fullname',0,1,''),
+	(892,'locality',0,1,''),
+	(892,'organization',0,1,''),
+	(892,'organizationtaxid',0,1,''),
+	(892,'postalcode',0,1,' 28031 '),
+	(892,'slug',0,1,''),
+	(892,'sortingcode',0,1,''),
+	(892,'title',0,1,' new address ');
 
 /*!40000 ALTER TABLE `searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -11577,15 +11794,6 @@ CREATE TABLE `searchindexqueue` (
   KEY `idx_frghfeurpssdkghtsdiferhdhsffvrlcousv` (`elementId`,`siteId`,`reserved`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
-LOCK TABLES `searchindexqueue` WRITE;
-/*!40000 ALTER TABLE `searchindexqueue` DISABLE KEYS */;
-
-INSERT INTO `searchindexqueue` (`id`, `elementId`, `siteId`, `reserved`)
-VALUES
-	(156,884,1,0);
-
-/*!40000 ALTER TABLE `searchindexqueue` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table searchindexqueue_fields
@@ -11745,6 +11953,15 @@ CREATE TABLE `sessions` (
   CONSTRAINT `fk_ujwsqwmifplipfiufggiylswcjehyestsukz` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+
+INSERT INTO `sessions` (`id`, `userId`, `token`, `dateCreated`, `dateUpdated`, `uid`)
+VALUES
+	(2,1,'OSCqlD_J70rGJJuUf1H1TMdAJAQGm9d7seQRTB3zm-w31__Wyj969FivwEVxWk0Y6DDNlqHegiLzVjPc7HQnzr6QzuAO1HerIFHl','2026-09-08 11:46:05','2026-09-08 11:46:08','dd7d9008-f124-4cb8-b1b4-fa34097b4f0d');
+
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table shunnedmessages
@@ -12170,7 +12387,8 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `photoId`, `affiliatedSiteId`, `active`, `pending`, `locked`, `suspended`, `admin`, `username`, `fullName`, `firstName`, `lastName`, `email`, `password`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`)
 VALUES
-	(1,NULL,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'jerry@charliesbarkery.com','$2y$13$W2qAPsTYHkeqfNKZNsh6F.x9w0kwBwf0UD0yM1m5vLCa7qTw0R7JC','2026-08-23 16:55:56',NULL,NULL,NULL,'2026-08-22 10:54:29',NULL,1,NULL,NULL,NULL,0,'2026-03-12 17:35:46','2026-03-12 17:35:46','2026-08-23 16:55:56');
+	(1,NULL,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'jerry@charliesbarkery.com','$2y$13$W2qAPsTYHkeqfNKZNsh6F.x9w0kwBwf0UD0yM1m5vLCa7qTw0R7JC','2026-09-08 11:46:05',NULL,NULL,NULL,'2026-09-08 11:45:57',NULL,1,NULL,NULL,NULL,0,'2026-03-12 17:35:46','2026-03-12 17:35:46','2026-09-08 11:46:05'),
+	(886,NULL,NULL,0,0,0,0,0,NULL,NULL,NULL,NULL,'vargasman11@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,0,NULL,'2026-09-06 23:56:42','2026-09-06 23:56:42');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
