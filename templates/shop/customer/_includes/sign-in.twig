@@ -3,8 +3,8 @@
   {{ actionInput('users/login') }}
   {{ redirectInput(redirectUrl ?? '') }}
 
-  <div class="flex flex-col gap-1">
-    <label for="loginName" class="font-hobeaux text-sm font-bold text-charcoal">Email / Username</label>
+  <div class="flex flex-col gap-1.5">
+    <label for="loginName" class="font-hobeaux text-base font-bold text-charcoal">Email / Username</label>
     <input
       type="text"
       name="loginName"
@@ -12,31 +12,31 @@
       value="{{ craft.app.user.getRememberedUsername() }}"
       placeholder="you@example.com"
       required
-      class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors"
+      class="w-full font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-6 py-4 focus:outline-none focus:border-teal transition-colors bg-gray-50"
     >
   </div>
 
-  <div class="flex flex-col gap-1">
-    <label for="loginPassword" class="font-hobeaux text-sm font-bold text-charcoal">Password</label>
+  <div class="flex flex-col gap-1.5">
+    <label for="loginPassword" class="font-hobeaux text-base font-bold text-charcoal">Password</label>
     <input
       type="password"
       name="password"
       id="loginPassword"
-      class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors"
+      class="w-full font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-6 py-4 focus:outline-none focus:border-teal transition-colors bg-gray-50"
     >
   </div>
 
   <div class="flex items-center justify-between">
-    <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/60 cursor-pointer">
-      <input type="checkbox" name="rememberMe" value="1" class="accent-teal">
+    <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/70 cursor-pointer">
+      <input type="checkbox" name="rememberMe" value="1" class="accent-teal w-4 h-4">
       Remember me
     </label>
-    <a href="{{ url('shop/customer/forgot-password') }}" class="font-hobeaux text-xs text-charcoal/40 hover:text-teal transition-colors underline underline-offset-2">
+    <a href="{{ url('shop/customer/forgot-password') }}" class="font-hobeaux text-sm text-charcoal/60 hover:text-teal transition-colors underline underline-offset-2">
       Forgot password?
     </a>
   </div>
 
-  <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-    Sign In
+  <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+    Sign In &rarr;
   </button>
 </form>

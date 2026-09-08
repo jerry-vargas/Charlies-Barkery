@@ -9,89 +9,107 @@
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
-  <section class="bg-white py-16">
+  <section class="bg-gray-50 min-h-screen py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+      {# Step indicator #}
+      <div class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/40 mb-10">
+        <a href="{{ url('shop/checkout') }}" class="hover:text-teal transition-colors">Email</a>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/register-signin') }}" class="hover:text-teal transition-colors">Account</a>
+        <span>&rarr;</span>
+        <span class="text-teal font-bold">Address</span>
+        <span>&rarr;</span>
+        <span>Shipping</span>
+        <span>&rarr;</span>
+        <span>Payment</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
         <div class="lg:col-span-2">
-          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
-          <h1 class="font-anton text-charcoal text-4xl mb-8">Where should we send your order?</h1>
+          <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-2">Step 3</p>
+            <h1 class="font-anton text-charcoal text-4xl mb-8">Where should we send your order?</h1>
 
-          <form method="post" action="">
-            {{ csrfInput() }}
-            {{ actionInput('commerce/cart/update-cart') }}
-            {{ successMessageInput('Addresses selected.') }}
-            {{ redirectInput(siteUrl('shop/checkout/shipping')) }}
+            <form method="post" action="">
+              {{ csrfInput() }}
+              {{ actionInput('commerce/cart/update-cart') }}
+              {{ successMessageInput('Addresses selected.') }}
+              {{ redirectInput(siteUrl('shop/checkout/shipping')) }}
 
-            {% if not cart.email %}
-              <div class="flex flex-col gap-1 mb-6">
-                <label for="email" class="font-hobeaux text-sm font-bold text-charcoal">Email address</label>
-                <input type="email" name="email" id="email" value="{{ cart.email }}" placeholder="you@example.com" class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors">
-                {% if cart.getErrors('email') %}
-                  <p class="font-hobeaux text-xs text-red-500">{{ cart.getErrors('email')|join }}</p>
-                {% endif %}
-              </div>
-            {% endif %}
+              {% if not cart.email %}
+                <div class="flex flex-col gap-1.5 mb-6">
+                  <label for="email" class="font-hobeaux text-base font-bold text-charcoal">Email address</label>
+                  <input type="email" name="email" id="email" value="{{ cart.email }}" placeholder="you@example.com"
+                    class="w-full font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-6 py-4 focus:outline-none focus:border-teal transition-colors bg-gray-50">
+                  {% if cart.getErrors('email') %}
+                    <p class="font-hobeaux text-sm text-red-500">{{ cart.getErrors('email')|join }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
 
-            {{ include('shop/_private/address/fieldset', {
-              title: 'Shipping Address',
-              classes: 'ShippingAddress',
-              name: 'shippingAddress',
-              primaryIdName: 'primaryShippingAddressId',
-              sourceIdName: 'sourceShippingAddressId',
-            }) }}
-
-            {% if currentUser and addresses|length %}
-              {{ hiddenInput('makePrimaryShippingAddress', 0) }}
-              <div class="mt-4">
-                <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal cursor-pointer">
-                  <input type="checkbox" name="makePrimaryShippingAddress" id="makePrimaryShippingAddress" value="1" {{ cart.makePrimaryShippingAddress ? 'checked' }} class="accent-teal">
-                  Make this my default shipping address
-                </label>
-              </div>
-            {% endif %}
-
-            <hr class="my-8 border-gray-200">
-
-            {{ hiddenInput('billingAddressSameAsShipping', 0) }}
-
-            <div class="mb-6">
-              <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal cursor-pointer">
-                <input type="checkbox" name="billingAddressSameAsShipping" id="billingAddressSameAsShipping" value="1" checked class="accent-teal">
-                Use same address for billing
-              </label>
-            </div>
-
-            <div class="js-address-fieldset BillingAddress hidden">
               {{ include('shop/_private/address/fieldset', {
-                title: 'Billing Address',
-                classes: 'BillingAddress',
-                name: 'billingAddress',
-                primaryIdName: 'primaryBillingAddressId',
-                sourceIdName: 'sourceBillingAddressId',
+                title: 'Shipping Address',
+                classes: 'ShippingAddress',
+                name: 'shippingAddress',
+                primaryIdName: 'primaryShippingAddressId',
+                sourceIdName: 'sourceShippingAddressId',
               }) }}
-            </div>
 
-            {% if currentUser and addresses|length %}
-              {{ hiddenInput('makePrimaryBillingAddress', 0) }}
-              <div class="mt-4">
-                <label class="flex items-center gap-2 font-hobeaux text-sm text-charcoal cursor-pointer">
-                  <input type="checkbox" name="makePrimaryBillingAddress" id="makePrimaryBillingAddress" value="1" {{ cart.makePrimaryBillingAddress ? 'checked' }} class="accent-teal">
-                  Make this my default billing address
+              {% if currentUser and addresses|length %}
+                {{ hiddenInput('makePrimaryShippingAddress', 0) }}
+                <div class="mt-4">
+                  <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal/70 cursor-pointer">
+                    <input type="checkbox" name="makePrimaryShippingAddress" id="makePrimaryShippingAddress" value="1" {{ cart.makePrimaryShippingAddress ? 'checked' }} class="accent-teal w-4 h-4">
+                    Make this my default shipping address
+                  </label>
+                </div>
+              {% endif %}
+
+              <hr class="my-8 border-gray-100">
+
+              {{ hiddenInput('billingAddressSameAsShipping', 0) }}
+
+              <div class="mb-6">
+                <label class="flex items-center gap-3 font-hobeaux text-base text-charcoal cursor-pointer">
+                  <input type="checkbox" name="billingAddressSameAsShipping" id="billingAddressSameAsShipping" value="1" checked class="accent-teal w-4 h-4">
+                  <span class="font-bold">Use same address for billing</span>
                 </label>
               </div>
-            {% endif %}
 
-            <div class="mt-8">
-              <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-                Continue to Shipping
-              </button>
-            </div>
-          </form>
+              <div class="js-address-fieldset BillingAddress hidden">
+                {{ include('shop/_private/address/fieldset', {
+                  title: 'Billing Address',
+                  classes: 'BillingAddress',
+                  name: 'billingAddress',
+                  primaryIdName: 'primaryBillingAddressId',
+                  sourceIdName: 'sourceBillingAddressId',
+                }) }}
+              </div>
+
+              {% if currentUser and addresses|length %}
+                {{ hiddenInput('makePrimaryBillingAddress', 0) }}
+                <div class="mt-4">
+                  <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal/70 cursor-pointer">
+                    <input type="checkbox" name="makePrimaryBillingAddress" id="makePrimaryBillingAddress" value="1" {{ cart.makePrimaryBillingAddress ? 'checked' }} class="accent-teal w-4 h-4">
+                    Make this my default billing address
+                  </label>
+                </div>
+              {% endif %}
+
+              <div class="mt-8">
+                <button type="submit"
+                  class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+                  Continue to Shipping &rarr;
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
 
         <div>
-          {% include 'shop/checkout/_includes/order-summary' %}
+          {{ include('shop/checkout/_includes/order-summary') }}
         </div>
 
       </div>
@@ -100,36 +118,25 @@
 
   {% js %}
   var $fieldsets = document.querySelectorAll('.js-address-fieldset');
-
   if ($fieldsets && $fieldsets.length) {
     $fieldsets.forEach(function(el) {
       var $addressSelects = el.querySelectorAll('.js-address-select');
-
       if ($addressSelects && $addressSelects.length) {
         $addressSelects.forEach(function(el) {
           var $radio = el.querySelector('.js-radio input');
           var $body = el.querySelector('.js-body');
-
           if ($radio) {
             if ($body) {
               $radio.addEventListener('change', function(ev) {
-                if (ev.target.checked) {
-                  $body.classList.remove('hidden');
-                } else {
-                  $body.classList.add('hidden');
-                }
+                if (ev.target.checked) { $body.classList.remove('hidden'); }
+                else { $body.classList.add('hidden'); }
               });
-
-              if ($radio.checked) {
-                $body.classList.remove('hidden');
-              }
+              if ($radio.checked) { $body.classList.remove('hidden'); }
             } else {
               $radio.addEventListener('change', function(ev) {
                 if (ev.target.checked) {
                   var $newBox = document.querySelector('.js-address-select[data-model-name="' + ev.target.dataset.modelName + '"]');
-                  if ($newBox) {
-                    $newBox.querySelector('.js-body').classList.add('hidden');
-                  }
+                  if ($newBox) { $newBox.querySelector('.js-body').classList.add('hidden'); }
                 }
               });
             }
@@ -138,19 +145,14 @@
       }
     });
   }
-
   var $billingSameAs = document.querySelector('#billingAddressSameAsShipping');
   if ($billingSameAs) {
     $billingSameAs.addEventListener('change', function() {
       var $billingFieldSet = document.querySelector('.js-address-fieldset.BillingAddress');
       $billingFieldSet.classList.toggle('hidden');
-
       for (let input of $billingFieldSet.querySelectorAll('.js-address-select input')) {
-        if ($billingSameAs.checked === true) {
-          input.setAttribute('disabled', '');
-        } else if (input.hasAttribute('disabled')) {
-          input.removeAttribute('disabled');
-        }
+        if ($billingSameAs.checked === true) { input.setAttribute('disabled', ''); }
+        else if (input.hasAttribute('disabled')) { input.removeAttribute('disabled'); }
       }
     });
   }

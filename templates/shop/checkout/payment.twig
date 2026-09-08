@@ -11,18 +11,30 @@
     {% redirect 'shop/checkout/payment-method' %}
   {% endif %}
 
-  <section class="bg-white py-16">
+  <section class="bg-gray-50 min-h-screen py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
 
-        <div class="lg:col-span-2">
-          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
-          <h1 class="font-anton text-charcoal text-4xl mb-8">Payment</h1>
+      {# Step indicator #}
+      <div class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/40 mb-10">
+        <a href="{{ url('shop/checkout') }}" class="hover:text-teal transition-colors">Email</a>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/register-signin') }}" class="hover:text-teal transition-colors">Account</a>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/addresses') }}" class="hover:text-teal transition-colors">Address</a>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/shipping') }}" class="hover:text-teal transition-colors">Shipping</a>
+        <span>&rarr;</span>
+        <span class="text-teal font-bold">Payment</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+        <div class="lg:col-span-2 flex flex-col gap-5">
 
           {% if cart.store.allowCheckoutWithoutPayment %}
-            <div class="bg-gray-50 rounded-3xl p-8 mb-8">
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
               <h2 class="font-anton text-charcoal text-2xl mb-2">Pay Later</h2>
-              <p class="font-hobeaux text-sm text-charcoal/60 mb-6">Commit to buy now and make payment later.</p>
+              <p class="font-hobeaux text-base text-charcoal/60 mb-6">Commit to buy now and make payment later.</p>
               <form id="completeForm" method="post" action="">
                 {{ csrfInput() }}
                 {{ actionInput('commerce/cart/complete') }}
@@ -31,7 +43,8 @@
                   success: 'true'
                 })) }}
                 {{ successMessageInput('Thank you for your order. We have received it and are awaiting payment.') }}
-                <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest border-2 border-charcoal text-charcoal py-4 rounded-full hover:bg-charcoal hover:text-white transition-colors">
+                <button type="submit"
+                  class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest border-2 border-charcoal text-charcoal py-5 rounded-full hover:bg-charcoal hover:text-white transition-colors">
                   Commit to Buy
                 </button>
               </form>
@@ -39,84 +52,98 @@
           {% endif %}
 
           {% if cart.gatewayId or cart.paymentSourceId %}
-            {% if paymentForm is defined %}
-              {% set formErrors = paymentForm.getErrors() %}
-              {% if formErrors %}
-                <div class="bg-red-50 rounded-2xl p-4 mb-6">
-                  <ul class="flex flex-col gap-1">
-                    {% for key, errors in formErrors %}
-                      {% for error in errors %}
-                        <li class="font-hobeaux text-xs text-red-600"><strong>{{ key }}</strong> {{ error }}</li>
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+              <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-2">Almost there</p>
+              <h1 class="font-anton text-charcoal text-4xl mb-6">Complete your payment</h1>
+
+              {% if paymentForm is defined %}
+                {% set formErrors = paymentForm.getErrors() %}
+                {% if formErrors %}
+                  <div class="bg-red-50 rounded-2xl p-5 mb-6 border border-red-100">
+                    <ul class="flex flex-col gap-1">
+                      {% for key, errors in formErrors %}
+                        {% for error in errors %}
+                          <li class="font-hobeaux text-sm text-red-600"><strong>{{ key }}</strong> {{ error }}</li>
+                        {% endfor %}
                       {% endfor %}
-                    {% endfor %}
-                  </ul>
-                </div>
+                    </ul>
+                  </div>
+                {% endif %}
               {% endif %}
-            {% endif %}
 
-            <form id="paymentForm" method="post" action="">
-              {{ csrfInput() }}
-              {{ actionInput('commerce/payments/pay') }}
-              {{ redirectInput(siteUrl('shop/customer/order', {
-                number: cart.number,
-                success: 'true'
-              })) }}
-              {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
-              {{ hiddenInput('orderEmail', cart.email) }}
+              <form id="paymentForm" method="post" action="">
+                {{ csrfInput() }}
+                {{ actionInput('commerce/payments/pay') }}
+                {{ redirectInput(siteUrl('shop/customer/order', {
+                  number: cart.number,
+                  success: 'true'
+                })) }}
+                {{ hiddenInput('cancelUrl', siteUrl('shop/checkout/payment')|hash) }}
+                {{ hiddenInput('orderEmail', cart.email) }}
 
-              {{ include('shop/checkout/_includes/partial-payment') }}
+                {{ include('shop/checkout/_includes/partial-payment') }}
 
-              {% if cart.gatewayId %}
-                {{ hiddenInput('gatewayId', cart.gatewayId) }}
-                {% set params = {} %}
+                {% if cart.gatewayId %}
+                  {{ hiddenInput('gatewayId', cart.gatewayId) }}
+                  {% set params = {} %}
 
-                {% if className(cart.gateway) == 'craft\\commerce\\paypalcheckout\\gateways\\Gateway' %}
-                  {% set params = { currency: cart.paymentCurrency } %}
-                {% endif %}
-
-                {% if className(cart.gateway) == 'craft\\commerce\\stripe\\gateways\\PaymentIntents' %}
-                  {% set params = {
-                    appearance: { theme: 'stripe' },
-                    elementOptions: {
-                      layout: {
-                        type: 'accordion',
-                        defaultCollapsed: false,
-                        radios: false,
-                        spacedAccordionItems: false
-                      }
-                    },
-                    order: cart,
-                    submitButtonClasses: 'w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors my-2',
-                    submitButtonText: 'Pay Now',
-                    errorMessageClasses: 'font-hobeaux text-xs text-red-600 bg-red-50 rounded-xl p-3 my-2',
-                  } %}
-                {% endif %}
-
-                <div class="gateway-payment-form mt-6">
-                  {% if cart.gateway.supportsPaymentSources() and currentUser %}
-                    <label class="flex items-center gap-3 font-hobeaux text-sm text-charcoal cursor-pointer mb-4">
-                      <input type="checkbox" name="savePaymentSource" value="1" class="accent-teal">
-                      Save card for future purchases
-                    </label>
+                  {% if className(cart.gateway) == 'craft\\commerce\\paypalcheckout\\gateways\\Gateway' %}
+                    {% set params = { currency: cart.paymentCurrency } %}
                   {% endif %}
 
-                  {% namespace cart.gateway.handle|commercePaymentFormNamespace %}
-                    {{ cart.gateway.getPaymentFormHtml(params)|raw }}
-                  {% endnamespace %}
-                </div>
-              {% else %}
-                {{ cart.gateway.getPaymentConfirmationFormHtml({})|raw }}
-              {% endif %}
+                  {% if className(cart.gateway) == 'craft\\commerce\\stripe\\gateways\\PaymentIntents' %}
+                    {% set params = {
+                      appearance: { theme: 'stripe' },
+                      elementOptions: {
+                        layout: {
+                          type: 'accordion',
+                          defaultCollapsed: false,
+                          radios: false,
+                          spacedAccordionItems: false
+                        }
+                      },
+                      order: cart,
+                      submitButtonClasses: 'w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20 my-2',
+                      submitButtonText: 'Pay Now',
+                      errorMessageClasses: 'font-hobeaux text-sm text-red-600 bg-red-50 rounded-xl p-4 my-2',
+                    } %}
+                  {% endif %}
 
-              {% if cart.paymentSourceId or cart.gateway.showPaymentFormSubmitButton() %}
-                <div class="mt-6">
-                  <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-                    Pay Now
-                  </button>
-                </div>
-              {% endif %}
-            </form>
+                  <div class="gateway-payment-form mt-4">
+                    {% if cart.gateway.supportsPaymentSources() and currentUser %}
+                      <label class="flex items-center gap-3 font-hobeaux text-base text-charcoal cursor-pointer mb-5">
+                        <input type="checkbox" name="savePaymentSource" value="1" class="accent-teal w-4 h-4">
+                        Save card for future purchases
+                      </label>
+                    {% endif %}
+
+                    {% namespace cart.gateway.handle|commercePaymentFormNamespace %}
+                      {{ cart.gateway.getPaymentFormHtml(params)|raw }}
+                    {% endnamespace %}
+                  </div>
+                {% else %}
+                  {{ cart.gateway.getPaymentConfirmationFormHtml({})|raw }}
+                {% endif %}
+
+                {% if cart.paymentSourceId or cart.gateway.showPaymentFormSubmitButton() %}
+                  <div class="mt-6">
+                    <button type="submit"
+                      class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+                      Pay Now &rarr;
+                    </button>
+                  </div>
+                {% endif %}
+              </form>
+
+              <div class="flex items-center justify-center gap-4 text-xs font-hobeaux text-charcoal/40 mt-6">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                  Secure &amp; encrypted payment
+                </span>
+              </div>
+            </div>
           {% endif %}
+
         </div>
 
         <div>

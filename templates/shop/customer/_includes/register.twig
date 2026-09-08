@@ -7,7 +7,7 @@
     {% if errors %}
       <ul class="mt-1 flex flex-col gap-1">
         {% for error in errors %}
-          <li class="font-hobeaux text-xs text-red-500">{{ error }}</li>
+          <li class="font-hobeaux text-sm text-red-500">{{ error }}</li>
         {% endfor %}
       </ul>
     {% endif %}
@@ -15,42 +15,42 @@
 
   {% from _self import errorList %}
 
-  <div class="flex flex-col gap-1">
-    <label for="username" class="font-hobeaux text-sm font-bold text-charcoal">Username</label>
+  <div class="flex flex-col gap-1.5">
+    <label for="username" class="font-hobeaux text-base font-bold text-charcoal">Username</label>
     <input
       type="text"
       name="username"
       id="username"
       value="{{ user is defined ? user.username : '' }}"
-      class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors"
+      class="w-full font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-6 py-4 focus:outline-none focus:border-teal transition-colors bg-gray-50"
     >
     {% if user is defined %}{{ errorList(user.getErrors('username')) }}{% endif %}
   </div>
 
-  <div class="flex flex-col gap-1">
-    <label for="reg-email" class="font-hobeaux text-sm font-bold text-charcoal">Email address</label>
+  <div class="flex flex-col gap-1.5">
+    <label for="reg-email" class="font-hobeaux text-base font-bold text-charcoal">Email address</label>
     <input
       type="email"
       name="email"
       id="reg-email"
       value="{{ user.email ?? cart.email ?? '' }}"
-      class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors"
+      class="w-full font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-6 py-4 focus:outline-none focus:border-teal transition-colors bg-gray-50"
     >
     {% if user is defined %}{{ errorList(user.getErrors('email')) }}{% endif %}
   </div>
 
-  <div class="flex flex-col gap-1">
-    <label for="savePassword" class="font-hobeaux text-sm font-bold text-charcoal">Password</label>
+  <div class="flex flex-col gap-1.5">
+    <label for="savePassword" class="font-hobeaux text-base font-bold text-charcoal">Password</label>
     <input
       type="password"
       name="password"
       id="savePassword"
-      class="w-full font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors"
+      class="w-full font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-6 py-4 focus:outline-none focus:border-teal transition-colors bg-gray-50"
     >
     {% if user is defined %}{{ errorList(user.getErrors('password')) }}{% endif %}
   </div>
 
-  <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-    Create Account
+  <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+    Create Account &rarr;
   </button>
 </form>

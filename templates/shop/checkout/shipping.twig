@@ -11,55 +11,69 @@
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
-  <section class="bg-white py-16">
+  <section class="bg-gray-50 min-h-screen py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+
+      {# Step indicator #}
+      <div class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/40 mb-10">
+        <a href="{{ url('shop/checkout') }}" class="hover:text-teal transition-colors">Email</a>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/register-signin') }}" class="hover:text-teal transition-colors">Account</a>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/addresses') }}" class="hover:text-teal transition-colors">Address</a>
+        <span>&rarr;</span>
+        <span class="text-teal font-bold">Shipping</span>
+        <span>&rarr;</span>
+        <span>Payment</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
 
         <div class="lg:col-span-2">
-          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Checkout</p>
-          <h1 class="font-anton text-charcoal text-4xl mb-8">How should we ship your order?</h1>
+          <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-2">Step 4</p>
+            <h1 class="font-anton text-charcoal text-4xl mb-8">How should we ship your order?</h1>
 
-          {% if not cart.availableShippingMethodOptions|length %}
-            <div class="bg-gray-50 rounded-3xl p-8 mb-8">
-              <p class="font-hobeaux text-sm text-charcoal/60 mb-6">No shipping methods are available for your address.</p>
-              <a href="{{ url('shop/checkout/payment-method') }}" class="block w-full text-center font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-                Continue to Payment
+            {% if not cart.availableShippingMethodOptions|length %}
+              <p class="font-hobeaux text-base text-charcoal/60 mb-8">No shipping methods are available for your address.</p>
+              <a href="{{ url('shop/checkout/payment-method') }}"
+                class="block w-full text-center font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+                Continue to Payment &rarr;
               </a>
-            </div>
-          {% else %}
-            <form method="post">
-              {{ csrfInput() }}
-              {{ actionInput('commerce/cart/update-cart') }}
-              {{ redirectInput(siteUrl('shop/checkout/payment-method')) }}
-              {{ successMessageInput('Shipping method updated.') }}
+            {% else %}
+              <form method="post">
+                {{ csrfInput() }}
+                {{ actionInput('commerce/cart/update-cart') }}
+                {{ redirectInput(siteUrl('shop/checkout/payment-method')) }}
+                {{ successMessageInput('Shipping method updated.') }}
 
-              <div class="flex flex-col gap-3 mb-8">
-                {% for handle, method in cart.availableShippingMethodOptions %}
-                  <label class="flex items-center gap-4 p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal">
-                    <input type="radio" name="shippingMethodHandle" value="{{ handle }}" {{ handle == cart.shippingMethodHandle ? 'checked' }} class="accent-teal">
-                    <span class="flex-1">
-                      <span class="font-hobeaux font-bold text-sm text-charcoal block">{{ method.name }}</span>
-                    </span>
-                    <span class="font-anton text-charcoal text-lg">{{ method.getPrice()|commerceCurrency(cart.currency) }}</span>
-                  </label>
-                {% endfor %}
-              </div>
+                <div class="flex flex-col gap-3 mb-8">
+                  {% for handle, method in cart.availableShippingMethodOptions %}
+                    <label class="flex items-center gap-5 p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal has-[:checked]:bg-teal/5">
+                      <input type="radio" name="shippingMethodHandle" value="{{ handle }}" {{ handle == cart.shippingMethodHandle ? 'checked' }} class="accent-teal w-5 h-5 shrink-0">
+                      <span class="flex-1">
+                        <span class="font-hobeaux font-bold text-base text-charcoal block">{{ method.name }}</span>
+                      </span>
+                      <span class="font-anton text-charcoal text-2xl shrink-0">{{ method.getPrice()|commerceCurrency(cart.currency) }}</span>
+                    </label>
+                  {% endfor %}
+                </div>
 
-              {% if cart.getErrors('shippingMethod') %}
-                <p class="font-hobeaux text-xs text-red-500 mb-4">{{ cart.getErrors('shippingMethod')|join }}</p>
-              {% endif %}
+                {% if cart.getErrors('shippingMethod') %}
+                  <p class="font-hobeaux text-sm text-red-500 mb-6">{{ cart.getErrors('shippingMethod')|join }}</p>
+                {% endif %}
 
-              <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-                Continue to Payment
-              </button>
-            </form>
-          {% endif %}
+                <button type="submit"
+                  class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+                  Continue to Payment &rarr;
+                </button>
+              </form>
+            {% endif %}
+          </div>
         </div>
 
         <div>
-          {{ include('shop/checkout/_includes/order-summary', {
-            showShippingAddress: true
-          }) }}
+          {{ include('shop/checkout/_includes/order-summary', { showShippingAddress: true }) }}
         </div>
 
       </div>

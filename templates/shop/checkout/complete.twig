@@ -11,34 +11,64 @@
     {% redirect 'shop/checkout/payment-method' %}
   {% endif %}
 
-  <section class="bg-white py-16">
+  <section class="bg-gray-50 min-h-screen py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-md mx-auto text-center">
 
-        <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">Almost there</p>
-        <h1 class="font-anton text-charcoal text-4xl mb-4">Review your order</h1>
-        <p class="font-hobeaux text-sm text-charcoal/60 mb-10">By clicking below you confirm your order and agree to our terms.</p>
+      {# Step indicator #}
+      <div class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/40 mb-10">
+        <span>Email</span>
+        <span>&rarr;</span>
+        <span>Account</span>
+        <span>&rarr;</span>
+        <span>Address</span>
+        <span>&rarr;</span>
+        <span>Shipping</span>
+        <span>&rarr;</span>
+        <a href="{{ url('shop/checkout/payment') }}" class="hover:text-teal transition-colors">Payment</a>
+        <span>&rarr;</span>
+        <span class="text-teal font-bold">Review</span>
+      </div>
 
-        <div class="mb-8">
-          {% include 'shop/checkout/_includes/order-summary' %}
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+
+        <div class="lg:col-span-2">
+          <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-2">Last step</p>
+            <h1 class="font-anton text-charcoal text-4xl mb-2">Review your order</h1>
+            <p class="font-hobeaux text-base text-charcoal/60 mb-8">Take a moment to review everything before placing your order.</p>
+
+            <form id="completeForm" method="post" action="">
+              {{ csrfInput() }}
+              {{ actionInput('commerce/cart/complete') }}
+              {{ redirectInput(siteUrl('shop/customer/order', {
+                number: cart.number,
+                success: 'true'
+              })) }}
+
+              <button type="submit"
+                class="w-full cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+                Place Order &rarr;
+              </button>
+            </form>
+
+            <div class="flex items-center justify-between mt-6">
+              <a href="{{ url('shop/checkout/payment') }}" class="font-hobeaux text-sm font-bold text-charcoal/60 hover:text-teal transition-colors">
+                &larr; Back to payment
+              </a>
+              <div class="flex items-center gap-1.5 font-hobeaux text-xs text-charcoal/40">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                Secure checkout
+              </div>
+            </div>
+          </div>
         </div>
 
-        <form id="completeForm" method="post" action="">
-          {{ csrfInput() }}
-          {{ actionInput('commerce/cart/complete') }}
-          {{ redirectInput(siteUrl('shop/customer/order', {
-            number: cart.number,
-            success: 'true'
-          })) }}
-
-          <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
-            Place Order
-          </button>
-        </form>
-
-        <a href="{{ url('shop/checkout/payment') }}" class="block mt-4 font-hobeaux text-xs text-charcoal/40 hover:text-teal transition-colors">
-          &larr; Back to payment
-        </a>
+        <div>
+          {{ include('shop/checkout/_includes/order-summary', {
+            showShippingAddress: true,
+            showShippingMethod: true
+          }) }}
+        </div>
 
       </div>
     </div>

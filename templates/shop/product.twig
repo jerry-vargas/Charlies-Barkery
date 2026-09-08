@@ -5,28 +5,40 @@
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
-  <section class="bg-white py-16">
+  <section class="bg-white py-10 lg:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      {# Breadcrumb nav #}
+      <nav class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/50 mb-10">
+        <a href="{{ url('shop') }}" class="hover:text-teal transition-colors font-bold text-charcoal/70">Shop</a>
+        <span>/</span>
+        <span class="text-teal font-bold">{{ product.type.name }}</span>
+        <span>/</span>
+        <span class="text-charcoal/50 truncate">{{ product.title }}</span>
+      </nav>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
         {# Product Image #}
-        <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square">
+        <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square sticky top-6">
           {% set image = product.featuredImage.one() ?? product.images.one() ?? null %}
           {% if image %}
             <img src="{{ image.getUrl() }}" alt="{{ product.title }}" class="w-full h-full object-cover">
           {% else %}
-            <div class="w-full h-full flex items-center justify-center text-8xl">🐾</div>
+            <div class="w-full h-full flex items-center justify-center text-9xl">🐾</div>
           {% endif %}
         </div>
 
         {# Product Info #}
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-8">
+
+          {# Title block #}
           <div>
-            <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-2">{{ product.type.name }}</p>
-            <h1 class="font-anton text-charcoal text-5xl leading-tight mb-4">{{ product.title }}</h1>
+            <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-3">{{ product.type.name }}</p>
+            <h1 class="font-anton text-charcoal text-5xl lg:text-6xl leading-tight">{{ product.title }}</h1>
           </div>
 
-          <form method="post">
+          <form method="post" class="flex flex-col gap-7">
             {{ csrfInput() }}
             {{ actionInput('commerce/cart/update-cart') }}
             {{ successMessageInput(product.title ~ ' added to your cart!') }}
@@ -34,61 +46,85 @@
 
             {# Variants #}
             {% if product.variants|length == 1 %}
-              {# Single variant - just show price #}
+              {# Single variant — price only #}
               {% set variant = product.variants[0] %}
               {{ hiddenInput('purchasables[0][id]', variant.id) }}
-              {{ hiddenInput('purchasables[0][qty]', 1) }}
 
-              <div class="flex items-center gap-3">
+              <div class="flex items-baseline gap-4">
                 {% if variant.onPromotion %}
-                  <span class="font-anton text-charcoal/40 text-2xl line-through">{{ variant.priceAsCurrency }}</span>
-                  <span class="font-anton text-charcoal text-3xl">{{ variant.salePriceAsCurrency }}</span>
+                  <span class="font-anton text-charcoal/40 text-3xl line-through">{{ variant.priceAsCurrency }}</span>
+                  <span class="font-anton text-charcoal text-5xl">{{ variant.salePriceAsCurrency }}</span>
+                  <span class="font-hobeaux text-sm font-bold text-teal bg-teal/10 px-3 py-1 rounded-full">Sale</span>
                 {% else %}
-                  <span class="font-anton text-charcoal text-3xl">{{ variant.priceAsCurrency }}</span>
+                  <span class="font-anton text-charcoal text-5xl">{{ variant.priceAsCurrency }}</span>
                 {% endif %}
               </div>
 
             {% else %}
-              {# Multiple variants - show selector #}
+              {# Multiple variants — radio selector #}
               <div class="flex flex-col gap-3">
-                <p class="font-hobeaux text-sm font-bold text-charcoal">Choose an option</p>
+                <p class="font-hobeaux text-base font-bold text-charcoal">Choose an option</p>
                 {% for variant in product.variants %}
-                  <label class="flex items-center justify-between p-4 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal">
-                    <span class="flex items-center gap-3">
-                      <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}" {{ loop.first ? 'checked' }} class="accent-teal">
-                      <span class="font-hobeaux font-bold text-sm text-charcoal">{{ variant.title }}</span>
+                  <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal has-[:checked]:bg-teal/5">
+                    <span class="flex items-center gap-4">
+                      <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}" {{ loop.first ? 'checked' }} class="accent-teal w-5 h-5">
+                      <span class="font-hobeaux font-bold text-base text-charcoal">{{ variant.title }}</span>
                     </span>
                     <span>
                       {% if variant.onPromotion %}
-                        <span class="font-hobeaux text-xs text-charcoal/40 line-through mr-1">{{ variant.priceAsCurrency }}</span>
-                        <span class="font-anton text-charcoal text-lg">{{ variant.salePriceAsCurrency }}</span>
+                        <span class="font-hobeaux text-sm text-charcoal/50 line-through mr-2">{{ variant.priceAsCurrency }}</span>
+                        <span class="font-anton text-charcoal text-2xl">{{ variant.salePriceAsCurrency }}</span>
                       {% else %}
-                        <span class="font-anton text-charcoal text-lg">{{ variant.priceAsCurrency }}</span>
+                        <span class="font-anton text-charcoal text-2xl">{{ variant.priceAsCurrency }}</span>
                       {% endif %}
                     </span>
                   </label>
                 {% endfor %}
-                {{ hiddenInput('purchasables[0][qty]', 1) }}
               </div>
             {% endif %}
 
-            {# Qty + Add to cart #}
-            <div class="flex items-center gap-4 mt-2">
-              <div class="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2">
-                <button type="button" onclick="stepQty(this, -1)" class="w-7 h-7 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-lg">-</button>
-                <input type="number" id="qty-input" name="purchasables[0][qty]" value="1" min="1" class="w-10 text-center font-hobeaux text-sm text-charcoal focus:outline-none">
-                <button type="button" onclick="stepQty(this, 1)" class="w-7 h-7 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-lg">+</button>
+            {# Qty + Add to Cart #}
+            <div class="flex items-center gap-4">
+              <div class="flex items-center border-2 border-gray-200 rounded-full">
+                <button type="button" onclick="stepQty(this, -1)" aria-label="Decrease quantity"
+                  class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+                  &minus;
+                </button>
+                <input type="number" id="qty-input" name="purchasables[0][qty]" value="1" min="1"
+                  class="w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent">
+                <button type="button" onclick="stepQty(this, 1)" aria-label="Increase quantity"
+                  class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+                  +
+                </button>
               </div>
-              <button type="submit" class="flex-1 cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+              <button type="submit"
+                class="flex-1 cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
                 Add to Cart
               </button>
             </div>
 
+            {# Trust signals #}
+            <div class="flex flex-wrap gap-4 text-sm font-hobeaux text-charcoal/60 border-t border-gray-100 pt-6">
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Handmade in Charlotte, NC
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Dog-safe ingredients
+              </span>
+              <span class="flex items-center gap-1.5">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                Ships across the US
+              </span>
+            </div>
+
           </form>
 
-          <a href="{{ url('shop') }}" class="font-hobeaux text-xs text-charcoal/40 hover:text-teal transition-colors">
+          <a href="{{ url('shop') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
             &larr; Back to shop
           </a>
+
         </div>
 
       </div>
@@ -100,13 +136,6 @@
     const input = document.getElementById('qty-input');
     input.value = Math.max(1, parseInt(input.value) + direction);
   }
-
-  // Keep qty input in sync when radio changes (single qty field for multi-variant)
-  document.querySelectorAll('input[name="purchasables[0][id]"]').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      // update hidden qty if present
-    });
-  });
   </script>
 
 {% endblock %}
