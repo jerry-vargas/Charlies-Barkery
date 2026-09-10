@@ -2,19 +2,34 @@
 
 {# @var product \craft\commerce\elements\Product #}
 
+{% set selectedVariantId = craft.app.request.getQueryParam('variant')|number_format(0, '', '') %}
+{% set variants = product.getVariants() %}
+
+{# Find the pre-selected variant — fall back to first #}
+{% set activeVariant = variants[0] %}
+{% for v in variants %}
+  {% if v.id == selectedVariantId %}
+    {% set activeVariant = v %}
+  {% endif %}
+{% endfor %}
+
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
-  <section class="bg-white py-10 lg:py-16">
+  <section class="bg-gray-50 py-10 lg:py-16 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {# Breadcrumb nav #}
       <nav class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/50 mb-10">
-        <a href="{{ url('shop') }}" class="hover:text-teal transition-colors font-bold text-charcoal/70">Shop</a>
+        <a href="{{ url('shop/products') }}" class="hover:text-teal transition-colors font-bold text-charcoal/70">Shop</a>
         <span>/</span>
         <span class="text-teal font-bold">{{ product.type.name }}</span>
         <span>/</span>
-        <span class="text-charcoal/50 truncate">{{ product.title }}</span>
+        <span class="text-charcoal/60 truncate">{{ product.title }}</span>
+        {% if variants|length > 1 %}
+          <span>/</span>
+          <span class="text-charcoal/50 truncate">{{ activeVariant.title }}</span>
+        {% endif %}
       </nav>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -36,6 +51,22 @@
           <div>
             <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-3">{{ product.type.name }}</p>
             <h1 class="font-anton text-charcoal text-5xl lg:text-6xl leading-tight">{{ product.title }}</h1>
+            {% if variants|length > 1 %}
+              <p class="font-hobeaux text-lg text-charcoal/60 mt-2" id="selected-variant-label">{{ activeVariant.title }}</p>
+            {% endif %}
+          </div>
+
+          {# Selected price display — updates via JS on variant change #}
+          <div id="selected-price" class="flex items-baseline gap-4">
+            {% if activeVariant.onPromotion %}
+              <span class="font-anton text-charcoal/40 text-3xl line-through" id="price-original">{{ activeVariant.priceAsCurrency }}</span>
+              <span class="font-anton text-charcoal text-5xl" id="price-display">{{ activeVariant.salePriceAsCurrency }}</span>
+              <span class="font-hobeaux text-sm font-bold text-teal bg-teal/10 px-3 py-1 rounded-full" id="sale-badge">Sale</span>
+            {% else %}
+              <span class="font-anton text-charcoal/40 text-3xl line-through hidden" id="price-original"></span>
+              <span class="font-anton text-charcoal text-5xl" id="price-display">{{ activeVariant.priceAsCurrency }}</span>
+              <span class="font-hobeaux text-sm font-bold text-teal bg-teal/10 px-3 py-1 rounded-full hidden" id="sale-badge">Sale</span>
+            {% endif %}
           </div>
 
           <form method="post" class="flex flex-col gap-7">
@@ -44,30 +75,25 @@
             {{ successMessageInput(product.title ~ ' added to your cart!') }}
             {{ redirectInput('shop/cart') }}
 
-            {# Variants #}
-            {% if product.variants|length == 1 %}
-              {# Single variant — price only #}
-              {% set variant = product.variants[0] %}
-              {{ hiddenInput('purchasables[0][id]', variant.id) }}
-
-              <div class="flex items-baseline gap-4">
-                {% if variant.onPromotion %}
-                  <span class="font-anton text-charcoal/40 text-3xl line-through">{{ variant.priceAsCurrency }}</span>
-                  <span class="font-anton text-charcoal text-5xl">{{ variant.salePriceAsCurrency }}</span>
-                  <span class="font-hobeaux text-sm font-bold text-teal bg-teal/10 px-3 py-1 rounded-full">Sale</span>
-                {% else %}
-                  <span class="font-anton text-charcoal text-5xl">{{ variant.priceAsCurrency }}</span>
-                {% endif %}
-              </div>
+            {% if variants|length == 1 %}
+              {# Single variant — hidden input only #}
+              {{ hiddenInput('purchasables[0][id]', activeVariant.id) }}
 
             {% else %}
               {# Multiple variants — radio selector #}
               <div class="flex flex-col gap-3">
-                <p class="font-hobeaux text-base font-bold text-charcoal">Choose an option</p>
-                {% for variant in product.variants %}
-                  <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-[:checked]:border-teal has-[:checked]:bg-teal/5">
+                <p class="font-hobeaux text-base font-bold text-charcoal">Choose a size</p>
+                {% for variant in variants %}
+                  <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-checked:border-teal has-checked:bg-teal/5"
+                    data-variant-id="{{ variant.id }}"
+                    data-variant-title="{{ variant.title }}"
+                    data-price="{{ variant.priceAsCurrency }}"
+                    data-sale-price="{{ variant.onPromotion ? variant.salePriceAsCurrency : '' }}"
+                    data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}">
                     <span class="flex items-center gap-4">
-                      <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}" {{ loop.first ? 'checked' }} class="accent-teal w-5 h-5">
+                      <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}"
+                        {{ variant.id == activeVariant.id ? 'checked' }}
+                        class="accent-teal w-5 h-5 shrink-0">
                       <span class="font-hobeaux font-bold text-base text-charcoal">{{ variant.title }}</span>
                     </span>
                     <span>
@@ -85,7 +111,7 @@
 
             {# Qty + Add to Cart #}
             <div class="flex items-center gap-4">
-              <div class="flex items-center border-2 border-gray-200 rounded-full">
+              <div class="flex items-center border-2 border-gray-200 rounded-full bg-white">
                 <button type="button" onclick="stepQty(this, -1)" aria-label="Decrease quantity"
                   class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
                   &minus;
@@ -98,13 +124,13 @@
                 </button>
               </div>
               <button type="submit"
-                class="flex-1 cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors">
+                class="flex-1 cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
                 Add to Cart
               </button>
             </div>
 
             {# Trust signals #}
-            <div class="flex flex-wrap gap-4 text-sm font-hobeaux text-charcoal/60 border-t border-gray-100 pt-6">
+            <div class="flex flex-wrap gap-4 text-sm font-hobeaux text-charcoal/60 border-t border-gray-200 pt-6">
               <span class="flex items-center gap-1.5">
                 <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
                 Handmade in Charlotte, NC
@@ -121,7 +147,7 @@
 
           </form>
 
-          <a href="{{ url('shop') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
+          <a href="{{ url('shop/products') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
             &larr; Back to shop
           </a>
 
@@ -136,6 +162,36 @@
     const input = document.getElementById('qty-input');
     input.value = Math.max(1, parseInt(input.value) + direction);
   }
+
+  // Update the price display and variant label when a radio changes
+  document.querySelectorAll('input[name="purchasables[0][id]"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const label = this.closest('label');
+      const title = label.dataset.variantTitle;
+      const price = label.dataset.price;
+      const salePrice = label.dataset.salePrice;
+      const onPromotion = label.dataset.onPromotion === 'true';
+
+      const $label = document.getElementById('selected-variant-label');
+      const $display = document.getElementById('price-display');
+      const $original = document.getElementById('price-original');
+      const $saleBadge = document.getElementById('sale-badge');
+
+      if ($label) $label.textContent = title;
+
+      if (onPromotion) {
+        $display.textContent = salePrice;
+        $original.textContent = price;
+        $original.classList.remove('hidden');
+        if ($saleBadge) $saleBadge.classList.remove('hidden');
+      } else {
+        $display.textContent = price;
+        $original.textContent = '';
+        $original.classList.add('hidden');
+        if ($saleBadge) $saleBadge.classList.add('hidden');
+      }
+    });
+  });
   </script>
 
 {% endblock %}

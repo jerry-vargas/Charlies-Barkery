@@ -5,37 +5,89 @@
 {% endif %}
 
 {% set searchTerm = craft.app.request.getQueryParam('search', null) %}
+{% set typeHandle = craft.app.request.getQueryParam('type', null) %}
+
+{# Resolve the active product type for the heading/breadcrumb #}
+{% set activeType = null %}
+{% if typeHandle %}
+  {% for pt in craft.commerce.productTypes.allProductTypes %}
+    {% if pt.handle == typeHandle %}
+      {% set activeType = pt %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Build the product query #}
+{% set productQuery = craft.products %}
+{% if typeHandle %}
+  {% set productQuery = productQuery.type(typeHandle) %}
+{% endif %}
+{% if searchTerm %}
+  {% set productQuery = productQuery.search(searchTerm) %}
+{% endif %}
 
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
 
-  <section class="bg-white py-16">
+  <section class="bg-gray-50 min-h-screen py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {# Breadcrumb #}
+      <nav class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/50 mb-10">
+        <a href="{{ url('shop') }}" class="font-bold text-charcoal/70 hover:text-teal transition-colors">Shop</a>
+        {% if activeType %}
+          <span>/</span>
+          <span class="text-teal font-bold">{{ activeType.name }}</span>
+        {% else %}
+          <span>/</span>
+          <span class="text-teal font-bold">All Products</span>
+        {% endif %}
+      </nav>
 
       {# Header + Search #}
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
         <div>
-          <p class="font-hobeaux text-xs text-teal uppercase tracking-widest mb-1">Charlie's Barkery</p>
-          <h1 class="font-anton text-charcoal text-4xl">All Treats</h1>
+          <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-1">Charlie's Barkery</p>
+          <h1 class="font-anton text-charcoal text-5xl">{{ activeType ? activeType.name : 'All Products' }}</h1>
         </div>
 
         <form action="" method="get" class="flex gap-2 w-full sm:w-auto sm:max-w-sm">
+          {% if typeHandle %}
+            {{ hiddenInput('type', typeHandle) }}
+          {% endif %}
           {{ tag('input', {
             name: 'search',
             type: 'text',
-            placeholder: 'Search treats...',
+            placeholder: 'Search ' ~ (activeType ? activeType.name : 'treats') ~ '...',
             value: searchTerm,
-            class: 'flex-1 font-hobeaux text-sm text-charcoal border border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors'
+            class: 'flex-1 font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-white'
           }) }}
           {{ tag('button', {
             type: 'submit',
-            class: 'cursor-pointer font-hobeaux font-bold text-xs uppercase tracking-widest bg-teal text-white px-5 py-3 rounded-full hover:bg-charcoal transition-colors whitespace-nowrap',
+            class: 'cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white px-5 py-3 rounded-full hover:bg-charcoal transition-colors whitespace-nowrap',
             text: 'Search'
           }) }}
         </form>
       </div>
 
-      {% paginate craft.products.limit(12).search(searchTerm) as pageInfo, pageProducts %}
+      {# Category pills — quick switch between types #}
+      {% set allTypes = craft.commerce.productTypes.allProductTypes %}
+      {% if allTypes|length > 1 %}
+        <div class="flex flex-wrap gap-2 mb-10">
+          <a href="{{ url('shop/products') }}"
+            class="font-hobeaux font-bold text-sm px-5 py-2 rounded-full border-2 transition-colors {{ not typeHandle ? 'bg-teal text-white border-teal' : 'border-gray-200 text-charcoal/60 hover:border-teal hover:text-teal' }}">
+            All
+          </a>
+          {% for pt in allTypes %}
+            <a href="{{ url('shop/products', { type: pt.handle }) }}"
+              class="font-hobeaux font-bold text-sm px-5 py-2 rounded-full border-2 transition-colors {{ typeHandle == pt.handle ? 'bg-teal text-white border-teal' : 'border-gray-200 text-charcoal/60 hover:border-teal hover:text-teal' }}">
+              {{ pt.name }}
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% paginate productQuery.limit(24) as pageInfo, pageProducts %}
 
       {{ include('shop/products/_includes/grid', {
         products: pageProducts

@@ -1,1 +1,66 @@
-{% redirect 'shop/products' %}
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% set productTypes = craft.commerce.productTypes.allProductTypes %}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  <section class="bg-gray-50 min-h-screen py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {# Header #}
+      <div class="text-center mb-14">
+        <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-3">Charlie's Barkery</p>
+        <h1 class="font-anton text-charcoal text-5xl lg:text-6xl mb-4">Our Products</h1>
+        <p class="font-hobeaux text-lg text-charcoal/60 max-w-xl mx-auto">Handmade with love in Charlotte, NC. Every treat is baked fresh for your pup.</p>
+      </div>
+
+      {# Product Type Cards #}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for productType in productTypes %}
+          {% set typeProducts = craft.products.type(productType.handle).limit(1).all() %}
+          {% set previewImage = null %}
+          {% if typeProducts|length %}
+            {% set previewImage = typeProducts[0].featuredImage.one() ?? typeProducts[0].images.one() ?? null %}
+          {% endif %}
+          {% set productCount = craft.products.type(productType.handle).count() %}
+
+          <a href="{{ url('shop/products', { type: productType.handle }) }}"
+            class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+
+            {# Image #}
+            <div class="aspect-square overflow-hidden bg-gray-100 relative">
+              {% if previewImage %}
+                <img src="{{ previewImage.getUrl() }}" alt="{{ productType.name }}"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              {% else %}
+                <div class="w-full h-full flex items-center justify-center text-7xl">🐾</div>
+              {% endif %}
+              <div class="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent"></div>
+              <div class="absolute bottom-5 left-5 right-5">
+                <h2 class="font-anton text-white text-3xl leading-tight drop-shadow">{{ productType.name }}</h2>
+              </div>
+            </div>
+
+            {# Info #}
+            <div class="p-5 flex items-center justify-between gap-3">
+              <p class="font-hobeaux text-sm text-charcoal/60">
+                {{ productCount }} {{ productCount == 1 ? 'product' : 'products' }}
+              </p>
+              <span class="font-hobeaux font-bold text-sm text-teal group-hover:gap-2 transition-all flex items-center gap-1">
+                Shop {{ productType.name }} &rarr;
+              </span>
+            </div>
+
+          </a>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}
