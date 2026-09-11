@@ -16,6 +16,8 @@ node_modules/*
 /web/uploads/*
 /web/cpresources/*
 /web/assets/*
+!/web/assets/favicons/
+!/web/assets/favicons/**
 /storage/*
 */storage/*
 
