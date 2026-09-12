@@ -27,7 +27,6 @@
           {% if typeProducts|length %}
             {% set previewImage = typeProducts[0].featuredImage.one() ?? typeProducts[0].images.one() ?? null %}
           {% endif %}
-          {% set productCount = craft.products.type(productType.handle).count() %}
 
           <a href="{{ url('shop/products', { type: productType.handle }) }}"
             class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -48,10 +47,7 @@
 
             {# Info #}
             <div class="p-5 flex items-center justify-between gap-3">
-              <p class="font-hobeaux text-sm text-charcoal/60">
-                {{ productCount }} {{ productCount == 1 ? 'product' : 'products' }}
-              </p>
-              <span class="font-hobeaux font-bold text-sm text-teal group-hover:gap-2 transition-all flex items-center gap-1">
+              <span class="font-hobeaux font-bold text-sm md:text-base text-teal group-hover:gap-2 transition-all flex items-center gap-1">
                 Shop {{ productType.name }} &rarr;
               </span>
             </div>
