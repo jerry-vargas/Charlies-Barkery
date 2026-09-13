@@ -2,100 +2,94 @@
 {# @var products \craft\commerce\elements\Product[] #}
 
 {% if products|length %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        {% for product in products %}
-            {% for variant in product.getVariants() %}
-                {% set image = variant.images.one() ?? variant.product.images.one() ?? null %}
-                {% set variantUrl = product.url ~ '?variant=' ~ variant.id %}
-                {# Only show the variant title badge if there are multiple variants #}
-                {% set showVariantTitle = product.getVariants()|length > 1 %}
+    {% for product in products %}
+      {% set variants = product.getVariants() %}
+      {% set defaultVariant = variants[0] %}
+      {% set image = product.featuredImage.one() ?? product.images.one() ?? null %}
+      {% set isSingle = variants|length == 1 %}
 
-                <div class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100">
+      {# Lowest price across variants #}
+      {% set prices = variants|map(v => v.price)|sort %}
+      {% set lowestPrice = prices|first %}
 
-                    {# Image — links to product page with variant pre-selected #}
-                    <a href="{{ variantUrl }}" class="block aspect-square overflow-hidden bg-gray-100 relative">
-                        {% if image %}
-                            <img src="{{ image.getUrl() }}" alt="{{ product.title }} — {{ variant.title }}"
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        {% else %}
-                            <div class="w-full h-full flex items-center justify-center text-6xl">🐾</div>
-                        {% endif %}
+      <div class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100">
 
-                        {% if variant.onPromotion %}
-                            <span class="absolute top-3 left-3 font-hobeaux text-xs font-bold text-white bg-teal px-3 py-1 rounded-full">Sale</span>
-                        {% endif %}
+        {# Image #}
+        <a href="{{ product.url }}" class="block aspect-square overflow-hidden bg-gray-100 relative">
+          {% if image %}
+            <img src="{{ image.getUrl() }}" alt="{{ product.title }}"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          {% else %}
+            <div class="w-full h-full flex items-center justify-center text-6xl">🐾</div>
+          {% endif %}
 
-                        {% if showVariantTitle %}
-                            <span class="absolute bottom-3 left-3 font-hobeaux text-xs font-bold text-charcoal bg-white/90 px-3 py-1.5 rounded-full shadow-sm">
-                {{ variant.title }}
-              </span>
-                        {% endif %}
-                    </a>
+          {% if defaultVariant.onPromotion %}
+            <span class="absolute top-3 left-3 font-hobeaux text-xs font-bold text-white bg-teal px-3 py-1 rounded-full">Sale</span>
+          {% endif %}
+        </a>
 
-                    {# Info #}
-                    <div class="p-5 flex flex-col flex-1 gap-3">
-                        <div>
-                            <p class="font-hobeaux text-xs font-bold text-teal uppercase tracking-widest mb-1">{{ product.type.name }}</p>
-                            <a href="{{ variantUrl }}"
-                               class="font-anton text-charcoal text-xl leading-tight hover:text-teal transition-colors">
-                                {{ product.title }}
-                            </a>
-                            {% if showVariantTitle %}
-                                <p class="font-hobeaux text-sm text-charcoal/60 mt-0.5">{{ variant.title }}</p>
-                            {% endif %}
-                        </div>
+        {# Info #}
+        <div class="p-5 flex flex-col flex-1 gap-3">
+          <div>
+            <p class="font-hobeaux text-xs font-bold text-teal uppercase tracking-widest mb-1">{{ product.type.name }}</p>
+            <a href="{{ product.url }}" class="font-anton text-charcoal text-xl leading-tight hover:text-teal transition-colors">
+              {{ product.title }}
+            </a>
+          </div>
 
-                        {# Price #}
-                        <div class="mt-auto">
-                            {% if variant.onPromotion %}
-                                <span class="font-hobeaux text-sm text-charcoal/40 line-through mr-1">{{ variant.priceAsCurrency }}</span>
-                                <span class="font-anton text-charcoal text-2xl">{{ variant.salePriceAsCurrency }}</span>
-                            {% else %}
-                                <span class="font-anton text-charcoal text-2xl">{{ variant.priceAsCurrency }}</span>
-                            {% endif %}
-                        </div>
+          {# Price #}
+          <div class="mt-auto">
+            {% if isSingle %}
+              {% if defaultVariant.onPromotion %}
+                <span class="font-hobeaux text-sm text-charcoal/40 line-through mr-1">{{ defaultVariant.priceAsCurrency }}</span>
+                <span class="font-anton text-charcoal text-2xl">{{ defaultVariant.salePriceAsCurrency }}</span>
+              {% else %}
+                <span class="font-anton text-charcoal text-2xl">{{ defaultVariant.priceAsCurrency }}</span>
+              {% endif %}
+            {% else %}
+              <span class="font-hobeaux text-sm text-charcoal/60">From </span>
+              <span class="font-anton text-charcoal text-2xl">{{ lowestPrice|commerceCurrency(cart.currency) }}</span>
+            {% endif %}
+          </div>
 
-                        {# CTA #}
-                        {% if variant.availableForPurchase %}
-                            <form method="post">
-                                {{ csrfInput() }}
-                                {{ actionInput('commerce/cart/update-cart') }}
-                                {{ successMessageInput(product.title ~ ' (' ~ variant.title ~ ') added to your cart!') }}
-                                {{ redirectInput('shop/cart') }}
-                                {{ hiddenInput('purchasables[0][id]', variant.id) }}
-                                {{ hiddenInput('purchasables[0][qty]', 1) }}
-                                <button type="submit"
-                                        class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-3 rounded-full hover:bg-charcoal transition-colors">
-                                    Add to Cart
-                                </button>
-                            </form>
-                        {% else %}
-                            <span class="block w-full text-center font-hobeaux text-sm text-charcoal/40 py-3 border-2 border-gray-100 rounded-full">
-                Out of Stock
-              </span>
-                        {% endif %}
+          {# CTA #}
+          {% if isSingle and defaultVariant.availableForPurchase %}
+            <form method="post">
+              {{ csrfInput() }}
+              {{ actionInput('commerce/cart/update-cart') }}
+              {{ successMessageInput(product.title ~ ' added to your cart!') }}
+              {{ redirectInput('shop/cart') }}
+              {{ hiddenInput('purchasables[0][id]', defaultVariant.id) }}
+              {{ hiddenInput('purchasables[0][qty]', 1) }}
+              <button type="submit" class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-3 rounded-full hover:bg-charcoal transition-colors">
+                Add to Cart
+              </button>
+            </form>
+          {% else %}
+            <a href="{{ product.url }}" class="block w-full text-center font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-3 rounded-full hover:bg-charcoal transition-colors">
+              Choose Size
+            </a>
+          {% endif %}
 
-                        <a href="{{ variantUrl }}"
-                           class="block text-center font-hobeaux text-xs text-charcoal/50 hover:text-teal transition-colors">
-                            View details &rarr;
-                        </a>
-                    </div>
+          <a href="{{ product.url }}" class="block text-center font-hobeaux text-xs text-charcoal/50 hover:text-teal transition-colors">
+            View details &rarr;
+          </a>
+        </div>
 
-                </div>
-            {% endfor %}
+      </div>
+    {% endfor %}
 
-        {% endfor %}
-    </div>
+  </div>
 
 {% else %}
-    <div class="text-center py-24">
-        <div class="text-7xl mb-6">🐾</div>
-        <p class="font-anton text-charcoal text-2xl mb-2">No treats found</p>
-        <p class="font-hobeaux text-charcoal/50 mb-6">Try a different search term.</p>
-        <a href="{{ url('shop/products') }}"
-           class="inline-block font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white px-8 py-4 rounded-full hover:bg-charcoal transition-colors">
-            View All Treats
-        </a>
-    </div>
+  <div class="text-center py-24">
+    <div class="text-7xl mb-6">🐾</div>
+    <p class="font-anton text-charcoal text-2xl mb-2">No treats found</p>
+    <p class="font-hobeaux text-charcoal/50 mb-6">Try a different search term.</p>
+    <a href="{{ url('shop/products') }}" class="inline-block font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white px-8 py-4 rounded-full hover:bg-charcoal transition-colors">
+      View All Treats
+    </a>
+  </div>
 {% endif %}

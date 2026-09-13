@@ -1,14 +1,14 @@
 defaultPlacement: end
 descriptionFormat: '{product.title} - {title}'
 enableVersioning: false
-handle: cakes
+handle: cookie
 hasDimensions: false
 hasProductTitleField: true
 hasVariantTitleField: true
 isStructure: false
 maxLevels: null
-maxVariants: 2
-name: Cakes
+maxVariants: null
+name: Cookies
 previewTargets:
   -
     __assoc__:
@@ -22,7 +22,7 @@ previewTargets:
         - refresh
         - '1'
 productFieldLayouts:
-  bd5e6c13-5624-4a3f-97a4-f5b0dcffc479:
+  ddd7cbb6-36f6-4e10-8d81-813c78f37845:
     cardThumbAlignment: end
     cardView:
       - defaultSku
@@ -36,7 +36,7 @@ productFieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -55,13 +55,13 @@ productFieldLayouts:
             tip: null
             title: null
             type: craft\commerce\fieldlayoutelements\ProductTitleField
-            uid: fdacf87c-37d9-4b9d-ae78-09164fa3790c
+            uid: 11f1c651-7184-4308-a32f-c6e3896fe021
             userCondition: null
             warning: null
             width: 100
           -
             attribute: variants
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -73,18 +73,18 @@ productFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\VariantsField
-            uid: 615ef6d3-5593-4bf0-920e-4dffd07204a0
+            uid: ff005c8d-b55e-4864-a9fe-758dd62e04fe
             userCondition: null
             warning: null
           -
-            dateAdded: '2026-09-13T01:46:38+00:00'
+            dateAdded: '2026-09-13T02:45:42+00:00'
             elementCondition: null
             heading: Defaults
             type: craft\fieldlayoutelements\Heading
-            uid: 9e08ef19-1a70-4eae-a915-c928546dc8aa
+            uid: 152e78d2-efb6-4f63-a7be-d89b3014fc05
             userCondition: null
           -
-            dateAdded: '2026-07-19T03:18:36+00:00'
+            dateAdded: '2026-07-23T02:55:08+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -95,12 +95,12 @@ productFieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: fadaae88-4307-408f-86e7-80b4ce398d97
+            uid: 5a45d84b-1586-4e16-a2ed-7d4324a9870e
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2026-08-09T13:11:20+00:00'
+            dateAdded: '2026-08-09T13:11:44+00:00'
             editCondition: null
             elementCondition: null
             elementEditCondition: null
@@ -111,12 +111,17 @@ productFieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e3652f4c-700e-4772-90ed-f343ad39dd60
+            uid: 9ecd5bfa-5db9-48e3-9f09-4d6a35fe0bf4
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: bc7a7390-fd29-47cf-bbe6-064aca1874bc
+        uid: 30319436-38d8-4c46-b4cf-d7e96f650845
+        userCondition: null
+      -
+        elementCondition: null
+        name: Defaults
+        uid: d206e959-6a58-4235-94ba-2be9e7f41b1b
         userCondition: null
     thumbFieldKey: null
 productTitleFormat: ''
@@ -130,12 +135,12 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: shop/product.twig
-    uriFormat: 'products/cakes/{slug}'
+    uriFormat: 'products/cookies/{slug}'
 skuFormat: ''
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
 variantFieldLayouts:
-  7728463f-3007-43b0-80df-f869d593e052:
+  af767c61-6285-49bd-9521-45c564041162:
     cardThumbAlignment: end
     cardView:
       - sku
@@ -149,7 +154,7 @@ variantFieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -168,13 +173,13 @@ variantFieldLayouts:
             tip: null
             title: null
             type: craft\commerce\fieldlayoutelements\VariantTitleField
-            uid: 8fc0593b-22f7-4c83-b688-44686b54de5a
+            uid: 8f4a77ba-7ecb-4339-8ff4-6a0f989feed4
             userCondition: null
             warning: null
             width: 100
           -
             attribute: sku
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -186,29 +191,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableSkuField
-            uid: 84c958f4-e054-46a0-a929-1e832b326b16
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            dateAdded: '2026-06-17T21:48:47+00:00'
-            editCondition: null
-            elementCondition: null
-            elementEditCondition: null
-            fieldUid: 46e073e0-9217-4592-acbc-fa5bf1a4d474 # Cake Size
-            handle: null
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d099518b-9462-47dd-8147-984b41c2fbea
+            uid: 839e77c0-cf19-40a4-b8fc-b34349746858
             userCondition: null
             warning: null
             width: 100
           -
             attribute: price
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -220,13 +209,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasablePriceField
-            uid: 7a4483a4-4be8-4384-b0fc-2fe97febb09c
+            uid: 86998b5e-e052-4a2a-be83-64e9e38b0486
             userCondition: null
             warning: null
             width: 100
           -
             attribute: stock
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             defaultAllowOutOfStockPurchases: false
             defaultInventoryTracked: false
             elementCondition: null
@@ -240,13 +229,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableStockField
-            uid: 3eec8aa0-0384-49cf-be5c-809d3c87f99d
+            uid: dc8ecdf9-5459-4756-a00d-3b85d1627e3c
             userCondition: null
             warning: null
             width: 100
           -
             attribute: availableForPurchase
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             defaultAvailableForPurchase: false
             elementCondition: null
             id: null
@@ -259,13 +248,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableAvailableForPurchaseField
-            uid: 3c63ffea-ace7-4c66-bb3c-7e5b30d6718c
+            uid: bd925428-58bf-4d39-ab11-4f560b389b9c
             userCondition: null
             warning: null
             width: 100
           -
             attribute: allowedQty
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -277,13 +266,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableAllowedQtyField
-            uid: b699e00f-6b40-4dd6-9286-b158258f5481
+            uid: 34144178-a7c6-4caa-96d2-c929788ab79b
             userCondition: null
             warning: null
             width: 100
           -
             attribute: freeShipping
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -295,13 +284,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableFreeShippingField
-            uid: a0039ecd-ed05-462d-a736-8d71272a6a11
+            uid: d97f6d53-0429-4c49-9988-c512b76d7507
             userCondition: null
             warning: null
             width: 100
           -
             attribute: promotable
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             defaultPromotable: false
             elementCondition: null
             id: null
@@ -314,13 +303,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasablePromotableField
-            uid: 820192bb-1796-48f4-b01a-65a5d45572d5
+            uid: d4b2b32a-038f-47f0-bc5c-88116a7de010
             userCondition: null
             warning: null
             width: 100
           -
             attribute: dimensions
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -332,13 +321,13 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableDimensionsField
-            uid: 515ab66a-9263-412d-85ca-953f59216e76
+            uid: 0767a479-3ddd-4506-a6ef-f409ac4d0fd7
             userCondition: null
             warning: null
             width: 100
           -
             attribute: weight
-            dateAdded: '2026-06-17T21:46:42+00:00'
+            dateAdded: '2026-07-13T14:33:55+00:00'
             elementCondition: null
             id: null
             instructions: null
@@ -350,12 +339,72 @@ variantFieldLayouts:
             tip: null
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableWeightField
-            uid: 32923b85-1190-4d63-bd11-3a78861ec261
+            uid: 744fcac4-8fc3-4a1d-9a33-51c5ee74697a
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 842e6cc7-e7c5-4495-855d-b42f577dd076
+        uid: 43805aea-7600-406a-931f-9a8c0576c095
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-08-09T13:13:55+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: productInfo
+            instructions: null
+            label: 'Product Info'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 12cffcbb-3502-4f2d-b16c-49a5b061ac92
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-08-09T13:15:24+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 396c1b46-bdcf-4e25-94af-a612a999c886
+            userCondition: null
+            warning: null
+            width: 100
+        name: Description
+        uid: 307722bc-d62e-435c-a579-5e4e9d475cbc
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-08-09T03:10:22+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: nutrition
+            instructions: null
+            label: Nutrition
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 111f68db-87ee-4123-b6ee-214a7a0bea7d
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Nutritional Info'
+        uid: 3639005f-5a72-4522-ae7a-7f893370d03f
         userCondition: null
     thumbFieldKey: null
 variantTitleFormat: '{product.title}'
