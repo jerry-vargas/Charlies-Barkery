@@ -1,4 +1,108 @@
-dateModified: 1789267959
+dateModified: 1789477405
+elementSources:
+  craft\commerce\elements\Product:
+    -
+      key: '*'
+      type: native
+    -
+      heading: 'Product Types'
+      key: 'heading:4e81f8d9-5386-4e4a-a603-9852f815a2b7'
+      type: heading
+    -
+      key: 'productType:d5779903-bd5b-414c-acc4-62f703778b54' # Cakes
+      type: native
+    -
+      key: 'productType:41401060-9686-4b0b-b18f-c6ed4a9bcbf7' # Cookies
+      type: native
+    -
+      key: 'productType:620de51d-e932-47c9-bbf1-51fc6a158b13' # Bone Cake
+      type: native
+    -
+      key: 'productType:de98148e-a566-4305-8cd5-1e5accc5bea3' # Gender Reveal Cake
+      type: native
+    -
+      key: 'productType:5f0263a6-94c2-460a-af1f-b163c68d025c' # Treats — Apple Peanut Butter
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'productType:f65c7ddf-578f-4b23-9303-3fad7be58e4e' # Treats — Peanut Butter Bacon
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - defaultPrice
+        - defaultSku
+        - link
+        - 'field:c2d9c750-d7f6-412a-822c-7571172f15a5' # Image(s)
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'productType:0e67392a-a0d9-4715-842b-82c157334c00' # Treats — Pumpkin Peanut Butter
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - defaultPrice
+        - defaultSku
+        - link
+        - 'field:c2d9c750-d7f6-412a-822c-7571172f15a5' # Image(s)
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'productType:405cbb2c-fea8-4b3e-99c2-9d99189a9c78' # Treats — Bacon Egg and Cheese
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - defaultPrice
+        - defaultSku
+        - link
+        - 'field:c2d9c750-d7f6-412a-822c-7571172f15a5' # Image(s)
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'productType:82342e1b-1fa6-4889-9077-00cfbfa4f473' # Cookie — Package
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - defaultPrice
+        - defaultSku
+        - link
+        - 'field:c2d9c750-d7f6-412a-822c-7571172f15a5' # Image(s)
+      type: native
+    -
+      defaultSort:
+        - postDate
+        - desc
+      defaultViewMode: ''
+      disabled: false
+      key: 'productType:2c82fbb4-8864-48f9-bf0e-5e7ec694d4f0' # Cookie — 2 pack
+      tableAttributes:
+        - status
+        - postDate
+        - expiryDate
+        - defaultPrice
+        - defaultSku
+        - link
+        - 'field:c2d9c750-d7f6-412a-822c-7571172f15a5' # Image(s)
+      type: native
 email:
   fromEmail: jerry@charliesbarkery.com
   fromName: charlies
