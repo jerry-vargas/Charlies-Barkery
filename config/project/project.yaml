@@ -1,4 +1,4 @@
-dateModified: 1789477405
+dateModified: 1789528713
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -131,6 +131,7 @@ meta:
   __names__:
     0c390a43-79fb-43af-89ea-7b8a7c41d3d7: 'Page Blocks Entry' # Page Blocks Entry
     0e67392a-a0d9-4715-842b-82c157334c00: 'Treats — Pumpkin Peanut Butter' # Treats — Pumpkin Peanut Butter
+    0f71eff8-518e-4e10-b0e8-18304ea2ff60: 'Product Categories' # Product Categories
     2c82fbb4-8864-48f9-bf0e-5e7ec694d4f0: 'Cookie — 2 pack' # Cookie — 2 pack
     2d22bbef-d103-4473-8eb0-885bee40dbad: 'Martix — Image' # Martix — Image
     4d7ec46f-500b-47b6-8eba-f2f42e8066c1: 'Plain Text' # Plain Text
@@ -156,6 +157,7 @@ meta:
     1366b116-ce92-4d4d-88d9-450309ab9a0d: New # New
     1686a50c-1e1c-41a1-a2be-68b75ae85cbd: 'Contact Matrix' # Contact Matrix
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
+    2701bd76-aa7e-4cc3-908f-c68423358176: 'Category Entry Type' # Category Entry Type
     5739e070-1ec8-4575-99e0-2efda932f63c: 'Block — Instagram' # Block — Instagram
     7798f094-5d85-41c8-8fed-c71f372df90e: Shop # Shop
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
@@ -171,6 +173,7 @@ meta:
     bb71e142-3e9f-4467-9d03-43e288eb4bc0: 'Matrix — Cards' # Matrix — Cards
     c2d9c750-d7f6-412a-822c-7571172f15a5: Image(s) # Image(s)
     c3351fca-dd41-4318-b6ed-7ea1f921ca34: lighswitch # lighswitch
+    cb3e7c1a-37ff-4474-bacf-ef3a607047ef: 'Product Categories' # Product Categories
     d2dbcdc7-ca53-408a-8df4-99d795133201: 'Block — Hero' # Block — Hero
     d79efc26-fed5-43e6-bce8-1d7e7f9846b9: charlies # charlies
     d88cedd5-56ab-4208-a2f0-d9adfc68ce30: 'Single Entry' # Single Entry

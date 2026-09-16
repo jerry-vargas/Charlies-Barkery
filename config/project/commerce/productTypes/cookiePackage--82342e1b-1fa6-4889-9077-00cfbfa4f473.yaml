@@ -115,6 +115,22 @@ productFieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-09-16T03:18:17+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 0f71eff8-518e-4e10-b0e8-18304ea2ff60 # Product Categories
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bce5e729-6328-4b1b-a567-2257b3316f7e
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: c4b7215a-039d-4c15-9d04-0c961ad24033
         userCondition: null
