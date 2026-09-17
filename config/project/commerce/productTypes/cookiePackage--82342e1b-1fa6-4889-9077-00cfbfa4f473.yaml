@@ -131,6 +131,22 @@ productFieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-09-17T03:03:30+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+            handle: isNew
+            instructions: null
+            label: 'Is New'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 079e43d6-3ad5-431a-afd8-e169febbcb25
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: c4b7215a-039d-4c15-9d04-0c961ad24033
         userCondition: null
@@ -351,6 +367,22 @@ variantFieldLayouts:
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableWeightField
             uid: 45dfbc8b-37ba-4fe3-a49f-7784d9fd0ac4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-17T03:03:30+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+            handle: isNew
+            instructions: null
+            label: 'Is New'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2f154259-0c32-4f04-9b22-8f0988dd5ef4
             userCondition: null
             warning: null
             width: 100

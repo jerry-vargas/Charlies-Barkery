@@ -14,6 +14,9 @@
       {% set prices = variants|map(v => v.price)|sort %}
       {% set lowestPrice = prices|first %}
 
+      {# "New" badge — variant takes priority over product #}
+      {% set showNew = (variants|filter(v => v.isNew)|length > 0) or product.isNew %}
+
       <div class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100">
 
         {# Image #}
@@ -27,6 +30,9 @@
 
           {% if defaultVariant.onPromotion %}
             <span class="absolute top-3 left-3 font-hobeaux text-xs font-bold text-white bg-teal px-3 py-1 rounded-full">Sale</span>
+          {% endif %}
+          {% if showNew %}
+            <span class="absolute top-3 right-3 font-hobeaux text-xs font-bold text-white bg-orange-400 px-3 py-1 rounded-full">New</span>
           {% endif %}
         </a>
 

@@ -131,6 +131,29 @@ productFieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-09-17T02:59:15+00:00'
+            elementCondition: null
+            heading: ''
+            type: craft\fieldlayoutelements\Heading
+            uid: 225459da-318d-4fcc-aa6c-f1cb20023dd4
+            userCondition: null
+          -
+            dateAdded: '2026-09-17T02:59:15+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+            handle: isNew
+            instructions: null
+            label: 'Is New'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eddf0376-a2de-45d3-b1a5-01cec256ecfa
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 30319436-38d8-4c46-b4cf-d7e96f650845
         userCondition: null
@@ -351,6 +374,29 @@ variantFieldLayouts:
             translatable: false
             type: craft\commerce\fieldlayoutelements\PurchasableWeightField
             uid: 744fcac4-8fc3-4a1d-9a33-51c5ee74697a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-17T02:59:15+00:00'
+            elementCondition: null
+            heading: ''
+            type: craft\fieldlayoutelements\Heading
+            uid: d0b574d8-ddb5-4420-af63-16200e09464f
+            userCondition: null
+          -
+            dateAdded: '2026-09-17T02:59:15+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+            handle: isNew
+            instructions: null
+            label: 'Is New'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cfea68f1-42cf-473d-b118-06e1f93dacb4
             userCondition: null
             warning: null
             width: 100
