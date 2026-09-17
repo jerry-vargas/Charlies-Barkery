@@ -17,6 +17,6 @@ siteSettings:
   2589bc8f-a277-4da6-ae5f-f294f779bc87: # charlies
     enabledByDefault: true
     hasUrls: true
-    template: null
-    uriFormat: 'product-categories/{slug}'
+    template: shop/products/categories/_entry.twig
+    uriFormat: 'shop/products/categories/{slug}'
 type: channel

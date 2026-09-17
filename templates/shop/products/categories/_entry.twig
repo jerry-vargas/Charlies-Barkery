@@ -1,0 +1,36 @@
+{% extends '_layout.twig' %}
+
+{% if cart is not defined %}
+  {% set cart = craft.commerce.carts.cart %}
+{% endif %}
+
+{% set products = craft.products.relatedTo({ targetElement: entry, field: 'productCategories' }).all() %}
+
+{% block content %}
+  <!-- Template: {{ _self }}.twig -->
+
+  <section class="bg-gray-50 min-h-screen py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {# Breadcrumb #}
+      <nav class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/50 mb-10">
+        <a href="{{ url('shop') }}" class="font-bold text-charcoal/70 hover:text-teal transition-colors">Shop</a>
+        <span>/</span>
+        <span class="text-teal font-bold">{{ entry.title }}</span>
+      </nav>
+
+      {# Header #}
+      <div class="mb-10">
+        <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-1">Charlie's Barkery</p>
+        <h1 class="font-anton text-charcoal text-5xl">{{ entry.title }}</h1>
+      </div>
+
+      {# Products Grid #}
+      {{ include('shop/products/_includes/grid', {
+        products: products
+      }) }}
+
+    </div>
+  </section>
+
+{% endblock %}
