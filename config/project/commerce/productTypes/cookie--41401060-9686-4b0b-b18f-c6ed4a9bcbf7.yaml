@@ -169,7 +169,7 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: shop/product.twig
-    uriFormat: 'products/cookies/{slug}'
+    uriFormat: 'shop/products/cookies/{slug}'
 skuFormat: ''
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

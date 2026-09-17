@@ -162,7 +162,7 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: shop/product.twig
-    uriFormat: 'products/cakes/{slug}'
+    uriFormat: 'shop/products/cakes/{slug}'
 skuFormat: ''
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
