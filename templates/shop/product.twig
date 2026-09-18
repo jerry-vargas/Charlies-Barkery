@@ -20,16 +20,15 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {# Breadcrumb nav #}
+      {% set category = product.productCategories.one() %}
       <nav class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/50 mb-10">
-        <a href="{{ url('shop/products') }}" class="hover:text-teal transition-colors font-bold text-charcoal/70">Shop</a>
-        <span>/</span>
-        <span class="text-teal font-bold">{{ product.type.name }}</span>
+        <a href="{{ url('shop') }}" class="hover:text-teal transition-colors font-bold text-charcoal/70">Shop</a>
+        {% if category %}
+          <span>/</span>
+          <a href="{{ category.url }}" class="hover:text-teal transition-colors font-bold text-charcoal/70">{{ category.title }}</a>
+        {% endif %}
         <span>/</span>
         <span class="text-charcoal/60 truncate">{{ product.title }}</span>
-        {% if variants|length > 1 %}
-          <span>/</span>
-          <span class="text-charcoal/50 truncate">{{ activeVariant.title }}</span>
-        {% endif %}
       </nav>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
