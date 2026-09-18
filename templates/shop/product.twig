@@ -14,7 +14,7 @@
 {% endfor %}
 
 {% block content %}
-  <!-- Template: {{ _self }}.twig -->
+  <!-- Template: {{ _self }} -->
 
   <section class="bg-gray-50 py-10 lg:py-16 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,8 +146,8 @@
 
           </form>
 
-          <a href="{{ url('shop/products') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
-            &larr; Back to shop
+          <a href="{{ category ? category.url : url('shop') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
+            &larr; Back to {{ category ? category.title : 'Shop' }}
           </a>
 
         </div>

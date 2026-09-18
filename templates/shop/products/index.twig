@@ -5,19 +5,9 @@
 {% endif %}
 
 {% set searchTerm = craft.app.request.getQueryParam('search', null) %}
-{% set categorySlug = craft.app.request.getQueryParam('category', null) %}
-
-{# Resolve the active category for the heading/breadcrumb #}
-{% set activeCategory = null %}
-{% if categorySlug %}
-  {% set activeCategory = craft.entries.section('productCategories').slug(categorySlug).one() %}
-{% endif %}
 
 {# Build the product query #}
 {% set productQuery = craft.products %}
-{% if activeCategory %}
-  {% set productQuery = productQuery.relatedTo({ targetElement: activeCategory, field: 'productCategories' }) %}
-{% endif %}
 {% if searchTerm %}
   {% set productQuery = productQuery.search(searchTerm) %}
 {% endif %}
@@ -31,30 +21,22 @@
       {# Breadcrumb #}
       <nav class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/50 mb-10">
         <a href="{{ url('shop') }}" class="font-bold text-charcoal/70 hover:text-teal transition-colors">Shop</a>
-        {% if activeCategory %}
-          <span>/</span>
-          <span class="text-teal font-bold">{{ activeCategory.title }}</span>
-        {% else %}
-          <span>/</span>
-          <span class="text-teal font-bold">All Products</span>
-        {% endif %}
+        <span>/</span>
+        <span class="text-teal font-bold">All Products</span>
       </nav>
 
       {# Header + Search #}
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-10">
         <div>
           <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-1">Charlie's Barkery</p>
-          <h1 class="font-anton text-charcoal text-5xl">{{ activeCategory ? activeCategory.title : 'All Products' }}</h1>
+          <h1 class="font-anton text-charcoal text-5xl">All Products</h1>
         </div>
 
         <form action="" method="get" class="flex gap-2 w-full sm:w-auto sm:max-w-sm">
-          {% if categorySlug %}
-            {{ hiddenInput('category', categorySlug) }}
-          {% endif %}
           {{ tag('input', {
             name: 'search',
             type: 'text',
-            placeholder: 'Search ' ~ (activeType ? activeType.name : 'treats') ~ '...',
+            placeholder: 'Search treats...',
             value: searchTerm,
             class: 'flex-1 font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-white'
           }) }}
@@ -65,23 +47,6 @@
           }) }}
         </form>
       </div>
-
-      {# Category pills — quick switch between categories #}
-      {% set allCategories = craft.entries.section('productCategories').all() %}
-      {% if allCategories|length > 1 %}
-        <div class="flex flex-wrap gap-2 mb-10">
-          <a href="{{ url('shop/products') }}"
-            class="font-hobeaux font-bold text-sm px-5 py-2 rounded-full border-2 transition-colors {{ not categorySlug ? 'bg-teal text-white border-teal' : 'border-gray-200 text-charcoal/60 hover:border-teal hover:text-teal' }}">
-            All
-          </a>
-          {% for cat in allCategories %}
-            <a href="{{ url('shop/products', { category: cat.slug }) }}"
-              class="font-hobeaux font-bold text-sm px-5 py-2 rounded-full border-2 transition-colors {{ categorySlug == cat.slug ? 'bg-teal text-white border-teal' : 'border-gray-200 text-charcoal/60 hover:border-teal hover:text-teal' }}">
-              {{ cat.title }}
-            </a>
-          {% endfor %}
-        </div>
-      {% endif %}
 
       {% paginate productQuery.limit(24) as pageInfo, pageProducts %}
 
