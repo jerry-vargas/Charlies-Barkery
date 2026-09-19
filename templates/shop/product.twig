@@ -108,6 +108,65 @@
               </div>
             {% endif %}
 
+            {# Custom Options — variant takes priority, falls back to product #}
+            {% set customOptions = activeVariant.customOptions ? activeVariant.customOptions.all() : [] %}
+            {% if not customOptions|length %}
+              {% set customOptions = product.customOptions ? product.customOptions.all() : [] %}
+            {% endif %}
+            {% if customOptions|length %}
+              <div class="flex flex-col gap-5">
+                {% for option in customOptions %}
+                  {% set fieldKey = 'purchasables[0][options][' ~ option.label|lower|replace({' ': '_', "'": ''}) ~ ']' %}
+
+                  {% if option.type.handle == 'text' %}
+                    <div class="flex flex-col gap-2">
+                      <label class="font-hobeaux font-bold text-base text-charcoal">
+                        {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+                      </label>
+                      <input type="text" name="{{ fieldKey }}"
+                        placeholder="{{ option.placeholder }}"
+                        {{ option.required ? 'required' }}
+                        class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white">
+                    </div>
+
+                  {% elseif option.type.handle == 'select' %}
+                    <div class="flex flex-col gap-2">
+                      <label class="font-hobeaux font-bold text-base text-charcoal">
+                        {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+                      </label>
+                      <select name="{{ fieldKey }}" {{ option.required ? 'required' }}
+                        class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white appearance-none">
+                        <option value="">Select...</option>
+                        {% for row in option.selectTable %}
+                          <option value="{{ row.col1 }}">{{ row.col1 }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+
+                  {% elseif option.type.handle == 'colorSwatch' %}
+                    <div class="flex flex-col gap-3">
+                      <p class="font-hobeaux font-bold text-base text-charcoal">
+                        {{ option.plainText }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+                      </p>
+                      <div class="flex flex-wrap gap-3">
+                        {% for row in option.colors %}
+                          <label class="relative cursor-pointer group">
+                            <input type="radio" name="{{ fieldKey }}" value="{{ row.col1 }}"
+                              {{ option.required ? 'required' }}
+                              class="sr-only peer">
+                            <span class="w-10 h-10 rounded-full block border-2 border-transparent peer-checked:border-charcoal peer-checked:scale-110 transition-all ring-2 ring-transparent peer-checked:ring-charcoal ring-offset-2"
+                              style="background-color: {{ row.col2 }}"
+                              title="{{ row.col1 }}"></span>
+                          </label>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  {% endif %}
+
+                {% endfor %}
+              </div>
+            {% endif %}
+
             {# Qty + Add to Cart #}
             <div class="flex items-center gap-4">
               <div class="flex items-center border-2 border-gray-200 rounded-full bg-white">

@@ -1,0 +1,40 @@
+columnSuffix: null
+handle: selectTable
+instructions: null
+name: 'Select Table'
+searchable: false
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - ''
+            -
+              - handle
+              - ''
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - rowId
+          - 54dcc57d-8625-4e5d-bbfe-a3d2360fb811
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

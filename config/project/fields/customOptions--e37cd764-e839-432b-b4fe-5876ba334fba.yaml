@@ -1,0 +1,45 @@
+columnSuffix: null
+handle: customOptions
+instructions: null
+name: 'Custom Options'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - e72c3d62-e738-4e09-8df4-9c996bc69447 # Text
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 027e3a07-3726-42bd-aa51-38ff76288ea6 # Select
+        -
+          - group
+          - General
+    -
+      __assoc__:
+        -
+          - uid
+          - e84f628d-bbcd-4d1e-8bf9-e31b7ebd86c8 # Color Swatch
+        -
+          - group
+          - General
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

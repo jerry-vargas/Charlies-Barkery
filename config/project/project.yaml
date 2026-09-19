@@ -1,4 +1,4 @@
-dateModified: 1789615577
+dateModified: 1789786746
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -141,6 +141,7 @@ meta:
     7c4edaa8-604a-48d2-a947-3388823e3b2b: Color # Color
     8a0ba0e6-6a25-4da5-afdb-887f84ffdf4f: Dummy # Dummy
     19dd40fc-2edb-4580-ae97-9da81656d181: Number # Number
+    027e3a07-3726-42bd-aa51-38ff76288ea6: Select # Select
     32df88de-3497-4bb2-8385-f85a301ab403: 'Contact Matrix Entry' # Contact Matrix Entry
     46d1905d-56db-493d-90c0-5de9d9910388: 'Block — Split Section' # Block — Split Section
     46e073e0-9217-4592-acbc-fa5bf1a4d474: 'Cake Size' # Cake Size
@@ -158,6 +159,7 @@ meta:
     1686a50c-1e1c-41a1-a2be-68b75ae85cbd: 'Contact Matrix' # Contact Matrix
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     2701bd76-aa7e-4cc3-908f-c68423358176: 'Category Entry Type' # Category Entry Type
+    2940ddf0-8d43-48a0-ab85-3044244533da: 'Select Table' # Select Table
     5739e070-1ec8-4575-99e0-2efda932f63c: 'Block — Instagram' # Block — Instagram
     7798f094-5d85-41c8-8fed-c71f372df90e: Shop # Shop
     29323bbb-b103-4d28-aafb-f37b64ee4ae3: 'Block Type' # Block Type
@@ -180,6 +182,9 @@ meta:
     d5779903-bd5b-414c-acc4-62f703778b54: Cakes # Cakes
     dc36f051-fd02-4e59-bf63-204e8eccf224: 'Block — Call To Action' # Block — Call To Action
     de98148e-a566-4305-8cd5-1e5accc5bea3: 'Gender Reveal Cake' # Gender Reveal Cake
+    e37cd764-e839-432b-b4fe-5876ba334fba: 'Custom Options' # Custom Options
+    e72c3d62-e738-4e09-8df4-9c996bc69447: Text # Text
+    e84f628d-bbcd-4d1e-8bf9-e31b7ebd86c8: 'Color Swatch' # Color Swatch
     e85b17b1-d20e-4121-a465-aa688b1ebfa5: 'Block — Timeline' # Block — Timeline
     e91396d1-d7c4-4b1b-a3e9-55972a84ff9c: 'Block Picker' # Block Picker
     ea57733c-b37f-4fd3-b7bf-ad80ce561f3f: Form # Form

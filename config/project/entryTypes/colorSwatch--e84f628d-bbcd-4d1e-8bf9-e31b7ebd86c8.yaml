@@ -1,0 +1,74 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  e9c5f03d-c4b9-40c2-ad9d-4dc819a28e78:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-19T01:47:12+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bd6c03df-0fd4-4fd9-8902-a92517f3de9c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-19T01:47:12+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2940ddf0-8d43-48a0-ab85-3044244533da # Select Table
+            handle: colors
+            instructions: null
+            label: Colors
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3f421b26-e341-407a-8c8a-7a66f16a27ce
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-19T01:47:12+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+            handle: required
+            instructions: null
+            label: Required
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c5ec93b7-e755-4c13-a3e9-1a2dba742317
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 3dd45eff-b907-4178-bf3b-2899a7c90817
+        userCondition: null
+    thumbFieldKey: null
+handle: colorSwatch
+hasTitleField: false
+icon: null
+name: 'Color Swatch'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'
