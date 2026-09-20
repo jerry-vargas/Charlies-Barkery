@@ -32,6 +32,14 @@ settings:
         -
           - group
           - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 488e34dc-c4dc-49ed-ba6f-49a94c508f38 # Textarea
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

@@ -4,6 +4,8 @@ description: null
 fieldLayouts:
   c50c7a11-500b-4ee4-8b51-5787a70c9245:
     cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:1ba7bbf5-f3a2-42c9-93fd-1478b4526a01'
     tabs:
       -
         elementCondition: null

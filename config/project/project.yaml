@@ -1,4 +1,4 @@
-dateModified: 1789786746
+dateModified: 1789869026
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -152,6 +152,7 @@ meta:
     231b19ec-9923-4689-ad97-450bdcd8ca3a: 'Block — Subscribe ' # Block — Subscribe 
     314fa8ad-a55f-4f35-9895-de1a13de0a96: 'Entry — Timeline Matrix' # Entry — Timeline Matrix
     405cbb2c-fea8-4b3e-99c2-9d99189a9c78: 'Treats — Bacon Egg and Cheese' # Treats — Bacon Egg and Cheese
+    488e34dc-c4dc-49ed-ba6f-49a94c508f38: Textarea # Textarea
     564a4360-56ee-4b5a-ba0a-01f13d394fa5: 'Block — Contact' # Block — Contact
     620de51d-e932-47c9-bbf1-51fc6a158b13: 'Bone Cake' # Bone Cake
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
