@@ -1,0 +1,60 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  c6b535ef-b69d-4431-bc73-9eb25728dcbb:
+    cardThumbAlignment: end
+    cardView:
+      - 'layoutElement:4704863b-c977-49bb-a1a3-467b4f852feb'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-24T01:33:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
+            handle: label
+            instructions: null
+            label: Label
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4704863b-c977-49bb-a1a3-467b4f852feb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-24T01:33:02+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
+            handle: required
+            instructions: null
+            label: Required
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 172b0178-2156-4e8e-b7d9-b7d9c4dedc1e
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 1da4965b-eda3-4632-81e0-66fa7a8eb857
+        userCondition: null
+    thumbFieldKey: null
+handle: datePicker
+hasTitleField: false
+icon: null
+name: 'Date Picker'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

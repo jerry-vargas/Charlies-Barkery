@@ -40,6 +40,14 @@ settings:
         -
           - group
           - General
+    -
+      __assoc__:
+        -
+          - uid
+          - 5ec0618a-68bf-4243-a592-82ae1cd58349 # Date Picker
+        -
+          - group
+          - General
   includeTableView: false
   maxEntries: null
   minEntries: null

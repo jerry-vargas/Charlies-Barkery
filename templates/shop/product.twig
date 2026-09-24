@@ -155,6 +155,18 @@
                         class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white resize-none"></textarea>
                     </div>
 
+                  {% elseif option.type.handle == 'datePicker' %}
+                    <div class="flex flex-col gap-2">
+                      <label class="font-hobeaux font-bold text-base text-charcoal">
+                        {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+                      </label>
+                      <input type="date" name="{{ fieldKey }}"
+                        min="{{ now|date_modify('+2 days')|date('Y-m-d') }}"
+                        {{ option.required ? 'required' }}
+                        class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white">
+                      <p class="font-hobeaux text-sm text-charcoal/50">Orders require at least 2 days notice.</p>
+                    </div>
+
                   {% elseif option.type.handle == 'colorSwatch' %}
                     <div class="flex flex-col gap-2">
                       <label class="font-hobeaux font-bold text-base text-charcoal">
@@ -225,7 +237,7 @@
   </section>
 
   <script>
-  function stepQty(btn, direction) {
+function stepQty(btn, direction) {
     const input = document.getElementById('qty-input');
     input.value = Math.max(1, parseInt(input.value) + direction);
   }

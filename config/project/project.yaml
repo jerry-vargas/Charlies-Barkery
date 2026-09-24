@@ -1,4 +1,4 @@
-dateModified: 1789871927
+dateModified: 1790215921
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -135,6 +135,7 @@ meta:
     2c82fbb4-8864-48f9-bf0e-5e7ec694d4f0: 'Cookie — 2 pack' # Cookie — 2 pack
     2d22bbef-d103-4473-8eb0-885bee40dbad: 'Martix — Image' # Martix — Image
     4d7ec46f-500b-47b6-8eba-f2f42e8066c1: 'Plain Text' # Plain Text
+    5ec0618a-68bf-4243-a592-82ae1cd58349: 'Date Picker' # Date Picker
     5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
     5f0263a6-94c2-460a-af1f-b163c68d025c: 'Treats — Apple Peanut Butter' # Treats — Apple Peanut Butter
     07b62ac5-22b7-42e6-8930-c48a79658ed1: 'Matrix — Timeline' # Matrix — Timeline
