@@ -1,4 +1,4 @@
-dateModified: 1790215921
+dateModified: 1790306774
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -124,7 +124,7 @@ fs:
       region: us-east-2
       secret: $AMAZON_SECRET_KEY
       storageClass: ''
-      subfolder: $AMAZON_SUBPATH
+      subfolder: ''
     type: craft\awss3\Fs
     url: $AMAZON_BASE_URL
 meta:
