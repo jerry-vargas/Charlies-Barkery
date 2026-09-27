@@ -35,11 +35,11 @@
 
         {# Product Image #}
         <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square sticky top-6">
-          {% set image = product.featuredImage.one() ?? product.images.one() ?? null %}
+          {% set image = activeVariant.images.one() ?? product.featuredImage.one() ?? product.images.one() ?? null %}
           {% if image %}
-            <img src="{{ image.getUrl() }}" alt="{{ product.title }}" class="w-full h-full object-cover">
+            <img id="product-image" src="{{ image.getUrl() }}" alt="{{ product.title }}" class="w-full h-full object-cover">
           {% else %}
-            <div class="w-full h-full flex items-center justify-center text-9xl">🐾</div>
+            <div id="product-image-placeholder" class="w-full h-full flex items-center justify-center text-9xl">🐾</div>
           {% endif %}
         </div>
 
@@ -80,15 +80,17 @@
 
             {% else %}
               {# Multiple variants — radio selector #}
+              {% set isCookieType = product.type.handle in ['cookie', 'cookiePackage', 'cookie2Pack'] %}
               <div class="flex flex-col gap-3">
-                <p class="font-hobeaux text-base font-bold text-charcoal">Choose a size</p>
+                <p class="font-hobeaux text-base font-bold text-charcoal">{{ isCookieType ? 'Choose a design' : 'Choose a size' }}</p>
                 {% for variant in variants %}
                   <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-checked:border-teal has-checked:bg-teal/5"
                     data-variant-id="{{ variant.id }}"
                     data-variant-title="{{ variant.title }}"
                     data-price="{{ variant.priceAsCurrency }}"
                     data-sale-price="{{ variant.onPromotion ? variant.salePriceAsCurrency : '' }}"
-                    data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}">
+                    data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}"
+                    data-variant-image="{{ variant.images.one() ? variant.images.one().getUrl() : '' }}">
                     <span class="flex items-center gap-4">
                       <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}"
                         {{ variant.id == activeVariant.id ? 'checked' }}
@@ -257,6 +259,12 @@ function stepQty(btn, direction) {
       const $saleBadge = document.getElementById('sale-badge');
 
       if ($label) $label.textContent = title;
+
+      const variantImage = label.dataset.variantImage;
+      const $img = document.getElementById('product-image');
+      if ($img && variantImage) {
+        $img.src = variantImage;
+      }
 
       if (onPromotion) {
         $display.textContent = salePrice;
