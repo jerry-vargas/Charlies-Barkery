@@ -157,6 +157,28 @@ productFieldLayouts:
         name: Content
         uid: 30319436-38d8-4c46-b4cf-d7e96f650845
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-27T11:52:58+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: nutrition
+            instructions: null
+            label: Nutrition
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5d3dcbeb-7939-4370-ba0e-c5a2c639c7ab
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Nutritional Info'
+        uid: af0e1c21-ded9-4827-9771-17fb45b95ce2
+        userCondition: null
     thumbFieldKey: null
 productTitleFormat: ''
 productTitleTranslationKeyFormat: null
@@ -170,7 +192,7 @@ siteSettings:
     hasUrls: true
     template: shop/product.twig
     uriFormat: 'shop/products/cookies/{slug}'
-skuFormat: ''
+skuFormat: '{product}-{title}'
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
 variantFieldLayouts:

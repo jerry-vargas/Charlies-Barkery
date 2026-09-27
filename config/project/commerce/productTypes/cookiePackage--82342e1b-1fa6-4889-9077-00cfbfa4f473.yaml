@@ -150,6 +150,28 @@ productFieldLayouts:
         name: Content
         uid: c4b7215a-039d-4c15-9d04-0c961ad24033
         userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-27T12:07:35+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: nutrition
+            instructions: null
+            label: Nutrition
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bee41397-cd45-4a99-8faa-60db8e6f151e
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Nutritional Info'
+        uid: cd3da347-f9cb-440d-ac6c-a07387945324
+        userCondition: null
     thumbFieldKey: null
 productTitleFormat: ''
 productTitleTranslationKeyFormat: null
@@ -201,6 +223,22 @@ variantFieldLayouts:
             title: null
             type: craft\commerce\fieldlayoutelements\VariantTitleField
             uid: 4edabafd-e40c-4347-9d98-6709c81deeed
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-09-27T10:24:26+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed3b6375-42bc-423b-853e-832df8abf446
             userCondition: null
             warning: null
             width: 100
@@ -388,6 +426,50 @@ variantFieldLayouts:
             width: 100
         name: Content
         uid: 0a2e7620-5d51-4d79-9e48-1acc0e0f6b7d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-27T10:23:46+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: productInfo
+            instructions: null
+            label: 'Product Info'
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5ae4b7b5-f6d6-4915-88e5-0e2b298d4d4a
+            userCondition: null
+            warning: null
+            width: 100
+        name: Description
+        uid: a86cd567-2cff-4914-8c6c-023ad7b5f3c8
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-09-27T10:23:46+00:00'
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
+            handle: nutrition
+            instructions: null
+            label: Nutrition
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ad7d862b-c214-4724-b398-bff50b3fe98d
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Nutritional Info'
+        uid: 5fdb44ec-b523-4ddc-b363-b633c406e480
         userCondition: null
     thumbFieldKey: null
 variantTitleFormat: '{product.title}'
