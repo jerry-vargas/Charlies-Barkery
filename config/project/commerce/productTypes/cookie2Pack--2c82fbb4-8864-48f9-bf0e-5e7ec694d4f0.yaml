@@ -185,7 +185,7 @@ siteSettings:
     hasUrls: true
     template: shop/product.twig
     uriFormat: 'shop/products/cookies/{slug}'
-skuFormat: ''
+skuFormat: '{product}-{title}'
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
 variantFieldLayouts:

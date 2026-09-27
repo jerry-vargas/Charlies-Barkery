@@ -79,35 +79,78 @@
               {{ hiddenInput('purchasables[0][id]', activeVariant.id) }}
 
             {% else %}
-              {# Multiple variants — radio selector #}
               {% set isCookieType = product.type.handle in ['cookie', 'cookiePackage', 'cookie2Pack'] %}
-              <div class="flex flex-col gap-3">
-                <p class="font-hobeaux text-base font-bold text-charcoal">{{ isCookieType ? 'Choose a design' : 'Choose a size' }}</p>
-                {% for variant in variants %}
-                  <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-checked:border-teal has-checked:bg-teal/5"
-                    data-variant-id="{{ variant.id }}"
-                    data-variant-title="{{ variant.title }}"
-                    data-price="{{ variant.priceAsCurrency }}"
-                    data-sale-price="{{ variant.onPromotion ? variant.salePriceAsCurrency : '' }}"
-                    data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}"
-                    data-variant-image="{{ variant.images.one() ? variant.images.one().getUrl() : '' }}">
-                    <span class="flex items-center gap-4">
-                      <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}"
-                        {{ variant.id == activeVariant.id ? 'checked' }}
-                        class="accent-teal w-5 h-5 shrink-0">
-                      <span class="font-hobeaux font-bold text-base text-charcoal">{{ variant.title }}</span>
-                    </span>
-                    <span>
-                      {% if variant.onPromotion %}
-                        <span class="font-hobeaux text-sm text-charcoal/50 line-through mr-2">{{ variant.priceAsCurrency }}</span>
-                        <span class="font-anton text-charcoal text-2xl">{{ variant.salePriceAsCurrency }}</span>
-                      {% else %}
-                        <span class="font-anton text-charcoal text-2xl">{{ variant.priceAsCurrency }}</span>
-                      {% endif %}
-                    </span>
-                  </label>
-                {% endfor %}
-              </div>
+
+              {% if isCookieType %}
+                {# Cookie designs — image card grid #}
+                <div class="flex flex-col gap-3">
+                  <p class="font-hobeaux text-base font-bold text-charcoal">Choose a design</p>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {% for variant in variants %}
+                      {% set variantImg = variant.images.one() %}
+                      <label class="cursor-pointer rounded-2xl overflow-hidden border-2 border-gray-200 bg-white hover:border-teal transition-colors has-checked:border-teal has-checked:shadow-md has-checked:shadow-teal/20"
+                        data-variant-id="{{ variant.id }}"
+                        data-variant-title="{{ variant.title }}"
+                        data-price="{{ variant.priceAsCurrency }}"
+                        data-sale-price="{{ variant.onPromotion ? variant.salePriceAsCurrency : '' }}"
+                        data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}"
+                        data-variant-image="{{ variantImg ? variantImg.getUrl() : '' }}">
+                        <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}"
+                          {{ variant.id == activeVariant.id ? 'checked' }}
+                          class="sr-only">
+                        <div class="aspect-square bg-gray-100 overflow-hidden">
+                          {% if variantImg %}
+                            <img src="{{ variantImg.getUrl() }}" alt="{{ variant.title }}"
+                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                          {% else %}
+                            <div class="w-full h-full flex items-center justify-center text-4xl">🐾</div>
+                          {% endif %}
+                        </div>
+                        <div class="p-3">
+                          <p class="font-hobeaux font-bold text-sm text-charcoal leading-tight truncate">{{ variant.title }}</p>
+                          <p class="font-anton text-charcoal text-lg leading-tight">
+                            {% if variant.onPromotion %}
+                              <span class="font-hobeaux text-xs text-charcoal/40 line-through mr-1">{{ variant.priceAsCurrency }}</span>{{ variant.salePriceAsCurrency }}
+                            {% else %}
+                              {{ variant.priceAsCurrency }}
+                            {% endif %}
+                          </p>
+                        </div>
+                      </label>
+                    {% endfor %}
+                  </div>
+                </div>
+
+              {% else %}
+                {# Non-cookie products — standard radio list #}
+                <div class="flex flex-col gap-3">
+                  <p class="font-hobeaux text-base font-bold text-charcoal">Choose a size</p>
+                  {% for variant in variants %}
+                    <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-checked:border-teal has-checked:bg-teal/5"
+                      data-variant-id="{{ variant.id }}"
+                      data-variant-title="{{ variant.title }}"
+                      data-price="{{ variant.priceAsCurrency }}"
+                      data-sale-price="{{ variant.onPromotion ? variant.salePriceAsCurrency : '' }}"
+                      data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}"
+                      data-variant-image="{{ variant.images.one() ? variant.images.one().getUrl() : '' }}">
+                      <span class="flex items-center gap-4">
+                        <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}"
+                          {{ variant.id == activeVariant.id ? 'checked' }}
+                          class="accent-teal w-5 h-5 shrink-0">
+                        <span class="font-hobeaux font-bold text-base text-charcoal">{{ variant.title }}</span>
+                      </span>
+                      <span>
+                        {% if variant.onPromotion %}
+                          <span class="font-hobeaux text-sm text-charcoal/50 line-through mr-2">{{ variant.priceAsCurrency }}</span>
+                          <span class="font-anton text-charcoal text-2xl">{{ variant.salePriceAsCurrency }}</span>
+                        {% else %}
+                          <span class="font-anton text-charcoal text-2xl">{{ variant.priceAsCurrency }}</span>
+                        {% endif %}
+                      </span>
+                    </label>
+                  {% endfor %}
+                </div>
+              {% endif %}
             {% endif %}
 
             {# Custom Options — variant takes priority, falls back to product #}
@@ -227,6 +270,17 @@
             </div>
 
           </form>
+
+          {# Nutritional Info — variant supersedes product #}
+          {% set nutritionContent = activeVariant.nutrition ?? product.nutrition ?? null %}
+          {% if nutritionContent %}
+            <div class="border-t border-gray-200 pt-6">
+              <h3 class="font-hobeaux font-bold text-base text-charcoal mb-3">Nutritional Info</h3>
+              <div class="font-hobeaux text-sm text-charcoal/70 prose prose-sm max-w-none">
+                {{ nutritionContent }}
+              </div>
+            </div>
+          {% endif %}
 
           <a href="{{ category ? category.url : url('shop') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
             &larr; Back to {{ category ? category.title : 'Shop' }}
