@@ -1,0 +1,95 @@
+<!-- Template: {{ _self }}.twig -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+  {# Variant Image #}
+  <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square sticky top-6">
+    {% set variantImg = activeVariant.images.one() ?? product.featuredImage.one() ?? product.images.one() ?? null %}
+    {% if variantImg %}
+      <img src="{{ variantImg.getUrl() }}" alt="{{ activeVariant.title }}" class="w-full h-full object-cover">
+    {% else %}
+      <div class="w-full h-full flex items-center justify-center text-9xl">🐾</div>
+    {% endif %}
+  </div>
+
+  {# Variant Info #}
+  <div class="flex flex-col gap-8">
+
+    <div>
+      <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-3">{{ product.type.name }}</p>
+      <h1 class="font-anton text-charcoal text-5xl lg:text-6xl leading-tight">{{ activeVariant.title }}</h1>
+    </div>
+
+    <div class="flex items-baseline gap-4">
+      {% if activeVariant.onPromotion %}
+        <span class="font-anton text-charcoal/40 text-3xl line-through">{{ activeVariant.priceAsCurrency }}</span>
+        <span class="font-anton text-charcoal text-5xl">{{ activeVariant.salePriceAsCurrency }}</span>
+        <span class="font-hobeaux text-sm font-bold text-teal bg-teal/10 px-3 py-1 rounded-full">Sale</span>
+      {% else %}
+        <span class="font-anton text-charcoal text-5xl">{{ activeVariant.priceAsCurrency }}</span>
+      {% endif %}
+    </div>
+
+    <form method="post" class="flex flex-col gap-7">
+      {{ csrfInput() }}
+      {{ actionInput('commerce/cart/update-cart') }}
+      {{ successMessageInput(activeVariant.title ~ ' added to your cart!') }}
+      {{ redirectInput('shop/cart') }}
+      {{ hiddenInput('purchasables[0][id]', activeVariant.id) }}
+
+      {% include 'shop/products/_includes/custom-options' %}
+
+      {# Qty + Add to Cart #}
+      <div class="flex items-center gap-4">
+        <div class="flex items-center border-2 border-gray-200 rounded-full bg-white">
+          <button type="button" onclick="stepQty(this, -1)" aria-label="Decrease quantity"
+            class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+            &minus;
+          </button>
+          <input type="number" id="qty-input" name="purchasables[0][qty]" value="1" min="1"
+            class="w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent">
+          <button type="button" onclick="stepQty(this, 1)" aria-label="Increase quantity"
+            class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+            +
+          </button>
+        </div>
+        <button type="submit"
+          class="flex-1 cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+          Add to Cart
+        </button>
+      </div>
+
+      {# Trust signals #}
+      <div class="flex flex-wrap gap-4 text-sm font-hobeaux text-charcoal/60 border-t border-gray-200 pt-6">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Handmade in Charlotte, NC
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Dog-safe ingredients
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Ships across the US
+        </span>
+      </div>
+    </form>
+
+    {# Nutritional Info — variant supersedes product #}
+    {% set nutritionContent = activeVariant.nutrition ?? product.nutrition ?? null %}
+    {% if nutritionContent %}
+      <div class="border-t border-gray-200 pt-6">
+        <h3 class="font-hobeaux font-bold text-base text-charcoal mb-3">Nutritional Info</h3>
+        <div class="font-hobeaux text-sm text-charcoal/70 prose prose-sm max-w-none">
+          {{ nutritionContent }}
+        </div>
+      </div>
+    {% endif %}
+
+    <a href="{{ product.url }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors">
+      &larr; Back to {{ product.title }}
+    </a>
+
+  </div>
+
+</div>

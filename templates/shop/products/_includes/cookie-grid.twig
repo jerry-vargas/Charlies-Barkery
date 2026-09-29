@@ -9,7 +9,7 @@
     {% set variantImg = variant.images.one() %}
     <div class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100">
 
-      <div class="aspect-square overflow-hidden bg-gray-100 relative">
+      <a href="{{ product.url }}?variant={{ variant.id }}" class="block aspect-square overflow-hidden bg-gray-100 relative">
         {% if variantImg %}
           <img src="{{ variantImg.getUrl() }}" alt="{{ variant.title }}"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
@@ -22,10 +22,10 @@
         {% if variant.isNew %}
           <span class="absolute top-3 right-3 font-hobeaux text-xs font-bold text-white bg-orange-400 px-3 py-1 rounded-full">New</span>
         {% endif %}
-      </div>
+      </a>
 
       <div class="p-5 flex flex-col flex-1 gap-3">
-        <p class="font-anton text-charcoal text-xl leading-tight">{{ variant.title }}</p>
+        <a href="{{ product.url }}?variant={{ variant.id }}" class="font-anton text-charcoal text-xl leading-tight hover:text-teal transition-colors">{{ variant.title }}</a>
 
         <div class="mt-auto">
           {% if variant.onPromotion %}
@@ -55,6 +55,10 @@
             Out of Stock
           </button>
         {% endif %}
+
+        <a href="{{ product.url }}?variant={{ variant.id }}" class="block text-center font-hobeaux text-xs text-charcoal/50 hover:text-teal transition-colors">
+          View details &rarr;
+        </a>
       </div>
 
     </div>

@@ -33,7 +33,11 @@
 
       {% if product.type.handle in ['cookie', 'cookiePackage', 'cookie2Pack'] %}
 
-        {% include 'shop/products/_includes/cookie-grid' %}
+        {% if selectedVariantId > 0 %}
+          {% include 'shop/products/_includes/cookie-variant-detail' %}
+        {% else %}
+          {% include 'shop/products/_includes/cookie-grid' %}
+        {% endif %}
 
       {% else %}
 
