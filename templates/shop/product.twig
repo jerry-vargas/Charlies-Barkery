@@ -31,7 +31,7 @@
         <span class="text-charcoal/60 truncate">{{ product.title }}</span>
       </nav>
 
-      {% if product.type.handle == 'cookie' %}
+      {% if product.type.handle in ['cookie', 'cookiePackage', 'cookie2Pack'] %}
 
         {% include 'shop/products/_includes/cookie-grid' %}
 
