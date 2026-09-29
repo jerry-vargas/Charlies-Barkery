@@ -1,0 +1,81 @@
+<!-- Template: {{ _self }}.twig -->
+{# Custom Options — variant takes priority, falls back to product #}
+{% set customOptions = activeVariant.customOptions ? activeVariant.customOptions.all() : [] %}
+{% if not customOptions|length %}
+  {% set customOptions = product.customOptions ? product.customOptions.all() : [] %}
+{% endif %}
+
+{% if customOptions|length %}
+  <div class="flex flex-col gap-5">
+    {% for option in customOptions %}
+      {% set fieldKey = 'purchasables[0][options][' ~ option.label|lower|replace({' ': '_', "'": ''}) ~ ']' %}
+
+      {% if option.type.handle == 'text' %}
+        <div class="flex flex-col gap-2">
+          <label class="font-hobeaux font-bold text-base text-charcoal">
+            {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+          </label>
+          <input type="text" name="{{ fieldKey }}"
+            placeholder="{{ option.placeholder }}"
+            {{ option.required ? 'required' }}
+            class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white">
+        </div>
+
+      {% elseif option.type.handle == 'select' %}
+        <div class="flex flex-col gap-2">
+          <label class="font-hobeaux font-bold text-base text-charcoal">
+            {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+          </label>
+          <select name="{{ fieldKey }}" {{ option.required ? 'required' }}
+            class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white appearance-none">
+            <option value="">Select...</option>
+            {% for row in option.selectTable %}
+              <option value="{{ row.col1 }}">{{ row.col1 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+      {% elseif option.type.handle == 'textarea' %}
+        <div class="flex flex-col gap-2">
+          <label class="font-hobeaux font-bold text-base text-charcoal">
+            {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+          </label>
+          <textarea name="{{ fieldKey }}"
+            placeholder="{{ option.placeholder }}"
+            {{ option.required ? 'required' }}
+            rows="4"
+            class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white resize-none"></textarea>
+        </div>
+
+      {% elseif option.type.handle == 'datePicker' %}
+        <div class="flex flex-col gap-2">
+          <label class="font-hobeaux font-bold text-base text-charcoal">
+            {{ option.label }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+          </label>
+          <input type="date" name="{{ fieldKey }}"
+            min="{{ now|date_modify('+2 days')|date('Y-m-d') }}"
+            {{ option.required ? 'required' }}
+            class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white">
+          <p class="font-hobeaux text-sm text-charcoal/50">Orders require at least 2 days notice.</p>
+        </div>
+
+      {% elseif option.type.handle == 'colorSwatch' %}
+        <div class="flex flex-col gap-2">
+          <label class="font-hobeaux font-bold text-base text-charcoal">
+            {{ option.plainText }}{% if option.required %} <span class="text-red-400">*</span>{% endif %}
+          </label>
+          <select name="{{ fieldKey }}" {{ option.required ? 'required' }}
+            class="font-hobeaux text-base text-charcoal border-2 border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-teal transition-colors bg-white appearance-none">
+            <option value="">Select...</option>
+            {% for row in option.colors %}
+              {% if row.col1 %}
+                <option value="{{ row.col1 }}">{{ row.col1 }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+        </div>
+      {% endif %}
+
+    {% endfor %}
+  </div>
+{% endif %}

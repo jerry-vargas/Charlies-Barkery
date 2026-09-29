@@ -1,0 +1,28 @@
+<!-- Template: {{ _self }}.twig -->
+<div class="flex flex-col gap-3">
+  <p class="font-hobeaux text-base font-bold text-charcoal">Choose a size</p>
+  {% for variant in variants %}
+    <label class="flex items-center justify-between p-5 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-teal transition-colors has-checked:border-teal has-checked:bg-teal/5"
+      data-variant-id="{{ variant.id }}"
+      data-variant-title="{{ variant.title }}"
+      data-price="{{ variant.priceAsCurrency }}"
+      data-sale-price="{{ variant.onPromotion ? variant.salePriceAsCurrency : '' }}"
+      data-on-promotion="{{ variant.onPromotion ? 'true' : 'false' }}"
+      data-variant-image="{{ variant.images.one() ? variant.images.one().getUrl() : '' }}">
+      <span class="flex items-center gap-4">
+        <input type="radio" name="purchasables[0][id]" value="{{ variant.id }}"
+          {{ variant.id == activeVariant.id ? 'checked' }}
+          class="accent-teal w-5 h-5 shrink-0">
+        <span class="font-hobeaux font-bold text-base text-charcoal">{{ variant.title }}</span>
+      </span>
+      <span>
+        {% if variant.onPromotion %}
+          <span class="font-hobeaux text-sm text-charcoal/50 line-through mr-2">{{ variant.priceAsCurrency }}</span>
+          <span class="font-anton text-charcoal text-2xl">{{ variant.salePriceAsCurrency }}</span>
+        {% else %}
+          <span class="font-anton text-charcoal text-2xl">{{ variant.priceAsCurrency }}</span>
+        {% endif %}
+      </span>
+    </label>
+  {% endfor %}
+</div>

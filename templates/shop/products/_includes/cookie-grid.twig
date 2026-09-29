@@ -1,0 +1,76 @@
+<!-- Template: {{ _self }}.twig -->
+<div class="mb-10">
+  <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-3">{{ product.type.name }}</p>
+  <h1 class="font-anton text-charcoal text-5xl lg:text-6xl leading-tight">{{ product.title }}</h1>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  {% for variant in variants %}
+    {% set variantImg = variant.images.one() %}
+    <div class="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm border border-gray-100">
+
+      <div class="aspect-square overflow-hidden bg-gray-100 relative">
+        {% if variantImg %}
+          <img src="{{ variantImg.getUrl() }}" alt="{{ variant.title }}"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+        {% else %}
+          <div class="w-full h-full flex items-center justify-center text-6xl">🐾</div>
+        {% endif %}
+        {% if variant.onPromotion %}
+          <span class="absolute top-3 left-3 font-hobeaux text-xs font-bold text-white bg-teal px-3 py-1 rounded-full">Sale</span>
+        {% endif %}
+        {% if variant.isNew %}
+          <span class="absolute top-3 right-3 font-hobeaux text-xs font-bold text-white bg-orange-400 px-3 py-1 rounded-full">New</span>
+        {% endif %}
+      </div>
+
+      <div class="p-5 flex flex-col flex-1 gap-3">
+        <p class="font-anton text-charcoal text-xl leading-tight">{{ variant.title }}</p>
+
+        <div class="mt-auto">
+          {% if variant.onPromotion %}
+            <span class="font-hobeaux text-sm text-charcoal/40 line-through mr-1">{{ variant.priceAsCurrency }}</span>
+            <span class="font-anton text-charcoal text-2xl">{{ variant.salePriceAsCurrency }}</span>
+          {% else %}
+            <span class="font-anton text-charcoal text-2xl">{{ variant.priceAsCurrency }}</span>
+          {% endif %}
+        </div>
+
+        {% if variant.availableForPurchase %}
+          <form method="post">
+            {{ csrfInput() }}
+            {{ actionInput('commerce/cart/update-cart') }}
+            {{ successMessageInput(variant.title ~ ' added to your cart!') }}
+            {{ redirectInput('shop/cart') }}
+            {{ hiddenInput('purchasables[0][id]', variant.id) }}
+            {{ hiddenInput('purchasables[0][qty]', 1) }}
+            <button type="submit"
+              class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-3 rounded-full hover:bg-charcoal transition-colors">
+              Add to Cart
+            </button>
+          </form>
+        {% else %}
+          <button disabled
+            class="w-full font-hobeaux font-bold text-sm uppercase tracking-widest bg-gray-100 text-charcoal/30 py-3 rounded-full cursor-not-allowed">
+            Out of Stock
+          </button>
+        {% endif %}
+      </div>
+
+    </div>
+  {% endfor %}
+</div>
+
+{% set nutritionContent = product.nutrition ?? null %}
+{% if nutritionContent %}
+  <div class="border-t border-gray-200 mt-12 pt-8">
+    <h3 class="font-hobeaux font-bold text-base text-charcoal mb-3">Nutritional Info</h3>
+    <div class="font-hobeaux text-sm text-charcoal/70 prose prose-sm max-w-none">
+      {{ nutritionContent }}
+    </div>
+  </div>
+{% endif %}
+
+<a href="{{ category ? category.url : url('shop') }}" class="inline-flex items-center gap-2 font-hobeaux font-bold text-base text-charcoal/70 hover:text-teal transition-colors mt-10">
+  &larr; Back to {{ category ? category.title : 'Shop' }}
+</a>
