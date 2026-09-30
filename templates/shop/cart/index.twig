@@ -39,6 +39,15 @@
 
                   {# Product name + price #}
                   <div class="flex items-start justify-between gap-6">
+                    {# Thumbnail #}
+                    {% set lineItemImage = item.purchasable.images.one() ?? item.purchasable.product.featuredImage.one() ?? item.purchasable.product.images.one() ?? null %}
+                    <div class="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 shrink-0">
+                      {% if lineItemImage %}
+                        <img src="{{ lineItemImage.getUrl() }}" alt="{{ item.description }}" class="w-full h-full object-cover">
+                      {% else %}
+                        <div class="w-full h-full flex items-center justify-center text-3xl">🐾</div>
+                      {% endif %}
+                    </div>
                     <div class="flex-1">
                       <p class="font-hobeaux font-bold text-charcoal text-xl leading-snug {{ item.hasErrors() ? 'text-red-500' }}">{{ item.description }}</p>
                         <p class="font-hobeaux text-sm text-charcoal/50 mt-1">SKU: {{ item.sku }}</p>
