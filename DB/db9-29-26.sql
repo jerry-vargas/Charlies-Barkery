@@ -7,7 +7,7 @@
 #
 # Host: charlies.ddev.site (MySQL 8.0.40)
 # Database: db
-# Generation Time: 2026-09-28 14:11:48 +0000
+# Generation Time: 2026-09-30 03:08:45 +0000
 # ************************************************************
 
 
@@ -260,7 +260,8 @@ VALUES
 	(1118,1,15,1,'rescued.jpeg','image/jpeg','image',NULL,3024,4032,2869082,NULL,NULL,NULL,'2026-09-27 11:47:57','2026-09-27 11:47:57','2026-09-27 13:10:38'),
 	(1119,1,18,1,'welcome-_home_pkge.jpeg','image/jpeg','image',NULL,5712,4284,3227384,NULL,NULL,NULL,'2026-09-27 11:48:00','2026-09-27 11:47:59','2026-09-27 13:11:26'),
 	(1120,1,18,1,'welcome_home_pkge_2.jpeg','image/jpeg','image',NULL,5712,4284,3151147,NULL,NULL,NULL,'2026-09-27 11:48:01','2026-09-27 11:48:01','2026-09-27 13:11:25'),
-	(1121,1,15,1,'paw.jpeg','image/jpeg','image',NULL,3024,4032,2169205,NULL,NULL,NULL,'2026-09-27 11:49:58','2026-09-27 11:49:57','2026-09-27 13:10:35');
+	(1121,1,15,1,'paw.jpeg','image/jpeg','image',NULL,3024,4032,2169205,NULL,NULL,NULL,'2026-09-27 11:49:58','2026-09-27 11:49:57','2026-09-27 13:10:35'),
+	(1163,1,17,1,'beer-mug-2pk.png','image/png','image',NULL,3024,4032,4406168,NULL,NULL,NULL,'2026-09-29 01:14:41','2026-09-29 01:14:42','2026-09-29 01:14:42');
 
 /*!40000 ALTER TABLE `assets` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -363,7 +364,8 @@ VALUES
 	(1118,1,NULL),
 	(1119,1,NULL),
 	(1120,1,NULL),
-	(1121,1,NULL);
+	(1121,1,NULL),
+	(1163,1,NULL);
 
 /*!40000 ALTER TABLE `assets_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -543,12 +545,12 @@ VALUES
 	(794,1,'defaultPrice','2026-09-28 02:36:01',0,1),
 	(794,1,'defaultWeight','2026-09-28 02:36:01',0,1),
 	(794,1,'defaultWidth','2026-09-28 02:36:01',0,1),
-	(799,1,'dateUpdated','2026-09-27 13:08:23',0,1),
-	(799,1,'defaultHeight','2026-09-27 13:08:23',0,1),
-	(799,1,'defaultLength','2026-09-27 13:08:23',0,1),
-	(799,1,'defaultPrice','2026-09-27 13:08:23',0,1),
-	(799,1,'defaultWeight','2026-09-27 13:08:23',0,1),
-	(799,1,'defaultWidth','2026-09-27 13:08:23',0,1),
+	(799,1,'dateUpdated','2026-09-29 02:23:44',0,1),
+	(799,1,'defaultHeight','2026-09-29 02:23:44',0,1),
+	(799,1,'defaultLength','2026-09-29 02:23:44',0,1),
+	(799,1,'defaultPrice','2026-09-29 02:23:44',0,1),
+	(799,1,'defaultWeight','2026-09-29 02:23:44',0,1),
+	(799,1,'defaultWidth','2026-09-29 02:23:44',0,1),
 	(799,1,'variants','2026-09-27 13:07:40',0,1),
 	(824,1,'expiryDate','2026-07-23 03:18:44',0,1),
 	(824,1,'fieldId','2026-07-23 03:18:44',0,1),
@@ -573,19 +575,43 @@ VALUES
 	(906,1,'defaultPrice','2026-09-28 02:36:14',0,1),
 	(906,1,'defaultWeight','2026-09-28 02:36:14',0,1),
 	(906,1,'defaultWidth','2026-09-28 02:36:14',0,1),
-	(928,1,'dateUpdated','2026-09-27 13:24:09',0,1),
-	(928,1,'defaultHeight','2026-09-27 13:24:09',0,1),
-	(928,1,'defaultLength','2026-09-27 13:24:09',0,1),
-	(928,1,'defaultPrice','2026-09-27 13:24:09',0,1),
-	(928,1,'defaultWeight','2026-09-27 13:24:09',0,1),
-	(928,1,'defaultWidth','2026-09-27 13:24:09',0,1),
+	(908,1,'dateUpdated','2026-09-30 02:39:44',0,1),
+	(908,1,'defaultHeight','2026-09-30 02:39:44',0,1),
+	(908,1,'defaultLength','2026-09-30 02:39:44',0,1),
+	(908,1,'defaultPrice','2026-09-30 02:39:44',0,1),
+	(908,1,'defaultWeight','2026-09-30 02:39:44',0,1),
+	(908,1,'defaultWidth','2026-09-30 02:39:44',0,1),
+	(911,1,'dateUpdated','2026-09-30 02:39:18',0,1),
+	(911,1,'defaultHeight','2026-09-30 02:39:18',0,1),
+	(911,1,'defaultLength','2026-09-30 02:39:18',0,1),
+	(911,1,'defaultPrice','2026-09-30 02:39:18',0,1),
+	(911,1,'defaultWeight','2026-09-30 02:39:18',0,1),
+	(911,1,'defaultWidth','2026-09-30 02:39:18',0,1),
+	(914,1,'dateUpdated','2026-09-30 02:38:39',0,1),
+	(914,1,'defaultHeight','2026-09-30 02:38:39',0,1),
+	(914,1,'defaultLength','2026-09-30 02:38:39',0,1),
+	(914,1,'defaultPrice','2026-09-30 02:38:39',0,1),
+	(914,1,'defaultWeight','2026-09-30 02:38:39',0,1),
+	(914,1,'defaultWidth','2026-09-30 02:38:39',0,1),
+	(918,1,'dateUpdated','2026-09-30 02:37:47',0,1),
+	(918,1,'defaultHeight','2026-09-30 02:37:47',0,1),
+	(918,1,'defaultLength','2026-09-30 02:37:47',0,1),
+	(918,1,'defaultPrice','2026-09-30 02:37:47',0,1),
+	(918,1,'defaultWeight','2026-09-30 02:37:47',0,1),
+	(918,1,'defaultWidth','2026-09-30 02:37:47',0,1),
+	(928,1,'dateUpdated','2026-09-29 01:09:00',0,1),
+	(928,1,'defaultHeight','2026-09-29 01:09:00',0,1),
+	(928,1,'defaultLength','2026-09-29 01:09:00',0,1),
+	(928,1,'defaultPrice','2026-09-29 01:09:00',0,1),
+	(928,1,'defaultWeight','2026-09-29 01:09:00',0,1),
+	(928,1,'defaultWidth','2026-09-29 01:09:00',0,1),
 	(928,1,'variants','2026-09-27 13:24:09',0,1),
 	(930,1,'dateUpdated','2026-09-27 12:29:30',0,1),
-	(930,1,'defaultHeight','2026-09-27 12:29:30',0,1),
-	(930,1,'defaultLength','2026-09-27 12:29:30',0,1),
-	(930,1,'defaultPrice','2026-09-27 12:29:30',0,1),
-	(930,1,'defaultWeight','2026-09-27 12:29:30',0,1),
-	(930,1,'defaultWidth','2026-09-27 12:29:30',0,1);
+	(930,1,'defaultHeight','2026-09-29 01:14:45',0,1),
+	(930,1,'defaultLength','2026-09-29 01:14:45',0,1),
+	(930,1,'defaultPrice','2026-09-29 01:14:45',0,1),
+	(930,1,'defaultWeight','2026-09-29 01:14:45',0,1),
+	(930,1,'defaultWidth','2026-09-29 01:14:45',0,1);
 
 /*!40000 ALTER TABLE `changedattributes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -696,6 +722,7 @@ VALUES
 	(775,1,5,'fb60420e-7f69-437a-8dcb-a6054958208f','2026-06-17 21:08:06',0,1),
 	(794,1,17,'fadaae88-4307-408f-86e7-80b4ce398d97','2026-09-27 13:31:58',0,1),
 	(794,1,18,'61aa4c5c-2ea1-40b7-b120-b4ac667db803','2026-09-28 02:36:01',0,1),
+	(799,1,17,'5a45d84b-1586-4e16-a2ed-7d4324a9870e','2026-09-29 01:06:55',0,1),
 	(799,1,18,'5d3dcbeb-7939-4370-ba0e-c5a2c639c7ab','2026-09-27 12:29:08',0,1),
 	(827,1,1,'6ac84d60-9c40-4634-b08f-65290e2b30d6','2026-07-23 03:19:45',0,1),
 	(829,1,1,'b7d02359-0b4e-4168-9407-35b233c2ebdc','2026-07-23 03:23:42',0,1),
@@ -705,7 +732,17 @@ VALUES
 	(900,1,18,'0ad65c0a-1984-49ce-bee7-d7d3e765b7e2','2026-09-27 14:53:58',0,1),
 	(906,1,17,'8838ea05-d6a8-4f2e-a001-12269a46c5e5','2026-09-27 13:30:21',0,1),
 	(906,1,18,'1c95a892-1811-4c25-93fd-83c302f66b12','2026-09-28 02:36:14',0,1),
+	(908,1,17,'a03a28b3-de83-4e54-ab2d-cce329a017bc','2026-09-30 02:30:09',0,1),
+	(908,1,18,'4e137db0-f921-4a9e-bd4b-eea610cf3911','2026-09-30 02:39:44',0,1),
+	(911,1,17,'25a84e67-e11d-45f7-98c1-eb1780f117be','2026-09-30 02:31:20',0,1),
+	(911,1,18,'6cc5a68a-7480-4a25-959d-753c0a7b6ea6','2026-09-30 02:39:18',0,1),
+	(914,1,17,'ea269efb-3f24-420d-b6f2-02d67c962298','2026-09-30 02:31:39',0,1),
+	(914,1,18,'87d3fca6-96b4-4166-818a-c711a5eca550','2026-09-30 02:38:39',0,1),
+	(918,1,17,'9fc37bc7-0e2c-48ea-8ebc-1a2553966859','2026-09-30 02:32:00',0,1),
+	(918,1,18,'232ffae4-cf29-4064-b2c2-2dff6f566189','2026-09-30 02:37:47',0,1),
+	(928,1,17,'6af062c2-3893-4ab8-b582-00b2320e1360','2026-09-29 01:08:59',0,1),
 	(928,1,18,'bee41397-cd45-4a99-8faa-60db8e6f151e','2026-09-27 12:29:20',0,1),
+	(930,1,17,'b5f5f816-13c2-4b7a-91ca-30ace9d295e4','2026-09-29 01:14:44',0,1),
 	(930,1,18,'079947c9-262a-4a84-be6d-15a0ba3649c3','2026-09-27 12:29:30',0,1),
 	(945,1,5,'fb60420e-7f69-437a-8dcb-a6054958208f','2026-09-16 02:31:31',0,1),
 	(947,1,17,'4fc983e9-241a-403b-979d-9603e717fa8e','2026-09-27 13:25:24',0,1),
@@ -786,35 +823,35 @@ LOCK TABLES `commerce_catalogpricing` WRITE;
 INSERT INTO `commerce_catalogpricing` (`id`, `price`, `purchasableId`, `storeId`, `catalogPricingRuleId`, `userId`, `dateFrom`, `dateTo`, `isPromotionalPrice`, `hasUpdatePending`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(425,NULL,883,1,NULL,NULL,NULL,NULL,0,0,'2026-08-23 13:02:58','2026-08-23 13:02:58','7de75536-9f14-11f1-b2ec-da1cde2d495a'),
-	(510,10.0000,909,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:32:59','2026-09-16 21:32:59','b79a4b88-b237-11f1-ae8f-c67e2d1250c9'),
-	(511,5.0000,910,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:32:59','2026-09-16 21:32:59','b79a72de-b237-11f1-ae8f-c67e2d1250c9'),
-	(513,10.0000,912,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:33:09','2026-09-16 21:33:09','bd756d28-b237-11f1-ae8f-c67e2d1250c9'),
-	(514,5.0000,913,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:33:09','2026-09-16 21:33:09','bd758858-b237-11f1-ae8f-c67e2d1250c9'),
-	(516,10.0000,916,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:33:20','2026-09-16 21:33:20','c3c3a630-b237-11f1-ae8f-c67e2d1250c9'),
-	(517,5.0000,917,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:33:20','2026-09-16 21:33:20','c3c3be35-b237-11f1-ae8f-c67e2d1250c9'),
-	(519,10.0000,919,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:33:31','2026-09-16 21:33:31','ca40eacc-b237-11f1-ae8f-c67e2d1250c9'),
-	(520,5.0000,920,1,NULL,NULL,NULL,NULL,0,0,'2026-09-16 21:33:31','2026-09-16 21:33:31','ca40ffe4-b237-11f1-ae8f-c67e2d1250c9'),
 	(606,6.0000,801,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 07:16:05','2026-09-27 07:16:05','d4993a78-ba64-11f1-b0e3-faaf886c7b17'),
 	(607,15.0000,806,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 07:16:05','2026-09-27 07:16:05','d49aa88b-ba64-11f1-b0e3-faaf886c7b17'),
 	(608,22.0000,807,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 07:16:05','2026-09-27 07:16:05','d49c12e7-ba64-11f1-b0e3-faaf886c7b17'),
-	(654,3.5000,800,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568ec0f-ba74-11f1-b0e3-faaf886c7b17'),
-	(655,3.5000,1110,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568eff3-ba74-11f1-b0e3-faaf886c7b17'),
-	(656,3.5000,1126,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568f0ba-ba74-11f1-b0e3-faaf886c7b17'),
-	(657,3.5000,1127,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568f14e-ba74-11f1-b0e3-faaf886c7b17'),
-	(658,3.5000,1128,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568f1da-ba74-11f1-b0e3-faaf886c7b17'),
-	(659,3.5000,1133,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568f32b-ba74-11f1-b0e3-faaf886c7b17'),
-	(660,3.5000,1134,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568f508-ba74-11f1-b0e3-faaf886c7b17'),
-	(661,3.5000,1135,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:08:24','2026-09-27 09:08:24','8568f64e-ba74-11f1-b0e3-faaf886c7b17'),
-	(678,5.0000,931,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:14:15','2026-09-27 09:14:15','56dcd52c-ba75-11f1-b0e3-faaf886c7b17'),
-	(698,15.0000,1148,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:24:10','2026-09-27 09:24:10','b94e4451-ba76-11f1-b0e3-faaf886c7b17'),
-	(699,15.0000,929,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:24:10','2026-09-27 09:24:10','b94f417b-ba76-11f1-b0e3-faaf886c7b17'),
-	(700,15.0000,1138,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:24:10','2026-09-27 09:24:10','b94f440a-ba76-11f1-b0e3-faaf886c7b17'),
-	(701,22.0000,1142,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:24:10','2026-09-27 09:24:10','b94f44ac-ba76-11f1-b0e3-faaf886c7b17'),
-	(702,15.0000,1145,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 09:24:10','2026-09-27 09:24:10','b94f4540-ba76-11f1-b0e3-faaf886c7b17'),
 	(722,30.0000,905,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 10:53:59','2026-09-27 10:53:59','456f0823-ba83-11f1-b0e3-faaf886c7b17'),
 	(723,24.0000,795,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 22:36:02','2026-09-27 22:36:02','58badb32-bae5-11f1-b0e3-faaf886c7b17'),
 	(724,28.0000,796,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 22:36:02','2026-09-27 22:36:02','58bafa7d-bae5-11f1-b0e3-faaf886c7b17'),
-	(726,34.0000,907,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 22:36:15','2026-09-27 22:36:15','60ce577c-bae5-11f1-b0e3-faaf886c7b17');
+	(726,34.0000,907,1,NULL,NULL,NULL,NULL,0,0,'2026-09-27 22:36:15','2026-09-27 22:36:15','60ce577c-bae5-11f1-b0e3-faaf886c7b17'),
+	(742,15.0000,929,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 21:09:00','2026-09-28 21:09:00','5a9039ab-bba2-11f1-b0e3-faaf886c7b17'),
+	(743,15.0000,1138,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 21:09:00','2026-09-28 21:09:00','5a903d11-bba2-11f1-b0e3-faaf886c7b17'),
+	(744,22.0000,1142,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 21:09:00','2026-09-28 21:09:00','5a903dcf-bba2-11f1-b0e3-faaf886c7b17'),
+	(745,15.0000,1145,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 21:09:00','2026-09-28 21:09:00','5a903e64-bba2-11f1-b0e3-faaf886c7b17'),
+	(746,15.0000,1148,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 21:09:00','2026-09-28 21:09:00','5a903ef3-bba2-11f1-b0e3-faaf886c7b17'),
+	(749,5.0000,931,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 21:14:45','2026-09-28 21:14:45','2848a697-bba3-11f1-b0e3-faaf886c7b17'),
+	(772,3.5000,800,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd38f22-bbac-11f1-b0e3-faaf886c7b17'),
+	(773,3.5000,1110,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd3918b-bbac-11f1-b0e3-faaf886c7b17'),
+	(774,3.5000,1126,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd39247-bbac-11f1-b0e3-faaf886c7b17'),
+	(775,3.5000,1127,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd392d3-bbac-11f1-b0e3-faaf886c7b17'),
+	(776,3.5000,1128,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd3935c-bbac-11f1-b0e3-faaf886c7b17'),
+	(777,3.5000,1133,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd393f3-bbac-11f1-b0e3-faaf886c7b17'),
+	(778,3.5000,1134,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd39470-bbac-11f1-b0e3-faaf886c7b17'),
+	(779,3.5000,1135,1,NULL,NULL,NULL,NULL,0,0,'2026-09-28 22:23:45','2026-09-28 22:23:45','cbd394e8-bbac-11f1-b0e3-faaf886c7b17'),
+	(799,10.0000,919,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:37:47','2026-09-29 22:37:47','ec47fc20-bc77-11f1-b0e3-faaf886c7b17'),
+	(800,5.0000,920,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:37:47','2026-09-29 22:37:47','ec480317-bc77-11f1-b0e3-faaf886c7b17'),
+	(802,10.0000,916,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:38:40','2026-09-29 22:38:40','0b95e1b2-bc78-11f1-b0e3-faaf886c7b17'),
+	(803,5.0000,917,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:38:40','2026-09-29 22:38:40','0b95e5bf-bc78-11f1-b0e3-faaf886c7b17'),
+	(805,10.0000,912,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:39:18','2026-09-29 22:39:18','229d40c2-bc78-11f1-b0e3-faaf886c7b17'),
+	(806,5.0000,913,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:39:18','2026-09-29 22:39:18','229d680c-bc78-11f1-b0e3-faaf886c7b17'),
+	(808,10.0000,909,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:39:45','2026-09-29 22:39:45','32873567-bc78-11f1-b0e3-faaf886c7b17'),
+	(809,5.0000,910,1,NULL,NULL,NULL,NULL,0,0,'2026-09-29 22:39:45','2026-09-29 22:39:45','328739bb-bc78-11f1-b0e3-faaf886c7b17');
 
 /*!40000 ALTER TABLE `commerce_catalogpricing` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1381,8 +1418,9 @@ LOCK TABLES `commerce_lineitems` WRITE;
 
 INSERT INTO `commerce_lineitems` (`id`, `orderId`, `type`, `purchasableId`, `taxCategoryId`, `shippingCategoryId`, `description`, `options`, `optionsSignature`, `price`, `promotionalPrice`, `promotionalAmount`, `salePrice`, `sku`, `weight`, `height`, `length`, `width`, `subtotal`, `total`, `qty`, `note`, `privateNote`, `hasFreeShipping`, `isPromotable`, `isShippable`, `isTaxable`, `snapshot`, `lineItemStatusId`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
-	(9,891,'purchasable',795,1,1,'cakes - 4\' Inch cake','[]','d751713988987e9331980363e24189ce',24.0000,NULL,0.0000,24.0000,'cke-4',0.0000,0.0000,0.0000,0.0000,24.0000,24.0000,1,'','',0,0,1,1,'{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-09-27T13:31:51+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-09-27T13:31:51+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$24.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$24.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$24.00\",\"cakeSize\":\"4Inch\",\"isNew\":false,\"images\":[1041]}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"cakes\",\"slug\":\"barkday-cake\",\"uri\":\"shop\\/products\\/cakes\\/barkday-cake\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-09-27T13:45:55+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-barkday-cake\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake\"},\"description\":\"cakes - 4\' Inch cake\",\"purchasableId\":795,\"options\":[],\"sales\":[]}',NULL,'2026-09-08 01:58:21','2026-09-27 14:53:14','f3dbb08e-98a6-4af7-b778-2b231ef15fbe'),
-	(11,893,'purchasable',NULL,1,1,'Cakes - Gender Reveal','[]','d751713988987e9331980363e24189ce',30.0000,NULL,0.0000,30.0000,'cke-gender',0.0000,0.0000,0.0000,0.0000,30.0000,30.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":4,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":28,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":877,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"607fde5d-4214-4846-8181-d37ecf5340d5\",\"siteSettingsId\":877,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Gender Reveal\",\"slug\":\"__temp_rckokaujiutsamerhicmfsmpxxqgaqyhacxx\",\"uri\":null,\"dateCreated\":\"2026-08-08T12:46:45+00:00\",\"dateUpdated\":\"2026-08-21T21:55:48+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":877,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=877\",\"isAvailable\":true,\"isPromotable\":false,\"price\":30,\"promotionalPrice\":null,\"basePrice\":30,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":30,\"sku\":\"cke-gender\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":4,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":28,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":877,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"607fde5d-4214-4846-8181-d37ecf5340d5\",\"siteSettingsId\":877,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Gender Reveal\",\"slug\":\"__temp_rckokaujiutsamerhicmfsmpxxqgaqyhacxx\",\"uri\":null,\"dateCreated\":\"2026-08-08T12:46:45+00:00\",\"dateUpdated\":\"2026-08-21T21:55:48+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":877,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=877\",\"isAvailable\":true,\"isPromotable\":false,\"price\":30,\"promotionalPrice\":null,\"basePrice\":30,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":30,\"sku\":\"cke-gender\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$30.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$30.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$30.00\",\"cakeSize\":\"4Inch\",\"productInfo\":null,\"images\":[876],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - Gender Reveal\",\"purchasableId\":877,\"options\":[],\"sales\":[]}',NULL,'2026-09-12 01:53:18','2026-09-12 02:04:19','293ee8c4-3b96-4903-abd5-a11141e45de7');
+	(11,893,'purchasable',NULL,1,1,'Cakes - Gender Reveal','[]','d751713988987e9331980363e24189ce',30.0000,NULL,0.0000,30.0000,'cke-gender',0.0000,0.0000,0.0000,0.0000,30.0000,30.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":4,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":28,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":877,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"607fde5d-4214-4846-8181-d37ecf5340d5\",\"siteSettingsId\":877,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Gender Reveal\",\"slug\":\"__temp_rckokaujiutsamerhicmfsmpxxqgaqyhacxx\",\"uri\":null,\"dateCreated\":\"2026-08-08T12:46:45+00:00\",\"dateUpdated\":\"2026-08-21T21:55:48+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":877,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=877\",\"isAvailable\":true,\"isPromotable\":false,\"price\":30,\"promotionalPrice\":null,\"basePrice\":30,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":30,\"sku\":\"cke-gender\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":4,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":28,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":877,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"607fde5d-4214-4846-8181-d37ecf5340d5\",\"siteSettingsId\":877,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Gender Reveal\",\"slug\":\"__temp_rckokaujiutsamerhicmfsmpxxqgaqyhacxx\",\"uri\":null,\"dateCreated\":\"2026-08-08T12:46:45+00:00\",\"dateUpdated\":\"2026-08-21T21:55:48+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":877,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes?variant=877\",\"isAvailable\":true,\"isPromotable\":false,\"price\":30,\"promotionalPrice\":null,\"basePrice\":30,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":30,\"sku\":\"cke-gender\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$30.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$30.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$30.00\",\"cakeSize\":\"4Inch\",\"productInfo\":null,\"images\":[876],\"nutrition\":null}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"Cakes\",\"slug\":\"cakes\",\"uri\":\"products\\/cakes\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-08-21T21:55:50+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-cakes\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/products\\/cakes\"},\"description\":\"Cakes - Gender Reveal\",\"purchasableId\":877,\"options\":[],\"sales\":[]}',NULL,'2026-09-12 01:53:18','2026-09-12 02:04:19','293ee8c4-3b96-4903-abd5-a11141e45de7'),
+	(15,891,'purchasable',795,1,1,'cakes - 4\' Inch cake','{\"0\":\"Orange\",\"will_this_be_pickup_or_delivery?\":\"Pickup\",\"your_pets_age?\":\"12\",\"what_is_your_pets_name?\":\"charlie\",\"additional_notes_or_special_requests.\":\"vml sdkmsd\",\"pick_up_date\":\"2026-10-02\"}','99f7e4681787306a0f00a0e5c5109038',24.0000,NULL,0.0000,24.0000,'cke-4',0.0000,0.0000,0.0000,0.0000,24.0000,24.0000,1,'','',0,0,1,1,'{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-09-27T13:31:51+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":true,\"sortOrder\":1,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":12,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":795,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"68743f90-2eec-4380-967d-ddaf39d42f55\",\"siteSettingsId\":795,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"4\' Inch cake\",\"slug\":\"__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:26:47+00:00\",\"dateUpdated\":\"2026-09-27T13:31:51+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":795,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake?variant=795\",\"isAvailable\":true,\"isPromotable\":false,\"price\":24,\"promotionalPrice\":null,\"basePrice\":24,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":24,\"sku\":\"cke-4\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$24.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$24.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$24.00\",\"cakeSize\":\"4Inch\",\"isNew\":false,\"images\":[1041]}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"cakes\",\"slug\":\"barkday-cake\",\"uri\":\"shop\\/products\\/cakes\\/barkday-cake\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-09-28T02:36:01+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-barkday-cake\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake\"},\"description\":\"cakes - 4\' Inch cake\",\"purchasableId\":795,\"options\":{\"0\":\"Orange\",\"will_this_be_pickup_or_delivery?\":\"Pickup\",\"your_pets_age?\":\"12\",\"what_is_your_pets_name?\":\"charlie\",\"additional_notes_or_special_requests.\":\"vml sdkmsd\",\"pick_up_date\":\"2026-10-02\"},\"sales\":[]}',NULL,'2026-09-30 02:59:28','2026-09-30 03:00:12','b69fd2fa-99ba-47d7-99e0-01063f266bad'),
+	(16,891,'purchasable',796,1,1,'cakes - 6\' Inch Cake','{\"0\":\"Green\",\"will_this_be_pickup_or_delivery?\":\"Delivery\",\"your_pets_age?\":\"4\",\"what_is_your_pets_name?\":\"sdcscsa\",\"additional_notes_or_special_requests.\":\"\",\"pick_up_date\":\"2026-10-01\"}','b0353599dbd07b1b9e7a45b31607481a',28.0000,NULL,0.0000,28.0000,'cke-6',0.0000,0.0000,0.0000,0.0000,28.0000,28.0000,1,'','',0,0,1,1,'{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-09-27T13:31:57+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":\"#\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"product\":{\"postDate\":\"2026-07-13T14:26:40+00:00\",\"expiryDate\":null,\"typeId\":2,\"defaultVariantId\":795,\"defaultSku\":\"cke-4\",\"defaultBasePrice\":24,\"defaultBasePromotionalPrice\":null,\"defaultHeight\":null,\"defaultLength\":null,\"defaultWidth\":null,\"defaultWeight\":null,\"taxCategory\":null,\"name\":null,\"eagerLoadInfo\":{\"plan\":{\"handle\":\"primaryOwner\",\"alias\":\"primaryOwner\",\"criteria\":{\"site\":\"*\",\"preferSites\":[1],\"unique\":true,\"status\":null,\"drafts\":null,\"provisionalDrafts\":null,\"revisions\":null,\"trashed\":null},\"all\":true,\"count\":false,\"when\":null,\"nested\":[],\"lazy\":false},\"sourceElements\":[{\"isDefault\":false,\"sortOrder\":2,\"width\":null,\"height\":null,\"length\":null,\"weight\":null,\"catalogPricingRuleId\":null,\"freeShipping\":false,\"promotable\":false,\"availableForPurchase\":true,\"minQty\":null,\"maxQty\":null,\"inventoryItemId\":13,\"inventoryTracked\":false,\"allowOutOfStockPurchases\":false,\"eagerLoadInfo\":null,\"id\":796,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"4231272b-5e10-4e39-924f-0e8e51511835\",\"siteSettingsId\":796,\"fieldLayoutId\":40,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"6\' Inch Cake\",\"slug\":\"__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt\",\"uri\":null,\"dateCreated\":\"2026-07-13T14:27:28+00:00\",\"dateUpdated\":\"2026-09-27T13:31:57+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"fieldId\":null,\"canonicalId\":796,\"cpEditUrl\":null,\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"enabled\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake?variant=796\",\"isAvailable\":true,\"isPromotable\":false,\"price\":28,\"promotionalPrice\":null,\"basePrice\":28,\"basePromotionalPrice\":null,\"onPromotion\":false,\"salePrice\":28,\"sku\":\"cke-6\",\"stock\":0,\"shippingCategoryId\":1,\"taxCategoryId\":1,\"primaryOwnerId\":794,\"ownerId\":794,\"basePriceAsCurrency\":\"$28.00\",\"basePromotionalPriceAsCurrency\":\"$0.00\",\"priceAsCurrency\":\"$28.00\",\"promotionalPriceAsCurrency\":\"$0.00\",\"salePriceAsCurrency\":\"$28.00\",\"cakeSize\":\"6Inch\",\"isNew\":false,\"images\":[1042]}]},\"id\":794,\"tempId\":null,\"draftId\":null,\"revisionId\":null,\"isProvisionalDraft\":false,\"hasProvisionalChanges\":false,\"uid\":\"61e32bda-2ab2-4b6b-a50a-deef1507d002\",\"siteSettingsId\":794,\"fieldLayoutId\":39,\"enabled\":true,\"archived\":false,\"siteId\":1,\"title\":\"cakes\",\"slug\":\"barkday-cake\",\"uri\":\"shop\\/products\\/cakes\\/barkday-cake\",\"dateCreated\":\"2026-07-13T14:26:40+00:00\",\"dateUpdated\":\"2026-09-28T02:36:01+00:00\",\"dateLastMerged\":null,\"dateDeleted\":null,\"deletedWithOwner\":null,\"trashed\":false,\"forceSave\":false,\"storeId\":1,\"canonicalId\":794,\"cpEditUrl\":\"https:\\/\\/charlies.ddev.site\\/admin\\/commerce\\/products\\/cakes\\/794-barkday-cake\",\"isDraft\":false,\"isRevision\":false,\"isUnpublishedDraft\":false,\"ref\":null,\"status\":\"live\",\"structureId\":null,\"url\":\"https:\\/\\/charlies.ddev.site\\/shop\\/products\\/cakes\\/barkday-cake\"},\"description\":\"cakes - 6\' Inch Cake\",\"purchasableId\":796,\"options\":{\"0\":\"Green\",\"will_this_be_pickup_or_delivery?\":\"Delivery\",\"your_pets_age?\":\"4\",\"what_is_your_pets_name?\":\"sdcscsa\",\"additional_notes_or_special_requests.\":\"\",\"pick_up_date\":\"2026-10-01\"},\"sales\":[]}',NULL,'2026-09-30 03:00:12','2026-09-30 03:00:12','2aed217d-9465-4754-995c-7caa7389a009');
 
 /*!40000 ALTER TABLE `commerce_lineitems` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1601,8 +1639,9 @@ INSERT INTO `commerce_orders` (`id`, `storeId`, `billingAddressId`, `shippingAdd
 VALUES
 	(884,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'dde8be7e61e01ff47445b2409b83fdca',NULL,NULL,0.0000,0.0000,0,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-08-23 17:18:23','2026-09-13 03:01:45','4768473e-1949-41a0-a421-65a51311c476'),
 	(890,1,967,966,NULL,NULL,887,887,1,NULL,1,NULL,'fdac99f653c40c8276012a162a27a9a8',NULL,NULL,0.0000,0.0000,0,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-07 02:11:49','2026-09-27 13:18:04','3df9be6d-a9ce-44c7-a5ad-8832a5280cac'),
-	(891,1,NULL,NULL,892,892,NULL,NULL,1,NULL,1,NULL,'a4a0b57dff229ac87c9bee07371949a3',NULL,NULL,24.0000,24.0000,1,0.0000,24.0000,24.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-08 00:43:48','2026-09-27 14:53:14','e54a0481-bd1d-44be-8e15-80144bc0c70f'),
-	(893,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'098be3fd876624ed992e212a62f948bd',NULL,NULL,30.0000,30.0000,1,0.0000,30.0000,30.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-12 01:53:17','2026-09-12 02:04:19','3a5f9e14-f5a4-42ff-9c21-a25783ede29a');
+	(891,1,NULL,NULL,892,892,NULL,NULL,1,NULL,1,NULL,'a4a0b57dff229ac87c9bee07371949a3',NULL,NULL,52.0000,52.0000,2,0.0000,52.0000,52.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-08 00:43:48','2026-09-30 03:00:12','e54a0481-bd1d-44be-8e15-80144bc0c70f'),
+	(893,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,1,NULL,'098be3fd876624ed992e212a62f948bd',NULL,NULL,30.0000,30.0000,1,0.0000,30.0000,30.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','jerry@charliesbarkery.com',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-12 01:53:17','2026-09-12 02:04:19','3a5f9e14-f5a4-42ff-9c21-a25783ede29a'),
+	(1165,1,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,'82498d13b84ff9ed2441881d612f2ebc',NULL,NULL,0.0000,0.0000,0,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,0.0000,'unpaid','',NULL,0,NULL,NULL,NULL,NULL,'USD','USD','172.18.0.1','en','web',NULL,0,0,0,0,0,'all',NULL,NULL,'','',1,'2026-09-30 00:37:06','2026-09-30 02:29:10','25ae2521-a5a4-4093-9008-c1b29cd4e174');
 
 /*!40000 ALTER TABLE `commerce_orders` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -1816,15 +1855,15 @@ LOCK TABLES `commerce_products` WRITE;
 INSERT INTO `commerce_products` (`id`, `typeId`, `defaultVariantId`, `postDate`, `expiryDate`, `defaultSku`, `defaultPrice`, `defaultHeight`, `defaultLength`, `defaultWidth`, `defaultWeight`, `dateCreated`, `dateUpdated`, `uid`)
 VALUES
 	(794,2,795,'2026-07-13 14:26:40',NULL,'cke-4',24.0000,0.0000,0.0000,0.0000,0.0000,'2026-07-13 14:26:40','2026-09-28 02:36:01','47e7dfd8-088c-44f9-bf6b-cb3d5f11977c'),
-	(799,3,800,'2026-07-13 14:37:02',NULL,'deco-single',3.5000,0.0000,0.0000,0.0000,0.0000,'2026-07-13 14:37:02','2026-09-27 13:08:23','627c6f12-3be6-4be2-96a5-0682e38947f1'),
+	(799,3,800,'2026-07-13 14:37:02',NULL,'deco-single',3.5000,0.0000,0.0000,0.0000,0.0000,'2026-07-13 14:37:02','2026-09-29 02:23:44','627c6f12-3be6-4be2-96a5-0682e38947f1'),
 	(900,5,905,'2026-09-13 02:53:27',NULL,'cke-gender',30.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 02:53:27','2026-09-27 14:53:58','13460159-ad3b-40b4-93b5-cedee7047967'),
 	(906,4,907,'2026-09-13 02:58:30',NULL,'cke-bone',34.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 02:58:30','2026-09-28 02:36:14','8e4a121b-10b0-41f2-a374-703360eea3f4'),
-	(908,6,909,'2026-09-13 03:02:43',NULL,'trt-apb-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:02:43','2026-09-17 01:32:58','34bcb0ff-5b6b-490c-b2ce-95b5db075cc1'),
-	(911,7,912,'2026-09-13 03:04:31',NULL,'trt-pbb-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:04:31','2026-09-17 01:33:08','d6be43f2-385d-4fa8-a908-255c4c2b3679'),
-	(914,8,916,'2026-09-13 03:06:58',NULL,'trt-ppb-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:06:58','2026-09-17 01:33:19','497e6426-9cac-426d-921a-10881a1cdfac'),
-	(918,9,919,'2026-09-13 03:08:01',NULL,'trt-bec-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:08:01','2026-09-17 01:33:30','58a5330b-4371-457c-95e7-cb3503dc88a7'),
-	(928,10,929,'2026-09-15 11:57:12',NULL,'cookie-pkge',15.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-15 11:57:12','2026-09-27 13:24:09','c16087f4-4271-4713-8ec5-03b582d0b50c'),
-	(930,11,931,'2026-09-15 12:04:37',NULL,'cookie-2pak',5.0000,NULL,NULL,NULL,NULL,'2026-09-15 12:04:37','2026-09-27 13:14:15','b5d87964-ae52-4cce-89b5-5fb5d2ea55b0');
+	(908,6,909,'2026-09-13 03:02:43',NULL,'trt-apb-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:02:43','2026-09-30 02:39:44','34bcb0ff-5b6b-490c-b2ce-95b5db075cc1'),
+	(911,7,912,'2026-09-13 03:04:31',NULL,'trt-pbb-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:04:31','2026-09-30 02:39:18','d6be43f2-385d-4fa8-a908-255c4c2b3679'),
+	(914,8,916,'2026-09-13 03:06:58',NULL,'trt-ppb-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:06:58','2026-09-30 02:38:39','497e6426-9cac-426d-921a-10881a1cdfac'),
+	(918,9,919,'2026-09-13 03:08:01',NULL,'trt-bec-lg',10.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-13 03:08:01','2026-09-30 02:37:47','58a5330b-4371-457c-95e7-cb3503dc88a7'),
+	(928,10,929,'2026-09-15 11:57:12',NULL,'cookie-pkge',15.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-15 11:57:12','2026-09-29 01:08:59','c16087f4-4271-4713-8ec5-03b582d0b50c'),
+	(930,11,931,'2026-09-15 12:04:37',NULL,'cookie-2pak',5.0000,0.0000,0.0000,0.0000,0.0000,'2026-09-15 12:04:37','2026-09-29 01:14:44','b5d87964-ae52-4cce-89b5-5fb5d2ea55b0');
 
 /*!40000 ALTER TABLE `commerce_products` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -2106,13 +2145,13 @@ VALUES
 	(52,920,1,5.0000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-13 03:08:59','2026-09-13 03:09:15','17e5a1f7-7a57-48cc-baaa-611cdda0902b'),
 	(53,929,1,15.0000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-15 12:03:11','2026-09-27 13:23:10','fb7d65f1-6165-4ee4-acb7-d390fd9f927e'),
 	(54,931,1,5.0000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-15 12:04:53','2026-09-27 13:14:15','8dc33428-5920-4516-85e8-64069ffabf89'),
-	(57,1110,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 11:25:39','2026-09-27 13:06:22','3dbf3fb3-e488-4eb1-a08a-bb74e9ce8738'),
-	(61,1126,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:06:01','2026-09-27 13:06:22','ceec662e-cd24-4f9d-850c-bc22d89d87bf'),
-	(62,1127,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:06:01','2026-09-27 13:06:22','3ecba9fe-436f-4ffe-8888-72d566dba324'),
-	(63,1128,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:06:01','2026-09-27 13:06:22','b07c2340-28f0-49b9-9a63-0a757fb4b5da'),
-	(67,1133,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:07:40','2026-09-27 13:07:40','f79e9770-bc26-48ca-9fdb-f5499d458a3e'),
-	(68,1134,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:07:40','2026-09-27 13:07:40','87acf13f-760f-4fef-b3fa-36dcdea3a5c6'),
-	(69,1135,1,3.5000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:07:40','2026-09-27 13:07:40','2aacc0fa-4d68-4a42-92f6-6778614ac00a'),
+	(57,1110,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 11:25:39','2026-09-29 02:23:43','3dbf3fb3-e488-4eb1-a08a-bb74e9ce8738'),
+	(61,1126,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:06:01','2026-09-29 02:23:34','ceec662e-cd24-4f9d-850c-bc22d89d87bf'),
+	(62,1127,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:06:01','2026-09-29 02:23:13','3ecba9fe-436f-4ffe-8888-72d566dba324'),
+	(63,1128,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:06:01','2026-09-29 02:23:21','b07c2340-28f0-49b9-9a63-0a757fb4b5da'),
+	(67,1133,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:07:40','2026-09-29 02:22:59','f79e9770-bc26-48ca-9fdb-f5499d458a3e'),
+	(68,1134,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:07:40','2026-09-29 02:23:08','87acf13f-760f-4fef-b3fa-36dcdea3a5c6'),
+	(69,1135,1,3.5000,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:07:40','2026-09-29 02:22:51','2aacc0fa-4d68-4a42-92f6-6778614ac00a'),
 	(71,1138,1,15.0000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:13:48','2026-09-27 13:23:10','00c47afa-6c70-45c6-8ea4-8bafa28b596b'),
 	(72,1140,1,NULL,NULL,0,1,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:15:53','2026-09-27 13:15:53','32140e9d-8357-44b0-9be6-5e7af96ad495'),
 	(74,1142,1,22.0000,NULL,0,0,0,0,0,0,0,NULL,NULL,1,'2026-09-27 13:17:28','2026-09-27 13:23:10','9a511d31-0626-4be3-92ae-e3738eed99db'),
@@ -2712,13 +2751,13 @@ VALUES
 	(920,918,0,0,'2026-09-13 03:08:59','2026-09-13 03:09:15','236fc6cd-a590-49c7-94b8-1f196cc6caf1'),
 	(929,928,1,0,'2026-09-15 12:03:11','2026-09-27 13:23:10','434fb00c-df33-4975-9926-a48be386a546'),
 	(931,930,1,0,'2026-09-15 12:04:53','2026-09-27 13:14:15','03f78aa8-7ce6-47b9-a3ac-737023bfadb3'),
-	(1110,799,0,0,'2026-09-27 11:25:39','2026-09-27 13:06:22','e835ad29-f18e-464b-a188-7721f523ccb3'),
-	(1126,799,0,0,'2026-09-27 13:06:01','2026-09-27 13:06:22','c95807c0-5b14-4583-a222-e117e927f8d3'),
-	(1127,799,0,0,'2026-09-27 13:06:01','2026-09-27 13:06:22','97d5e8cc-87aa-4b79-a7f0-2e74ee93d294'),
-	(1128,799,0,0,'2026-09-27 13:06:01','2026-09-27 13:06:22','f5926f08-2586-4776-b1d0-63bded87e933'),
-	(1133,799,0,0,'2026-09-27 13:07:40','2026-09-27 13:07:40','5af11691-c5f1-45ff-a9ca-49f433f74684'),
-	(1134,799,0,0,'2026-09-27 13:07:40','2026-09-27 13:07:40','790c6082-312a-4d9d-8cd5-55c871e7a198'),
-	(1135,799,0,0,'2026-09-27 13:07:40','2026-09-27 13:07:40','25ce1ea3-e51d-468b-a7d5-076b46854fca'),
+	(1110,799,0,0,'2026-09-27 11:25:39','2026-09-29 02:23:43','e835ad29-f18e-464b-a188-7721f523ccb3'),
+	(1126,799,0,0,'2026-09-27 13:06:01','2026-09-29 02:23:34','c95807c0-5b14-4583-a222-e117e927f8d3'),
+	(1127,799,0,0,'2026-09-27 13:06:01','2026-09-29 02:23:13','97d5e8cc-87aa-4b79-a7f0-2e74ee93d294'),
+	(1128,799,0,0,'2026-09-27 13:06:01','2026-09-29 02:23:21','f5926f08-2586-4776-b1d0-63bded87e933'),
+	(1133,799,0,0,'2026-09-27 13:07:40','2026-09-29 02:22:59','5af11691-c5f1-45ff-a9ca-49f433f74684'),
+	(1134,799,0,0,'2026-09-27 13:07:40','2026-09-29 02:23:08','790c6082-312a-4d9d-8cd5-55c871e7a198'),
+	(1135,799,0,0,'2026-09-27 13:07:40','2026-09-29 02:22:51','25ce1ea3-e51d-468b-a7d5-076b46854fca'),
 	(1138,928,0,0,'2026-09-27 13:13:48','2026-09-27 13:23:10','e9140a7d-0fdf-4374-b9ad-b5da6ffccc41'),
 	(1142,928,0,0,'2026-09-27 13:17:28','2026-09-27 13:23:10','f796a9b8-a75a-47e0-afe7-bf2407541030'),
 	(1145,928,0,0,'2026-09-27 13:22:41','2026-09-27 13:23:10','534d688e-7834-4971-94b4-4a53e5d7e7ea'),
@@ -2994,14 +3033,14 @@ INSERT INTO `elementactivity` (`elementId`, `userId`, `siteId`, `draftId`, `type
 VALUES
 	(794,1,1,NULL,'edit','2026-09-28 02:36:00'),
 	(794,1,1,NULL,'save','2026-09-28 02:36:01'),
-	(794,1,1,NULL,'view','2026-09-28 02:36:02'),
+	(794,1,1,NULL,'view','2026-09-29 01:07:01'),
 	(795,1,1,NULL,'save','2026-09-27 13:31:51'),
 	(795,1,1,NULL,'view','2026-09-27 13:31:47'),
 	(796,1,1,NULL,'save','2026-09-27 13:31:57'),
 	(796,1,1,NULL,'view','2026-09-27 13:31:58'),
-	(799,1,1,NULL,'edit','2026-09-27 13:07:38'),
-	(799,1,1,NULL,'save','2026-09-27 13:08:23'),
-	(799,1,1,NULL,'view','2026-09-27 13:08:24'),
+	(799,1,1,NULL,'edit','2026-09-29 01:06:53'),
+	(799,1,1,NULL,'save','2026-09-29 02:23:44'),
+	(799,1,1,NULL,'view','2026-09-29 02:28:19'),
 	(800,1,1,NULL,'view','2026-09-27 11:24:37'),
 	(900,1,1,NULL,'edit','2026-09-27 14:52:07'),
 	(900,1,1,NULL,'save','2026-09-27 14:53:58'),
@@ -3009,24 +3048,49 @@ VALUES
 	(906,1,1,NULL,'edit','2026-09-27 13:30:19'),
 	(906,1,1,NULL,'save','2026-09-28 02:36:14'),
 	(906,1,1,NULL,'view','2026-09-28 02:36:16'),
-	(928,1,1,NULL,'edit','2026-09-27 13:24:08'),
-	(928,1,1,NULL,'save','2026-09-27 13:24:09'),
-	(928,1,1,NULL,'view','2026-09-27 13:30:01'),
-	(930,1,1,NULL,'save','2026-09-27 12:29:30'),
-	(930,1,1,NULL,'view','2026-09-27 13:14:02'),
+	(908,1,1,NULL,'edit','2026-09-30 02:30:07'),
+	(908,1,1,NULL,'save','2026-09-30 02:39:44'),
+	(908,1,1,NULL,'view','2026-09-30 02:58:39'),
+	(911,1,1,NULL,'edit','2026-09-30 02:31:17'),
+	(911,1,1,NULL,'save','2026-09-30 02:39:18'),
+	(911,1,1,NULL,'view','2026-09-30 02:39:18'),
+	(914,1,1,NULL,'edit','2026-09-30 02:31:37'),
+	(914,1,1,NULL,'save','2026-09-30 02:38:39'),
+	(914,1,1,NULL,'view','2026-09-30 02:38:40'),
+	(918,1,1,NULL,'edit','2026-09-30 02:31:57'),
+	(918,1,1,NULL,'save','2026-09-30 02:37:47'),
+	(918,1,1,NULL,'view','2026-09-30 02:38:46'),
+	(928,1,1,NULL,'edit','2026-09-29 01:08:58'),
+	(928,1,1,NULL,'save','2026-09-29 01:09:00'),
+	(928,1,1,NULL,'view','2026-09-29 01:09:00'),
+	(930,1,1,NULL,'edit','2026-09-29 01:14:44'),
+	(930,1,1,NULL,'save','2026-09-29 01:14:45'),
+	(930,1,1,NULL,'view','2026-09-29 02:22:29'),
 	(947,1,1,NULL,'edit','2026-09-27 13:25:23'),
 	(947,1,1,NULL,'save','2026-09-27 13:25:24'),
-	(947,1,1,NULL,'view','2026-09-27 13:26:24'),
+	(947,1,1,NULL,'view','2026-09-29 01:07:14'),
 	(949,1,1,NULL,'edit','2026-09-27 13:25:40'),
 	(949,1,1,NULL,'save','2026-09-27 13:25:41'),
-	(949,1,1,NULL,'view','2026-09-27 13:25:44'),
+	(949,1,1,NULL,'view','2026-09-29 01:07:18'),
 	(951,1,1,NULL,'edit','2026-09-27 13:26:34'),
 	(951,1,1,NULL,'save','2026-09-27 13:26:36'),
 	(951,1,1,NULL,'view','2026-09-28 02:34:51'),
 	(1051,1,1,NULL,'view','2026-09-25 03:56:11'),
 	(1053,1,1,NULL,'view','2026-09-25 03:58:15'),
-	(1110,1,1,NULL,'save','2026-09-27 11:50:22'),
-	(1110,1,1,NULL,'view','2026-09-27 13:05:58'),
+	(1110,1,1,NULL,'save','2026-09-29 02:23:43'),
+	(1110,1,1,NULL,'view','2026-09-29 02:23:39'),
+	(1126,1,1,NULL,'save','2026-09-29 02:23:34'),
+	(1126,1,1,NULL,'view','2026-09-29 02:23:31'),
+	(1127,1,1,NULL,'save','2026-09-29 02:23:13'),
+	(1127,1,1,NULL,'view','2026-09-29 02:23:10'),
+	(1128,1,1,NULL,'save','2026-09-29 02:23:21'),
+	(1128,1,1,NULL,'view','2026-09-29 02:23:15'),
+	(1133,1,1,NULL,'save','2026-09-29 02:22:59'),
+	(1133,1,1,NULL,'view','2026-09-29 02:23:08'),
+	(1134,1,1,NULL,'save','2026-09-29 02:23:08'),
+	(1134,1,1,NULL,'view','2026-09-29 02:23:17'),
+	(1135,1,1,NULL,'save','2026-09-29 02:22:51'),
+	(1135,1,1,NULL,'view','2026-09-29 02:23:12'),
 	(1138,1,1,NULL,'save','2026-09-27 13:16:08'),
 	(1138,1,1,NULL,'view','2026-09-27 13:17:28'),
 	(1140,1,1,NULL,'view','2026-09-27 13:17:24');
@@ -3462,7 +3526,7 @@ VALUES
 	(794,NULL,NULL,NULL,39,'craft\\commerce\\elements\\Product',1,0,'2026-07-13 14:26:40','2026-09-28 02:36:01',NULL,NULL,NULL,'61e32bda-2ab2-4b6b-a50a-deef1507d002'),
 	(795,NULL,NULL,NULL,40,'craft\\commerce\\elements\\Variant',1,0,'2026-07-13 14:26:47','2026-09-27 13:31:51',NULL,NULL,NULL,'68743f90-2eec-4380-967d-ddaf39d42f55'),
 	(796,NULL,NULL,NULL,40,'craft\\commerce\\elements\\Variant',1,0,'2026-07-13 14:27:28','2026-09-27 13:31:57',NULL,NULL,NULL,'4231272b-5e10-4e39-924f-0e8e51511835'),
-	(799,NULL,NULL,NULL,41,'craft\\commerce\\elements\\Product',1,0,'2026-07-13 14:37:02','2026-09-27 13:08:23',NULL,NULL,NULL,'addaeb4b-a0a1-4edf-bef7-bd34b14df551'),
+	(799,NULL,NULL,NULL,41,'craft\\commerce\\elements\\Product',1,0,'2026-07-13 14:37:02','2026-09-29 02:23:44',NULL,NULL,NULL,'addaeb4b-a0a1-4edf-bef7-bd34b14df551'),
 	(800,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-07-13 14:37:17','2026-09-27 13:06:22',NULL,NULL,NULL,'d0604989-678e-4796-be1f-cb9e40e5a583'),
 	(801,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-07-13 14:38:46','2026-09-27 11:15:59',NULL,'2026-09-27 11:15:59',NULL,'8042553b-086f-4fdf-8c56-25b251325fa8'),
 	(806,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-07-13 14:42:21','2026-09-27 11:15:59',NULL,'2026-09-27 11:15:59',NULL,'eb0f2d27-2285-4129-b3fa-f73dd329e50a'),
@@ -3480,8 +3544,8 @@ VALUES
 	(886,NULL,NULL,NULL,NULL,'craft\\elements\\User',1,0,'2026-09-06 23:56:42','2026-09-06 23:56:42',NULL,NULL,NULL,'85e15446-d4f1-4929-a20b-411f8db4189d'),
 	(887,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-07 01:58:48','2026-09-07 01:58:48',NULL,NULL,NULL,'5a1f9160-124b-466d-92b6-40262944cddf'),
 	(890,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-07 02:11:49','2026-09-27 13:18:04',NULL,NULL,NULL,'878d4522-db23-445c-9466-e3ef9198dcc1'),
-	(891,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-08 00:43:48','2026-09-27 14:53:14',NULL,NULL,NULL,'03bed04d-7629-49ee-a66a-aa71d4ea58ac'),
-	(892,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-08 01:58:16','2026-09-27 14:53:14',NULL,NULL,NULL,'4ce16d9d-e1b4-4572-ac97-84beb5ace37a'),
+	(891,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-08 00:43:48','2026-09-30 03:00:12',NULL,NULL,NULL,'03bed04d-7629-49ee-a66a-aa71d4ea58ac'),
+	(892,NULL,NULL,NULL,NULL,'craft\\elements\\Address',1,0,'2026-09-08 01:58:16','2026-09-30 03:00:12',NULL,NULL,NULL,'4ce16d9d-e1b4-4572-ac97-84beb5ace37a'),
 	(893,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-12 01:53:17','2026-09-12 02:04:19',NULL,NULL,NULL,'2a54ce04-a08f-4476-96df-c8c452e0a53b'),
 	(897,3,NULL,370,2,'craft\\elements\\Entry',1,0,'2026-09-12 02:12:54','2026-09-12 02:12:54',NULL,NULL,NULL,'e74d1043-2804-45a9-b553-c6301e9ce5b4'),
 	(898,247,NULL,371,5,'craft\\elements\\Entry',1,0,'2026-09-12 02:12:54','2026-09-12 02:12:54',NULL,NULL,NULL,'dd966d82-3d80-496d-b995-3aad5cf852d0'),
@@ -3490,21 +3554,21 @@ VALUES
 	(905,NULL,NULL,NULL,47,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 02:56:42','2026-09-13 02:56:57',NULL,NULL,NULL,'f6718764-2075-44e9-8396-9a431ce73162'),
 	(906,NULL,NULL,NULL,44,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 02:58:30','2026-09-28 02:36:14',NULL,NULL,NULL,'17f2e425-59d8-45ad-a3ed-84b5fe908e03'),
 	(907,NULL,NULL,NULL,45,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 02:58:45','2026-09-13 02:59:03',NULL,NULL,NULL,'a913f517-6b04-4791-a1d5-32ecfd5fb768'),
-	(908,NULL,NULL,NULL,48,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:02:43','2026-09-17 01:32:58',NULL,NULL,NULL,'7eaae050-2794-4e96-9fe7-59fd717729bb'),
+	(908,NULL,NULL,NULL,48,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:02:43','2026-09-30 02:39:44',NULL,NULL,NULL,'7eaae050-2794-4e96-9fe7-59fd717729bb'),
 	(909,NULL,NULL,NULL,49,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:03:02','2026-09-13 03:03:29',NULL,NULL,NULL,'e106d1e3-5dc9-45f8-b7d4-aab64c29c3f5'),
 	(910,NULL,NULL,NULL,49,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:03:33','2026-09-13 03:03:50',NULL,NULL,NULL,'b6186e6b-3e84-49bd-b568-fa01162322ef'),
-	(911,NULL,NULL,NULL,50,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:04:31','2026-09-17 01:33:08',NULL,NULL,NULL,'7674a270-cfcb-4c71-9bc6-993721e7e000'),
+	(911,NULL,NULL,NULL,50,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:04:31','2026-09-30 02:39:18',NULL,NULL,NULL,'7674a270-cfcb-4c71-9bc6-993721e7e000'),
 	(912,NULL,NULL,NULL,51,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:04:57','2026-09-13 03:05:27',NULL,NULL,NULL,'8a7aae0f-7ed1-482e-8bb9-fb2434383cb5'),
 	(913,NULL,NULL,NULL,51,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:05:30','2026-09-13 03:05:44',NULL,NULL,NULL,'d09644bf-4046-4226-aa50-f5cd9d6c87b4'),
-	(914,NULL,NULL,NULL,52,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:06:58','2026-09-17 01:33:19',NULL,NULL,NULL,'1c9368a2-634a-4e7b-a282-8c5ca66bd336'),
+	(914,NULL,NULL,NULL,52,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:06:58','2026-09-30 02:38:39',NULL,NULL,NULL,'1c9368a2-634a-4e7b-a282-8c5ca66bd336'),
 	(916,NULL,NULL,NULL,53,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:07:15','2026-09-13 03:07:29',NULL,NULL,NULL,'a7e053a8-112f-4c5e-aa70-89d0a0549d7f'),
 	(917,NULL,NULL,NULL,53,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:07:32','2026-09-13 03:07:45',NULL,NULL,NULL,'303f9bb2-d111-4b43-9330-bc7738e86e05'),
-	(918,NULL,NULL,NULL,54,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:08:01','2026-09-17 01:33:30',NULL,NULL,NULL,'3ff4df16-9ec4-46e6-9306-c6fcac86587b'),
+	(918,NULL,NULL,NULL,54,'craft\\commerce\\elements\\Product',1,0,'2026-09-13 03:08:01','2026-09-30 02:37:47',NULL,NULL,NULL,'3ff4df16-9ec4-46e6-9306-c6fcac86587b'),
 	(919,NULL,NULL,NULL,55,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:08:37','2026-09-13 03:08:51',NULL,NULL,NULL,'60240a3c-09d1-4c45-994e-868b28e587b3'),
 	(920,NULL,NULL,NULL,55,'craft\\commerce\\elements\\Variant',1,0,'2026-09-13 03:08:59','2026-09-13 03:09:15',NULL,NULL,NULL,'dc631b66-b3cb-4ca1-a492-837faeaa7466'),
-	(928,NULL,NULL,NULL,56,'craft\\commerce\\elements\\Product',1,0,'2026-09-15 11:57:12','2026-09-27 13:24:09',NULL,NULL,NULL,'abb26f70-53b6-47fe-ae15-af1f3a272030'),
+	(928,NULL,NULL,NULL,56,'craft\\commerce\\elements\\Product',1,0,'2026-09-15 11:57:12','2026-09-29 01:08:59',NULL,NULL,NULL,'abb26f70-53b6-47fe-ae15-af1f3a272030'),
 	(929,NULL,NULL,NULL,57,'craft\\commerce\\elements\\Variant',1,0,'2026-09-15 12:03:11','2026-09-27 13:23:10',NULL,NULL,NULL,'96c7ee2f-9f22-421a-8866-c5ffcc78fa5c'),
-	(930,NULL,NULL,NULL,58,'craft\\commerce\\elements\\Product',1,0,'2026-09-15 12:04:37','2026-09-27 12:29:30',NULL,NULL,NULL,'1a694e22-eb4c-477e-bc38-d5cfcd034040'),
+	(930,NULL,NULL,NULL,58,'craft\\commerce\\elements\\Product',1,0,'2026-09-15 12:04:37','2026-09-29 01:14:44',NULL,NULL,NULL,'1a694e22-eb4c-477e-bc38-d5cfcd034040'),
 	(931,NULL,NULL,NULL,59,'craft\\commerce\\elements\\Variant',1,0,'2026-09-15 12:04:53','2026-09-15 12:05:45',NULL,NULL,NULL,'832e012b-8538-4395-8927-4ede688345e1'),
 	(945,3,NULL,373,2,'craft\\elements\\Entry',1,0,'2026-09-16 02:31:31','2026-09-16 02:31:31',NULL,NULL,NULL,'d0b2d401-cfc7-4b41-a595-dc7d53bf93a8'),
 	(946,540,NULL,374,5,'craft\\elements\\Entry',0,0,'2026-09-16 02:31:31','2026-09-16 02:31:31',NULL,NULL,NULL,'e88fb487-c7ea-4311-b7cf-c3a25ac834cf'),
@@ -3600,7 +3664,7 @@ VALUES
 	(1103,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 10:48:35','2026-09-27 13:10:38',NULL,NULL,NULL,'ba0357ea-9d9a-4bfc-b82c-0b963783a751'),
 	(1104,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 10:48:35','2026-09-27 13:10:40',NULL,NULL,NULL,'cc0d1770-ecdc-43f5-89be-365a3118d0fa'),
 	(1105,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 10:48:36','2026-09-27 13:10:40',NULL,NULL,NULL,'7445fb18-8ace-479c-b39d-0cababc8e07b'),
-	(1110,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 11:25:39','2026-09-27 13:06:22',NULL,NULL,NULL,'8ae588be-58e9-45e5-b904-ade0a435eea6'),
+	(1110,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 11:25:39','2026-09-29 02:23:43',NULL,NULL,NULL,'8ae588be-58e9-45e5-b904-ade0a435eea6'),
 	(1111,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 11:47:43','2026-09-27 13:10:27',NULL,NULL,NULL,'7bb28c2f-dba6-4ce6-960b-162a3e008023'),
 	(1112,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 11:47:45','2026-09-27 13:11:26',NULL,NULL,NULL,'4f90c650-a733-4ec9-915f-802e80b87a31'),
 	(1113,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 11:47:47','2026-09-27 13:11:24',NULL,NULL,NULL,'39a85be1-4409-4de7-be34-e4aa47fbcc0e'),
@@ -3612,12 +3676,12 @@ VALUES
 	(1119,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 11:47:58','2026-09-27 13:11:26',NULL,NULL,NULL,'aecf4cec-fb7c-485e-9e7c-dc8c010d9aa6'),
 	(1120,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 11:48:00','2026-09-27 13:11:25',NULL,NULL,NULL,'95ca4e96-121b-46d3-83ce-a1d44b10fabf'),
 	(1121,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-27 11:49:56','2026-09-27 13:10:35',NULL,NULL,NULL,'0bba4bc5-f4c4-4524-ab1f-bcc8846df675'),
-	(1126,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:06:01','2026-09-27 13:06:22',NULL,NULL,NULL,'b69e2357-f074-42c5-a42c-69b8a004cd61'),
-	(1127,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:06:01','2026-09-27 13:06:22',NULL,NULL,NULL,'8adeb26f-5c89-4fa1-a0fc-1abc276e4ee6'),
-	(1128,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:06:01','2026-09-27 13:06:22',NULL,NULL,NULL,'46971246-cf20-4e91-bbf0-05f87f2886e3'),
-	(1133,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:07:40','2026-09-27 13:07:40',NULL,NULL,NULL,'14eca52f-a0a0-4c3f-828b-00cf4f2feea4'),
-	(1134,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:07:40','2026-09-27 13:07:40',NULL,NULL,NULL,'725afaeb-8127-4c8e-9eba-73f0ec786ad3'),
-	(1135,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:07:40','2026-09-27 13:07:40',NULL,NULL,NULL,'f6744022-49ab-4b19-aaef-015ff2627c4a'),
+	(1126,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:06:01','2026-09-29 02:23:34',NULL,NULL,NULL,'b69e2357-f074-42c5-a42c-69b8a004cd61'),
+	(1127,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:06:01','2026-09-29 02:23:13',NULL,NULL,NULL,'8adeb26f-5c89-4fa1-a0fc-1abc276e4ee6'),
+	(1128,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:06:01','2026-09-29 02:23:21',NULL,NULL,NULL,'46971246-cf20-4e91-bbf0-05f87f2886e3'),
+	(1133,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:07:40','2026-09-29 02:22:59',NULL,NULL,NULL,'14eca52f-a0a0-4c3f-828b-00cf4f2feea4'),
+	(1134,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:07:40','2026-09-29 02:23:08',NULL,NULL,NULL,'725afaeb-8127-4c8e-9eba-73f0ec786ad3'),
+	(1135,NULL,NULL,NULL,42,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:07:40','2026-09-29 02:22:51',NULL,NULL,NULL,'f6744022-49ab-4b19-aaef-015ff2627c4a'),
 	(1138,NULL,NULL,NULL,57,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:13:48','2026-09-27 13:23:10',NULL,NULL,NULL,'80bd9845-3541-4b19-a7ed-2f016bb94fb5'),
 	(1140,NULL,12,NULL,57,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:15:53','2026-09-27 13:15:53',NULL,NULL,NULL,'34e2752b-9d45-4666-9fba-7e907d7445bc'),
 	(1142,NULL,NULL,NULL,57,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:17:28','2026-09-27 13:23:10',NULL,NULL,NULL,'58e3f7be-c004-4b49-9e5f-7e5987950648'),
@@ -3625,7 +3689,9 @@ VALUES
 	(1148,NULL,NULL,NULL,57,'craft\\commerce\\elements\\Variant',1,0,'2026-09-27 13:24:09','2026-09-27 13:24:09',NULL,NULL,NULL,'abf4f555-515c-4654-ad41-56da257a1c52'),
 	(1152,947,NULL,382,60,'craft\\elements\\Entry',1,0,'2026-09-27 13:25:24','2026-09-27 13:25:24',NULL,NULL,NULL,'e4498d98-ab5c-484f-8249-e9cfc44b8612'),
 	(1154,949,NULL,383,60,'craft\\elements\\Entry',1,0,'2026-09-27 13:25:41','2026-09-27 13:25:41',NULL,NULL,NULL,'72202adb-f6d3-4123-bcf9-03a7f2d63ca4'),
-	(1156,951,NULL,384,60,'craft\\elements\\Entry',1,0,'2026-09-27 13:26:36','2026-09-27 13:26:36',NULL,NULL,NULL,'acf7e194-6cd2-4e98-9773-f214912b138f');
+	(1156,951,NULL,384,60,'craft\\elements\\Entry',1,0,'2026-09-27 13:26:36','2026-09-27 13:26:36',NULL,NULL,NULL,'acf7e194-6cd2-4e98-9773-f214912b138f'),
+	(1163,NULL,NULL,NULL,14,'craft\\elements\\Asset',1,0,'2026-09-29 01:14:39','2026-09-29 01:14:39',NULL,NULL,NULL,'f62467b8-4bdf-44d8-8f24-fbc014cfd15c'),
+	(1165,NULL,NULL,NULL,34,'craft\\commerce\\elements\\Order',1,0,'2026-09-30 00:37:06','2026-09-30 02:29:10',NULL,NULL,NULL,'c2ab6242-0421-4c4b-a4c4-460674ae210e');
 
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -4804,7 +4870,7 @@ VALUES
 	(794,794,1,'cakes','barkday-cake','shop/products/cakes/barkday-cake','{\"2122be88-3079-49b0-a60c-4e16d010e1a6\": false, \"5007a442-f4c9-4b18-b35c-bdd4f97e93cc\": [949], \"61aa4c5c-2ea1-40b7-b120-b4ac667db803\": \"<p><strong>Barkday Cake</strong><br />A festive treat made to celebrate your dog’s special moments</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e5a4043a0643e8aecc461395678db57e1\\\">Crude Protein (min) .......... 12.80%</li><li data-list-item-id=\\\"e848041b4360efda06772ccd826d7d524\\\">Crude Fat (min) .................. 8.10%</li><li data-list-item-id=\\\"e74924780273be3234b45ea7a065febf5\\\">Crude Fiber (max) ............... 2.00%</li><li data-list-item-id=\\\"e96c1f6055a6443fec015aed260c14a95\\\">Moisture (max) .................. 39.80%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. </p><p><strong>Distributed by:</strong><br />Charlie’s Barkery LLC<br />Cornelius, NC 28031</p><p><strong>Ingredients:</strong> whole wheat flower, unsweetened apple sauce, Peanut butter, cinnamon, water.</p>\", \"e3652f4c-700e-4772-90ed-f343ad39dd60\": \"<p>Our Barkday cakes are perfect for celebrating your pups Birthday/Gotcha Day! </p><p>Ingredients: Whole wheat flour, baking soda, vegetable oil, natural peanut butter, unsweetened apple sauce, pumpkin pure, egg, plain greek yogurt, coconut oil, food coloring.</p><p>Each cake is topped with your choice of peanut butter drizzle or yogurt icing in addition to 2 decorated cookies and 3 mini cookies.  Additional cookies may be added for an additional cost.</p>\", \"fadaae88-4307-408f-86e7-80b4ce398d97\": [1040]}',1,'2026-07-13 14:26:40','2026-09-28 02:36:01','6e8d5d44-5824-45e9-993a-89a288a8cc91'),
 	(795,795,1,'4\' Inch cake','__temp_pofuwakpadpgsthscdxtolpxnzuselwxqjlb',NULL,'{\"3ce9f053-c9a2-4c4c-9e41-0eaa94e59fc4\": [1041], \"d099518b-9462-47dd-8147-984b41c2fbea\": \"4Inch\"}',1,'2026-07-13 14:26:47','2026-09-27 13:31:51','2cae89e8-3f97-412c-90a3-dadd283a7389'),
 	(796,796,1,'6\' Inch Cake','__temp_mlixwwnxlwuljyiqakfyejyhhupyvztbldnt',NULL,'{\"3ce9f053-c9a2-4c4c-9e41-0eaa94e59fc4\": [1042], \"d099518b-9462-47dd-8147-984b41c2fbea\": \"6Inch\", \"dd57be27-a0f6-4e61-adf9-109e5294ab6a\": false}',1,'2026-07-13 14:27:28','2026-09-27 13:31:57','f04223cd-d2bb-43df-9b0d-d1ea74f21256'),
-	(799,799,1,'Cookies','cookies','shop/products/cookies/cookies','{\"5a45d84b-1586-4e16-a2ed-7d4324a9870e\": [], \"5d3dcbeb-7939-4370-ba0e-c5a2c639c7ab\": \"<p><strong>Decorated Cookie Treat for Dogs</strong></p><p>A decorated cookie-style dog treat for special occasions or everyday spoiling.</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e4b8cdb2cca0cfdf322194900c9fa476d\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"e66126a81a9b7eb35b3ab1ed15032d7d9\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e3b3ea02ae0aa01cfa406c5ab1557825e\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"e14314b56f346b38fb6395febe407d8c5\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. Break into smaller pieces for small dogs..</p><p><strong>Distributed by:</strong></p><p>Charlie’s Barkery LLC</p><p>Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"9ecd5bfa-5db9-48e3-9f09-4d6a35fe0bf4\": \"<p>DEFAULT: </p><p>Our Barkday cakes are perfect for celebrating your pups Birthday/Gotcha Day! </p><p>Ingredients: Whole wheat flour, baking soda, vegetable oil, natural peanut butter, unsweetened apple sauce, pumpkin pure, egg, plain greek yogurt, coconut oil, food coloring.</p><p>Each cake is topped with your choice of peanut butter drizzle or yogurt icing in addition to 2 decorated cookies and 3 mini cookies.  Additional cookies may be added for an additional cost.</p>\", \"dc97ac8a-222f-42a9-a4fa-762e5fd8e622\": [947], \"eddf0376-a2de-45d3-b1a5-01cec256ecfa\": false}',1,'2026-07-13 14:37:02','2026-09-27 12:29:08','1e2e55c6-890c-47d7-a96d-b6b0c1e33c98'),
+	(799,799,1,'Cookies','cookies','shop/products/cookies/cookies','{\"5a45d84b-1586-4e16-a2ed-7d4324a9870e\": [1081], \"5d3dcbeb-7939-4370-ba0e-c5a2c639c7ab\": \"<p><strong>Decorated Cookie Treat for Dogs</strong></p><p>A decorated cookie-style dog treat for special occasions or everyday spoiling.</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e4b8cdb2cca0cfdf322194900c9fa476d\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"e66126a81a9b7eb35b3ab1ed15032d7d9\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e3b3ea02ae0aa01cfa406c5ab1557825e\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"e14314b56f346b38fb6395febe407d8c5\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. Break into smaller pieces for small dogs..</p><p><strong>Distributed by:</strong></p><p>Charlie’s Barkery LLC</p><p>Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"9ecd5bfa-5db9-48e3-9f09-4d6a35fe0bf4\": \"<p>DEFAULT: </p><p>Our Barkday cakes are perfect for celebrating your pups Birthday/Gotcha Day! </p><p>Ingredients: Whole wheat flour, baking soda, vegetable oil, natural peanut butter, unsweetened apple sauce, pumpkin pure, egg, plain greek yogurt, coconut oil, food coloring.</p><p>Each cake is topped with your choice of peanut butter drizzle or yogurt icing in addition to 2 decorated cookies and 3 mini cookies.  Additional cookies may be added for an additional cost.</p>\", \"dc97ac8a-222f-42a9-a4fa-762e5fd8e622\": [947], \"eddf0376-a2de-45d3-b1a5-01cec256ecfa\": false}',1,'2026-07-13 14:37:02','2026-09-29 01:06:55','1e2e55c6-890c-47d7-a96d-b6b0c1e33c98'),
 	(800,800,1,'Deco Cookie','__temp_mddtjvaqhmusgwgjwtavkbynexwzguslebdn',NULL,'{\"cfea68f1-42cf-473d-b118-06e1f93dacb4\": false, \"d9e0f1a2-b3c4-4d5e-9f0a-1b2c3d4e5f6a\": []}',1,'2026-07-13 14:37:17','2026-09-27 11:24:37','e4a3aef1-0c9c-4deb-acab-a7dd10533efc'),
 	(801,801,1,'Deco Cookie 2-Pack','__temp_jgjiqmrfsrrkuecilmjtfrilutpatihpeuqv',NULL,NULL,1,'2026-07-13 14:38:46','2026-07-13 14:39:05','d4e186d8-4f22-47f2-a132-c7dbaebc99dc'),
 	(806,806,1,'Cookie Package','__temp_qqdqvyaccsfnohekdqpsrspxwxukjxzbfbuk',NULL,NULL,1,'2026-07-13 14:42:21','2026-07-13 14:42:21','5626e2e0-48f4-45ad-a4ed-9811f209538a'),
@@ -4832,21 +4898,21 @@ VALUES
 	(905,905,1,'4 inch','__temp_lmazdutkribbbtvcxoxtljedphhsitninjri',NULL,NULL,1,'2026-09-13 02:56:42','2026-09-13 02:56:57','3ed5b2f0-79a7-44d1-a788-8d250eddd5c9'),
 	(906,906,1,'Bone Cake','bone-cake','shop/products/cakes/bone-cake','{\"177d4bb8-5981-4567-84aa-21f6bf4ab438\": [949], \"1c95a892-1811-4c25-93fd-83c302f66b12\": \"<p><strong>Barkday Cake</strong><br />A festive treat made to celebrate your dog’s special moments</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"eaf5bee376ff235f58351933ada2fc8f6\\\">Crude Protein (min) .......... 12.80%</li><li data-list-item-id=\\\"eea064aade8343e3a4c040ba42e0649c1\\\">Crude Fat (min) .................. 8.10%</li><li data-list-item-id=\\\"e09fefecf1c2c917e2db5f97ff513aaa6\\\">Crude Fiber (max) ............... 2.00%</li><li data-list-item-id=\\\"eb89f18b6653d03654e92079b5a839326\\\">Moisture (max) .................. 39.80%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. </p><p><strong>Distributed by:</strong><br />Charlie’s Barkery LLC<br />Cornelius, NC 28031</p><p><strong>Ingredients:</strong> whole wheat flower, unsweetened apple sauce, Peanut butter, cinnamon, water.</p>\", \"4fbfb75d-2dbe-4d55-b668-d1abb6a9e97f\": false, \"8838ea05-d6a8-4f2e-a001-12269a46c5e5\": [1051], \"ef4ae273-68a6-4955-95a1-64d5ff6adf74\": \"<p>Our Barkday cakes are perfect for celebrating your pups Birthday/Gotcha Day! This large bone cake feeds between 4-8 pups so if you\'re looking to throw a Barkday party this is the perfect option! </p><p>Ingredients: Whole wheat flour, baking soda, vegetable oil, natural peanut butter, unsweetened apple sauce, pumpkin pure, egg, plain greek yogurt, coconut oil, food coloring.</p><p>Each cake is topped with your choice of peanut butter drizzle or yogurt icing in addition to 2 decorated cookies and 5 mini cookies.  Additional cookies may be added for an additional cost.</p>\"}',1,'2026-09-13 02:58:30','2026-09-28 02:36:14','4cf81ee1-6335-4e5c-a5ce-955fb8559856'),
 	(907,907,1,'Bone','__temp_gyueimnqjuqafrbkmfhshhtmsalymlmakcmt',NULL,NULL,1,'2026-09-13 02:58:45','2026-09-13 02:59:03','2863d77e-1e14-40ca-84eb-9cf0a9814051'),
-	(908,908,1,'Apple Peanut Butter','apple-peanut-butter','shop/products/treats/apple-peanut-butter','{\"0ffb8d18-5bb5-445a-86aa-85368cac87b8\": [951], \"31a32684-2b32-4876-b2d8-eb82312387af\": \"<p>Indulge your furry friend with the paw-licking perfection of Charlie\'s Famous Biscuits – the epitome of all-natural dog treats with no preservatives! To ensure an irresistible crunch that your dog craves, we meticulously dehydrate these treats for a full 4 hours.</p><p>Each bag includes an assortment of mini hearts, paws and bone shaped treats. </p><p>Delight your pup\'s taste buds with our Apple Peanut Butter flavor, a delicious blend of old-fashioned oats, unsweetened apple sauce, all-natural peanut butter (without Xylitol), and a hint of cinnamon. Treat your loyal companion to a premium snack experience with Charlie\'s Famous Biscuits – because every tail deserves a tasty wag!</p>\", \"a03a28b3-de83-4e54-ab2d-cce329a017bc\": [940]}',1,'2026-09-13 03:02:43','2026-09-17 03:25:28','fc1baea6-8b5d-40d4-b7a7-051c31decf14'),
+	(908,908,1,'Apple Peanut Butter','apple-peanut-butter','shop/products/treats/apple-peanut-butter','{\"0ffb8d18-5bb5-445a-86aa-85368cac87b8\": [951], \"31a32684-2b32-4876-b2d8-eb82312387af\": \"<p>Indulge your furry friend with the paw-licking perfection of Charlie\'s Famous Biscuits – the epitome of all-natural dog treats with no preservatives! To ensure an irresistible crunch that your dog craves, we meticulously dehydrate these treats for a full 4 hours.</p><p>Each bag includes an assortment of mini hearts, paws and bone shaped treats. </p><p>Delight your pup\'s taste buds with our Apple Peanut Butter flavor, a delicious blend of old-fashioned oats, unsweetened apple sauce, all-natural peanut butter (without Xylitol), and a hint of cinnamon. Treat your loyal companion to a premium snack experience with Charlie\'s Famous Biscuits – because every tail deserves a tasty wag!</p>\", \"4e137db0-f921-4a9e-bd4b-eea610cf3911\": \"<p><strong>Charlie\'s Famous Biscuits - Apple Peanut Butter</strong><br />Dog Treats</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"efc5679a8494c60faa30c810fe77bc10e\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"efc4f88e7f2fcf85588402c6871529e85\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e6553310d51d5b331c245fc85dae212c2\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"edd19f301c6dca434062f053af4b4bd53\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. </p><p><strong>Distributed by:</strong><br />Charlie’s Barkery LLC<br />Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"a03a28b3-de83-4e54-ab2d-cce329a017bc\": [1047], \"db07ed64-6a3e-46d1-8478-efa0d68fe096\": false}',1,'2026-09-13 03:02:43','2026-09-30 02:39:44','fc1baea6-8b5d-40d4-b7a7-051c31decf14'),
 	(909,909,1,'Large','__temp_ojrttqoaycnixsicekkdeevvdvyltvxtjdfj',NULL,NULL,1,'2026-09-13 03:03:02','2026-09-13 03:03:29','7f7e7479-8995-45fc-9161-cd0457645b6e'),
 	(910,910,1,'Small','__temp_hfclwqyimtpyfhkghmwlcthhppacywqjiama',NULL,NULL,1,'2026-09-13 03:03:33','2026-09-13 03:03:50','35bc531b-13dc-45c4-b83a-1ae8221a18d9'),
-	(911,911,1,'Peanut Butter Bacon','peanut-butter-bacon','shop/products/treats/peanut-butter-bacon','{\"25a84e67-e11d-45f7-98c1-eb1780f117be\": [935], \"96e17fac-bdfe-4a75-9afb-b4bdbbe813a7\": \"<p>Indulge your furry friend with the paw-licking perfection of Charlie\'s Famous Biscuits – the epitome of all-natural dog treats with no preservatives! To ensure an irresistible crunch that your dog craves, we meticulously dehydrate these treats for a full 4 hours.</p><p>Each bag includes an assortment of mini hearts, paws and bone shaped treats. </p><p>Your pups will be drooling over our Peanut Butter Bacon flavor, a delicious blend of old-fashioned oats, unsweetened apple sauce, savory bacon, all-natural peanut butter (without Xylitol), and a hint of cinnamon. Treat your loyal companion to a premium snack experience with Charlie\'s Famous Biscuits – because every tail deserves a tasty wag!</p>\", \"c25af88d-8ccc-4848-abcf-0ecbcf8f955b\": [951]}',1,'2026-09-13 03:04:31','2026-09-17 03:25:36','00bad55d-5487-4565-87ac-595fa18477a1'),
+	(911,911,1,'Peanut Butter Bacon','peanut-butter-bacon','shop/products/treats/peanut-butter-bacon','{\"25a84e67-e11d-45f7-98c1-eb1780f117be\": [1046], \"6cc5a68a-7480-4a25-959d-753c0a7b6ea6\": \"<p><strong>Charlie\'s Famous Biscuits - Peanut Butter Bacon</strong><br />Dog Treats</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e3a5e7f50252f1664353e74b4d2f62724\\\">Crude Protein (min) .......... 21.11%</li><li data-list-item-id=\\\"e5d995bb921f39bafb058235c5935b483\\\">Crude Fat (min) ................ 19.50%</li><li data-list-item-id=\\\"e0f653f536e9149a7ef614a75df30d125\\\">Crude Fiber (max) ............. 2.40%</li><li data-list-item-id=\\\"e4a02aa7c92ef3418dabe4bf04a14c16d\\\">Moisture (max) ................. 5.90%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. </p><p><strong>Distributed by:</strong><br />Charlie’s Barkery LLC<br />Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Bacon, whole grain rolled oats, peanut butter, unsweetened apple sauce.</p>\", \"84bc8588-5468-4aa4-b702-54d8006a2e8b\": false, \"96e17fac-bdfe-4a75-9afb-b4bdbbe813a7\": \"<p>Indulge your furry friend with the paw-licking perfection of Charlie\'s Famous Biscuits – the epitome of all-natural dog treats with no preservatives! To ensure an irresistible crunch that your dog craves, we meticulously dehydrate these treats for a full 4 hours.</p><p>Each bag includes an assortment of mini hearts, paws and bone shaped treats. </p><p>Your pups will be drooling over our Peanut Butter Bacon flavor, a delicious blend of old-fashioned oats, unsweetened apple sauce, savory bacon, all-natural peanut butter (without Xylitol), and a hint of cinnamon. Treat your loyal companion to a premium snack experience with Charlie\'s Famous Biscuits – because every tail deserves a tasty wag!</p>\", \"c25af88d-8ccc-4848-abcf-0ecbcf8f955b\": [951]}',1,'2026-09-13 03:04:31','2026-09-30 02:39:18','00bad55d-5487-4565-87ac-595fa18477a1'),
 	(912,912,1,'Large','__temp_ynioyrmekialyoiuoaexvrcyjdcjnivchhno',NULL,NULL,1,'2026-09-13 03:04:57','2026-09-13 03:05:27','f073ed1d-9878-43f0-a9f1-c640a03ede8c'),
 	(913,913,1,'Small','__temp_cwpqzccpubmeakhyraktkahmtuhahcabelzo',NULL,NULL,1,'2026-09-13 03:05:30','2026-09-13 03:05:44','5e7972fa-456e-4b71-a0ec-a7845974125c'),
-	(914,914,1,'Pumpkin Peanut Butter','pumpkin-peanut-butter','shop/products/treats/pumpkin-peanut-butter','{\"0bcadd4d-fd4b-4d6b-abd4-6611cc359a68\": \"<p>Indulge your furry companion in the irresistible goodness of Charlie\'s Famous Biscuits – the epitome of all-natural dog treats crafted without preservatives! We take pride in preserving the wholesome qualities of our biscuits and giving them that perfect crunch dogs can\'t resist, achieved through a meticulous 4-hour dehydration process. </p><p>Each bag includes an assortment of mini hearts, paws and bone shaped treats. </p><p>Featuring a delectable blend of old-fashioned oats, velvety pumpkin puree, all-natural peanut butter (free from Xylitol), and a touch of cinnamon, these biscuits promise a flavorful and tail-wagging experience.</p><p>Elevate your pup\'s treat game with Charlie\'s Famous Biscuits – where quality meets canine delight!</p>\", \"489817a6-7038-40c8-b3b2-8fd339105170\": [951], \"ea269efb-3f24-420d-b6f2-02d67c962298\": [934]}',1,'2026-09-13 03:06:58','2026-09-17 03:25:47','723d7ec2-fc79-4ef5-83ce-dc3dc4537328'),
+	(914,914,1,'Pumpkin Peanut Butter','pumpkin-peanut-butter','shop/products/treats/pumpkin-peanut-butter','{\"0bcadd4d-fd4b-4d6b-abd4-6611cc359a68\": \"<p>Indulge your furry companion in the irresistible goodness of Charlie\'s Famous Biscuits – the epitome of all-natural dog treats crafted without preservatives! We take pride in preserving the wholesome qualities of our biscuits and giving them that perfect crunch dogs can\'t resist, achieved through a meticulous 4-hour dehydration process. </p><p>Each bag includes an assortment of mini hearts, paws and bone shaped treats. </p><p>Featuring a delectable blend of old-fashioned oats, velvety pumpkin puree, all-natural peanut butter (free from Xylitol), and a touch of cinnamon, these biscuits promise a flavorful and tail-wagging experience.</p><p>Elevate your pup\'s treat game with Charlie\'s Famous Biscuits – where quality meets canine delight!</p>\", \"489817a6-7038-40c8-b3b2-8fd339105170\": [951], \"87d3fca6-96b4-4166-818a-c711a5eca550\": \"<p><strong>Charlie\'s Famous Biscuits - Pumpkin Peanut Butter</strong><br />Dog Treats</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e18943b984e6113bf1c7d468162958c1b\\\">Crude Protein (min) .......... 17.00%</li><li data-list-item-id=\\\"e8d7053d4c2cc5659efbecd5a5815f19e\\\">Crude Fat (min) ................ 17.20%</li><li data-list-item-id=\\\"eefc4b63501b4f2c074cd83d2bf4537ab\\\">Crude Fiber (max) ............. 2.80%</li><li data-list-item-id=\\\"eb7685247e926b44be5298e92217cdacf\\\">Moisture (max) ................. 7.31%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. </p><p><strong>Distributed by:</strong><br />Charlie’s Barkery LLC<br />Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Pumpkin Puree, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"acc17c55-1d69-4481-9ec8-dde3bff49951\": false, \"ea269efb-3f24-420d-b6f2-02d67c962298\": [1059]}',1,'2026-09-13 03:06:58','2026-09-30 02:38:39','723d7ec2-fc79-4ef5-83ce-dc3dc4537328'),
 	(916,916,1,'Large','__temp_fpldlxecknwcwvimzkcbdqfneknbpcixhbmy',NULL,NULL,1,'2026-09-13 03:07:15','2026-09-13 03:07:29','350cc11d-a16b-472d-9ee3-f8ce07e041b2'),
 	(917,917,1,'Small','__temp_dtmvpencwoqkpirzbdixuwkqemnbyozdekqm',NULL,NULL,1,'2026-09-13 03:07:32','2026-09-13 03:07:45','63046ce4-feec-4fe0-97b8-e08c655de10d'),
-	(918,918,1,'Bacon Egg & Cheese','bacon-egg-cheese','shop/products/treats/bacon-egg-cheese','{\"1c18edf0-528d-4efd-9b54-08d0040828c0\": \"<p>Indulge your furry friend with the irresistible allure of Charlie\'s Famous Biscuits – a true canine delight crafted with love and dedication. Our all-natural treats boast a preservative-free recipe, ensuring a wholesome snack your pup will adore. To achieve the perfect crunch dogs crave, we carefully dehydrate these delectable biscuits for a full 4 hours.</p><p> </p><p>Select from our array of tempting options: a package of two-inch bones or a delightful assortment of mini bones and hearts.</p><p> </p><p>Experience the goodness within each biscuit, made from a blend of old-fashioned oats, unsweetened apple sauce, savory bacon, farm-fresh egg, and rich cheddar cheese. Treat your loyal companion to a culinary adventure with Charlie\'s Famous Biscuits – where quality and taste come together in every bite.</p>\", \"3d7c37c4-96b6-4eb5-885f-6861ea6d9370\": [951], \"9fc37bc7-0e2c-48ea-8ebc-1a2553966859\": [932]}',1,'2026-09-13 03:08:01','2026-09-17 03:25:58','00d943ea-98c4-4f90-ba46-07bf84609268'),
+	(918,918,1,'Bacon Egg & Cheese','bacon-egg-cheese','shop/products/treats/bacon-egg-cheese','{\"1c18edf0-528d-4efd-9b54-08d0040828c0\": \"<p>Indulge your furry friend with the irresistible allure of Charlie\'s Famous Biscuits – a true canine delight crafted with love and dedication. Our all-natural treats boast a preservative-free recipe, ensuring a wholesome snack your pup will adore. To achieve the perfect crunch dogs crave, we carefully dehydrate these delectable biscuits for a full 4 hours.</p><p> </p><p>Select from our array of tempting options: a package of two-inch bones or a delightful assortment of mini bones and hearts.</p><p> </p><p>Experience the goodness within each biscuit, made from a blend of old-fashioned oats, unsweetened apple sauce, savory bacon, farm-fresh egg, and rich cheddar cheese. Treat your loyal companion to a culinary adventure with Charlie\'s Famous Biscuits – where quality and taste come together in every bite.</p>\", \"232ffae4-cf29-4064-b2c2-2dff6f566189\": \"<p><strong>Charlie\'s Famous Biscuits - Bacon, Egg &amp; Cheese</strong><br />Dog Treats</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e9597656a2b48c09ecd74933e541ffe36\\\">Crude Protein (min) .......... 21.00%</li><li data-list-item-id=\\\"e78b1c03393536c568df66f3d42d2d385\\\">Crude Fat (min) ................ 12.50%</li><li data-list-item-id=\\\"e284c669db3335620d59d5914079194f8\\\">Crude Fiber (max) ............. 2.50%</li><li data-list-item-id=\\\"ec9b6124731d2e10b4c0682c4042cfbb9\\\">Moisture (max) ................. 5.12%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. </p><p><strong>Distributed by:</strong><br />Charlie’s Barkery LLC<br />Cornelius, NC 28031<br /><strong>Ingredients:</strong> Bacon, Eggs, Water, Nutritional yeast.</p>\", \"3d7c37c4-96b6-4eb5-885f-6861ea6d9370\": [951], \"913ebd91-5684-499d-b035-b32c1e8cb4a1\": false, \"9fc37bc7-0e2c-48ea-8ebc-1a2553966859\": [1049]}',1,'2026-09-13 03:08:01','2026-09-30 02:37:47','00d943ea-98c4-4f90-ba46-07bf84609268'),
 	(919,919,1,'Large','__temp_vfezartlkagxubnhfalifbbljrahtmwdxeoq',NULL,NULL,1,'2026-09-13 03:08:37','2026-09-13 03:08:51','266e639c-4c3f-48a5-8131-b3cfc5ee4d2f'),
 	(920,920,1,'Small','__temp_vweodzhcrfskakoqankavbiqyjzdjxlwvpjj',NULL,NULL,1,'2026-09-13 03:08:59','2026-09-13 03:09:15','4cb3821a-fe14-4d30-b7ac-98ff3efd7cf9'),
-	(928,928,1,'Cookie Package','cookie-package','shop/products/cookies/cookie-package','{\"079e43d6-3ad5-431a-afd8-e169febbcb25\": false, \"6af062c2-3893-4ab8-b582-00b2320e1360\": [], \"bce5e729-6328-4b1b-a567-2257b3316f7e\": [947], \"bee41397-cd45-4a99-8faa-60db8e6f151e\": \"<p><strong>Decorated Cookie Treat for Dogs</strong></p><p>A decorated cookie-style dog treat for special occasions or everyday spoiling.</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"ed5d172d5bc3590119760e3607616ec28\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"e22075575e4c92875f02820d17c81088b\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e41e559fab0ec1d8d694889c9cbce01a8\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"ea9607e41a946cc6aceca33d50ecf7612\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. Break into smaller pieces for small dogs..</p><p><strong>Distributed by:</strong></p><p>Charlie’s Barkery LLC</p><p>Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"f0a995ab-6874-45c8-bb0a-0af1f8502ca3\": \"<p>Can’t pick just one? Treat your pup to a <strong>variety of our best-selling seasonal deco cookies</strong> with this Assorted Pack! Each box includes a mix of our handmade, dog-safe decorated cookies—perfect for sampling different designs, sharing with furry friends, or stocking up for the season.</p><p>By choosing the assortment, you’ll enjoy a built-in <strong>savings compared to purchasing cookies individually</strong>, making it a smart (and fun!) way to spoil your pup.</p><ul><li data-list-item-id=\\\"ec1fc3ccd651c23b5131024844629025b\\\">Includes a festive mix of decorated dog cookies</li><li data-list-item-id=\\\"e43b606c699f24c6ea8834dc07e6f6bfb\\\">All-natural, pet-safe ingredients and colorful icing</li><li data-list-item-id=\\\"ece4de5cd6ca2e4a05a145e35918aeee3\\\">Baked fresh in small batches in the USA</li><li data-list-item-id=\\\"e4f15127566c1e915f386600e7bb96bbd\\\">Bundle &amp; save compared to single-cookie pricing</li></ul><p>🐾 More cookies, more fun, more savings!</p>\"}',1,'2026-09-15 11:57:12','2026-09-27 13:13:48','40255bce-f7a3-4cf2-a77f-a018a97002a6'),
+	(928,928,1,'Cookie Package','cookie-package','shop/products/cookies/cookie-package','{\"079e43d6-3ad5-431a-afd8-e169febbcb25\": false, \"6af062c2-3893-4ab8-b582-00b2320e1360\": [1091], \"bce5e729-6328-4b1b-a567-2257b3316f7e\": [947], \"bee41397-cd45-4a99-8faa-60db8e6f151e\": \"<p><strong>Decorated Cookie Treat for Dogs</strong></p><p>A decorated cookie-style dog treat for special occasions or everyday spoiling.</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"ed5d172d5bc3590119760e3607616ec28\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"e22075575e4c92875f02820d17c81088b\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e41e559fab0ec1d8d694889c9cbce01a8\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"ea9607e41a946cc6aceca33d50ecf7612\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. Break into smaller pieces for small dogs..</p><p><strong>Distributed by:</strong></p><p>Charlie’s Barkery LLC</p><p>Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"f0a995ab-6874-45c8-bb0a-0af1f8502ca3\": \"<p>Can’t pick just one? Treat your pup to a <strong>variety of our best-selling seasonal deco cookies</strong> with this Assorted Pack! Each box includes a mix of our handmade, dog-safe decorated cookies—perfect for sampling different designs, sharing with furry friends, or stocking up for the season.</p><p>By choosing the assortment, you’ll enjoy a built-in <strong>savings compared to purchasing cookies individually</strong>, making it a smart (and fun!) way to spoil your pup.</p><ul><li data-list-item-id=\\\"ec1fc3ccd651c23b5131024844629025b\\\">Includes a festive mix of decorated dog cookies</li><li data-list-item-id=\\\"e43b606c699f24c6ea8834dc07e6f6bfb\\\">All-natural, pet-safe ingredients and colorful icing</li><li data-list-item-id=\\\"ece4de5cd6ca2e4a05a145e35918aeee3\\\">Baked fresh in small batches in the USA</li><li data-list-item-id=\\\"e4f15127566c1e915f386600e7bb96bbd\\\">Bundle &amp; save compared to single-cookie pricing</li></ul><p>🐾 More cookies, more fun, more savings!</p>\"}',1,'2026-09-15 11:57:12','2026-09-29 01:08:59','40255bce-f7a3-4cf2-a77f-a018a97002a6'),
 	(929,929,1,'Cookie Package','__temp_mptfvzbvvehnvpjawbzvjhhjohmqvphiffrk',NULL,'{\"2f154259-0c32-4f04-9b22-8f0988dd5ef4\": false, \"ed3b6375-42bc-423b-853e-832df8abf446\": []}',1,'2026-09-15 12:03:11','2026-09-27 13:14:10','10284a7a-9cdf-4de5-ad0e-995b19a1b70b'),
-	(930,930,1,'Cookie 2 Pack','cookie-2-pack','shop/products/cookies/cookie-2-pack','{\"079947c9-262a-4a84-be6d-15a0ba3649c3\": \"<p><strong>Decorated Cookie Treat for Dogs</strong></p><p>A decorated cookie-style dog treat for special occasions or everyday spoiling.</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e0ce2075aae270b4907483d088668213c\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"e2086498c57bc6d14805981bbaf839f2d\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e7a35fb133b8f47807f612c9bb5cfc2f6\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"e69737f46db0dc6daaa9d20185f896373\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. Break into smaller pieces for small dogs..</p><p><strong>Distributed by:</strong></p><p>Charlie’s Barkery LLC</p><p>Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"4a7fda65-a858-4003-b78c-56d70530fe4c\": false, \"b5f5f816-13c2-4b7a-91ca-30ace9d295e4\": [], \"d5109836-2f79-43e4-9381-090291b4cd27\": [947], \"fe9d16d3-f499-4b93-ac78-616e6427dc65\": \"<p>Sweeten your pup’s day with our festive<strong> Deco Cookie</strong>! Handmade in small batches, this crunchy cookie is decorated to look just like the classic Seasonal favorite—minus the sugar and artificial stuff. Each treat is baked with simple, dog-friendly ingredients and topped with colorful, pet-safe icing to bring seasonal cheer.</p><p>Perfect for celebrations, photos, or just treating your four-legged friend to something special, this cookie is as cute as it is delicious.</p><ul><li data-list-item-id=\\\"e11aa8b258aa221421489f0ce31bc112c\\\">All-natural, dog-safe ingredients</li><li data-list-item-id=\\\"e25c0ccf1777eed83c85d7b86ecc8324a\\\">Festive candy corn design with pet-safe icing</li><li data-list-item-id=\\\"e4c65fbed6624269e121efff2bff22b05\\\">Great for gifting or seasonal celebrations</li></ul><p>A tail-wagging twist on a Seasonal classic!</p>\"}',1,'2026-09-15 12:04:37','2026-09-27 13:14:15','f2d3fbc0-0d8f-4cb6-ab11-db4fa4e127fa'),
+	(930,930,1,'Cookie 2 Pack','cookie-2-pack','shop/products/cookies/cookie-2-pack','{\"079947c9-262a-4a84-be6d-15a0ba3649c3\": \"<p><strong>Decorated Cookie Treat for Dogs</strong></p><p>A decorated cookie-style dog treat for special occasions or everyday spoiling.</p><p><strong>Guaranteed Analysis:</strong></p><ul><li data-list-item-id=\\\"e0ce2075aae270b4907483d088668213c\\\">Crude Protein (min) .............. 16.20%</li><li data-list-item-id=\\\"e2086498c57bc6d14805981bbaf839f2d\\\">Crude Fat (min) .................... 15.90%</li><li data-list-item-id=\\\"e7a35fb133b8f47807f612c9bb5cfc2f6\\\">Crude Fiber (max) ................ 2.30%</li><li data-list-item-id=\\\"e69737f46db0dc6daaa9d20185f896373\\\">Moisture (max) ..................... 7.01%</li></ul><p><strong>Feeding Directions:</strong> Feed as a treat or reward. Break into smaller pieces for small dogs..</p><p><strong>Distributed by:</strong></p><p>Charlie’s Barkery LLC</p><p>Cornelius, NC 28031</p><p><strong>Ingredients:</strong> Unsweetened applesauce, whole grain rolled oats, peanut butter, cinnamon.</p>\", \"4a7fda65-a858-4003-b78c-56d70530fe4c\": false, \"b5f5f816-13c2-4b7a-91ca-30ace9d295e4\": [1163], \"d5109836-2f79-43e4-9381-090291b4cd27\": [947], \"fe9d16d3-f499-4b93-ac78-616e6427dc65\": \"<p>Sweeten your pup’s day with our festive<strong> Deco Cookie</strong>! Handmade in small batches, this crunchy cookie is decorated to look just like the classic Seasonal favorite—minus the sugar and artificial stuff. Each treat is baked with simple, dog-friendly ingredients and topped with colorful, pet-safe icing to bring seasonal cheer.</p><p>Perfect for celebrations, photos, or just treating your four-legged friend to something special, this cookie is as cute as it is delicious.</p><ul><li data-list-item-id=\\\"e11aa8b258aa221421489f0ce31bc112c\\\">All-natural, dog-safe ingredients</li><li data-list-item-id=\\\"e25c0ccf1777eed83c85d7b86ecc8324a\\\">Festive candy corn design with pet-safe icing</li><li data-list-item-id=\\\"e4c65fbed6624269e121efff2bff22b05\\\">Great for gifting or seasonal celebrations</li></ul><p>A tail-wagging twist on a Seasonal classic!</p>\"}',1,'2026-09-15 12:04:37','2026-09-29 01:14:44','f2d3fbc0-0d8f-4cb6-ab11-db4fa4e127fa'),
 	(931,931,1,'Cookie 2 Pack','__temp_kzntfpbkzovajfnjmctfktldvblbexdejarz',NULL,'{\"4b42fd7e-c262-4b66-b2cb-3ada92c5f7b5\": [], \"fee79a20-c18b-4afa-98c4-04d19fa874f0\": false}',1,'2026-09-15 12:04:53','2026-09-27 13:14:15','106761d1-adb6-4dd0-9ec0-c214957fde4e'),
 	(945,945,1,'Home Page','home-page','__home__',NULL,1,'2026-09-16 02:31:31','2026-09-16 02:31:31','58962df0-a502-4af8-81b7-a172d5a227c7'),
 	(946,946,1,NULL,'__temp_gitdtenuozqghtelhivhiqopsjdcdzosqrjo',NULL,'{\"54e0155b-2027-4647-9f61-6a820c7b699d\": \"instagram\"}',1,'2026-09-16 02:31:31','2026-09-16 02:31:31','2109e074-4adb-4f0e-862c-e379a57cdee6'),
@@ -4967,7 +5033,9 @@ VALUES
 	(1148,1148,1,'Fall Package.','__temp_taurkftspzflvwifjfntxwqfeahmxazyphhf',NULL,'{\"2f154259-0c32-4f04-9b22-8f0988dd5ef4\": false, \"ed3b6375-42bc-423b-853e-832df8abf446\": [1085, 1086, 1083, 1053]}',1,'2026-09-27 13:24:09','2026-09-27 13:24:09','24863644-1f9a-4e46-93b2-70a91f5643d3'),
 	(1152,1152,1,'Cookies','cookies','shop/products/categories/cookies','{\"4fc983e9-241a-403b-979d-9603e717fa8e\": [1081]}',1,'2026-09-27 13:25:24','2026-09-27 13:25:24','7b981bd0-cfaf-4e75-9dcf-f39dc6382c14'),
 	(1154,1154,1,'Cakes','cakes','shop/products/categories/cakes','{\"4fc983e9-241a-403b-979d-9603e717fa8e\": [1040]}',1,'2026-09-27 13:25:41','2026-09-27 13:25:41','62d777ba-d5f2-454a-815e-c0dd4c34a3bb'),
-	(1156,1156,1,'Treats','treats','shop/products/categories/treats','{\"4fc983e9-241a-403b-979d-9603e717fa8e\": [1059]}',1,'2026-09-27 13:26:36','2026-09-27 13:26:36','59434956-b40f-4003-8513-ca28483fdc5a');
+	(1156,1156,1,'Treats','treats','shop/products/categories/treats','{\"4fc983e9-241a-403b-979d-9603e717fa8e\": [1059]}',1,'2026-09-27 13:26:36','2026-09-27 13:26:36','59434956-b40f-4003-8513-ca28483fdc5a'),
+	(1163,1163,1,'Beer mug 2pk',NULL,NULL,NULL,1,'2026-09-29 01:14:39','2026-09-29 01:14:39','1bb566bb-0e5d-4aac-a528-87d04e0ace1e'),
+	(1165,1165,1,NULL,NULL,NULL,NULL,1,'2026-09-30 00:37:06','2026-09-30 00:37:06','006e881a-1ec1-4cc7-9964-07ce46133f4c');
 
 /*!40000 ALTER TABLE `elements_sites` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -6437,7 +6505,33 @@ VALUES
 	(209,1046,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_v2.jpg',NULL,'_30x20_crop_center-center_none',1,0,0,'2026-09-27 13:25:53','2026-09-27 13:25:53','2026-09-27 13:26:06','e0f3b5ab-adb8-42af-be5e-de575e7b1488'),
 	(210,1046,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_v2.jpg',NULL,'_60x40_crop_center-center_none',1,0,0,'2026-09-27 13:25:53','2026-09-27 13:25:53','2026-09-27 13:26:32','948683d0-a705-4553-9f68-195791530e95'),
 	(211,1043,'craft\\imagetransforms\\ImageTransformer','apb_3pack.jpg',NULL,'_30x20_crop_center-center_none',1,0,0,'2026-09-27 13:25:53','2026-09-27 13:25:53','2026-09-27 13:26:07','c3a26e98-0e93-40e5-b2a4-d670b70aea5a'),
-	(212,1043,'craft\\imagetransforms\\ImageTransformer','apb_3pack.jpg',NULL,'_60x40_crop_center-center_none',1,0,0,'2026-09-27 13:25:53','2026-09-27 13:25:53','2026-09-27 13:26:33','9c24680b-4cb9-4769-9a3d-ec359c8518f1');
+	(212,1043,'craft\\imagetransforms\\ImageTransformer','apb_3pack.jpg',NULL,'_60x40_crop_center-center_none',1,0,0,'2026-09-27 13:25:53','2026-09-27 13:25:53','2026-09-27 13:26:33','9c24680b-4cb9-4769-9a3d-ec359c8518f1'),
+	(213,1163,'craft\\imagetransforms\\ImageTransformer','beer-mug-2pk.png',NULL,'_22x30_crop_center-center_none',1,0,0,'2026-09-29 01:14:42','2026-09-29 01:14:42','2026-09-29 01:14:43','9ce6aa27-7f5f-4fc1-a328-cdaac2fb671a'),
+	(214,1163,'craft\\imagetransforms\\ImageTransformer','beer-mug-2pk.png',NULL,'_45x60_crop_center-center_none',1,0,0,'2026-09-29 01:14:42','2026-09-29 01:14:42','2026-09-29 01:14:46','fe5fb162-2146-4660-8dfa-9bca853fe3fe'),
+	(215,1059,'craft\\imagetransforms\\ImageTransformer','ppb_ingredients_v3.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:34','865a76ee-3554-46a4-a6d7-e2e875a62338'),
+	(216,1059,'craft\\imagetransforms\\ImageTransformer','ppb_ingredients_v3.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:22','c6c5ecc8-a82c-4ab4-9746-299ba69d5919'),
+	(217,1058,'craft\\imagetransforms\\ImageTransformer','ppb_ingredients_v2.jpg',NULL,'_120x79_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:36','784ddf25-8e5d-4009-be10-ebb46d5e519d'),
+	(218,1058,'craft\\imagetransforms\\ImageTransformer','ppb_ingredients_v2.jpg',NULL,'_240x159_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:24','f69add8a-4543-4270-a925-ce5f9ea3f76f'),
+	(219,1056,'craft\\imagetransforms\\ImageTransformer','pbb_5pack.jpg',NULL,'_120x79_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:35','35550bb1-2bbf-4e7e-9410-5105c76f6d7c'),
+	(220,1056,'craft\\imagetransforms\\ImageTransformer','pbb_5pack.jpg',NULL,'_240x159_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:25','2a99470f-9e14-4efa-ac8c-fbd50dda5b5c'),
+	(221,1057,'craft\\imagetransforms\\ImageTransformer','ppb_3pack.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:37','5625a8e7-9c05-425a-84e1-9ee1060d140e'),
+	(222,1057,'craft\\imagetransforms\\ImageTransformer','ppb_3pack.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:25','4a2f43e2-c94f-43af-827d-b47327dab718'),
+	(223,1050,'craft\\imagetransforms\\ImageTransformer','bec_ingredients_v5.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:38','68265df7-26f6-471b-a001-0b380a2d65ff'),
+	(224,1050,'craft\\imagetransforms\\ImageTransformer','bec_ingredients_v5.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:26','79fe9f37-acdb-41f5-9cef-cd00b3373dbb'),
+	(225,1049,'craft\\imagetransforms\\ImageTransformer','bec_ingredients_v4.jpg',NULL,'_120x79_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:40','39051f33-f1be-4c5b-950c-ac3269645281'),
+	(226,1049,'craft\\imagetransforms\\ImageTransformer','bec_ingredients_v4.jpg',NULL,'_240x159_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:28','905262cf-ecf1-4b8d-b3f0-c27afacc8671'),
+	(227,1048,'craft\\imagetransforms\\ImageTransformer','bec_3pack.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:41','73909f86-ef6d-4ef5-97e9-33893aa4b96e'),
+	(228,1048,'craft\\imagetransforms\\ImageTransformer','bec_3pack.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:29','4ff2a5ca-06ef-408b-8c3e-44a9a3ea7c37'),
+	(229,1047,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_v3.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:42','69ff71b8-f67e-4bad-bbef-57398240bc7a'),
+	(230,1047,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_v3.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:30','6a8f6aea-abb9-458c-9f62-8328b7ec108f'),
+	(231,1044,'craft\\imagetransforms\\ImageTransformer','apb_ingredients.jpg',NULL,'_120x79_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:43','f79d79aa-1f26-4272-89dc-2fb730c2798a'),
+	(232,1044,'craft\\imagetransforms\\ImageTransformer','apb_ingredients.jpg',NULL,'_240x159_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:30','83e80d57-857e-4432-ba2a-00f9c15f30cf'),
+	(233,1045,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_small.jpg',NULL,'_120x79_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:44','d2b20f19-b88d-44de-bf9d-f2c08ec0d13b'),
+	(234,1045,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_small.jpg',NULL,'_240x159_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:30','af572eb0-2e77-43bb-a2b8-8f2a97b66516'),
+	(235,1046,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_v2.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:45','056f1976-6d83-4336-9080-4797e50887a5'),
+	(236,1046,'craft\\imagetransforms\\ImageTransformer','apb_ingredients_v2.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:31','b41d3603-ef87-4734-b1ef-a1a9fe1524c8'),
+	(237,1043,'craft\\imagetransforms\\ImageTransformer','apb_3pack.jpg',NULL,'_120x80_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:30:47','37235289-65ab-4eff-8ce3-4c8cffecc4a7'),
+	(238,1043,'craft\\imagetransforms\\ImageTransformer','apb_3pack.jpg',NULL,'_240x160_crop_center-center_none',1,0,0,'2026-09-30 02:30:31','2026-09-30 02:30:31','2026-09-30 02:31:32','45d5eace-e02e-4bf8-b42a-1199764b0e99');
 
 /*!40000 ALTER TABLE `imagetransformindex` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -14006,6 +14100,17 @@ CREATE TABLE `queue` (
   KEY `idx_jzdiuqgizxwvfhoglhmcdulkrpaeptevfyxr` (`channel`,`fail`,`timeUpdated`,`delay`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+LOCK TABLES `queue` WRITE;
+/*!40000 ALTER TABLE `queue` DISABLE KEYS */;
+
+INSERT INTO `queue` (`id`, `channel`, `job`, `description`, `timePushed`, `ttr`, `delay`, `priority`, `dateReserved`, `timeUpdated`, `progress`, `progressLabel`, `attempt`, `fail`, `dateFailed`, `error`)
+VALUES
+	(445,'queue',X'4F3A33343A2263726166745C71756575655C6A6F62735C557064617465536561726368496E646578223A383A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A22656C656D656E7454797065223B733A32393A2263726166745C636F6D6D657263655C656C656D656E74735C4F72646572223B733A393A22656C656D656E744964223B693A3839313B733A363A22736974654964223B693A313B733A31323A226669656C6448616E646C6573223B4E3B733A363A22717565756564223B623A313B7D','t9n:[\"app\",\"Updating search indexes\"]',1790737168,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL),
+	(446,'queue',X'4F3A33343A2263726166745C71756575655C6A6F62735C557064617465536561726368496E646578223A383A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A22656C656D656E7454797065223B733A32393A2263726166745C636F6D6D657263655C656C656D656E74735C4F72646572223B733A393A22656C656D656E744964223B693A3839313B733A363A22736974654964223B693A313B733A31323A226669656C6448616E646C6573223B4E3B733A363A22717565756564223B623A313B7D','t9n:[\"app\",\"Updating search indexes\"]',1790737189,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL),
+	(447,'queue',X'4F3A33343A2263726166745C71756575655C6A6F62735C557064617465536561726368496E646578223A383A7B733A31313A226465736372697074696F6E223B4E3B733A33303A220063726166745C71756575655C426173654A6F62005F70726F6772657373223B693A303B733A33353A220063726166745C71756575655C426173654A6F62005F70726F67726573734C6162656C223B4E3B733A31313A22656C656D656E7454797065223B733A32393A2263726166745C636F6D6D657263655C656C656D656E74735C4F72646572223B733A393A22656C656D656E744964223B693A3839313B733A363A22736974654964223B693A313B733A31323A226669656C6448616E646C6573223B4E3B733A363A22717565756564223B623A313B7D','t9n:[\"app\",\"Updating search indexes\"]',1790737212,300,0,2048,NULL,NULL,0,NULL,NULL,0,NULL,NULL);
+
+/*!40000 ALTER TABLE `queue` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table recoverycodes
@@ -14106,7 +14211,14 @@ VALUES
 	(278,17,795,NULL,1041,1,'2026-09-27 13:31:51','2026-09-27 13:31:51','5e620d24-266c-47d3-8bd2-c5185a4f3f59'),
 	(279,17,796,NULL,1042,1,'2026-09-27 13:31:57','2026-09-27 13:31:57','13067f53-3719-4b40-a338-dd1b44baf7e9'),
 	(280,17,794,NULL,1040,1,'2026-09-27 13:31:58','2026-09-27 13:31:58','ed778162-5169-4045-87f7-3f9bf1d0cd2b'),
-	(284,17,900,NULL,1052,1,'2026-09-27 14:52:14','2026-09-27 14:52:14','211270f2-6815-4f0b-8224-3cf4b9f5b6bc');
+	(284,17,900,NULL,1052,1,'2026-09-27 14:52:14','2026-09-27 14:52:14','211270f2-6815-4f0b-8224-3cf4b9f5b6bc'),
+	(289,17,799,NULL,1081,1,'2026-09-29 01:06:55','2026-09-29 01:06:55','6cfa8036-ef2a-4385-b6d8-b879e6d7720a'),
+	(292,17,928,NULL,1091,1,'2026-09-29 01:08:59','2026-09-29 01:08:59','a935bd6f-ebc2-4cfc-9472-6903a1e225bc'),
+	(295,17,930,NULL,1163,1,'2026-09-29 01:14:44','2026-09-29 01:14:44','552663ab-6df7-42fd-bd08-e7ab83b38478'),
+	(299,17,908,NULL,1047,1,'2026-09-30 02:30:09','2026-09-30 02:30:09','a142d07a-a4dd-40c0-8705-6ad0a6d24c14'),
+	(303,17,911,NULL,1046,1,'2026-09-30 02:31:20','2026-09-30 02:31:20','69e8fcc5-99da-4dfd-a8ea-2d67b1b3b566'),
+	(307,17,914,NULL,1059,1,'2026-09-30 02:31:39','2026-09-30 02:31:39','398ad517-68df-449d-9f56-52bed0463ba1'),
+	(311,17,918,NULL,1049,1,'2026-09-30 02:32:00','2026-09-30 02:32:00','543808de-d298-4a99-a770-10eef79abbb4');
 
 /*!40000 ALTER TABLE `relations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -15711,7 +15823,31 @@ VALUES
 	(1148,'slug',0,1,' temp taurkftspzflvwifjfntxwqfeahmxazyphhf '),
 	(1148,'title',0,1,' fall package '),
 	(1148,'weight',0,1,''),
-	(1148,'width',0,1,'');
+	(1148,'width',0,1,''),
+	(1163,'alt',0,1,''),
+	(1163,'extension',0,1,' png '),
+	(1163,'filename',0,1,' beer mug 2pk png '),
+	(1163,'kind',0,1,' image '),
+	(1163,'slug',0,1,''),
+	(1163,'title',0,1,' beer mug 2pk '),
+	(1165,'billingaddress',0,1,''),
+	(1165,'billingfirstname',0,1,''),
+	(1165,'billingfullname',0,1,''),
+	(1165,'billinglastname',0,1,''),
+	(1165,'customername',0,1,''),
+	(1165,'email',0,1,''),
+	(1165,'lineitemdescriptions',0,1,''),
+	(1165,'number',0,1,' 82498d13b84ff9ed2441881d612f2ebc '),
+	(1165,'reference',0,1,''),
+	(1165,'shippingaddress',0,1,''),
+	(1165,'shippingfirstname',0,1,''),
+	(1165,'shippingfullname',0,1,''),
+	(1165,'shippinglastname',0,1,''),
+	(1165,'shortnumber',0,1,' 82498d1 '),
+	(1165,'skus',0,1,''),
+	(1165,'slug',0,1,''),
+	(1165,'transactionreference',0,1,''),
+	(1165,'username',0,1,'');
 
 /*!40000 ALTER TABLE `searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -15731,6 +15867,15 @@ CREATE TABLE `searchindexqueue` (
   KEY `idx_frghfeurpssdkghtsdiferhdhsffvrlcousv` (`elementId`,`siteId`,`reserved`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
+LOCK TABLES `searchindexqueue` WRITE;
+/*!40000 ALTER TABLE `searchindexqueue` DISABLE KEYS */;
+
+INSERT INTO `searchindexqueue` (`id`, `elementId`, `siteId`, `reserved`)
+VALUES
+	(177,891,1,0);
+
+/*!40000 ALTER TABLE `searchindexqueue` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table searchindexqueue_fields
@@ -15904,7 +16049,8 @@ VALUES
 	(15,1,'6W6e9jTdQs4hGMy_q7x2jclvZ0SeuyKEWZMt7S9H9BqybxyEyXakPt0e8e61f4-WczsjFTbATJDvFJ5thyOxaBwUWMNxJ5WqALoN','2026-09-20 01:04:37','2026-09-20 03:06:53','2bc7377b-a514-4c4d-a1af-49cef340ee75'),
 	(16,1,'i3KvlGkVfrKziEgh5B8AhRqqdS-nUr9S1iHWVTqs3uYNTsn8r3z-FsKI1j-ePXbnMEnbrM0U5xMTtOmavnZAnNKY7KxqxuCBk44c','2026-09-24 01:07:22','2026-09-24 01:14:09','73e178a5-e9e0-434b-bd13-06ff3cfa4a16'),
 	(17,1,'jW8E4tTvWsi2rwkUeD3ulvMzj9pZzcR6yzyyP_fyvBMO-iS1BkC6wA0NoOR5HsCRcfdHNEiypnXxvVm19geqAEfk6xZNroSFbBwl','2026-09-24 01:14:09','2026-09-24 01:14:10','3ccbf5c3-4e20-485b-9278-c89f3b4691bc'),
-	(20,1,'F-Z3uokpLLDF8FW6rlatP1LOA8eSxisJUTQObLW1y33P7Iv41njyr4QoRY6UDMD3Jb82lgfYwxi4gmSxxoBlsNLEwl8GAkoF4kf7','2026-09-26 01:45:59','2026-09-26 02:57:31','9a36b75a-1a50-4abe-8343-d6deaacaf2c5');
+	(20,1,'F-Z3uokpLLDF8FW6rlatP1LOA8eSxisJUTQObLW1y33P7Iv41njyr4QoRY6UDMD3Jb82lgfYwxi4gmSxxoBlsNLEwl8GAkoF4kf7','2026-09-26 01:45:59','2026-09-26 02:57:31','9a36b75a-1a50-4abe-8343-d6deaacaf2c5'),
+	(25,1,'xcIMc-as6Sc0DqLa4MnRstV00baT-i23qGDjFAtXdVZmWPTltLm434y2JrmynkTgNZItEpLElr2KmhGr_Y_ikevyaRMQb5nlUi3k','2026-09-30 02:29:32','2026-09-30 03:08:20','99f85c26-a782-44f0-a2c6-880e60c0145c');
 
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -16342,7 +16488,7 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `photoId`, `affiliatedSiteId`, `active`, `pending`, `locked`, `suspended`, `admin`, `username`, `fullName`, `firstName`, `lastName`, `email`, `password`, `lastLoginDate`, `lastLoginAttemptIp`, `invalidLoginWindowStart`, `invalidLoginCount`, `lastInvalidLoginDate`, `lockoutDate`, `hasDashboard`, `verificationCode`, `verificationCodeIssuedDate`, `unverifiedEmail`, `passwordResetRequired`, `lastPasswordChangeDate`, `dateCreated`, `dateUpdated`)
 VALUES
-	(1,NULL,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'jerry@charliesbarkery.com','$2y$13$W2qAPsTYHkeqfNKZNsh6F.x9w0kwBwf0UD0yM1m5vLCa7qTw0R7JC','2026-09-28 02:34:51',NULL,NULL,NULL,'2026-09-27 14:47:13',NULL,1,NULL,NULL,NULL,0,'2026-03-12 17:35:46','2026-03-12 17:35:46','2026-09-28 02:34:51'),
+	(1,NULL,NULL,1,0,0,0,1,'admin',NULL,NULL,NULL,'jerry@charliesbarkery.com','$2y$13$W2qAPsTYHkeqfNKZNsh6F.x9w0kwBwf0UD0yM1m5vLCa7qTw0R7JC','2026-09-30 02:29:32',NULL,NULL,NULL,'2026-09-27 14:47:13',NULL,1,NULL,NULL,NULL,0,'2026-03-12 17:35:46','2026-03-12 17:35:46','2026-09-30 02:29:32'),
 	(886,NULL,NULL,0,0,0,0,0,NULL,NULL,NULL,NULL,'vargasman11@gmail.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL,NULL,NULL,0,NULL,'2026-09-06 23:56:42','2026-09-06 23:56:42');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
