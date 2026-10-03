@@ -22,9 +22,10 @@
         <a href="{{ url('shop/cart') }}" class="relative p-2 text-charcoal hover:text-teal transition-colors" aria-label="Cart">
           <svg class="h-7 w-7"><use href="#shopping-cart"></use></svg>
           {% set cartCount = craft.commerce.carts.cart.totalQty ?? 0 %}
-          {% if cartCount > 0 %}
-            <span class="absolute -top-2 -right-2 bg-teal text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">{{ cartCount }}</span>
-          {% endif %}
+          <span id="cart-count"
+            class="absolute -top-2 -right-2 bg-teal text-white text-xs rounded-full h-5 w-5 flex items-center justify-center text-[11px] font-bold {{ cartCount < 1 ? 'hidden' }}">
+            {{ cartCount }}
+          </span>
         </a>
 
         {# Mobile menu button #}

@@ -79,57 +79,7 @@
               {% endif %}
             </div>
 
-            <form method="post" class="flex flex-col gap-7">
-              {{ csrfInput() }}
-              {{ actionInput('commerce/cart/update-cart') }}
-              {{ successMessageInput(product.title ~ ' added to your cart!') }}
-              {{ redirectInput('shop/cart') }}
-
-              {% if variants|length == 1 %}
-                {{ hiddenInput('purchasables[0][id]', activeVariant.id) }}
-              {% else %}
-                {% include 'shop/products/_includes/variant-selector' %}
-              {% endif %}
-
-              {% include 'shop/products/_includes/custom-options' %}
-
-              {# Qty + Add to Cart #}
-              <div class="flex items-center gap-4">
-                <div class="flex items-center border-2 border-gray-200 rounded-full bg-white">
-                  <button type="button" onclick="stepQty(this, -1)" aria-label="Decrease quantity"
-                    class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
-                    &minus;
-                  </button>
-                  <input type="number" id="qty-input" name="purchasables[0][qty]" value="1" min="1"
-                    class="w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent">
-                  <button type="button" onclick="stepQty(this, 1)" aria-label="Increase quantity"
-                    class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
-                    +
-                  </button>
-                </div>
-                <button type="submit"
-                  class="flex-1 cursor-pointer font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-4 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
-                  Add to Cart
-                </button>
-              </div>
-
-              {# Trust signals #}
-              <div class="flex flex-wrap gap-4 text-sm font-hobeaux text-charcoal/60 border-t border-gray-200 pt-6">
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  Handmade in Charlotte, NC
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  Dog-safe ingredients
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                  Ships across the US
-                </span>
-              </div>
-
-            </form>
+            {{ sprig('_sprig/add-to-cart', {productId: product.id}) }}
 
             {# Nutritional Info — variant supersedes product #}
             {% set nutritionContent = activeVariant.nutrition ?? product.nutrition ?? null %}
@@ -157,42 +107,48 @@
 
   <script>
   function stepQty(btn, direction) {
-    const input = document.getElementById('qty-input');
-    input.value = Math.max(1, parseInt(input.value) + direction);
+    const input = btn.parentElement.querySelector('input[type="number"]');
+    if (input) input.value = Math.max(1, parseInt(input.value || 1) + direction);
   }
 
-  // Update price display and variant image when a radio changes
-  document.querySelectorAll('input[name="purchasables[0][id]"]').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      const label = this.closest('label');
-      const title = label.dataset.variantTitle;
-      const price = label.dataset.price;
-      const salePrice = label.dataset.salePrice;
-      const onPromotion = label.dataset.onPromotion === 'true';
+  // Event delegation — survives Sprig re-renders
+  document.addEventListener('change', function(e) {
+    if (!e.target.matches('input[name="purchasables[0][id]"]')) return;
 
-      const $label = document.getElementById('selected-variant-label');
-      const $display = document.getElementById('price-display');
-      const $original = document.getElementById('price-original');
-      const $saleBadge = document.getElementById('sale-badge');
+    const label = e.target.closest('label');
+    const title = label.dataset.variantTitle;
+    const price = label.dataset.price;
+    const salePrice = label.dataset.salePrice;
+    const onPromotion = label.dataset.onPromotion === 'true';
 
-      if ($label) $label.textContent = title;
+    const $label = document.getElementById('selected-variant-label');
+    const $display = document.getElementById('price-display');
+    const $original = document.getElementById('price-original');
+    const $saleBadge = document.getElementById('sale-badge');
 
-      const variantImage = label.dataset.variantImage;
-      const $img = document.getElementById('product-image');
-      if ($img && variantImage) $img.src = variantImage;
+    if ($label) $label.textContent = title;
 
-      if (onPromotion) {
-        $display.textContent = salePrice;
-        $original.textContent = price;
-        $original.classList.remove('hidden');
-        if ($saleBadge) $saleBadge.classList.remove('hidden');
-      } else {
-        $display.textContent = price;
-        $original.textContent = '';
-        $original.classList.add('hidden');
-        if ($saleBadge) $saleBadge.classList.add('hidden');
-      }
-    });
+    const variantImage = label.dataset.variantImage;
+    const $img = document.getElementById('product-image');
+    if ($img && variantImage) $img.src = variantImage;
+
+    if (onPromotion) {
+      $display.textContent = salePrice;
+      $original.textContent = price;
+      $original.classList.remove('hidden');
+      if ($saleBadge) $saleBadge.classList.remove('hidden');
+    } else {
+      $display.textContent = price;
+      $original.textContent = '';
+      $original.classList.add('hidden');
+      if ($saleBadge) $saleBadge.classList.add('hidden');
+    }
+  });
+
+  // Re-sync price/image after Sprig swaps the component
+  document.addEventListener('htmx:afterSwap', function(e) {
+    const radio = e.target.querySelector('input[name="purchasables[0][id]"]:checked');
+    if (radio) radio.dispatchEvent(new Event('change', { bubbles: true }));
   });
   </script>
 
