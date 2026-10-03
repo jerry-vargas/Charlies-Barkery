@@ -1,0 +1,241 @@
+{% set cart = craft.commerce.carts.cart %}
+
+{# OOB: keep nav cart badge in sync on every re-render #}
+{% set cartQty = cart.totalQty ?? 0 %}
+<span id="cart-count" hx-swap-oob="true"
+  class="absolute -top-2 -right-2 bg-teal text-white text-xs rounded-full h-5 w-5 flex items-center justify-center text-[11px] font-bold {{ cartQty < 1 ? 'hidden' }}">
+  {{ cartQty }}
+</span>
+
+{# Heading — inside the component so the item count updates reactively #}
+<div class="mb-10">
+  <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-1">Your Order</p>
+  <h1 class="font-anton text-charcoal text-5xl">
+    Shopping Cart
+    {% if cart.lineItems|length %}
+      <span class="font-hobeaux text-lg font-normal text-charcoal/40 ml-2">
+        {{ cart.lineItems|length }} {{ cart.lineItems|length == 1 ? 'item' : 'items' }}
+      </span>
+    {% endif %}
+  </h1>
+</div>
+
+{% if cart.lineItems|length %}
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    {# ── Left: Line Items ── #}
+    <div class="lg:col-span-2 flex flex-col gap-4">
+
+      {% for item in cart.lineItems %}
+        {% set lineItemImage = item.purchasable.images.one() ?? item.purchasable.product.featuredImage.one() ?? item.purchasable.product.images.one() ?? null %}
+
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5 {{ item.hasErrors() ? 'ring-2 ring-red-400' }}">
+
+          {# Product name + price #}
+          <div class="flex items-start justify-between gap-6">
+            <div class="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 shrink-0">
+              {% if lineItemImage %}
+                <img src="{{ lineItemImage.getUrl() }}" alt="{{ item.description }}" class="w-full h-full object-cover">
+              {% else %}
+                <div class="w-full h-full flex items-center justify-center text-3xl">🐾</div>
+              {% endif %}
+            </div>
+            <div class="flex-1">
+              <p class="font-hobeaux font-bold text-charcoal text-xl leading-snug {{ item.hasErrors() ? 'text-red-500' }}">{{ item.description }}</p>
+              <p class="font-hobeaux text-sm text-charcoal/50 mt-1">SKU: {{ item.sku }}</p>
+              {% if item.options|length %}
+                <dl class="mt-2 flex flex-col gap-1">
+                  {% for key, value in item.options %}
+                    <div class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/60">
+                      <dt class="font-bold capitalize">{{ key|replace({'_': ' '}) }}:</dt>
+                      <dd>{{ value }}</dd>
+                    </div>
+                  {% endfor %}
+                </dl>
+              {% endif %}
+            </div>
+            <div class="text-right shrink-0">
+              {% if item.onPromotion %}
+                <p class="font-hobeaux text-sm text-charcoal/40 line-through">{{ item.priceAsCurrency }}</p>
+                <p class="font-anton text-charcoal text-3xl leading-none">{{ item.salePriceAsCurrency }}</p>
+              {% else %}
+                <p class="font-anton text-charcoal text-3xl leading-none">{{ item.priceAsCurrency }}</p>
+              {% endif %}
+              {% if item.qty > 1 %}
+                <p class="font-hobeaux text-sm text-charcoal/60 mt-1">{{ item.subtotalAsCurrency }} total</p>
+              {% endif %}
+            </div>
+          </div>
+
+          <hr class="border-gray-100">
+
+          {#
+            Per-item form: handles qty changes and removal.
+            JS (stepCartQty / change listener) triggers htmx.trigger(form, 'submit') to submit reactively.
+          #}
+          <form sprig s-action="commerce/cart/update-cart" class="flex flex-col gap-3">
+
+            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+              {# Qty stepper #}
+              <div class="flex items-center border-2 border-gray-200 rounded-full w-fit bg-gray-50">
+                <button type="button" onclick="stepCartQty(this, -1)" aria-label="Decrease quantity"
+                  class="w-11 h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+                  &minus;
+                </button>
+                {{ input('number', 'lineItems[' ~ item.id ~ '][qty]', item.qty, {
+                  min: 0,
+                  class: 'w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent'
+                }) }}
+                <button type="button" onclick="stepCartQty(this, 1)" aria-label="Increase quantity"
+                  class="w-11 h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+                  +
+                </button>
+              </div>
+
+              {# Item note #}
+              {{ input('text', 'lineItems[' ~ item.id ~ '][note]', item.note, {
+                class: 'flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50',
+                placeholder: 'Add a special note...'
+              }) }}
+            </div>
+
+            {% if item.getFirstError('qty') %}
+              <p class="font-hobeaux text-sm text-red-500">{{ item.getFirstError('qty') }}</p>
+            {% endif %}
+
+            {# Adjustments + Remove #}
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex-1">
+                {% if not cart.hasErrors() and item.adjustments|length %}
+                  <div class="flex flex-col gap-1">
+                    {% for adjustment in item.adjustments %}
+                      <div class="flex justify-between font-hobeaux text-sm text-charcoal/60">
+                        <span>{{ adjustment.name }}{% if adjustment.isEstimated %} <em class="text-xs">(estimated)</em>{% endif %}</span>
+                        <span>{{ adjustment.amountAsCurrency }}</span>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              {# Remove: submit button with the remove flag — triggers form submit directly #}
+              <button type="submit" name="lineItems[{{ item.id }}][remove]" value="1"
+                class="cursor-pointer font-hobeaux text-sm font-bold text-charcoal/50 hover:text-red-500 border-2 border-gray-200 hover:border-red-300 hover:bg-red-50 px-5 py-2 rounded-full transition-colors shrink-0">
+                Remove
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      {% endfor %}
+
+    </div>
+
+    {# ── Right: Sidebar ── #}
+    <div class="flex flex-col gap-5">
+
+      {# Coupon code #}
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
+        <h2 class="font-anton text-charcoal text-xl mb-4">Promo Code</h2>
+        <form sprig s-action="commerce/cart/update-cart" class="flex gap-2">
+          {{ input('text', 'couponCode', cart.couponCode, {
+            class: 'flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50 ' ~ (cart.getFirstError('couponCode') ? 'border-red-400' : ''),
+            placeholder: 'Enter code'
+          }) }}
+          <button type="submit"
+            class="cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-charcoal text-white px-5 py-3 rounded-full hover:bg-teal transition-colors whitespace-nowrap">
+            Apply
+          </button>
+        </form>
+        {% if cart.getFirstError('couponCode') %}
+          <p class="font-hobeaux text-sm text-red-500 mt-2">{{ cart.getFirstError('couponCode') }}</p>
+        {% endif %}
+      </div>
+
+      {# Order summary + checkout #}
+      {% if not cart.hasErrors() %}
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-4">
+          <h2 class="font-anton text-charcoal text-xl">Order Summary</h2>
+
+          <div class="flex flex-col gap-3">
+            <div class="flex justify-between font-hobeaux text-base">
+              <span class="text-charcoal/70">Subtotal</span>
+              <span class="text-charcoal font-bold">{{ cart.itemTotalAsCurrency }}</span>
+            </div>
+
+            {% if cart.totalShippingCost %}
+              <div class="flex justify-between font-hobeaux text-base">
+                <span class="text-charcoal/70">Shipping</span>
+                <span class="text-charcoal font-bold">{{ cart.totalShippingCostAsCurrency }}</span>
+              </div>
+            {% else %}
+              <div class="flex justify-between font-hobeaux text-base">
+                <span class="text-charcoal/70">Shipping</span>
+                <span class="text-charcoal/50 text-sm">Calculated at checkout</span>
+              </div>
+            {% endif %}
+
+            {% if cart.totalTax %}
+              <div class="flex justify-between font-hobeaux text-base">
+                <span class="text-charcoal/70">Tax</span>
+                <span class="text-charcoal font-bold">{{ cart.totalTaxAsCurrency }}</span>
+              </div>
+            {% endif %}
+
+            {% if cart.totalDiscount %}
+              <div class="flex justify-between font-hobeaux text-base">
+                <span class="text-teal font-bold">Discount</span>
+                <span class="text-teal font-bold">{{ cart.totalDiscountAsCurrency }}</span>
+              </div>
+            {% endif %}
+
+            {% if cart.orderAdjustments|length %}
+              {% for adjustment in cart.orderAdjustments %}
+                <div class="flex justify-between font-hobeaux text-base">
+                  <span class="text-charcoal/70">{{ adjustment.name }}{% if adjustment.isEstimated %} <em class="text-sm">(est.)</em>{% endif %}</span>
+                  <span class="text-charcoal font-bold">{{ adjustment.amountAsCurrency }}</span>
+                </div>
+              {% endfor %}
+            {% endif %}
+          </div>
+
+          <div class="border-t-2 border-gray-100 pt-4 flex justify-between font-anton text-charcoal text-3xl">
+            <span>Total</span>
+            <span>{{ cart.totalPriceAsCurrency }}</span>
+          </div>
+
+          <a href="{{ url('shop/checkout') }}"
+            class="w-full text-center font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
+            Proceed to Checkout &rarr;
+          </a>
+
+          <div class="flex items-center justify-center gap-4 text-xs font-hobeaux text-charcoal/40 pt-1">
+            <span class="flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              Secure checkout
+            </span>
+            <span>&bull;</span>
+            <a href="{{ url('shop') }}" class="hover:text-teal transition-colors">&larr; Keep shopping</a>
+          </div>
+
+        </div>
+      {% endif %}
+
+    </div>
+
+  </div>
+
+{% else %}
+
+  {# Empty cart #}
+  <div class="bg-white rounded-3xl shadow-sm border border-gray-100 text-center py-24 px-8">
+    <div class="text-8xl mb-6">🐾</div>
+    <h2 class="font-anton text-charcoal text-4xl mb-3">Your cart is empty</h2>
+    <p class="font-hobeaux text-lg text-charcoal/60 mb-8">Looks like your pup hasn't picked anything yet!</p>
+    <a href="{{ url('shop') }}" class="inline-block font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white px-10 py-4 rounded-full hover:bg-charcoal transition-colors">
+      Browse Treats
+    </a>
+  </div>
+
+{% endif %}

@@ -1,11 +1,4 @@
 {% extends '_layout.twig' %}
-{#
-@var cart \craft\commerce\elements\Order
-#}
-
-{% if cart is not defined %}
-  {% set cart = craft.commerce.carts.cart %}
-{% endif %}
 
 {% block content %}
   <!-- Template: {{ _self }}.twig -->
@@ -13,256 +6,28 @@
   <section class="bg-gray-50 py-16 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="mb-10">
-        <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-1">Your Order</p>
-        <h1 class="font-anton text-charcoal text-5xl">
-          Shopping Cart
-          {% if cart.lineItems|length %}
-            <span class="font-hobeaux text-lg font-normal text-charcoal/40 ml-2">{{ cart.lineItems|length }} {{ cart.lineItems|length == 1 ? 'item' : 'items' }}</span>
-          {% endif %}
-        </h1>
-      </div>
-
-      {% if cart.lineItems|length %}
-        <form method="post" action="">
-          {{ csrfInput() }}
-          {{ actionInput('commerce/cart/update-cart') }}
-          {{ successMessageInput('Cart updated.') }}
-
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
-            {# Left: Line Items #}
-            <div class="lg:col-span-2 flex flex-col gap-4">
-
-              {% for item in cart.lineItems %}
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5 {{ item.hasErrors() ? 'ring-2 ring-red-400' }}">
-
-                  {# Product name + price #}
-                  <div class="flex items-start justify-between gap-6">
-                    {# Thumbnail #}
-                    {% set lineItemImage = item.purchasable.images.one() ?? item.purchasable.product.featuredImage.one() ?? item.purchasable.product.images.one() ?? null %}
-                    <div class="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 shrink-0">
-                      {% if lineItemImage %}
-                        <img src="{{ lineItemImage.getUrl() }}" alt="{{ item.description }}" class="w-full h-full object-cover">
-                      {% else %}
-                        <div class="w-full h-full flex items-center justify-center text-3xl">🐾</div>
-                      {% endif %}
-                    </div>
-                    <div class="flex-1">
-                      <p class="font-hobeaux font-bold text-charcoal text-xl leading-snug {{ item.hasErrors() ? 'text-red-500' }}">{{ item.description }}</p>
-                        <p class="font-hobeaux text-sm text-charcoal/50 mt-1">SKU: {{ item.sku }}</p>
-                      {% if item.options|length %}
-                        <dl class="mt-2 flex flex-col gap-1">
-                          {% for key, value in item.options %}
-                            <div class="flex items-center gap-2 font-hobeaux text-sm text-charcoal/60">
-                              <dt class="font-bold capitalize">{{ key|replace({'_': ' '}) }}:</dt>
-                              <dd>{{ value }}</dd>
-                            </div>
-                          {% endfor %}
-                        </dl>
-                      {% endif %}
-                    </div>
-                    <div class="text-right shrink-0">
-                      {% if item.onPromotion %}
-                        <p class="font-hobeaux text-sm text-charcoal/40 line-through">{{ item.priceAsCurrency }}</p>
-                        <p class="font-anton text-charcoal text-3xl leading-none">{{ item.salePriceAsCurrency }}</p>
-                      {% else %}
-                        <p class="font-anton text-charcoal text-3xl leading-none">{{ item.priceAsCurrency }}</p>
-                      {% endif %}
-                      {% if item.qty > 1 %}
-                        <p class="font-hobeaux text-sm text-charcoal/60 mt-1">{{ item.subtotalAsCurrency }} total</p>
-                      {% endif %}
-                    </div>
-                  </div>
-
-                  <hr class="border-gray-100">
-
-                  {# Qty stepper + note #}
-                  <div class="flex flex-col sm:flex-row sm:items-center gap-3">
-                    {# Qty stepper #}
-                    <div class="flex items-center border-2 border-gray-200 rounded-full w-fit bg-gray-50">
-                      <button type="button" onclick="stepCartQty(this, -1)" aria-label="Decrease quantity"
-                        class="w-11 h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
-                        &minus;
-                      </button>
-                      {{ input('number', 'lineItems[' ~ item.id ~ '][qty]', item.qty, {
-                        min: 0,
-                        class: 'w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent'
-                      }) }}
-                      <button type="button" onclick="stepCartQty(this, 1)" aria-label="Increase quantity"
-                        class="w-11 h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
-                        +
-                      </button>
-                    </div>
-
-                    {# Item note #}
-                    <div class="flex-1">
-                      {{ input('text', 'lineItems[' ~ item.id ~ '][note]', item.note, {
-                        id: 'lineitem-note-' ~ item.id,
-                        class: 'w-full font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50',
-                        placeholder: 'Add a special note...'
-                      }) }}
-                    </div>
-                  </div>
-
-                  {% if item.getFirstError('qty') %}
-                    <p class="font-hobeaux text-sm text-red-500">{{ item.getFirstError('qty') }}</p>
-                  {% endif %}
-
-                  {# Adjustments + remove #}
-                  <div class="flex items-center justify-between gap-4">
-                    <div class="flex-1">
-                      {% if not cart.hasErrors() and item.adjustments|length %}
-                        <div class="flex flex-col gap-1">
-                          {% for adjustment in item.adjustments %}
-                            <div class="flex justify-between font-hobeaux text-sm text-charcoal/60">
-                              <span>{{ adjustment.name }}{% if adjustment.isEstimated %} <em class="text-xs">(estimated)</em>{% endif %}</span>
-                              <span>{{ adjustment.amountAsCurrency }}</span>
-                            </div>
-                          {% endfor %}
-                        </div>
-                      {% endif %}
-                    </div>
-                    <label class="flex items-center gap-2 cursor-pointer group shrink-0">
-                      {{ input('checkbox', 'lineItems[' ~ item.id ~ '][remove]', 1, { class: 'sr-only' }) }}
-                      <span class="font-hobeaux text-sm font-bold text-charcoal/50 group-hover:text-red-500 border-2 border-gray-200 group-hover:border-red-300 group-hover:bg-red-50 px-5 py-2 rounded-full transition-colors">
-                        Remove
-                      </span>
-                    </label>
-                  </div>
-
-                </div>
-              {% endfor %}
-
-              {# Update cart #}
-              <div class="flex justify-end pt-1">
-                {{ redirectInput('shop/cart') }}
-                <button type="submit" class="cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest border-2 border-charcoal text-charcoal px-8 py-3 rounded-full hover:bg-charcoal hover:text-white transition-colors">
-                  Update Cart
-                </button>
-              </div>
-
-            </div>
-
-            {# Right: Sidebar #}
-            <div class="flex flex-col gap-5">
-
-              {# Shipping estimator #}
-{#              {{ include('shop/cart/_includes/shipping-estimator') }}#}
-
-              {# Coupon code #}
-              <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-                <h2 class="font-anton text-charcoal text-xl mb-4">Promo Code</h2>
-                <div class="flex gap-2">
-                  {{ input('text', 'couponCode', cart.couponCode, {
-                    class: 'flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50 ' ~ (cart.getFirstError('couponCode') ? 'border-red-400' : ''),
-                    placeholder: 'Enter code'
-                  }) }}
-                  <button type="submit" class="cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-charcoal text-white px-5 py-3 rounded-full hover:bg-teal transition-colors whitespace-nowrap">
-                    Apply
-                  </button>
-                </div>
-                {% if cart.getFirstError('couponCode') %}
-                  <p class="font-hobeaux text-sm text-red-500 mt-2">{{ cart.getFirstError('couponCode') }}</p>
-                {% endif %}
-              </div>
-
-              {# Order summary + checkout #}
-              {% if not cart.hasErrors() %}
-                <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-4">
-                  <h2 class="font-anton text-charcoal text-xl">Order Summary</h2>
-
-                  <div class="flex flex-col gap-3">
-                    <div class="flex justify-between font-hobeaux text-base">
-                      <span class="text-charcoal/70">Subtotal</span>
-                      <span class="text-charcoal font-bold">{{ cart.itemTotalAsCurrency }}</span>
-                    </div>
-
-                    {% if cart.totalShippingCost %}
-                      <div class="flex justify-between font-hobeaux text-base">
-                        <span class="text-charcoal/70">Shipping</span>
-                        <span class="text-charcoal font-bold">{{ cart.totalShippingCostAsCurrency }}</span>
-                      </div>
-                    {% else %}
-                      <div class="flex justify-between font-hobeaux text-base">
-                        <span class="text-charcoal/70">Shipping</span>
-                        <span class="text-charcoal/50 text-sm">Calculated at checkout</span>
-                      </div>
-                    {% endif %}
-
-                    {% if cart.totalTax %}
-                      <div class="flex justify-between font-hobeaux text-base">
-                        <span class="text-charcoal/70">Tax</span>
-                        <span class="text-charcoal font-bold">{{ cart.totalTaxAsCurrency }}</span>
-                      </div>
-                    {% endif %}
-
-                    {% if cart.totalDiscount %}
-                      <div class="flex justify-between font-hobeaux text-base">
-                        <span class="text-teal font-bold">Discount</span>
-                        <span class="text-teal font-bold">{{ cart.totalDiscountAsCurrency }}</span>
-                      </div>
-                    {% endif %}
-
-                    {% if cart.orderAdjustments|length %}
-                      {% for adjustment in cart.orderAdjustments %}
-                        <div class="flex justify-between font-hobeaux text-base">
-                          <span class="text-charcoal/70">{{ adjustment.name }}{% if adjustment.isEstimated %} <em class="text-sm">(est.)</em>{% endif %}</span>
-                          <span class="text-charcoal font-bold">{{ adjustment.amountAsCurrency }}</span>
-                        </div>
-                      {% endfor %}
-                    {% endif %}
-                  </div>
-
-                  <div class="border-t-2 border-gray-100 pt-4 flex justify-between font-anton text-charcoal text-3xl">
-                    <span>Total</span>
-                    <span>{{ cart.totalPriceAsCurrency }}</span>
-                  </div>
-
-                  <a href="{{ url('shop/checkout') }}"
-                    class="w-full text-center font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white py-5 rounded-full hover:bg-charcoal transition-colors shadow-md shadow-teal/20">
-                    Proceed to Checkout &rarr;
-                  </a>
-
-                  <div class="flex items-center justify-center gap-4 text-xs font-hobeaux text-charcoal/40 pt-1">
-                    <span class="flex items-center gap-1">
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                      Secure checkout
-                    </span>
-                    <span>&bull;</span>
-                    <a href="{{ url('shop') }}" class="hover:text-teal transition-colors">&larr; Keep shopping</a>
-                  </div>
-
-                </div>
-              {% endif %}
-
-            </div>
-          </div>
-
-        </form>
-
-      {% else %}
-        {# Empty cart #}
-        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 text-center py-24 px-8">
-          <div class="text-8xl mb-6">🐾</div>
-          <h2 class="font-anton text-charcoal text-4xl mb-3">Your cart is empty</h2>
-          <p class="font-hobeaux text-lg text-charcoal/60 mb-8">Looks like your pup hasn't picked anything yet!</p>
-          <a href="{{ url('shop') }}" class="inline-block font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white px-10 py-4 rounded-full hover:bg-charcoal transition-colors">
-            Browse Treats
-          </a>
-        </div>
-      {% endif %}
+      {{ sprig('_sprig/cart') }}
 
     </div>
   </section>
 
   <script>
+  // Step qty and immediately submit via htmx
   function stepCartQty(btn, direction) {
     const input = btn.parentElement.querySelector('input[type="number"]');
-    if (input) {
-      input.value = Math.max(0, parseInt(input.value || 0) + direction);
-    }
+    if (!input) return;
+    input.value = Math.max(0, parseInt(input.value || 0) + direction);
+    const form = btn.closest('form');
+    if (form && window.htmx) htmx.trigger(form, 'submit');
   }
+
+  // Auto-submit when qty is changed directly (typed + blur)
+  document.addEventListener('change', function(e) {
+    if (e.target.type === 'number' && e.target.name && e.target.name.includes('lineItems')) {
+      const form = e.target.closest('form');
+      if (form && window.htmx) htmx.trigger(form, 'submit');
+    }
+  });
   </script>
 
 {% endblock %}
