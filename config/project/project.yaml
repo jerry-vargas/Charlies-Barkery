@@ -1,4 +1,4 @@
-dateModified: 1790515893
+dateModified: 1791031248
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -211,6 +211,10 @@ plugins:
     enabled: true
     licenseKey: 7JITNAAZILG6KXMPJAUR12WU
     schemaVersion: 3.4.12
+  sprig:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
   vite:
     edition: standard
     enabled: true
