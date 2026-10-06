@@ -8,9 +8,9 @@
 </span>
 
 {# Heading — inside the component so the item count updates reactively #}
-<div class="mb-10">
+<div class="mb-6 sm:mb-10">
   <p class="font-hobeaux text-sm font-bold text-teal uppercase tracking-widest mb-1">Your Order</p>
-  <h1 class="font-anton text-charcoal text-5xl">
+  <h1 class="font-anton text-charcoal text-4xl sm:text-5xl">
     Shopping Cart
     {% if cart.lineItems|length %}
       <span class="font-hobeaux text-lg font-normal text-charcoal/40 ml-2">
@@ -30,20 +30,20 @@
       {% for item in cart.lineItems %}
         {% set lineItemImage = item.purchasable.images.one() ?? item.purchasable.product.featuredImage.one() ?? item.purchasable.product.images.one() ?? null %}
 
-        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5 {{ item.hasErrors() ? 'ring-2 ring-red-400' }}">
+        <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-100 flex flex-col gap-4 sm:gap-5 {{ item.hasErrors() ? 'ring-2 ring-red-400' }}">
 
           {# Product name + price #}
-          <div class="flex items-start justify-between gap-6">
-            <div class="w-20 h-20 rounded-2xl overflow-hidden bg-gray-100 shrink-0">
+          <div class="flex items-start justify-between gap-3 sm:gap-6">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-gray-100 shrink-0">
               {% if lineItemImage %}
                 <img src="{{ lineItemImage.getUrl() }}" alt="{{ item.description }}" class="w-full h-full object-cover">
               {% else %}
                 <div class="w-full h-full flex items-center justify-center text-3xl">🐾</div>
               {% endif %}
             </div>
-            <div class="flex-1">
-              <p class="font-hobeaux font-bold text-charcoal text-xl leading-snug {{ item.hasErrors() ? 'text-red-500' }}">{{ item.description }}</p>
-              <p class="font-hobeaux text-sm text-charcoal/50 mt-1">SKU: {{ item.sku }}</p>
+            <div class="flex-1 min-w-0">
+              <p class="font-hobeaux font-bold text-charcoal text-lg sm:text-xl leading-snug {{ item.hasErrors() ? 'text-red-500' }}">{{ item.description }}</p>
+              <p class="hidden sm:block font-hobeaux text-sm text-charcoal/50 mt-1">SKU: {{ item.sku }}</p>
               {% if item.options|length %}
                 <dl class="mt-2 flex flex-col gap-1">
                   {% for key, value in item.options %}
@@ -58,9 +58,9 @@
             <div class="text-right shrink-0">
               {% if item.onPromotion %}
                 <p class="font-hobeaux text-sm text-charcoal/40 line-through">{{ item.priceAsCurrency }}</p>
-                <p class="font-anton text-charcoal text-3xl leading-none">{{ item.salePriceAsCurrency }}</p>
+                <p class="font-anton text-charcoal text-2xl sm:text-3xl leading-none">{{ item.salePriceAsCurrency }}</p>
               {% else %}
-                <p class="font-anton text-charcoal text-3xl leading-none">{{ item.priceAsCurrency }}</p>
+                <p class="font-anton text-charcoal text-2xl sm:text-3xl leading-none">{{ item.priceAsCurrency }}</p>
               {% endif %}
               {% if item.qty > 1 %}
                 <p class="font-hobeaux text-sm text-charcoal/60 mt-1">{{ item.subtotalAsCurrency }} total</p>
@@ -68,11 +68,12 @@
             </div>
           </div>
 
-          <hr class="border-gray-100">
+          <hr class="hidden sm:block border-gray-100">
 
           {#
-            Per-item form: handles qty changes and removal.
-            JS (stepCartQty / change listener) triggers htmx.trigger(form, 'submit') to submit reactively.
+            Per-item form: handles qty, note and removal.
+            Submits reactively via s-trigger="change" — stepCartQty() (in shop/cart/index.twig)
+            dispatches a change event on the qty input after stepping it.
           #}
           <form sprig s-action="commerce/cart/update-cart"
                 s-method="post"
@@ -81,54 +82,54 @@
                 s-swap="outerHTML"
                 class="flex flex-col gap-3">
 
-            <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+            {# Mobile: qty + remove share a row, note wraps below. sm+: qty | note | remove #}
+            <div class="flex flex-wrap items-center gap-3">
               {# Qty stepper #}
               <div class="flex items-center border-2 border-gray-200 rounded-full w-fit bg-gray-50">
                 <button type="button" onclick="stepCartQty(this, -1)" aria-label="Decrease quantity"
-                  class="w-11 h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+                  class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
                   &minus;
                 </button>
                 {{ input('number', 'lineItems[' ~ item.id ~ '][qty]', item.qty, {
                   min: 0,
-                  class: 'w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent'
+                  'aria-label': 'Quantity',
+                  class: 'w-10 sm:w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent'
                 }) }}
                 <button type="button" onclick="stepCartQty(this, 1)" aria-label="Increase quantity"
-                  class="w-11 h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
+                  class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
                   +
                 </button>
               </div>
 
               {# Item note #}
               {{ input('text', 'lineItems[' ~ item.id ~ '][note]', item.note, {
-                class: 'flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50',
+                'aria-label': 'Special note',
+                class: 'order-last sm:order-none w-full sm:w-auto sm:flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-2.5 sm:py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50',
                 placeholder: 'Add a special note...'
               }) }}
+
+              {# Remove: submit button with the remove flag — triggers form submit directly #}
+              <button type="submit" name="lineItems[{{ item.id }}][remove]" value="1"
+                class="ml-auto sm:ml-0 cursor-pointer font-hobeaux text-sm font-bold text-charcoal/50 hover:text-red-500 border-2 border-gray-200 hover:border-red-300 hover:bg-red-50 px-4 sm:px-5 py-2 rounded-full transition-colors shrink-0">
+                Remove
+              </button>
             </div>
 
             {% if item.getFirstError('qty') %}
               <p class="font-hobeaux text-sm text-red-500">{{ item.getFirstError('qty') }}</p>
             {% endif %}
 
-            {# Adjustments + Remove #}
-            <div class="flex items-center justify-between gap-4">
-              <div class="flex-1">
-                {% if not cart.hasErrors() and item.adjustments|length %}
-                  <div class="flex flex-col gap-1">
-                    {% for adjustment in item.adjustments %}
-                      <div class="flex justify-between font-hobeaux text-sm text-charcoal/60">
-                        <span>{{ adjustment.name }}{% if adjustment.isEstimated %} <em class="text-xs">(estimated)</em>{% endif %}</span>
-                        <span>{{ adjustment.amountAsCurrency }}</span>
-                      </div>
-                    {% endfor %}
+            {# Adjustments #}
+            {% if not cart.hasErrors() and item.adjustments|length %}
+              <div class="flex flex-col gap-1">
+                {% for adjustment in item.adjustments %}
+                  <div class="flex justify-between font-hobeaux text-sm text-charcoal/60">
+                    <span>{{ adjustment.name }}{% if adjustment.isEstimated %} <em class="text-xs">(estimated)</em>{% endif %}</span>
+                    <span>{{ adjustment.amountAsCurrency }}</span>
                   </div>
-                {% endif %}
+                {% endfor %}
               </div>
-              {# Remove: submit button with the remove flag — triggers form submit directly #}
-              <button type="submit" name="lineItems[{{ item.id }}][remove]" value="1"
-                class="cursor-pointer font-hobeaux text-sm font-bold text-charcoal/50 hover:text-red-500 border-2 border-gray-200 hover:border-red-300 hover:bg-red-50 px-5 py-2 rounded-full transition-colors shrink-0">
-                Remove
-              </button>
-            </div>
+            {% endif %}
 
           </form>
 
