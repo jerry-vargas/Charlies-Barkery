@@ -78,8 +78,6 @@
           <form sprig s-action="commerce/cart/update-cart"
                 s-method="post"
                 s-trigger="submit, change"
-                s-target="closest .sprig-component"
-                s-swap="outerHTML"
                 class="flex flex-col gap-3">
 
             {# Mobile: qty + remove share a row, note wraps below. sm+: qty | note | remove #}
@@ -146,8 +144,6 @@
         <h2 class="font-anton text-charcoal text-xl mb-4">Promo Code</h2>
         <form sprig s-action="commerce/cart/update-cart"
               s-method="post"
-              s-target="closest .sprig-component"
-              s-swap="outerHTML"
               class="flex gap-2">
           {{ input('text', 'couponCode', cart.couponCode, {
             class: 'flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50 ' ~ (cart.getFirstError('couponCode') ? 'border-red-400' : ''),

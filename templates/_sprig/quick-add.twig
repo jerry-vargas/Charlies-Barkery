@@ -26,8 +26,7 @@
   </span>
 {% endif %}
 
-<form sprig s-action="commerce/cart/update-cart" s-method="post"
-  s-target="closest .sprig-component" s-swap="outerHTML">
+<form sprig s-action="commerce/cart/update-cart" s-method="post">
   {{ hiddenInput('purchasables[0][id]', variant.id) }}
   {{ hiddenInput('purchasables[0][qty]', 1) }}
   {{ hiddenInput('prevQty', inCartQty) }}
