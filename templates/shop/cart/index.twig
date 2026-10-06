@@ -12,22 +12,13 @@
   </section>
 
   <script>
-  // Step qty and immediately submit via htmx
+  // Step qty — dispatch a native change event so htmx s-trigger="change" picks it up
   function stepCartQty(btn, direction) {
     const input = btn.parentElement.querySelector('input[type="number"]');
     if (!input) return;
     input.value = Math.max(0, parseInt(input.value || 0) + direction);
-    const form = btn.closest('form');
-    if (form && window.htmx) htmx.trigger(form, 'submit');
+    input.dispatchEvent(new Event('change', { bubbles: true }));
   }
-
-  // Auto-submit when qty is changed directly (typed + blur)
-  document.addEventListener('change', function(e) {
-    if (e.target.type === 'number' && e.target.name && e.target.name.includes('lineItems')) {
-      const form = e.target.closest('form');
-      if (form && window.htmx) htmx.trigger(form, 'submit');
-    }
-  });
   </script>
 
 {% endblock %}

@@ -74,7 +74,12 @@
             Per-item form: handles qty changes and removal.
             JS (stepCartQty / change listener) triggers htmx.trigger(form, 'submit') to submit reactively.
           #}
-          <form sprig s-action="commerce/cart/update-cart" class="flex flex-col gap-3">
+          <form sprig s-action="commerce/cart/update-cart"
+                s-method="post"
+                s-trigger="submit, change"
+                s-target="closest .sprig-component"
+                s-swap="outerHTML"
+                class="flex flex-col gap-3">
 
             <div class="flex flex-col sm:flex-row sm:items-center gap-3">
               {# Qty stepper #}
@@ -138,7 +143,11 @@
       {# Coupon code #}
       <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
         <h2 class="font-anton text-charcoal text-xl mb-4">Promo Code</h2>
-        <form sprig s-action="commerce/cart/update-cart" class="flex gap-2">
+        <form sprig s-action="commerce/cart/update-cart"
+              s-method="post"
+              s-target="closest .sprig-component"
+              s-swap="outerHTML"
+              class="flex gap-2">
           {{ input('text', 'couponCode', cart.couponCode, {
             class: 'flex-1 font-hobeaux text-sm text-charcoal border-2 border-gray-200 rounded-full px-5 py-3 focus:outline-none focus:border-teal transition-colors bg-gray-50 ' ~ (cart.getFirstError('couponCode') ? 'border-red-400' : ''),
             placeholder: 'Enter code'
