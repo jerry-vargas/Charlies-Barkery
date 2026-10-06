@@ -24,7 +24,7 @@
         {% endif %}
       </a>
 
-      <div class="p-5 flex flex-col flex-1 gap-3">
+      <div class="relative p-5 flex flex-col flex-1 gap-3">
         <a href="{{ product.url }}?variant={{ variant.id }}" class="font-anton text-charcoal text-xl leading-tight hover:text-teal transition-colors">{{ variant.title }}</a>
 
         <div class="mt-auto">
@@ -37,18 +37,7 @@
         </div>
 
         {% if variant.availableForPurchase %}
-          <form method="post">
-            {{ csrfInput() }}
-            {{ actionInput('commerce/cart/update-cart') }}
-            {{ successMessageInput(variant.title ~ ' added to your cart!') }}
-            {{ redirectInput('shop/cart') }}
-            {{ hiddenInput('purchasables[0][id]', variant.id) }}
-            {{ hiddenInput('purchasables[0][qty]', 1) }}
-            <button type="submit"
-              class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-3 rounded-full hover:bg-charcoal transition-colors">
-              Add to Cart
-            </button>
-          </form>
+          {{ sprig('_sprig/quick-add', {variantId: variant.id}) }}
         {% else %}
           <button disabled
             class="w-full font-hobeaux font-bold text-sm uppercase tracking-widest bg-gray-100 text-charcoal/30 py-3 rounded-full cursor-not-allowed">

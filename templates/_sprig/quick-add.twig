@@ -1,0 +1,55 @@
+{#
+  Sprig component: one-click add-to-cart for grid cards (no redirect)
+  Variables: variantId (int, required)
+#}
+
+{% set variant = craft.variants().id(variantId).one() %}
+{% set cart = craft.commerce.carts.cart %}
+
+{# Qty of this variant currently in the cart #}
+{% set inCartQty = 0 %}
+{% for item in cart.lineItems %}
+  {% if item.purchasableId == variant.id %}
+    {% set inCartQty = inCartQty + item.qty %}
+  {% endif %}
+{% endfor %}
+
+{# sprig.isSuccess is always true with Commerce, so confirm the qty actually went up #}
+{% set added = sprig.isRequest and prevQty is defined and inCartQty > prevQty %}
+{% set failed = sprig.isRequest and prevQty is defined and not added %}
+
+{% if added %}
+  {% set cartQty = cart.totalQty ?? 0 %}
+  <span id="cart-count" hx-swap-oob="true"
+    class="absolute -top-2 -right-2 bg-teal text-white text-xs rounded-full h-5 w-5 flex items-center justify-center text-[11px] font-bold {{ cartQty < 1 ? 'hidden' }}">
+    {{ cartQty }}
+  </span>
+{% endif %}
+
+<form sprig s-action="commerce/cart/update-cart" s-method="post"
+  s-target="closest .sprig-component" s-swap="outerHTML">
+  {{ hiddenInput('purchasables[0][id]', variant.id) }}
+  {{ hiddenInput('purchasables[0][qty]', 1) }}
+  {{ hiddenInput('prevQty', inCartQty) }}
+  <button type="submit"
+    class="w-full cursor-pointer font-hobeaux font-bold text-sm uppercase tracking-widest bg-teal text-white py-3 rounded-full hover:bg-charcoal transition-colors">
+    Add to Cart
+  </button>
+</form>
+
+{# Flash messages overlay the empty space beside the title/price (card body is `relative`) so the card never grows #}
+{% if added %}
+  <div role="status" class="animate-flash absolute top-5 right-5 max-w-[55%] bg-teal text-white font-hobeaux font-bold text-sm px-4 py-2.5 rounded-2xl shadow-md shadow-teal/20 flex flex-col items-start gap-0.5">
+    <span class="flex items-center gap-1.5">
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+      </svg>
+      Added to cart!
+    </span>
+    <a href="{{ url('shop/cart') }}" class="text-xs underline hover:no-underline whitespace-nowrap">View Cart &rarr;</a>
+  </div>
+{% elseif failed %}
+  <div role="alert" class="absolute top-5 right-5 max-w-[55%] bg-red-50 text-red-600 font-hobeaux font-bold text-sm px-4 py-2.5 rounded-2xl shadow-md">
+    Ruh-roh, we couldn't add that one. Please try again.
+  </div>
+{% endif %}

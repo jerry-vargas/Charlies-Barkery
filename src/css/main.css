@@ -32,4 +32,14 @@
 
   --font-hobeaux: 'Hobeaux', sans-serif;
   --font-anton: 'Anton', sans-serif;
+
+  /* Flash message: fade in, hold ~3s, then fade out */
+  --animate-flash: flash 3.5s ease-in-out forwards;
+
+  @keyframes flash {
+    0% { opacity: 0; transform: translateY(-4px); }
+    8% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+  }
 }
