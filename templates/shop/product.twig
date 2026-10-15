@@ -45,7 +45,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           {# Product Image #}
-          <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square sticky top-6">
+          <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square lg:sticky lg:top-6">
             {% set image = activeVariant.images.one() ?? product.featuredImage.one() ?? product.images.one() ?? null %}
             {% if image %}
               <img id="product-image" src="{{ image.getUrl() }}" alt="{{ product.title }}" class="w-full h-full object-cover">

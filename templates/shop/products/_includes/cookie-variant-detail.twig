@@ -2,7 +2,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
   {# Variant Image #}
-  <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square sticky top-6">
+  <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-square lg:sticky lg:top-6">
     {% set variantImg = activeVariant.images.one() ?? product.featuredImage.one() ?? product.images.one() ?? null %}
     {% if variantImg %}
       <img src="{{ variantImg.getUrl() }}" alt="{{ activeVariant.title }}" class="w-full h-full object-cover">
