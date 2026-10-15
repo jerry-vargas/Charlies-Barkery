@@ -1,4 +1,4 @@
-dateModified: 1791031248
+dateModified: 1792029842
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -150,7 +150,7 @@ meta:
     69d4a3e4-5d6a-4e7f-8108-3ce57d5a8fc2: New # New
     73dcc645-b596-485f-9f20-5f87244056c5: Flavors # Flavors
     0119d5ec-bfd1-4692-a006-407e05e36d20: 'Block — Product Carousel' # Block — Product Carousel
-    231b19ec-9923-4689-ad97-450bdcd8ca3a: 'Block — Subscribe ' # Block — Subscribe 
+    231b19ec-9923-4689-ad97-450bdcd8ca3a: 'Block — Subscribe ' # Block — Subscribe
     314fa8ad-a55f-4f35-9895-de1a13de0a96: 'Entry — Timeline Matrix' # Entry — Timeline Matrix
     405cbb2c-fea8-4b3e-99c2-9d99189a9c78: 'Treats — Bacon Egg and Cheese' # Treats — Bacon Egg and Cheese
     488e34dc-c4dc-49ed-ba6f-49a94c508f38: Textarea # Textarea
@@ -205,12 +205,20 @@ plugins:
     edition: pro
     enabled: true
     licenseKey: 0U6EFPB4B0QWVBY8YV3X7TOY
-    schemaVersion: 5.6.1.2
+    schemaVersion: 5.7.0.0
+  commerce-stripe:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
   formie:
     edition: standard
     enabled: true
     licenseKey: 7JITNAAZILG6KXMPJAUR12WU
-    schemaVersion: 3.4.12
+    schemaVersion: 3.4.13
+  sendgrid:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   sprig:
     edition: standard
     enabled: true
@@ -223,7 +231,7 @@ system:
   edition: pro
   live: true
   name: charlies
-  schemaVersion: 5.10.0.0
+  schemaVersion: 5.11.0.2
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

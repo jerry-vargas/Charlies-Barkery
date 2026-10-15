@@ -237,7 +237,7 @@ fieldLayouts:
               elementType: craft\elements\Entry
               fieldContext: global
             elementEditCondition: null
-            fieldUid: 231b19ec-9923-4689-ad97-450bdcd8ca3a # Block — Subscribe 
+            fieldUid: 231b19ec-9923-4689-ad97-450bdcd8ca3a # Block — Subscribe
             handle: null
             instructions: null
             label: null
