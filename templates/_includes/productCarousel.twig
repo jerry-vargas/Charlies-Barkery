@@ -111,12 +111,3 @@
   </div>
 </section>
 
-<script>
-  const track = document.getElementById('carousel-track');
-  const prev  = document.getElementById('carousel-prev');
-  const next  = document.getElementById('carousel-next');
-  const scrollAmount = 300;
-
-  prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
-  next.addEventListener('click', () => track.scrollBy({ left:  scrollAmount, behavior: 'smooth' }));
-</script>

@@ -72,8 +72,8 @@
 
           {#
             Per-item form: handles qty, note and removal.
-            Submits reactively via s-trigger="change" — stepCartQty() (in shop/cart/index.twig)
-            dispatches a change event on the qty input after stepping it.
+            Submits reactively via s-trigger="change" — the data-qty-step buttons (src/js/qty-stepper.js)
+            dispatch a change event on the qty input after stepping it.
           #}
           <form sprig s-action="commerce/cart/update-cart"
                 s-method="post"
@@ -84,7 +84,7 @@
             <div class="flex flex-wrap items-center gap-3">
               {# Qty stepper #}
               <div class="flex items-center border-2 border-gray-200 rounded-full w-fit bg-gray-50">
-                <button type="button" onclick="stepCartQty(this, -1)" aria-label="Decrease quantity"
+                <button type="button" data-qty-step="-1" aria-label="Decrease quantity"
                   class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
                   &minus;
                 </button>
@@ -93,7 +93,7 @@
                   'aria-label': 'Quantity',
                   class: 'w-10 sm:w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent'
                 }) }}
-                <button type="button" onclick="stepCartQty(this, 1)" aria-label="Increase quantity"
+                <button type="button" data-qty-step="1" aria-label="Increase quantity"
                   class="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
                   +
                 </button>
@@ -240,7 +240,7 @@
     <h2 class="font-anton text-charcoal text-4xl mb-3">Your cart is empty</h2>
     <p class="font-hobeaux text-lg text-charcoal/60 mb-8">Looks like your pup hasn't picked anything yet!</p>
     <a href="{{ url('shop') }}" class="inline-block font-hobeaux font-bold text-base uppercase tracking-widest bg-teal text-white px-10 py-4 rounded-full hover:bg-charcoal transition-colors">
-      Browse Treats
+      Browse
     </a>
   </div>
 

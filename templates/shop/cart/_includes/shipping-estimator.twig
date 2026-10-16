@@ -82,24 +82,4 @@ Shipping estimate widget — shown only when no shipping address is on the cart 
 
   </div>
 
-  <script>
-  (function() {
-    var $showBtn = document.getElementById('js-show-estimate-fields');
-    var $fields = document.getElementById('js-estimate-fields');
-    var $methods = document.getElementById('js-estimate-methods');
-
-    // If methods are showing, hide fields initially
-    if ($methods && $fields) {
-      $fields.classList.add('hidden');
-    }
-
-    if ($showBtn) {
-      $showBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        $fields.classList.toggle('hidden');
-        $methods.classList.toggle('hidden');
-      });
-    }
-  })();
-  </script>
 {% endif %}

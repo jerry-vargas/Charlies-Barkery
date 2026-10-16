@@ -49,13 +49,13 @@
     {# Qty + Add to Cart #}
     <div class="flex items-center gap-4">
       <div class="flex items-center border-2 border-gray-200 rounded-full bg-white">
-        <button type="button" onclick="stepQty(this, -1)" aria-label="Decrease quantity"
+        <button type="button" data-qty-step="-1" aria-label="Decrease quantity"
           class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
           &minus;
         </button>
         <input type="number" name="purchasables[0][qty]" value="1" min="1"
           class="w-12 text-center font-hobeaux text-lg font-bold text-charcoal focus:outline-none bg-transparent">
-        <button type="button" onclick="stepQty(this, 1)" aria-label="Increase quantity"
+        <button type="button" data-qty-step="1" aria-label="Increase quantity"
           class="w-12 h-12 flex items-center justify-center font-bold text-charcoal hover:text-teal transition-colors text-2xl rounded-full leading-none">
           +
         </button>

@@ -11,14 +11,4 @@
     </div>
   </section>
 
-  <script>
-  // Step qty — dispatch a native change event so htmx s-trigger="change" picks it up
-  function stepCartQty(btn, direction) {
-    const input = btn.parentElement.querySelector('input[type="number"]');
-    if (!input) return;
-    input.value = Math.max(0, parseInt(input.value || 0) + direction);
-    input.dispatchEvent(new Event('change', { bubbles: true }));
-  }
-  </script>
-
 {% endblock %}
