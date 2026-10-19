@@ -21,7 +21,12 @@
  */
 
 use craft\helpers\App;
+use modules\addressvalidator\AddressValidator;
 
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
+    'modules' => [
+        'address-validator' => AddressValidator::class,
+    ],
+    'bootstrap' => ['address-validator'],
 ];
