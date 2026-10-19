@@ -1,6 +1,9 @@
 color: green
 default: true
 description: null
+emails:
+  5bcc1b63-ecfc-487f-868b-9220d4ce34cc: 5bcc1b63-ecfc-487f-868b-9220d4ce34cc # Customer order confirmation
+  a5e302f0-8553-421a-8370-01f9b69e49ec: a5e302f0-8553-421a-8370-01f9b69e49ec # Internal new order notification
 handle: new
 name: New
 sortOrder: 99

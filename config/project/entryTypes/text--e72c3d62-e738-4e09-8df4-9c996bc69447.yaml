@@ -19,6 +19,7 @@ fieldLayouts:
             handle: label
             instructions: null
             label: Label
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -35,6 +36,7 @@ fieldLayouts:
             handle: placeholder
             instructions: null
             label: Placeholder
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -51,6 +53,7 @@ fieldLayouts:
             handle: required
             instructions: null
             label: Required
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

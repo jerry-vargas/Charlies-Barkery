@@ -32,25 +32,25 @@ settings:
                             1:
                               - handle
                               - imageRight
-                            2:
+                            3:
                               - label
                               - 'Image Right'
-                            3:
+                            4:
                               - instructions
                               - 'The image displays on the left by default. Enable this to move it to the right'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:20:57+00:00'
-                            9:
+                            10:
                               - uid
                               - 4c037aa7-7177-41fc-84d2-94d8e8aac99d
-                            12:
+                            13:
                               - fieldUid
                               - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
                         -
@@ -58,19 +58,19 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-05-12T03:01:47+00:00'
-                            9:
+                            10:
                               - uid
                               - b1fc4697-c4a0-457e-be69-38665a393900
-                            12:
+                            13:
                               - fieldUid
                               - 7c4edaa8-604a-48d2-a947-3388823e3b2b # Color
                         -
@@ -78,19 +78,19 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:07:07+00:00'
-                            9:
+                            10:
                               - uid
                               - 0b92e79b-252c-4fdd-9467-b23f1b66911f
-                            12:
+                            13:
                               - fieldUid
                               - c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
                         -
@@ -101,22 +101,22 @@ settings:
                             1:
                               - handle
                               - eyebrow
-                            2:
+                            3:
                               - label
                               - eyebrow
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:07:07+00:00'
-                            9:
+                            10:
                               - uid
                               - 4d44aae0-e56d-4315-bfaa-83937eb0421d
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -127,22 +127,22 @@ settings:
                             1:
                               - handle
                               - heading
-                            2:
+                            3:
                               - label
                               - Heading
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 75
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:07:07+00:00'
-                            9:
+                            10:
                               - uid
                               - f075b188-d366-4033-b4ba-472195410663
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -150,19 +150,19 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:07:07+00:00'
-                            9:
+                            10:
                               - uid
                               - 83858805-a6cd-43b6-9279-0edcf7240fb8
-                            12:
+                            13:
                               - fieldUid
                               - 64e2bf73-506f-4e6f-9a22-dd5d54f10b77 # Rich Text Editor
                         -
@@ -173,25 +173,25 @@ settings:
                             1:
                               - handle
                               - badge
-                            2:
+                            3:
                               - label
                               - Badge
-                            4:
+                            5:
                               - tip
                               - 'enable a badge on the image.'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:15:12+00:00'
-                            9:
+                            10:
                               - uid
                               - a65ee03d-5758-4410-8604-5324d9775b1e
-                            12:
+                            13:
                               - fieldUid
                               - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
                         -
@@ -202,25 +202,25 @@ settings:
                             1:
                               - handle
                               - badgeOverlay
-                            2:
+                            3:
                               - label
                               - 'Badge Overlay'
-                            4:
+                            5:
                               - tip
                               - 'When the Badge is enabled, it defaults to overlay mode. If this lightswitch is turned on, the badge will display in the corner instead.'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:24:31+00:00'
-                            9:
+                            10:
                               - uid
                               - fa3aa4f4-0531-4405-be51-1ae540e06fb0
-                            11:
+                            12:
                               - elementCondition
                               -
                                 __assoc__:
@@ -237,7 +237,7 @@ settings:
                                     - conditionRules
                                     -
                                       - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, e68405db-0928-4c2f-b930-df879cc9bb47], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
-                            12:
+                            13:
                               - fieldUid
                               - c3351fca-dd41-4318-b6ed-7ea1f921ca34 # lighswitch
                         -
@@ -248,22 +248,22 @@ settings:
                             1:
                               - handle
                               - badgeText
-                            2:
+                            3:
                               - label
                               - 'Badge Text'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-03-28T23:25:42+00:00'
-                            9:
+                            10:
                               - uid
                               - 5fd7f09f-bfc0-43e2-a982-7242517a38df
-                            11:
+                            12:
                               - elementCondition
                               -
                                 __assoc__:
@@ -280,7 +280,7 @@ settings:
                                     - conditionRules
                                     -
                                       - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, b87c08e7-328c-4388-a980-57e694f7e449], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -291,22 +291,22 @@ settings:
                             1:
                               - handle
                               - badgeSubText
-                            2:
+                            3:
                               - label
                               - 'Badge Sub Text'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-04-03T16:21:09+00:00'
-                            9:
+                            10:
                               - uid
                               - a9fd0a03-657f-4952-9c55-566045985717
-                            11:
+                            12:
                               - elementCondition
                               -
                                 __assoc__:
@@ -324,7 +324,7 @@ settings:
                                     -
                                       - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, 585f14d6-aaeb-4c32-baa7-1afa136721db], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, a65ee03d-5758-4410-8604-5324d9775b1e]] } # lighswitch
                                       - { __assoc__: [[class, craft\fields\conditions\LightswitchFieldConditionRule], [uid, 110eb17b-884e-4aca-bee4-16acd14b8bfb], [value, true], [fieldUid, c3351fca-dd41-4318-b6ed-7ea1f921ca34], [layoutElementUid, fa3aa4f4-0531-4405-be51-1ae540e06fb0]] } # lighswitch
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
             4:

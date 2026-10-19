@@ -1,4 +1,4 @@
-dateModified: 1792029842
+dateModified: 1792445345
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -135,6 +135,7 @@ meta:
     2c82fbb4-8864-48f9-bf0e-5e7ec694d4f0: 'Cookie — 2 pack' # Cookie — 2 pack
     2d22bbef-d103-4473-8eb0-885bee40dbad: 'Martix — Image' # Martix — Image
     4d7ec46f-500b-47b6-8eba-f2f42e8066c1: 'Plain Text' # Plain Text
+    5bcc1b63-ecfc-487f-868b-9220d4ce34cc: 'Customer order confirmation' # Customer order confirmation
     5ec0618a-68bf-4243-a592-82ae1cd58349: 'Date Picker' # Date Picker
     5eec91ac-9cac-40d5-915a-f973014bad60: 'Link Field' # Link Field
     5f0263a6-94c2-460a-af1f-b163c68d025c: 'Treats — Apple Peanut Butter' # Treats — Apple Peanut Butter
@@ -170,6 +171,7 @@ meta:
     6671498f-b940-4c47-a8d5-1de96b0bd763: 'Block — Card Grid' # Block — Card Grid
     41401060-9686-4b0b-b18f-c6ed4a9bcbf7: Cookies # Cookies
     a3b7b182-c030-4877-a406-afe25fae1acc: 'Entry — Image Matrix' # Entry — Image Matrix
+    a5e302f0-8553-421a-8370-01f9b69e49ec: 'Internal new order notification' # Internal new order notification
     a8354a78-8bd4-4740-a1e5-99da6ee4e9bd: Pages # Pages
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Entry — Page' # Entry — Page
     b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
@@ -183,6 +185,7 @@ meta:
     d88cedd5-56ab-4208-a2f0-d9adfc68ce30: 'Single Entry' # Single Entry
     d5779903-bd5b-414c-acc4-62f703778b54: Cakes # Cakes
     dc36f051-fd02-4e59-bf63-204e8eccf224: 'Block — Call To Action' # Block — Call To Action
+    ddb0d554-dce0-486e-a707-6a9630d540be: 'Public Schema' # Public Schema
     de98148e-a566-4305-8cd5-1e5accc5bea3: 'Gender Reveal Cake' # Gender Reveal Cake
     e37cd764-e839-432b-b4fe-5876ba334fba: 'Custom Options' # Custom Options
     e72c3d62-e738-4e09-8df4-9c996bc69447: Text # Text

@@ -16,11 +16,11 @@ previewTargets:
         - label
         - 'Primary product page'
       -
-        - urlFormat
-        - '{url}'
-      -
         - refresh
         - '1'
+      -
+        - urlFormat
+        - '{url}'
 productFieldLayouts:
   bb99af7b-c5de-4182-a8e7-ade9ecc68060:
     cardThumbAlignment: end
@@ -92,6 +92,7 @@ productFieldLayouts:
             handle: null
             instructions: null
             label: null
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -108,6 +109,7 @@ productFieldLayouts:
             handle: productInfo
             instructions: null
             label: 'Product Info'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -124,6 +126,7 @@ productFieldLayouts:
             handle: null
             instructions: null
             label: null
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -140,6 +143,7 @@ productFieldLayouts:
             handle: isNew
             instructions: null
             label: 'Is New'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -156,6 +160,7 @@ productFieldLayouts:
             handle: null
             instructions: null
             label: null
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -178,6 +183,7 @@ productFieldLayouts:
             handle: nutrition
             instructions: null
             label: Nutrition
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -201,7 +207,7 @@ siteSettings:
     hasUrls: true
     template: shop/product.twig
     uriFormat: 'shop/products/cakes/{slug}'
-skuFormat: ''
+skuFormat: null
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
 variantFieldLayouts:
@@ -417,6 +423,7 @@ variantFieldLayouts:
             handle: isNew
             instructions: null
             label: 'Is New'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

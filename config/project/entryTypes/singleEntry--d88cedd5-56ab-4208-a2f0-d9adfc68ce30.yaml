@@ -45,6 +45,7 @@ fieldLayouts:
             handle: eyebrow
             instructions: null
             label: Eyebrow
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -61,6 +62,7 @@ fieldLayouts:
             handle: header
             instructions: null
             label: Header
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -77,6 +79,7 @@ fieldLayouts:
             handle: heroImage
             instructions: 'Only select one image'
             label: 'Hero Image'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

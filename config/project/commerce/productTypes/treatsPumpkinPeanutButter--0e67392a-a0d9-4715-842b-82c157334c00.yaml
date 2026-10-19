@@ -16,11 +16,11 @@ previewTargets:
         - label
         - 'Primary product page'
       -
-        - urlFormat
-        - '{url}'
-      -
         - refresh
         - '1'
+      -
+        - urlFormat
+        - '{url}'
 productFieldLayouts:
   52b26c76-3cd5-4eeb-8665-a812c3abcc15:
     cardThumbAlignment: end
@@ -92,6 +92,7 @@ productFieldLayouts:
             handle: null
             instructions: null
             label: null
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -108,6 +109,7 @@ productFieldLayouts:
             handle: productInfo
             instructions: null
             label: 'Product Info'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -124,6 +126,7 @@ productFieldLayouts:
             handle: null
             instructions: null
             label: null
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -140,6 +143,7 @@ productFieldLayouts:
             handle: isNew
             instructions: null
             label: 'Is New'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -162,6 +166,7 @@ productFieldLayouts:
             handle: nutrition
             instructions: null
             label: Nutrition
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -185,7 +190,7 @@ siteSettings:
     hasUrls: true
     template: shop/product.twig
     uriFormat: 'shop/products/treats/{slug}'
-skuFormat: ''
+skuFormat: null
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
 variantFieldLayouts:
@@ -401,6 +406,7 @@ variantFieldLayouts:
             handle: isNew
             instructions: null
             label: 'Is New'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

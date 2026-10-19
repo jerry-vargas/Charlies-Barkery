@@ -32,22 +32,22 @@ settings:
                             1:
                               - handle
                               - sectionBackgroundColor
-                            2:
+                            3:
                               - label
                               - 'Section Background Color'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-05-09T05:00:55+00:00'
-                            9:
+                            10:
                               - uid
                               - 6b64b506-24d4-4971-88d7-d868e9d9714b
-                            12:
+                            13:
                               - fieldUid
                               - 7c4edaa8-604a-48d2-a947-3388823e3b2b # Color
                         -
@@ -58,22 +58,22 @@ settings:
                             1:
                               - handle
                               - eyebrowText
-                            2:
+                            3:
                               - label
                               - 'Eyebrow Text'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-05-09T04:05:11+00:00'
-                            9:
+                            10:
                               - uid
                               - 33406d90-7e53-4c8f-9975-2dde40f485bf
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -84,22 +84,22 @@ settings:
                             1:
                               - handle
                               - header
-                            2:
+                            3:
                               - label
                               - Header
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-05-09T04:05:11+00:00'
-                            9:
+                            10:
                               - uid
                               - 7158299d-b9a4-4991-84f0-b575c0883bf5
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -110,22 +110,22 @@ settings:
                             1:
                               - handle
                               - subHeader
-                            2:
+                            3:
                               - label
                               - 'Sub Header'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-05-09T04:05:11+00:00'
-                            9:
+                            10:
                               - uid
                               - eabf45a4-573f-4a0d-97de-29c9efa0728e
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -150,25 +150,25 @@ settings:
                             1:
                               - handle
                               - colsMobile
-                            2:
+                            3:
                               - label
                               - 'Cols Mobile'
-                            4:
+                            5:
                               - tip
                               - 'if no value, it defaults to 1 column'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-06-16T20:29:31+00:00'
-                            9:
+                            10:
                               - uid
                               - b8ece4b1-870c-4580-b85b-3fbbed89b27b
-                            12:
+                            13:
                               - fieldUid
                               - 19dd40fc-2edb-4580-ae97-9da81656d181 # Number
                         -
@@ -179,25 +179,25 @@ settings:
                             1:
                               - handle
                               - colsTablet
-                            2:
+                            3:
                               - label
                               - 'Cols Tablet'
-                            4:
+                            5:
                               - tip
                               - 'if no value, it defaults to 2 columns'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-06-16T20:29:31+00:00'
-                            9:
+                            10:
                               - uid
                               - dfbde770-9789-4735-b473-7a7396036450
-                            12:
+                            13:
                               - fieldUid
                               - 19dd40fc-2edb-4580-ae97-9da81656d181 # Number
                         -
@@ -208,25 +208,25 @@ settings:
                             1:
                               - handle
                               - colsDesktop
-                            2:
+                            3:
                               - label
                               - 'Cols Desktop'
-                            4:
+                            5:
                               - tip
                               - 'if no value, it defaults to 4 columns'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 25
-                            8:
+                            9:
                               - dateAdded
                               - '2026-06-16T20:29:31+00:00'
-                            9:
+                            10:
                               - uid
                               - 95443bdb-df92-4d76-ac1f-f8e24447c3b8
-                            12:
+                            13:
                               - fieldUid
                               - 19dd40fc-2edb-4580-ae97-9da81656d181 # Number
                         -
@@ -248,19 +248,19 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-05-09T04:08:48+00:00'
-                            9:
+                            10:
                               - uid
                               - 512aa64b-20b2-4b34-8bf9-8d81ec78d167
-                            12:
+                            13:
                               - fieldUid
                               - bb71e142-3e9f-4467-9d03-43e288eb4bc0 # Matrix — Cards
             4:

@@ -32,22 +32,22 @@ settings:
                             1:
                               - handle
                               - eyebrow
-                            2:
+                            3:
                               - label
                               - Eyebrow
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-04-04T04:30:29+00:00'
-                            9:
+                            10:
                               - uid
                               - fb8347f5-df64-4639-8907-a7e8845b4e12
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -58,22 +58,22 @@ settings:
                             1:
                               - handle
                               - heading
-                            2:
+                            3:
                               - label
                               - Heading
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-04-04T04:30:29+00:00'
-                            9:
+                            10:
                               - uid
                               - 28b90100-b662-46d8-b047-acc05be249bd
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -84,22 +84,22 @@ settings:
                             1:
                               - handle
                               - subHeader
-                            2:
+                            3:
                               - label
                               - 'Sub Header'
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-04-04T04:30:29+00:00'
-                            9:
+                            10:
                               - uid
                               - 08cac8fc-1927-49e7-94b7-efa0d85ba5bd
-                            12:
+                            13:
                               - fieldUid
                               - 4d7ec46f-500b-47b6-8eba-f2f42e8066c1 # Plain Text
                         -
@@ -107,19 +107,19 @@ settings:
                             0:
                               - type
                               - craft\fieldlayoutelements\CustomField
-                            6:
+                            7:
                               - required
                               - false
-                            7:
+                            8:
                               - width
                               - 100
-                            8:
+                            9:
                               - dateAdded
                               - '2026-04-04T04:30:29+00:00'
-                            9:
+                            10:
                               - uid
                               - d9cf0d28-62bf-4618-844e-ca96058c834a
-                            12:
+                            13:
                               - fieldUid
                               - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
             4:

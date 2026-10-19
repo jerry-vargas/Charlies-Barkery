@@ -45,6 +45,7 @@ fieldLayouts:
             handle: event
             instructions: null
             label: Event
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -61,6 +62,7 @@ fieldLayouts:
             handle: eventDetails
             instructions: null
             label: 'Event Details'
+            oldFieldUid: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
