@@ -4,13 +4,13 @@
   "require": {
     "craftcms/aws-s3": "^2.3.2",
     "craftcms/ckeditor": "^5.9.0",
-    "craftcms/cms": "^5.11.5.1",
-    "craftcms/commerce": "^5.7.6",
-    "craftcms/commerce-stripe": "^5.2.1",
+    "craftcms/cms": "^5.12.0.1",
+    "craftcms/commerce": "^5.7.7",
+    "craftcms/commerce-stripe": "^5.2.2",
     "nystudio107/craft-vite": "^5.0.2",
     "putyourlightson/craft-sendgrid": "^3.0.0",
     "putyourlightson/craft-sprig": "^3.7.3",
-    "verbb/formie": "^3.1.47",
+    "verbb/formie": "^4.0.6",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {

@@ -1,4 +1,4 @@
-dateModified: 1792445345
+dateModified: 1793763281
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -159,6 +159,7 @@ meta:
     620de51d-e932-47c9-bbf1-51fc6a158b13: 'Bone Cake' # Bone Cake
     645bb423-5466-4a2c-a05f-ceeb31bac6e5: Primary # Primary
     1366b116-ce92-4d4d-88d9-450309ab9a0d: New # New
+    01679ae3-c0fe-400e-b89a-5f9cdaf4170c: Archived # Archived
     1686a50c-1e1c-41a1-a2be-68b75ae85cbd: 'Contact Matrix' # Contact Matrix
     2589bc8f-a277-4da6-ae5f-f294f779bc87: charlies # charlies
     2701bd76-aa7e-4cc3-908f-c68423358176: 'Category Entry Type' # Category Entry Type
@@ -172,6 +173,7 @@ meta:
     41401060-9686-4b0b-b18f-c6ed4a9bcbf7: Cookies # Cookies
     a3b7b182-c030-4877-a406-afe25fae1acc: 'Entry — Image Matrix' # Entry — Image Matrix
     a5e302f0-8553-421a-8370-01f9b69e49ec: 'Internal new order notification' # Internal new order notification
+    a971f020-4ed5-4749-9547-9cb0c822d2f7: Draft # Draft
     a8354a78-8bd4-4740-a1e5-99da6ee4e9bd: Pages # Pages
     b7d4b92a-3550-4709-ba61-d7e4d3829f54: 'Entry — Page' # Entry — Page
     b7f30bd9-4da3-41f0-8d17-26a2a6a0bf46: 'Home Page' # Home Page
@@ -195,6 +197,7 @@ meta:
     ea57733c-b37f-4fd3-b7bf-ad80ce561f3f: Form # Form
     f65c7ddf-578f-4b23-9303-3fad7be58e4e: 'Treats — Peanut Butter Bacon' # Treats — Peanut Butter Bacon
     f534660f-1263-4d81-b9a4-d2cc4ab73d27: Size # Size
+    fe800b07-7ebe-4528-9ed3-8c2470e6d7fe: Active # Active
 plugins:
   aws-s3:
     edition: standard
@@ -217,7 +220,110 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 7JITNAAZILG6KXMPJAUR12WU
-    schemaVersion: 3.4.13
+    schemaVersion: 4.0.89
+    settings:
+      ajaxTimeout: 10
+      alertEmails: null
+      alertEmailsUserGroup: null
+      allowHiddenFieldTemplates: true
+      allowHtmlFieldTemplateIncludes: true
+      allowHtmlFieldTwig: true
+      allowLegacySignatureImageUrls: true
+      allowMultiSelectDropdowns: true
+      allowPhoneCountrySelector: true
+      allowPublicVolumes: true
+      allowedSubmitMethods: both
+      anonymousFormBootstrapRateLimit: 30
+      anonymousFormRateWindowSeconds: 60
+      anonymousFormRefreshRateLimit: 120
+      compatibilityMode: true
+      completionQueryAllowlist:
+        - utm_source
+        - utm_medium
+        - utm_campaign
+        - utm_term
+        - utm_content
+      defaultCpSubmissionFieldConditions: follow
+      defaultEmailTemplate: ''
+      defaultErrorMessagePosition: verbb\formie\positions\BelowInput
+      defaultExportFolder: '@storage/formie-export'
+      defaultFormStencil: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: verbb\formie\positions\AboveInput
+      defaultLabelPosition: verbb\formie\positions\AboveInput
+      defaultPage: forms
+      deliveryEvidenceRetentionDays: 30
+      emptyValuePlaceholder: 'No response.'
+      enableBackSubmission: true
+      enableCsrfValidationForGuests: true
+      enableLargeFieldStorage: false
+      enableMultiPageForms: true
+      enableUnloadWarning: true
+      encryptionKey: null
+      errorAriaLive: polite
+      filterIntegrationMapping: true
+      includeDraftElementUsage: false
+      includeFlatpickrCss: true
+      includeRevisionElementUsage: false
+      integrationAlertEmails: null
+      integrationAlertEmailsUserGroup: null
+      integrationApiErrorHandling:
+        -
+          __assoc__:
+            -
+              - severity
+              - rate_limited
+            -
+              - action
+              - logWarning
+        -
+          __assoc__:
+            -
+              - severity
+              - rejected
+            -
+              - action
+              - logWarning
+        -
+          __assoc__:
+            -
+              - severity
+              - failure
+            -
+              - action
+              - failQueue
+      maxEmailAttachmentSizeMb: 15
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      maxStagedUploadBytes: 67108864
+      maxStagedUploadFiles: 50
+      outputConsoleMessages: true
+      paymentWebhookProxyUrl: null
+      pdfPaperOrientation: portrait
+      pdfPaperSize: letter
+      plainTextHtmlSanitizationMode: preserve
+      pluginName: Formie
+      queuePriority: null
+      redirectUri: null
+      reportAsyncExportRowThreshold: 1000
+      reportExportSingleUseDownload: true
+      reportInteractiveExportExpiryHours: 72
+      reportScheduledExportExpiryHours: 48
+      reportTablePageSize: 100
+      requireHtmlPurification: false
+      saveResumeTokenTtlDays: 14
+      sendEmailAlerts: false
+      sendIntegrationAlerts: false
+      sentNotifications: true
+      setOnlyCurrentPagePayload: false
+      staticCacheRefreshOnLoad: false
+      submissionSidebarFormOrder: dateCreatedDesc
+      submissionStateRetentionDays: 30
+      submissionsBehaviour: all
+      useCssLayers: false
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
+      validateCustomTemplates: true
   sendgrid:
     edition: standard
     enabled: true
@@ -234,7 +340,7 @@ system:
   edition: pro
   live: true
   name: charlies
-  schemaVersion: 5.11.0.2
+  schemaVersion: 5.12.0.1
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

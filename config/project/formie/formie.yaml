@@ -1,0 +1,186 @@
+fieldPalette:
+  groups:
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\SingleLineText
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\MultiLineText
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Name
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Email
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Phone
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Number
+          label: null
+      handle: basic
+      name: 'Basic Fields'
+      uid: 9efec4d3-5007-41f6-ad00-cee35ff8b74c
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Radio
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Checkboxes
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Dropdown
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Agree
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Quiz
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Survey
+          label: null
+      handle: option
+      name: 'Option Fields'
+      uid: f1dd9476-c4a3-40e1-8408-52389f61587f
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Date
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Address
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\FileUpload
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Password
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Hidden
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Recipients
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Signature
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Calculations
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Payment
+          label: null
+      handle: advanced
+      name: 'Advanced Fields'
+      uid: d21f8cdd-80d1-4484-bb45-50e59af7037a
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Repeater
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Group
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Table
+          label: null
+      handle: dynamic
+      name: 'Dynamic Fields'
+      uid: 165f5ace-f2c8-42ac-93f9-ea8f63399ead
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Heading
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Section
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Html
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Content
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Note
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Summary
+          label: null
+      handle: cosmetic
+      name: 'Cosmetic Fields'
+      uid: 0d446e42-e829-4271-aacf-76992123d5ea
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Entries
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Categories
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Tags
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Users
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Products
+          label: null
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\Variants
+          label: null
+      handle: element
+      name: 'Element Fields'
+      uid: f9df886b-ca02-4aed-aee7-a77832a0a84b
+    -
+      fields:
+        -
+          enabled: true
+          fieldClass: verbb\formie\fields\CustomField
+          label: null
+      handle: custom
+      name: 'Custom Fields'
+      uid: 68aaf89a-4cfe-4438-a2c9-afa39bed1e01
+  version: 1
