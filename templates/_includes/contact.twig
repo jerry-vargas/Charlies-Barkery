@@ -31,9 +31,19 @@
             {% if params.contactMatrix is defined and params.contactMatrix %}
                 <div class="flex flex-col gap-6">
                     {% for detail in params.contactMatrix %}
+                        {# Symbol id from _includes/symbols.twig — an `icon` field wins if one is added, otherwise inferred from the title #}
+                        {% set title = detail.title|lower %}
+                        {% set iconId = detail.icon ?? (
+                            'mail' in title ? 'email' :
+                            ('locat' in title or 'address' in title) ? 'geo-locator' :
+                            ('time' in title or 'hour' in title) ? 'clock' :
+                            null
+                        ) %}
                         <div class="flex items-start gap-4">
-                            <div class="bg-teal/10 rounded-2xl w-12 h-12 flex items-center justify-center shrink-0 text-xl">
-                                {{ detail.icon }}
+                            <div class="bg-teal/10 rounded-2xl w-12 h-12 flex items-center justify-center shrink-0 text-teal">
+                                {% if iconId %}
+                                    <svg class="h-6 w-6" aria-hidden="true"><use href="#{{ iconId }}"></use></svg>
+                                {% endif %}
                             </div>
                             <div>
                                 <p class="font-anton text-charcoal text-lg">{{ detail.title }} </p>
