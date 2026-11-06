@@ -1,48 +1,122 @@
 <!-- Template: {{ _self }}.twig -->
-<section class="relative bg-charcoal overflow-hidden min-h-[90vh] flex items-center">
+{% set params = {
+    eyebrow: block.heroBlock.eyebrowText ?? false,
+    headline: block.heroBlock.headline ?? false,
+    subheadline: block.heroBlock.Subheadline ?? false,
+    button: block.heroBlock.button ?? false,
+    buttonTwo: block.heroBlock.buttonTwo ?? false,
+    img: block.heroBlock.heroImage.one() ?? false,
+}|merge(params|default({})) %}
 
-  {# Background image overlay — swap src for your hero photo #}
-  <div class="absolute inset-0">
-    <img
-      src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80"
-      alt=""
-      class="w-full h-full object-cover opacity-30"
-    />
-  </div>
+{# Wrap a word in *asterisks* in the headline to get the teal highlight #}
+{% set headline = (params.headline ?: 'Treats your dog will *beg* for')|e
+    |replace('/\\*([^*]+)\\*/', '<span class="box-decoration-clone px-1.5 bg-[linear-gradient(transparent_58%,var(--color-teal)_58%,var(--color-teal)_92%,transparent_92%)]">$1</span>') %}
 
-  {# Content #}
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 flex flex-col items-start gap-6">
+{# The three things we bake — thumbnails come from each category's Featured Image #}
+{% set categories = collect(craft.entries.section('productCategories').slug(['treats', 'cookies', 'cakes']).all()).keyBy('slug') %}
+{% set offerings = [
+    { slug: 'treats', label: 'Treats', note: 'Ships', dark: false },
+    { slug: 'cookies', label: 'Cookies', note: 'Ships', dark: false },
+    { slug: 'cakes', label: 'Cakes', note: 'Local pickup', dark: true },
+] %}
+{% set cakesUrl = categories.get('cakes').url ?? url('shop/products/categories/cakes') %}
 
-    <p class="font-hobeaux text-teal uppercase tracking-widest text-sm">
-      Handmade in Charlotte, NC
-    </p>
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 pb-10 lg:pt-4 lg:pb-14 grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
 
-    <h1 class="font-anton text-white text-5xl sm:text-6xl lg:text-7xl leading-tight max-w-2xl">
-      Treats Your Dog Will Beg For
-    </h1>
+    {# Photo #}
+    <div class="relative h-[280px] sm:h-[420px] lg:h-[560px] lg:order-last">
+      <div class="absolute -right-4 lg:-right-6 top-7 lg:top-10 w-[56%] lg:w-[78%] h-[86%] rounded-t-full rounded-b-[20px] lg:rounded-b-[32px] bg-teal" aria-hidden="true"></div>
 
-    <p class="font-hobeaux text-white/70 text-lg max-w-xl leading-relaxed">
-      Small-batch, dog-safe goodies baked fresh — available online, at local farmers markets, and through Charlotte-area shops.
-    </p>
+      <div class="absolute inset-0 right-5 bottom-3 lg:left-6 lg:right-8 lg:bottom-6 rounded-t-full rounded-b-[22px] lg:rounded-b-[28px] overflow-hidden bg-bronze/15">
+        {% if params.img %}
+          <img
+            src="{{ params.img.getUrl({ width: 900, height: 1100, mode: 'crop' }) }}"
+            alt="{{ params.img.alt ?? params.img.title }}"
+            width="900" height="1100"
+            fetchpriority="high"
+            class="w-full h-full object-cover"
+          />
+        {% endif %}
+      </div>
 
-    <div class="flex flex-wrap gap-4 mt-2">
-      <a
-        href="{{ url('shop') }}"
-        class="font-hobeaux bg-teal text-charcoal px-8 py-3 rounded-full font-bold hover:bg-white transition-colors"
-      >
-        Shop Now
-      </a>
-      <a
-        href="{{ url('find-us') }}"
-        class="font-hobeaux border border-white/30 text-white px-8 py-3 rounded-full hover:border-teal hover:text-teal transition-colors"
-      >
-        Find Us Locally
+      <div class="absolute right-0 top-1 lg:top-4 size-22 lg:size-32 rounded-full bg-bronze text-white flex flex-col items-center justify-center leading-none -rotate-10" aria-hidden="true">
+        <span class="font-anton uppercase text-xl lg:text-3xl">Small</span>
+        <span class="font-anton uppercase text-xl lg:text-3xl">Batch</span>
+        <span class="hidden lg:block font-hobeaux font-bold uppercase tracking-[0.12em] text-xs mt-1.5">Dog-safe</span>
+      </div>
+
+      <a href="{{ cakesUrl }}" class="hidden sm:flex absolute left-0 bottom-0 items-center gap-3.5 rounded-[20px] bg-white py-3 pl-3 pr-5 shadow-[0_12px_32px_rgba(41,50,61,0.14)] font-hobeaux text-charcoal hover:text-bronze transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2">
+        <span class="size-14 rounded-[14px] bg-bronze/10 text-bronze flex items-center justify-center" aria-hidden="true">
+          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h16M5 21v-7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7M5 16c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 5 0M12 12V8M12 5.5c.8 0 1.2-.7 1.2-1.3S12 2 12 2s-1.2 1.6-1.2 2.2.4 1.3 1.2 1.3z"/></svg>
+        </span>
+        <span class="flex flex-col gap-0.5">
+          <span class="text-[13px] font-bold uppercase tracking-wider text-[#8a5426]">Pawty time?</span>
+          <span class="text-[17px] font-bold">Custom birthday cakes</span>
+          <span class="text-sm text-charcoal/80">Order ahead · Pickup in Charlotte</span>
+        </span>
       </a>
     </div>
 
+    {# Copy #}
+    <div class="flex flex-col items-start gap-4 lg:gap-5 font-hobeaux text-charcoal">
+      <p class="flex items-center gap-2.5 rounded-full bg-bronze/10 px-3 py-1.5 lg:px-4 lg:py-2 text-xs lg:text-sm font-bold uppercase tracking-[0.1em]">
+        <span class="size-2 rounded-full bg-bronze" aria-hidden="true"></span>
+        {{ params.eyebrow ?: 'Handmade in Charlotte, NC' }}
+      </p>
+
+      <h1 class="font-anton uppercase leading-[0.98] tracking-wide text-[50px] sm:text-6xl lg:text-7xl">
+        {{ headline|raw }}
+      </h1>
+
+      <p class="max-w-[470px] text-[17px] lg:text-lg leading-normal text-charcoal/80">
+        {{ params.subheadline ?: 'Small-batch treats, decorated cookies and custom cakes, all dog-safe and baked fresh in Charlotte.' }}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full sm:w-auto">
+        {% set primary = params.button|boolean ? params.button : null %}
+        <a
+          href="{{ primary ? primary.value : url('shop') }}"
+          {% if primary and primary.target %}target="{{ primary.target }}"{% endif %}
+          {% if primary and primary.target == '_blank' %}rel="noopener noreferrer"{% endif %}
+          class="inline-flex items-center justify-center gap-2.5 min-h-[52px] px-7 rounded-full bg-teal text-charcoal font-bold text-[17px] hover:bg-charcoal hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-charcoal focus-visible:ring-offset-2"
+        >
+          {{ primary ? primary.label : 'Shop now' }}
+          <svg class="size-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+
+        {% set secondary = params.buttonTwo|boolean ? params.buttonTwo : null %}
+        <a
+          href="{{ secondary ? secondary.value : url('find-us') }}"
+          {% if secondary and secondary.target %}target="{{ secondary.target }}"{% endif %}
+          {% if secondary and secondary.target == '_blank' %}rel="noopener noreferrer"{% endif %}
+          class="inline-flex items-center justify-center min-h-[52px] px-6.5 rounded-full border-2 border-charcoal font-bold text-[17px] hover:border-bronze hover:text-bronze transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2"
+        >
+          {{ secondary ? secondary.label : 'Find us locally' }}
+        </a>
+      </div>
+
+      <nav aria-label="What we bake" class="w-full mt-1 lg:mt-2 grid grid-cols-3 gap-2 lg:gap-3">
+        {% for item in offerings %}
+          {% set category = categories.get(item.slug) %}
+          {% set thumb = category ? category.featuredImage.one() : null %}
+          <a
+            href="{{ category.url ?? url('shop/products/categories/' ~ item.slug) }}"
+            class="group flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-3 rounded-2xl lg:rounded-[18px] p-2 pb-3 lg:p-2.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 {{ item.dark ? 'bg-charcoal text-white hover:bg-charcoal/90' : 'bg-bronze/10 hover:bg-bronze/20' }}"
+          >
+            <span class="h-18 lg:size-13 shrink-0 rounded-[10px] lg:rounded-xl overflow-hidden {{ item.dark ? 'bg-bronze' : 'bg-bronze/20' }}">
+              {% if thumb %}
+                <img src="{{ thumb.getUrl({ width: 240, height: 240, mode: 'crop' }) }}" alt="" width="240" height="240" loading="lazy" class="w-full h-full object-cover" />
+              {% endif %}
+            </span>
+            <span class="flex flex-col gap-0.5 px-1 lg:px-0">
+              <span class="font-anton uppercase leading-none text-lg lg:text-xl">{{ item.label }}</span>
+              <span class="text-xs lg:text-[13px] font-bold {{ item.dark ? 'text-teal' : 'text-charcoal/80' }}">{{ item.note }}</span>
+            </span>
+          </a>
+        {% endfor %}
+      </nav>
+    </div>
+
   </div>
-
-  {# Decorative bottom fade #}
-  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-charcoal to-transparent"></div>
-
 </section>

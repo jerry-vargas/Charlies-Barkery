@@ -154,6 +154,35 @@ settings:
                             13:
                               - fieldUid
                               - 5eec91ac-9cac-40d5-915a-f973014bad60 # Link Field
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            1:
+                              - handle
+                              - heroImage
+                            3:
+                              - label
+                              - 'Hero Photo'
+                            4:
+                              - instructions
+                              - 'Portrait crop works best (it sits in an arch shape). Treat, cookie and cake tiles use each product category’s Featured Image.'
+                            7:
+                              - required
+                              - false
+                            8:
+                              - width
+                              - 100
+                            9:
+                              - dateAdded
+                              - '2026-11-05T12:00:00+00:00'
+                            10:
+                              - uid
+                              - 4034fd20-e3ec-413f-9f3c-85b73a9747dd
+                            13:
+                              - fieldUid
+                              - c2d9c750-d7f6-412a-822c-7571172f15a5 # Image(s)
             4:
               - cardThumbAlignment
               - end
