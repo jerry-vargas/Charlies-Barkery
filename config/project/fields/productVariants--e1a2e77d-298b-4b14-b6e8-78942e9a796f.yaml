@@ -1,0 +1,24 @@
+columnSuffix: null
+handle: productVariants
+instructions: 'Pick and drag-sort the variants to show in the carousel.'
+name: 'Product Variants'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showSearchInput: true
+  showSiteMenu: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\commerce\fields\Variants
+warning: null

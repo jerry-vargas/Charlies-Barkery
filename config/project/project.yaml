@@ -1,4 +1,4 @@
-dateModified: 1793763281
+dateModified: 1793935790
 elementSources:
   craft\commerce\elements\Product:
     -
@@ -189,6 +189,7 @@ meta:
     dc36f051-fd02-4e59-bf63-204e8eccf224: 'Block — Call To Action' # Block — Call To Action
     ddb0d554-dce0-486e-a707-6a9630d540be: 'Public Schema' # Public Schema
     de98148e-a566-4305-8cd5-1e5accc5bea3: 'Gender Reveal Cake' # Gender Reveal Cake
+    e1a2e77d-298b-4b14-b6e8-78942e9a796f: 'Product Variants' # Product Variants
     e37cd764-e839-432b-b4fe-5876ba334fba: 'Custom Options' # Custom Options
     e72c3d62-e738-4e09-8df4-9c996bc69447: Text # Text
     e84f628d-bbcd-4d1e-8bf9-e31b7ebd86c8: 'Color Swatch' # Color Swatch

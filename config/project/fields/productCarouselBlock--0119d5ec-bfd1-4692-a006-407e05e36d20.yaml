@@ -4,7 +4,49 @@ instructions: null
 name: 'Block — Product Carousel'
 searchable: false
 settings:
+  fieldLayouts:
+    __assoc__:
+      -
+        - aa1240d9-70de-440f-bc5e-4a299f949bc9
+        -
+          __assoc__:
+            0:
+              - tabs
+              -
+                -
+                  __assoc__:
+                    0:
+                      - name
+                      - Content
+                    1:
+                      - uid
+                      - 9bb3e3aa-cde6-49cf-9381-c7796a300352
+                    4:
+                      - elements
+                      -
+                        -
+                          __assoc__:
+                            0:
+                              - type
+                              - craft\fieldlayoutelements\CustomField
+                            7:
+                              - required
+                              - false
+                            8:
+                              - width
+                              - 100
+                            10:
+                              - uid
+                              - 399b081a-9f60-4d24-8ed4-d47101dddbf9
+                            13:
+                              - fieldUid
+                              - e1a2e77d-298b-4b14-b6e8-78942e9a796f # Product Variants
+            4:
+              - cardThumbAlignment
+              - end
   viewMode: grouped
+tip: null
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\ContentBlock
+warning: null
