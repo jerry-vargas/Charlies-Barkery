@@ -84,7 +84,30 @@
                 <h3 class="font-anton text-charcoal text-2xl mb-6">{{ params.formCallOut }}</h3>
             {% endif %}
             {% if params.form %}
-                {{ craft.formie.renderForm(params.form) }}
+                {#
+                    Formie theme: start from the subscribe theme (config/formie-subscribe-theme.php —
+                    resetClasses + Tailwind, so Formie's own CSS never applies) and override what
+                    differs here. Note: Twig's merge is shallow — an override replaces that whole key.
+                    Keys follow Formie 4's templates (vendor/verbb/formie/src/templates/_special/form-template).
+
+                    - form / pageContainer: no classes — spacing lives on `rows` only, because these
+                      wrappers hold several empty Formie elements (header, messages…) that would each add a gap
+                    - row: fields sharing a row (e.g. First/Last Name) sit side by side from sm up
+                #}
+                {% set contactThemeConfig = craft.app.config.getConfigFromFile('formie-subscribe-theme')|merge({
+                    form: { attributes: { class: '' } },
+                    pageContainer: { attributes: { class: '' } },
+                    rows: { attributes: { class: 'flex flex-col gap-5' } },
+                    row:{ attributes: { class: 'grid gap-4 sm:grid-flow-col sm:auto-cols-fr' } },
+                    pageButtons: { attributes: { class: 'mt-6' } },
+                    messageError: { attributes: { class: 'mb-6 font-hobeaux text-sm text-red-700 bg-red-50 rounded-xl px-4 py-3' } },
+                    messageSuccess: { attributes: { class: 'mb-6 font-hobeaux text-sm text-charcoal bg-teal/10 rounded-xl px-4 py-3' } },
+                    fieldInstructions: { attributes: { class: 'font-hobeaux text-xs text-gray-400' } },
+                    submitButton: { attributes: { class: 'font-hobeaux bg-charcoal text-white font-bold px-8 py-3 rounded-full hover:bg-teal hover:text-charcoal transition-colors cursor-pointer' } },
+                    multiLineText: { fieldInput: { attributes: { class: 'font-hobeaux w-full min-h-36 border border-gray-200 rounded-xl px-4 py-3 text-sm text-charcoal placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-teal resize-none' } } },
+                }) %}
+
+                {{ craft.formie.renderForm(params.form, { themeConfig: contactThemeConfig }) }}
             {% endif %}
         </div>
     </div>
